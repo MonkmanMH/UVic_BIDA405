@@ -1,0 +1,51 @@
+---
+title: "Resouces"
+author: "Martin Monkman"
+date: "11/06/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Databases using R
+
+[Databases using R](https://db.rstudio.com/databases/postgresql/)--from RStudio
+
+
+## ETL
+
+[Extract, transform, and load (ETL)](https://docs.microsoft.com/en-us/azure/architecture/data-guide/relational-data/etl)
+
+
+[ETL - Extract, Transform and Load](http://www.sql-tutorial.net/ETL.asp)--SQL tutorial-learn SQL
+
+[What is the difference between SQL & ETL?](https://www.quora.com/What-is-the-difference-between-SQL-ETL#:~:text=SQL%20is%20a%20language%20for,SQL%20to%20effect%20its%20transformations.)
+
+[20 Great ETL Tools, And The Case For Saying "No" To ETL](https://blog.panoply.io/17-great-etl-tools-and-the-case-for-saying-no-to-etl)
+
+[What technologies are available in SQL Server to support ETL?](https://www.mssqltips.com/sqlservertip/4922/what-technologies-are-available-in-sql-server-to-support-etl/)
+
+[A simple data ETL method – nothin’ but SQL](https://jeffkemponoracle.com/2011/02/simple-data-etl-method/)
+
+[ETL vs ELT Features and Use Cases](https://www.mssqltips.com/sqlservertip/5937/etl-vs-elt-features-and-use-cases/)
+
+
+
+## SQL
+
+[What is SQL? A Beginner’s Guide to the SQL Language](https://learntocodewith.me/posts/sql-guide/)
+
+[Lahman with SQL](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/data-science-in/9781482234817/K23014_C010.xhtml)
+
+[Creating a Microsoft SQL Server DB Instance and Connecting to a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html)
+
+
+
+## PostgreSQL
+
+[Connect to PostgreSQL with R: A step-by-step example](https://www.datacareer.de/blog/connect-to-postgresql-with-r-a-step-by-step-example/)
+
+[MySQL vs PostgreSQL -- Choose the Right Database for Your Project](https://developer.okta.com/blog/2019/07/19/mysql-vs-postgres)
