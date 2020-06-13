@@ -1,0 +1,166 @@
+---
+title: 'BIDA405: Course Outline'
+author: "Martin Monkman"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data Analytics Provisioning, Importing, Extracting and Manipulation: BIDA405
+
+Dates: 2020-09-05 to 2020-10-11
+Time:  9:00 am–12:00 pm
+Days: Saturday, Sunday
+
+
+
+## Prerequisites
+
+It is recommended that students have completed BIDA301 Business Intelligence and Data Analytics Fundamentals or have basic experience coding in R or Python as well as experience using formulas in Excel.
+
+## Course description
+
+This course will explore the fundamentals of coding and scripting for Data Analytics. You will develop the ability to script and code for basic tasks in Data Analytics in common data analytic tools such as SQL, R, Python, and Excel. This will allow you to import and export data appropriately and perform fundamental data manipulations and to automate basic analysis elements.
+
+### Learning objectives
+
+* Construct complex scripts in R, Python and JavaScript to solve problems.
+
+* Apply appropriate safeguards for data privacy and security
+
+Perform the following basic tasks in R, Python, and JavaScript as appropriate:
+
+*Import and export data
+
+*Clean data
+
+*Compile data
+
+*Extract data
+
+*Manipulate data
+
+*Prepare data for visualization and reporting
+
+
+
+## Instructor
+
+Martin Monkman
+
+* email: <mmonkman@uvic.ca>
+
+* skype: <a href="skype:monkmanmh?call">monkmanmh</a>
+
+
+virtual (skype) office hours:
+
+* Tuesday, 8:00 pm - 9:00 pm
+
+* or by appointment (send me an email)
+
+
+## Course content
+
+RStudio cloud:
+
+* This course uses rstudio.cloud
+
+* To access the course site, please click this link: [rstudio.cloud: BIDA405_2020F]()
+
+* You will need to create an account (if you don't have one already) when you initially log in
+
+
+Moodle:
+
+* This course uses Moodle—an online learning management system—as a supplementary resource for the class. 
+
+* To access, login to [https://distance.moodle.uvcs.uvic.ca/](https://distance.moodle.uvcs.uvic.ca/) with your Netlink ID.
+
+
+Text: 
+
+* _think about this!_
+
+* Additional readings will be introduced with each lesson.
+
+***
+
+## Continuing Studies Statement on Use of Educational Technology
+
+This course will require the use of RStudio Cloud and may use other education technology such as internet-based applications, cloud services, or social media. In order to complete this course you will be required to either consent to the disclosure of your personal information outside of Canada to enable use of these technologies, or work with the instructor to use other privacy protective options (such as using an alias or nickname).
+
+***
+
+## Course Philosophy
+
+Analysis of data helps us make better decisions. And computers have accelerated how much data we can analyze.
+
+The emphasis in this course will be on the data itself: where it comes from, how it is encoded, how it is stored, extracted, transformed, and loaded into tools that facilitate modeling, visualization, and communication. 
+
+In this course we will be primarily using the open source programming language R, with tangents into SQL and Python.
+
+
+
+***
+
+## Course Outline
+
+**_subject to change_**
+
+| Week      | Date | Topics   | Lesson |
+|---        |:---  |:---      |:---:  |
+|1a          | 2020-09-05 | &#8212; | &#8212; |
+|1b          | 2020-09-06 | &#8212; | &#8212; |
+|2a          | 2020-09-12 | &#8212; | &#8212; |
+|2b          | 2020-09-13 | &#8212; | &#8212; |
+|3a          | 2020-09-19 | &#8212; | &#8212; |
+|3b          | 2020-09-20 | &#8212; | &#8212; |
+|4a          | 2020-09-26 | &#8212; | &#8212; |
+|4b          | 2020-09-27 | &#8212; | &#8212; |
+|5a          | 2020-10-03 | &#8212; | &#8212; |
+|5b          | 2020-10-04 | &#8212; | &#8212; |
+|6a          | 2020-09-10 | &#8212; | &#8212; |
+|6b          | 2020-09-11 | &#8212; | &#8212; |
+
+
+
+
+#### Concordance: course objective to lesson topics
+
+| Course objective      | Lesson topic   | Lessons |
+|---        |:---  |:---:  |
+| Import and export data | &#8212; | &#8212;  |
+| Clean data | &#8212; | &#8212; | 
+| Compile data | &#8212; | &#8212; | 
+| Extract data | &#8212; | &#8212; |
+| Manipulate data | &#8212; | &#8212; |
+| Prepare data for visualization and reporting | &#8212; | &#8212; |
+| Apply appropriate safeguards for data privacy and security | &#8212; | &#8212; |
+
+***
+
+## Evaluation
+
+
+
+***
+
+
+**_Bonus mark_**
+
+Congratulations! You read to the end of the Syllabus. 
+
+For a single bonus mark, before 2020-09-11 11:59 PM PDT please email me the following:
+
+* a picture of a geographic location (a building, city skyline, natural landscape, etc., real or imaginary) with a bit of information as to what the picture shows, and why you chose it.
+
+
+
+-30-
