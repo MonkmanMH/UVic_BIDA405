@@ -1,5 +1,5 @@
 ---
-title: "Resouces"
+title: "Resouces: Databases"
 author: "Martin Monkman"
 date: "11/06/2020"
 output: html_document
@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Databases using R
 
 [Databases using R](https://db.rstudio.com/databases/postgresql/)--from RStudio
+
+[UBC MDS DSCI 513 - Databases and Data Retrieval](https://github.com/UBC-MDS/DSCI_513_database-data-retr)
 
 
 ## ETL
