@@ -36,17 +36,17 @@ This course will explore the fundamentals of coding and scripting for Data Analy
 
 Perform the following basic tasks in R, Python, and JavaScript as appropriate:
 
-*Import and export data
+* Import and export data
 
-*Clean data
+* Clean data
 
-*Compile data
+* Compile data
 
-*Extract data
+* Extract data
 
-*Manipulate data
+* Manipulate data
 
-*Prepare data for visualization and reporting
+* Prepare data for visualization and reporting
 
 
 
