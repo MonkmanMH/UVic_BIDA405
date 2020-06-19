@@ -1,0 +1,70 @@
+# Course Materials
+
+## Textbook
+
+The textbook is Garrett Grolemund and Hadley Wickham, _R for Data Science_. 
+
+* the book, in its most up-to-date form, is freely available online at [r4ds.had.co.nz](https://r4ds.had.co.nz/)
+
+* paperback and ebook version are available at the UVic Bookstore or other retailers
+
+
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning, and Managing Data in R_, Wiley, 2017
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1592592308&id=175D472B1E5E7B940BAC7864955E6D12F53E946C)
+
+
+_Statistical Data Cleaning with Applications in R_, Wiley, 2018
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1592592591&id=68FE450A07DAFB7CA03C510C6B5244B071582E5C)
+
+
+## Additional Reading
+
+Other resources&#8212;some required, some vital reference resources, and some optional "food for thought"&#8212;will be included in the  materials for each week's class. A cumulative resource list will be made available as part of this course site.
+
+
+
+
+### Other text books
+
+
+Garrett Grolemund, [_Hands-On Programming with R_](https://rstudio-education.github.io/hopr/)
+
+Chester Ismay and Albert Y. Kim, [An Introduction to Statistical and Data Sciences via R](http://moderndive.com/) _a.k.a._ "Modern Dive"
+
+Roger Peng, 2019-12-22, [_R Programming for Data Science_](https://bookdown.org/rdpeng/rprogdatascience/)
+
+
+### Articles
+
+Karl Broman and Kara Woo, ["Data organization in spreadsheets"](https://doi.org/10.1080/00031305.2017.1375989), _The American Statistician_ 72 (1): 2–10.
+
+[Data Organization in Spreadsheets for Social Scientists: Formatting problems](https://datacarpentry.org/spreadsheets-socialsci/02-common-mistakes/index.html) -- DataCarpentry lesson
+
+Hilary Parker, 2017-08-31, [Opinionated Analysis Development](https://peerj.com/preprints/3210/)
+
+Hadley Wickham. ["Tidy data"](https://vita.had.co.nz/papers/tidy-data.html), _The Journal of Statistical Software_, vol. 59, 2014.
+
+Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, Teal TK (2017) "Good enough practices in scientific computing", PLoS Comput Biol 13(6): e1005510. [https://doi.org/10.1371/journal.pcbi.1005510](https://doi.org/10.1371/journal.pcbi.1005510)
+
+***
+
+## Data Sources
+
+[FiveThirtyEight](https://fivethirtyeight-r.netlify.com/articles/fivethirtyeight.html)
+
+[Gapminder](https://www.gapminder.org/data/)
+
+[Tidy Tuesday](https://github.com/rfordatascience/tidytuesday)
+
+***
+
+## R resources
+
+[RStudio projects](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+
+
+-30-
+
