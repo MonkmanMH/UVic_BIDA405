@@ -116,18 +116,18 @@ In this course we will be primarily using the open source programming language R
 
 | Week      | Date | Topics   | Lesson |
 |---        |:---  |:---      |:---:  |
-|1a          | 2020-09-05 | &#8212; | &#8212; |
-|1b          | 2020-09-06 | &#8212; | &#8212; |
-|2a          | 2020-09-12 | &#8212; | &#8212; |
-|2b          | 2020-09-13 | &#8212; | &#8212; |
-|3a          | 2020-09-19 | &#8212; | &#8212; |
-|3b          | 2020-09-20 | &#8212; | &#8212; |
-|4a          | 2020-09-26 | &#8212; | &#8212; |
-|4b          | 2020-09-27 | &#8212; | &#8212; |
-|5a          | 2020-10-03 | &#8212; | &#8212; |
-|5b          | 2020-10-04 | &#8212; | &#8212; |
-|6a          | 2020-09-10 | &#8212; | &#8212; |
-|6b          | 2020-09-11 | &#8212; | &#8212; |
+|1a          | 2020-09-05 | Introduction <br> | &#8212; |
+|1b          | 2020-09-06 | Data collection | &#8212; |
+|2a          | 2020-09-12 | Importing data: different formats | &#8212; |
+|2b          | 2020-09-13 | Web scraping | &#8212; |
+|3a          | 2020-09-19 | Transform: Cleaning data | &#8212; |
+|3b          | 2020-09-20 | Transform: Data validation | &#8212; |
+|4a          | 2020-09-26 | Data storage | &#8212; |
+|4b          | 2020-09-27 | Data transformation: structure | &#8212; |
+|5a          | 2020-10-03 | Data transformation: manipulation | &#8212; |
+|5b          | 2020-10-04 | Data documentation | &#8212; |
+|6a          | 2020-09-10 | Preparing for reporting | &#8212; |
+|6b          | 2020-09-11 | Maintaining privacy | &#8212; |
 
 
 
