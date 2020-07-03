@@ -91,6 +91,24 @@ ggplot2::ggsave("BIDA405_hex.png", width = 2, height = 2)
 
 ```
 
+```{r}
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.6, s_height=.6,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
 
 Other icon ideas:
 

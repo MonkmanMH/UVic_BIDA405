@@ -1,30 +1,48 @@
 # Course Materials
 
-## Textbook
+## R References
 
-The textbook is Garrett Grolemund and Hadley Wickham, _R for Data Science_. 
+Garrett Grolemund and Hadley Wickham, _R for Data Science_. 
 
 * the book, in its most up-to-date form, is freely available online at [r4ds.had.co.nz](https://r4ds.had.co.nz/)
 
 * paperback and ebook version are available at the UVic Bookstore or other retailers
 
 
+## Data Cleaning
 
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning, and Managing Data in R_, Wiley, 2017
 
 * [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1592592308&id=175D472B1E5E7B940BAC7864955E6D12F53E946C)
 
 
-_Statistical Data Cleaning with Applications in R_, Wiley, 2018
+Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_, Wiley, 2018
 
 * [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1592592591&id=68FE450A07DAFB7CA03C510C6B5244B071582E5C)
+
+
+## SQL
+
+Upom Malik, Matt Goldwasser, Benjamin Johnston, _The Applied SQL Data Analytics Workshop_, Second Edition, Packt Publishing, 2020
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/the-applied-sql/9781800203679/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1593790034&id=5C43481E85991A0D697A764F25E420A1AB57B3C5)
+
+Thomas Nield, _Getting Started with SQL_, O'Reilly Media, 2016
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/getting-started-with/9781491938607/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1593796819&id=F83C6F48C5BC64763F30C2ED5D0DB2F4C5C1CEA5)
+
+
+John L. Viescas, _SQL Queries for Mere Mortals: A Hands-On Guide to Data manipulation in SQL_ Fourth Edition, Addison-Wesley, 2018
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/sql-queries-for/9780134858432/cover.xhtml)
+
 
 
 ## Additional Reading
 
 Other resources&#8212;some required, some vital reference resources, and some optional "food for thought"&#8212;will be included in the  materials for each week's class. A cumulative resource list will be made available as part of this course site.
 
-
+* Steve Tale, _SQL: The Ultimate Beginners Guide: Learn SQL Today_, CreateSpace Independent Publishing Platform, 2016
 
 
 ### Other text books
