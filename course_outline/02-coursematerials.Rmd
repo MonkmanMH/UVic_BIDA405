@@ -9,7 +9,13 @@ Garrett Grolemund and Hadley Wickham, _R for Data Science_.
 * paperback and ebook version are available at the UVic Bookstore or other retailers
 
 
-## Data Cleaning
+## Data Wrangling and Cleaning
+
+Joseph M. Hellerstein, Tye Rattenbury, Jeffrey Heer, Sean Kandel, Connor Carreras, _Principles of Data Wrangling_, O'Reilly, 2017
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/principles-of-data/9781491938911/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1593872116&id=264B1B6FB9757E417BF02832AB953DFB5A1A0BAC)
+
+
 
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning, and Managing Data in R_, Wiley, 2017
 
@@ -34,6 +40,8 @@ Thomas Nield, _Getting Started with SQL_, O'Reilly Media, 2016
 
 John L. Viescas, _SQL Queries for Mere Mortals: A Hands-On Guide to Data manipulation in SQL_ Fourth Edition, Addison-Wesley, 2018
 
+* when you are ready to move on to more complicated queries
+
 * [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/sql-queries-for/9780134858432/cover.xhtml)
 
 
@@ -42,7 +50,9 @@ John L. Viescas, _SQL Queries for Mere Mortals: A Hands-On Guide to Data manipul
 
 Other resources&#8212;some required, some vital reference resources, and some optional "food for thought"&#8212;will be included in the  materials for each week's class. A cumulative resource list will be made available as part of this course site.
 
-* Steve Tale, _SQL: The Ultimate Beginners Guide: Learn SQL Today_, CreateSpace Independent Publishing Platform, 2016
+Steve Tale, _SQL: The Ultimate Beginners Guide: Learn SQL Today_, CreateSpace Independent Publishing Platform, 2016
+
+* This book is available for purchase as kindle or paper, at a relatively low cost. It's another good introduction to SQL that you might want to investigate if you find yourself doing more SQL
 
 
 ### Other text books

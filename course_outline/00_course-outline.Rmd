@@ -30,11 +30,11 @@ This course will explore the fundamentals of coding and scripting for Data Analy
 
 ### Learning objectives
 
-* Construct complex scripts in R, Python and JavaScript to solve problems.
+* Construct complex scripts in R, Python and SQL to solve problems.
 
 * Apply appropriate safeguards for data privacy and security
 
-Perform the following basic tasks in R, Python, and JavaScript as appropriate:
+Perform the following basic tasks in R, Python, and SQL as appropriate:
 
 * Import and export data
 
