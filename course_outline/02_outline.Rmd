@@ -1,0 +1,49 @@
+---
+title: 'BIDA405: Course Outline'
+author: "Martin Monkman"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+
+
+
+## Course Outline
+
+**_subject to change_**
+
+| Week      | Date | Topics   | Lesson |
+|---        |:---  |:---      |:---:  |
+|1a          | 2020-09-05 | Introduction <br> | &#8212; |
+|1b          | 2020-09-06 | Data collection | &#8212; |
+|2a          | 2020-09-12 | Importing data: different formats | &#8212; |
+|2b          | 2020-09-13 | Web scraping | &#8212; |
+|3a          | 2020-09-19 | Transform: Cleaning data | &#8212; |
+|3b          | 2020-09-20 | Transform: Data validation | &#8212; |
+|4a          | 2020-09-26 | Data storage | &#8212; |
+|4b          | 2020-09-27 | Data transformation: structure | &#8212; |
+|5a          | 2020-10-03 | Data transformation: manipulation | &#8212; |
+|5b          | 2020-10-04 | Data documentation | &#8212; |
+|6a          | 2020-09-10 | Preparing for reporting | &#8212; |
+|6b          | 2020-09-11 | Maintaining privacy | &#8212; |
+
+
+
+
+#### Concordance: course objective to lesson topics
+
+| Course objective      | Lesson topic   | Lessons |
+|---        |:---  |:---:  |
+| Import and export data | &#8212; | &#8212;  |
+| Clean data | &#8212; | &#8212; | 
+| Compile data | &#8212; | &#8212; | 
+| Extract data | &#8212; | &#8212; |
+| Manipulate data | &#8212; | &#8212; |
+| Prepare data for visualization and reporting | &#8212; | &#8212; |
+| Apply appropriate safeguards for data privacy and security | &#8212; | &#8212; |
+
+
+
+-30-
