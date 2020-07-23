@@ -8,10 +8,6 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 ---
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ***
 
 **_subject to change_**

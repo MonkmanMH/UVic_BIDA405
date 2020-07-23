@@ -17,3 +17,13 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, child=c('00_objectives.Rmd', '00_outline.Rmd')}
 
 ```
+
+***
+
+## Lesson #1
+
+```{r, child=c('11-lessonplan01.Rmd')}
+
+```
+
+
