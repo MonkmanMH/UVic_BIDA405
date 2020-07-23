@@ -1,9 +1,10 @@
 ---
 title: 'BIDA405: Course Outline'
+subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
 author: "Martin Monkman"
 date: "`r Sys.Date()`"
 output:
-  word_document: default
+#  word_document: default
   html_document: default
 ---
 
@@ -45,5 +46,6 @@ output:
 | Apply appropriate safeguards for data privacy and security | &#8212; | &#8212; |
 
 
+***
 
--30-
+

@@ -1,0 +1,21 @@
+---
+title: 'BIDA405: Course Outline'
+subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output:
+#  word_document: default
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#https://bookdown.org/yihui/rmarkdown-cookbook/child-document.html
+
+```
+
+```{r, child=c('00_intro.Rmd', '00_objectives.Rmd', '00_codeofconduct.Rmd', '00_outline.Rmd', '00_coursematerials.Rmd', '00_evaluation.Rmd')}
+
+```
+
