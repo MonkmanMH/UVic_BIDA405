@@ -1,0 +1,61 @@
+---
+title: "BIDA405: Lesson Plan, Week 1"
+subtitle: "2020-09-05 & 2020-09-05 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output: html_document
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+***
+
+**_subject to change_**
+
+
+
+## Objectives
+
+> The important thing is that you solve the problem that you’re working on, not write the most concise and elegant code (although that’s definitely something you want to strive towards!)
+> - Grolemund & Wickham, _R for Data Science_
+
+
+At the end of the first part of this lesson, learners will:
+
+1. Have an understanding and working skills in the tools used in this class;
+
+1. Have an understanding of the fundamentals of the ETL process, and 
+
+1. Be able to demonstrate how the ETL process fits into a data analytics context.
+
+
+At the end of the second part of this lesson, learners will:
+
+1. Understand the contexts where different data formats are used;  
+
+1. Understand the pros and cons of different file formats in a data analytics context;
+
+1. Demonstrate how to read those files into an R environment.
+
+***
+
+## Activities: summary
+
+| Block      | Time           | Topics  | &#8212; |
+|---         |:---            |:---     |:---:  |
+|**Saturday**|&#8212; |&#8212; |&#8212; |
+|1a          | 9:00 to 9:30   | Welcome to BIDA405! <br> Class structure / Homework / Evaluation  | &#8212; |
+|1b <br> 1c  | 9:30 to 10:30  | The Tools <br> - Moodle <br> - Zoom <br> - Introduction to R and RStudio | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|2a <br> 2b  | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | &#8212; |
+|2c          | 11:30 to 12:00 | Homework <br> - Readings | &#8212; |
+|**Sunday**|&#8212; |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Data import  | &#8212; |
+|3b <br> 3c  | 9:30 to 10:30  | - CSV and other plain flat-file formats | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|4a <br> 4b  | 10:45 to 12:00 | _ subject-specific file formats (SPSS, STATA, etc) | 
+|4b <br> 4c  | 12:00 to 12:01 | Installing R on your own computer | &#8212; |
+
+
+***
+
