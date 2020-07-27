@@ -22,7 +22,7 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 At the end of the first part of this lesson, learners will:
 
-1. Have an understanding and working skills in the tools used in this class;
+1. Have an understanding and basic working skills of the tools used in this class;
 
 1. Have an understanding of the fundamentals of the ETL process, and 
 
@@ -43,18 +43,18 @@ At the end of the second part of this lesson, learners will:
 
 | Block      | Time           | Topics  | &#8212; |
 |---         |:---            |:---     |:---:  |
-|**Saturday**|&#8212; |&#8212; |&#8212; |
+|**Saturday**|**Welcome**     |&#8212; |&#8212; |
 |1a          | 9:00 to 9:30   | Welcome to BIDA405! <br> Class structure / Homework / Evaluation  | &#8212; |
-|1b <br> 1c  | 9:30 to 10:30  | The Tools <br> - Moodle <br> - Zoom <br> - Introduction to R and RStudio | &#8212; |
+|1b          | 9:30 to 10:30  | The Tools <br> - Moodle <br> - Zoom <br> - R and RStudio | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|2a <br> 2b  | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | &#8212; |
-|2c          | 11:30 to 12:00 | Homework <br> - Readings | &#8212; |
-|**Sunday**|&#8212; |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Data import  | &#8212; |
-|3b <br> 3c  | 9:30 to 10:30  | - CSV and other plain flat-file formats | &#8212; |
+|2a          | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | &#8212; |
+|2b          | 11:30 to 12:00 | Homework <br> - Readings: how data is stored | &#8212; |
+|**Sunday**  |**Data import** |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Discussion: how data is stored  | &#8212; |
+|3b          | 9:30 to 10:30  | Data import - CSV and other plain flat-file formats <br> - | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|4a <br> 4b  | 10:45 to 12:00 | _ subject-specific file formats (SPSS, STATA, etc) | 
-|4b <br> 4c  | 12:00 to 12:01 | Installing R on your own computer | &#8212; |
+|4a          | 10:45 to 11:45 | Data import - other file formats (SPSS, STATA, etc) | 
+|4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
 
 
 ***

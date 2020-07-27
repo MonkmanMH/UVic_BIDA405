@@ -1,0 +1,24 @@
+---
+title: "BIDA405: Lesson Plan, Week 1"
+subtitle: "2020-09-05 & 2020-09-05 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output: html_document
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+
+
+## Readings & Reference Materials
+
+
+
+## Reading list
+
+Paul Murrell, [Introduction to Data Technologies]()
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
+
+
+-30-

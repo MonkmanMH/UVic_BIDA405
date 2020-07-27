@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Lesson #1
 
-```{r, child=c('11-lessonplan01a.Rmd', '11-lessonplan01b.Rmd', '11-lessonplan01c.Rmd')}
+```{r, child=c('11-lessonplan01a.Rmd', '11-lessonplan01b_activities.Rmd', '11-lessonplan01c_resources.Rmd')}
 
 ```
 
