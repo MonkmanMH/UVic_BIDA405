@@ -1,0 +1,63 @@
+---
+title: "BIDA405: Lesson Plan, Week 2"
+subtitle: "2020-09-12 & 2020-09-13 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+***
+
+**_subject to change_**
+
+
+
+## Objectives
+
+> Some people, when confronted with a problem, think: “I know, I’ll use regular expressions.” Now they have two problems.
+— Jamie Zawinski
+
+
+At the end of the first part of this lesson, learners will:
+
+1. Have an understanding and basic working skills of the tools used in this class;
+
+1. Have an understanding of the fundamentals of the ETL process, and 
+
+1. Be able to demonstrate how the ETL process fits into a data analytics context.
+
+
+At the end of the second part of this lesson, learners will:
+
+1. Understand the contexts where different data formats are used;  
+
+1. Understand the pros and cons of different file formats in a data analytics context;
+
+1. Demonstrate how to read those files into an R environment.
+
+***
+
+## Activities: summary
+
+| Block      | Time           | Topics  | &#8212; |
+|---         |:---            |:---     |:---:  |
+|**Saturday**|**Data from other documents**     |&#8212; |&#8212; |
+|1a          | 9:00 to 9:30   | Homework review  | &#8212; |
+|1b          | 9:30 to 10:30  | Other data formats <br> PDF files | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|2a          | 10:45 to 11:30 | Regular expressions | &#8212; |
+|2b          | 11:30 to 12:00 | Homework <br> - Readings: how data is stored | &#8212; |
+|**Sunday**  |**Web scraping** |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Discussion: how data is stored  | &#8212; |
+|3b          | 9:30 to 10:30  | Data import - CSV and other plain flat-file formats <br> - | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|4a          | 10:45 to 11:45 | Data import - other file formats (SPSS, STATA, etc) | 
+|4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
+
+
+***
+

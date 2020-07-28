@@ -1,0 +1,201 @@
+---
+title: "BIDA405: Lesson Plan, Week 2"
+subtitle: "2020-09-12 & 2020-09-13 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+# Unit learning plan
+
+## Saturday
+
+2020-09-12
+
+
+### 1a. Welcome!
+
+Format: participation and instructor lecture w/ slides
+
+Time allocation: 30 minutes (9:00 to 9:30)
+
+
+#### Welcome!
+
+_Introduction to BIDA405: instructor, tools, and course structure_
+
+
+* Course content: summary
+
+* Introducing the instructor
+
+* Read the syllabus!
+
+What to expect in this class
+
+* course flow
+
+* readings
+
+* assignments and evaluation
+
+
+
+
+
+### 1c-i. An introduction to Moodle and Zoom
+
+Format: participation and instructor lecture w/ slides
+
+Time allocation: 45 minutes (9:45 to 10:30)
+
+### 1c-ii. An introduction to RStudio Cloud
+
+Format: participation and instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:45 to 10:30)
+
+### 1c-iii.  Community building 
+
+  - Breakout rooms
+  
+  - Short RStudio Cloud exercise
+  
+
+
+
+## BREAK
+
+Time allocation: 15 minutes (10:30 to 10:45)
+
+***
+
+## Introduction to the data science process
+
+_How provisioning, importing, extracting and manipulation fits into the whole of a data analytics project_
+
+
+### 2a. The Data Science Process
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (10:45 to 11:00)
+
+
+### 2b. Introduction to R & RStudio (via RStudio Cloud)
+
+_Getting familiar with the programming language: some basics_
+
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (10:45 to 11:00)
+
+
+
+Format: hands-on exercise, learner (instructor guided)
+
+Time allocation: 60 minutes (11:00 to 12:00)
+
+Activity:
+
+* import simple file
+
+***
+
+## Sunday
+
+2020-09-13
+
+
+
+### 3a. Discussion -- how data is stored
+
+_Discussion: responding to readings_
+
+Format: instructor, lecture w/slides
+
+Time allocation: 10 minutes (9:00 to 9:10)
+
+Format: learner groups (instructor guided), breakout rooms
+
+Time allocation: 10 minutes (9:10 to 9:20)
+
+Format: learner group report out
+
+Time allocation: 10 minutes (9:20 to 9:30)
+
+
+
+
+### 3b. Data import: CSV and other plain text files
+
+_Importing a flat file; dealing with anomolies_
+
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (9:30 to 9:45)
+
+
+Format: learner (instructor guided)
+
+Time allocation: 45 minutes (9:45 to 10:30)
+
+
+***
+
+## BREAK
+
+Time allocation: 15 minutes (10:30 to 10:45)
+
+
+***
+
+### 4a. Data import: other file formats (SPSS, STATA, etc)
+
+_Importing a flat file from a proprietary data tool_
+
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (10:45 to 11:00)
+
+
+Format: learner (instructor guided)
+
+Time allocation: 30 minutes (11:00 to 11:30)
+
+
+## 4b. Assignment #1
+
+_Introduction of Assignment #1_
+
+
+Time allocation: 15 minutes (11:30 to 11:45)
+
+
+## 4c. Wrap up
+
+Time allocation: 15 minutes (11:45 to 12:00)
+
+### Summary
+
+Format: instructor summary, w/ slides
+
+### Preview/readings for next lesson
+
+Format: instructor summary, w/ slides
+
+### Questions?
+
+Format: learner Q&A
+
+
+
+
+***
+

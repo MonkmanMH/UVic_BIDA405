@@ -1,0 +1,30 @@
+---
+title: "BIDA405: Lesson Plan, Week 2"
+subtitle: "2020-09-12 & 2020-09-13 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+
+
+## Readings & Reference Materials
+
+
+
+## Reading list
+
+Paul Murrell, [Introduction to Data Technologies]()
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
+
+
+[Chapter 10, Regular expressions in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge, 2020
+
+
+
+-30-
