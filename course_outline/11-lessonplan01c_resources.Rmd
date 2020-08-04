@@ -16,7 +16,14 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Reading list
 
-Paul Murrell, [Introduction to Data Technologies]()
+Paul Murrell, _Introduction to Data Technologies_:
+
+* Chapter 5, "Data Storage"
+
+  - [online version](https://www.stat.auckland.ac.nz/~paul/ItDT/HTML/node36.html)
+
+
+* [entire book: homepage](https://www.stat.auckland.ac.nz/~paul/ItDT/)
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
 
