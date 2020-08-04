@@ -19,7 +19,7 @@ output:
 |---        |:---  |:---      |:---:  |
 |1a          | 2020-09-05 | Introduction <br> | &#8212; |
 |1b          | 2020-09-06 | Data import | &#8212; |
-|2a          | 2020-09-12 | Data from other documents | &#8212; |
+|2a          | 2020-09-12 | Data from other documents / regular expressions | &#8212; |
 |2b          | 2020-09-13 | Web scraping | &#8212; |
 |3a          | 2020-09-19 | Transform: Cleaning data | &#8212; |
 |3b          | 2020-09-20 | Transform: Data validation | &#8212; |

@@ -2,11 +2,28 @@
 
 ## R References
 
+Martin Monkman, _Data Preparation: Essential Steps Before & After Analysis_
+
+* [link to online book](https://en.wikipedia.org/wiki/HTTP_404)
+
+
 Garrett Grolemund and Hadley Wickham, _R for Data Science_. 
 
 * the book, in its most up-to-date form, is freely available online at [r4ds.had.co.nz](https://r4ds.had.co.nz/)
 
 * paperback and ebook version are available at the UVic Bookstore or other retailers
+
+
+Nina Zumel and John Mount, _Practical Data Science with R_ (Second Edition, 2019)
+
+* [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1596251564&id=E24952901BB325B2E2CEBE75CE636D692281AD20)
+
+
+James (JD) Long and Paul Teetor, _R Cookbook_ (Second Edition, 2019)
+
+* [link to online book](https://rc2e.com/)
+
+
 
 
 ## Data Wrangling and Cleaning

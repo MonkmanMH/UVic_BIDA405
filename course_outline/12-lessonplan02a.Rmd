@@ -24,20 +24,17 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 At the end of the first part of this lesson, learners will:
 
-1. Have an understanding and basic working skills of the tools used in this class;
+1. Demonstrate the ability to load data files in a variety of formats into an R environment; and 
 
-1. Have an understanding of the fundamentals of the ETL process, and 
-
-1. Be able to demonstrate how the ETL process fits into a data analytics context.
+1. Understand fundamental elements of regular expressions, and where to find additional resources to help create regular expressions.
 
 
 At the end of the second part of this lesson, learners will:
 
-1. Understand the contexts where different data formats are used;  
+1. Understand the underlying structure of a webpage; and  
 
-1. Understand the pros and cons of different file formats in a data analytics context;
+1. Webscraping: demonstrate how to read data stored in a webpage into an R environment.
 
-1. Demonstrate how to read those files into an R environment.
 
 ***
 
@@ -50,12 +47,12 @@ At the end of the second part of this lesson, learners will:
 |1b          | 9:30 to 10:30  | Other data formats <br> PDF files | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
 |2a          | 10:45 to 11:30 | Regular expressions | &#8212; |
-|2b          | 11:30 to 12:00 | Homework <br> - Readings: how data is stored | &#8212; |
+|2b          | 11:30 to 12:00 | Homework <br> - Readings: webpage format | &#8212; |
 |**Sunday**  |**Web scraping** |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Discussion: how data is stored  | &#8212; |
-|3b          | 9:30 to 10:30  | Data import - CSV and other plain flat-file formats <br> - | &#8212; |
+|3a          | 9:00 to 9:30   | Discussion: webpage format  | &#8212; |
+|3b          | 9:30 to 10:30  | Webscraping - introduction | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|4a          | 10:45 to 11:45 | Data import - other file formats (SPSS, STATA, etc) | 
+|4a          | 10:45 to 11:45 | Webscraping - using regular expressions to find what you want | 
 |4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
 
 
