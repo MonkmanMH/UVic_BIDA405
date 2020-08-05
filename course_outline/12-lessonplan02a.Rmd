@@ -49,7 +49,7 @@ At the end of the second part of this lesson, learners will:
 |2a          | 10:45 to 11:30 | Regular expressions | &#8212; |
 |2b          | 11:30 to 12:00 | Homework <br> - Readings: webpage format | &#8212; |
 |**Sunday**  |**Web scraping** |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Discussion: webpage format  | &#8212; |
+|3a          | 9:00 to 9:30   | Discussion <br> - Readings: webpage format  | &#8212; |
 |3b          | 9:30 to 10:30  | Webscraping - introduction | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
 |4a          | 10:45 to 11:45 | Webscraping - using regular expressions to find what you want | 

@@ -16,78 +16,22 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 2020-09-12
 
 
-### 1a. Welcome!
+### 1a. Homework review
 
-Format: participation and instructor lecture w/ slides
+Format: instructor lecture w/ slides
 
-Time allocation: 30 minutes (9:00 to 9:30)
-
-
-#### Welcome!
-
-_Introduction to BIDA405: instructor, tools, and course structure_
+Time allocation: 15 minutes (9:00 to 9:15)
 
 
-* Course content: summary
+Format: breakout rooms
 
-* Introducing the instructor
-
-* Read the syllabus!
-
-What to expect in this class
-
-* course flow
-
-* readings
-
-* assignments and evaluation
+Time allocation: 15 minutes (9:15 to 9:30)
 
 
 
+### 1b. Importing other data formats
 
-
-### 1c-i. An introduction to Moodle and Zoom
-
-Format: participation and instructor lecture w/ slides
-
-Time allocation: 45 minutes (9:45 to 10:30)
-
-### 1c-ii. An introduction to RStudio Cloud
-
-Format: participation and instructor lecture w/ slides
-
-Time allocation: 15 minutes (9:45 to 10:30)
-
-### 1c-iii.  Community building 
-
-  - Breakout rooms
-  
-  - Short RStudio Cloud exercise
-  
-
-
-
-## BREAK
-
-Time allocation: 15 minutes (10:30 to 10:45)
-
-***
-
-## Introduction to the data science process
-
-_How provisioning, importing, extracting and manipulation fits into the whole of a data analytics project_
-
-
-### 2a. The Data Science Process
-
-Format: instructor, lecture w/slides
-
-Time allocation: 15 minutes (10:45 to 11:00)
-
-
-### 2b. Introduction to R & RStudio (via RStudio Cloud)
-
-_Getting familiar with the programming language: some basics_
+_Import SPSS, database (db), and dataframe_
 
 
 Format: instructor, lecture w/slides
@@ -102,7 +46,42 @@ Time allocation: 60 minutes (11:00 to 12:00)
 
 Activity:
 
-* import simple file
+* import various files
+
+
+
+
+## BREAK
+
+Time allocation: 15 minutes (10:30 to 10:45)
+
+***
+
+
+### 2a. Regular expressions
+
+_Demonstrate basic understanding of regular expressions and their utility_
+
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:30 to 10:30)
+
+
+Format: hands-on exercise
+
+Time allocation: 45 minutes (9:45 to 10:30)
+
+
+  - RStudio Cloud / regex101.com exercise
+  
+
+### 2b. Homework - Readings: webpage format
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (11:45 to 11:00)
+
+
 
 ***
 
@@ -111,8 +90,19 @@ Activity:
 2020-09-13
 
 
+### 3a. Discussion - Readings: webpage format
 
-### 3a. Discussion -- how data is stored
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:00 to 9:15)
+
+
+Format: breakout rooms
+
+Time allocation: 15 minutes (9:15 to 9:30)
+
+
+### 3b. Webscraping - introduction
 
 _Discussion: responding to readings_
 
@@ -131,21 +121,6 @@ Time allocation: 10 minutes (9:20 to 9:30)
 
 
 
-### 3b. Data import: CSV and other plain text files
-
-_Importing a flat file; dealing with anomolies_
-
-
-Format: instructor, lecture w/slides
-
-Time allocation: 15 minutes (9:30 to 9:45)
-
-
-Format: learner (instructor guided)
-
-Time allocation: 45 minutes (9:45 to 10:30)
-
-
 ***
 
 ## BREAK
@@ -155,9 +130,9 @@ Time allocation: 15 minutes (10:30 to 10:45)
 
 ***
 
-### 4a. Data import: other file formats (SPSS, STATA, etc)
+### 4a. Webscraping - using regular expressions to find what you want
 
-_Importing a flat file from a proprietary data tool_
+_Reading data from a webpage_
 
 
 Format: instructor, lecture w/slides
@@ -170,9 +145,9 @@ Format: learner (instructor guided)
 Time allocation: 30 minutes (11:00 to 11:30)
 
 
-## 4b. Assignment #1
+## 4b. Assignment #2
 
-_Introduction of Assignment #1_
+_Introduction of Assignment #2_
 
 
 Time allocation: 15 minutes (11:30 to 11:45)
