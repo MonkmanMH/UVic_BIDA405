@@ -1,11 +1,11 @@
 ---
 title: 'BIDA405: Curriculum Blueprint'
-subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
 author: "Martin Monkman"
-date: "latest revision: `r Sys.Date()`"
+date: 'latest revision: `r Sys.Date()`'
 output:
+  word_document: default
   html_document: default
-#  word_document: default
+subtitle: Data Analytics Provisioning, Importing, Extracting and Manipulation
 ---
 
 
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Lesson #2
 
-```{r, child=c('12-lessonplan01a.Rmd', '12-lessonplan01b_activities.Rmd', '12-lessonplan01c_resources.Rmd')}
+```{r, child=c('12-lessonplan02a.Rmd', '12-lessonplan02b_activities.Rmd', '12-lessonplan02c_resources.Rmd')}
 
 ```
 

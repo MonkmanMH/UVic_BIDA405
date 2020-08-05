@@ -37,7 +37,14 @@ Paul Murrell, _Introduction to Data Technologies_:
 [regex101](https://regex101.com/)
 
 
+### Web APIs
+
+TBD --
+
+
 ### Webscraping
+
+TBD --
 
 Mine Dogucu and Mine Çetinkaya-Rundel, ["Web Scraping in the Statistics and Data Science Curriculum: Challenges and Opportunities"](https://doi.org/10.1080/10691898.2020.1787116), _Journal of Statistics Education_
 

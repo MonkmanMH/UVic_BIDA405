@@ -130,9 +130,9 @@ Time allocation: 10 minutes (9:20 to 9:30)
 
 
 
-### 3b. Data import: CSV and other plain text files
+### 3b. Data import: spreadsheets
 
-_Importing a flat file; dealing with anomolies_
+_Importing a plain text flat file and an Excel file; dealing with anomalies_
 
 
 Format: instructor, lecture w/slides
