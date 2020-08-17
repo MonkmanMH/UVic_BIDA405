@@ -12,6 +12,13 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Readings & Reference Materials
 
+### Installing R and RStudio
+
+Garrett Grolemund, _Hands-On Programming with R_
+
+* [Appendix A: "Installing R and RStudio"](https://rstudio-education.github.io/hopr/starting.html)
+
+* [Appendix B: "R Packages"](https://rstudio-education.github.io/hopr/packages2.html)
 
 
 ## Reading list

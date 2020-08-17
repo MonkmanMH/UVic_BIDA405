@@ -42,27 +42,43 @@ virtual (skype) office hours:
 
 ## Course content
 
-RStudio cloud:
+**R and RStudio:**
 
-* This course uses rstudio.cloud
+* This course uses the statistical software R and the integrated development environment (IDE) program RStudio. Both are free to use and open-source.
 
-* To access the course site, please click this link: [rstudio.cloud: BIDA405_2020F]()
+* To install R and RStudio on your computer, please click this link: ["Installing R and RStudio"](https://rstudio-education.github.io/hopr/starting.html) (from the book _Hands-On Programming with R_ by Garrett Grolemund). Note that you'll want the "RStudio Desktop" (not "RStudio Server") free version
 
-* You will need to create an account (if you don't have one already) when you initially log in
+* Once you have installed R and RStudio, open RStudio...the program will look something like this. (Because both R and RStudio are in a constant state of development, yours will be different!)
+
+![RStudio panes](hopr_aa01.png)
+
+* We will cover installing R _packages_ (extensions to the core program) in the first class. But if you want to give it a try before we first meet, you can now install some of packages that we will be using in this course. This link explains about [R packages](https://rstudio-education.github.io/hopr/packages2.html). 
+
+To install the package called "tidyverse", type
+
+`install.packages("tidyverse")`
+
+in the "Console" pane (you'll see the cursor in the bottom left of your screen). Once you press enter, the console text will initiate the progress downloading and installing of a number of packages.
+
+Well done!
 
 
-Moodle:
+
+**Moodle:**
 
 * This course uses Moodle—an online learning management system—as a supplementary resource for the class. 
 
 * To access, login to [https://distance.moodle.uvcs.uvic.ca/](https://distance.moodle.uvcs.uvic.ca/) with your Netlink ID.
 
 
-Text: 
+**Textbook and readings:** 
 
-* _think about this!_
+* There isn't a single resource that would serve as a good textbook for BIDA 405.
 
-* Additional readings will be introduced with each lesson.
+* A variety of readings and reference materials will be introduced with each lesson. These materials will be either freely available online or accessed through your UVic Library account.
+
+
+
 
 ***
 

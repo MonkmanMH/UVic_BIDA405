@@ -84,7 +84,7 @@ Format: instructor, lecture w/slides
 Time allocation: 15 minutes (10:45 to 11:00)
 
 
-### 2b. Introduction to R & RStudio (via RStudio Cloud)
+### 2b. Introduction to R & RStudio 
 
 _Demonstrate familiarity with the R programming language_
 
