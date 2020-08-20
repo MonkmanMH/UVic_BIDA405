@@ -1,5 +1,5 @@
 ---
-title: 'BIDA405: Lesson 1 - outline'
+title: 'BIDA405: Course Overview'
 subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
@@ -14,11 +14,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-
-## Lesson #1
-
-```{r, child=c('11-lessonplan01a.Rmd', '11-lessonplan01b_activities.Rmd', '11-lessonplan01c_resources.Rmd')}
+```{r, child=c('00_intro.Rmd', '00_objectives.Rmd', '00_outline.Rmd', '00_coursematerials.Rmd')}
 
 ```
+
 
 

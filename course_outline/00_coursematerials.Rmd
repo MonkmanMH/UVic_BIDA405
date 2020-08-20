@@ -1,5 +1,12 @@
 # Course Materials
 
+**Textbook and readings:** 
+
+* There isn't a single resource that would serve as a good textbook for BIDA 405.
+
+* A variety of readings and reference materials will be introduced with each lesson. These materials will be either freely available online or accessed through your UVic Library account. These are listed, with hypertext links, below.
+
+
 ## R References
 
 Martin Monkman, _Data Preparation: Essential Steps Before & After Analysis_

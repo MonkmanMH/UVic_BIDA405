@@ -24,7 +24,7 @@ At the end of the first part of this lesson, learners will:
 
 1. Have an understanding and basic working skills of the tools used in this class;
 
-1. Have an understanding of the fundamentals of the ETL process, and 
+1. Have an understanding of the fundamentals of the Extract, Transform and Load (ETL) process, and 
 
 1. Be able to demonstrate how the ETL process fits into a data analytics context.
 

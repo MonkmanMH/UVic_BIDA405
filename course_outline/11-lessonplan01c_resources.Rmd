@@ -27,6 +27,8 @@ Paul Murrell, _Introduction to Data Technologies_:
 
 * Chapter 5, "Data Storage"
 
+  - pages 63–143
+
   - [online version](https://www.stat.auckland.ac.nz/~paul/ItDT/HTML/node36.html)
 
 
