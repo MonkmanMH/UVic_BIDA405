@@ -21,7 +21,7 @@ output:
 |1b          | 2020-09-06 | Data import: spreadsheets | &#8212; |
 |2a          | 2020-09-12 | Data from other documents <br> Regular expressions | &#8212; |
 |2b          | 2020-09-13 | Data from the web: APIs & Web scraping | &#8212; |
-|3a          | 2020-09-19 | Transform: Cleaning data | &#8212; |
+|3a          | 2020-09-19 | Transform: Cleaning data <br> Documentation |  &#8212; |
 |3b          | 2020-09-20 | Transform: Data validation | &#8212; |
 |4a          | 2020-09-26 | Data storage | &#8212; |
 |4b          | 2020-09-27 | Data transformation: structure | &#8212; |
