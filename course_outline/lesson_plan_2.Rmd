@@ -1,11 +1,11 @@
 ---
-title: 'BIDA405: Curriculum Blueprint'
+title: "BIDA405: Lesson Plan, Week 2"
+subtitle: "2020-09-12 & 2020-09-13"
 author: "Martin Monkman"
 date: 'latest revision: `r Sys.Date()`'
 output:
   word_document: default
   html_document: default
-subtitle: Data Analytics Provisioning, Importing, Extracting and Manipulation
 ---
 
 
@@ -13,12 +13,6 @@ subtitle: Data Analytics Provisioning, Importing, Extracting and Manipulation
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-```{r, child=c('00_objectives.Rmd', '00_outline.Rmd')}
-
-```
-
-***
 
 ## Lesson #2
 
