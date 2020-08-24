@@ -1,0 +1,29 @@
+---
+title: 'BIDA405: Curriculum Blueprint'
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+subtitle: Data Analytics Provisioning, Importing, Extracting and Manipulation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, child=c('00_objectives.Rmd', '00_outline.Rmd')}
+
+```
+
+***
+
+## Lesson #3
+
+```{r, child=c('13-lessonplan03a.Rmd', '13-lessonplan03b_activities.Rmd', '13-lessonplan03c_resources.Rmd')}
+
+```
+
+

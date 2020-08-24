@@ -29,6 +29,15 @@ Paul Murrell, _Introduction to Data Technologies_:
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
 
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 6, "Getting Data into and out of R"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c06.xhtml#c6)
+
+
+
 ### Regular expressions
 
 [Chapter 10, Regular expressions in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge, 2020
