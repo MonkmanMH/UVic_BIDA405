@@ -37,9 +37,12 @@ Paul Murrell, _Introduction to Data Technologies_:
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
 
 
+
 Sharon E. Ellis and Jeffrey T. Leek, "How to Share Data for Collaboration", _The American Statistician_, 72:1, 553-57, 
 
 * [UVic library link](https://www-tandfonline-com.ezproxy.library.uvic.ca/doi/pdf/10.1080/00031305.2017.1375987?needAccess=true)
+
+
 
 
 

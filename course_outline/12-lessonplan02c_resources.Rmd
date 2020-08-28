@@ -38,6 +38,13 @@ Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, C
 
 
 
+Paul Murrell. 2013. “Data Intended for Human Consumption, Not Machine Consumption.” In Bad Data Handbook, edited by Q. Ethan McCallum, 31–51. O’Reilly.
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/bad-data-handbook/9781449324957/ch03.html)
+
+
+
+
 ### Regular expressions
 
 [Chapter 10, Regular expressions in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge, 2020
