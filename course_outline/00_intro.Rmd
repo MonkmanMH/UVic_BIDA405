@@ -84,5 +84,5 @@ Well done!
 
 ## Continuing Studies Statement on Use of Educational Technology
 
-This course will require the use of RStudio Cloud and may use other education technology such as internet-based applications, cloud services, or social media. In order to complete this course you will be required to either consent to the disclosure of your personal information outside of Canada to enable use of these technologies, or work with the instructor to use other privacy protective options (such as using an alias or nickname).
+This course may require the use of RStudio Cloud and may use other education technology such as internet-based applications, cloud services, or social media. In order to complete this course you will be required to either consent to the disclosure of your personal information outside of Canada to enable use of these technologies, or work with the instructor to use other privacy protective options (such as using an alias or nickname).
 

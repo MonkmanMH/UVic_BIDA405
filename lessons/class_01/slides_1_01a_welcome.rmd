@@ -1,0 +1,281 @@
+---
+title: "Welcome! BIDA 405"
+subtitle: "Data Analytics Provisioning, Importing, Extracting and Manipulation"
+author: "Martin Monkman"
+date: "2020/09/05"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Learning objectives
+
+* Construct complex scripts in R, Python and JavaScript to solve problems
+* Apply appropriate safeguards for data privacy and security
+
+Perform the following basic tasks in R, Python, and JavaScript as appropriate:
+
+* Import and export data
+* Clean data
+* Compile data
+* Extract data
+* Manipulate data
+* Prepare data for visualization and reporting
+
+
+---
+class: inverse
+
+
+## Meta outcome 1: using **R**
+
+Programming environment designed for statistical analysis / data science 
+
+* Focus on one tool, so you get good at that
+
+We will also delve into SQL
+
+* The preferred programming environment of databases
+
+---
+class: inverse
+
+
+## Meta outcome 2: principles 
+
+Concepts and practices that you can carry through to data analysis in other environments
+
+
+
+
+
+---
+
+class: inverse
+
+
+## Class
+
+Saturday, 9:00 am - 12:00 pm (noon)
+
+Sunday, 9:00 am - 12:00 pm (noon)
+
+* a bit of lecture
+
+* a bit of hands-on
+
+* a bit of group discussion
+
+---
+
+class: inverse
+
+## Assignments
+
+* time in class to get started
+
+* 4 in total, worth 80% of final grade
+
+---
+
+class: inverse
+
+# The course moodle
+
+link: [continuingstudies.uvic.ca/](https://continuingstudies.uvic.ca/), then login with NetLink 
+
+* course outline
+
+* lesson plans and slide decks
+
+* links to other reading material and data files
+
+* forum
+ 
+
+---
+
+
+class: inverse
+
+# R & RStudio
+
+* later today, we'll run through the steps to install R on your own computer
+
+# SQL
+
+* week 4
+
+---
+class: inverse
+
+
+# Text book
+
+* There isn't a single textbook
+
+* Readings and reference materials for each lesson
+
+* All freely available: online or accessed through your UVic Library account
+
+
+_Look for this on the course moodle_
+
+
+---
+class: inverse
+
+
+![Wreck-It Ralph](..\..\static\img\wreckit_cheat.jpg)
+--
+
+_cheat codes!_
+
+
+
+---
+
+### The truth about how programmers really work
+
+![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
+
+---
+
+### The truth about how programmers work, part 2
+
+
+![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
+
+---
+
+### Sombreros on the pandas
+
+![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
+
+
+
+
+
+
+---
+class: inverse
+
+
+
+## Cheat codes
+
+* Cheatsheets: https://rstudio.com/resources/cheatsheets/
+
+* Stack Overflow: https://stackoverflow.com/
+
+* Package vignettes
+
+* Blogs
+
+
+
+---
+class: inverse
+
+
+
+## Collaboration & community
+
+IRL we work together
+
+"To teach is to learn twice"
+
+The R user community:
+
+* welcoming & non-judgemental
+
+* twitter #rstats
+
+* in-person: conferences & user groups
+
+* RLadies
+
+* hex stickers!
+
+
+
+---
+class: inverse
+
+
+## Code of Conduct
+
+_from the R Consortium_
+
+* be open
+
+* be considerate
+
+* be respectful
+
+In other words:
+
+~ Be a decent human being
+
+
+
+---
+
+class: inverse
+
+# Martin Monkman
+
+email:  <a href="mailto:<mmonkman@uvic.ca>">mmonkman@uvic.ca</a>
+
+"office hours" via zoom
+
+* Tuesday, 8:00 pm to 9:00 pm
+  
+
+
+
+---
+class: inverse
+
+
+## About me
+
+
+* UVic Geography B.Sc. & M.A.
+
+* BC Stats 
+
+  - 1993 to present (with 5 year gap)
+
+
+
+---
+class: inverse
+
+
+
+![punch card](..\..\static\img\us__en_us__ibm100__punched_card__80_column__620x281.jpg)
+--
+
+* first took a programming course in 1979
+
+* writing code to do data analysis since 1993
+
+* using R since 2012
+
+
+
+

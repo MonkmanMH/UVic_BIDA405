@@ -45,3 +45,6 @@ The emphasis in this course will be on the data itself: where it comes from, how
 In this course we will be primarily using the open source programming language R, with tangents into SQL and Python.
 
 
+## Code of Conduct
+
+
