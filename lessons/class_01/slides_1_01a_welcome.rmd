@@ -135,56 +135,6 @@ class: inverse
 _Look for this on the course moodle_
 
 
----
-class: inverse
-
-
-![Wreck-It Ralph](..\..\static\img\wreckit_cheat.jpg)
---
-
-_cheat codes!_
-
-
-
----
-
-### The truth about how programmers really work
-
-![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
-
----
-
-### The truth about how programmers work, part 2
-
-
-![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
-
----
-
-### Sombreros on the pandas
-
-![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
-
-
-
-
-
-
----
-class: inverse
-
-
-
-## Cheat codes
-
-* Cheatsheets: https://rstudio.com/resources/cheatsheets/
-
-* Stack Overflow: https://stackoverflow.com/
-
-* Package vignettes
-
-* Blogs
-
 
 
 ---
