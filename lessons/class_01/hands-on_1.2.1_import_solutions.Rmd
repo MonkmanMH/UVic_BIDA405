@@ -5,7 +5,7 @@ output: html_notebook
 
 <!-- This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 Some of it comes straight from Hadley Wickham & Garrett Grolemund's book _R for Data Science_, found online here: https://r4ds.had.co.nz/
-It uses great swaths of content from the tidyverse reference material for {readr} and {readxl}, by RStudio. 
+It uses great swaths of content adapted from the tidyverse reference material for {readr} and {readxl}, by RStudio. 
 You can find that material here: 
 https://readr.tidyverse.org/index.html 
 https://readxl.tidyverse.org/index.html
@@ -25,14 +25,14 @@ library(readxl)
 
 # 1. Reading a CSV file
 
-CSV files are very commonly used for storing flat files. They don't have any formatting—just the number or text in the cell.
+CSV files are very commonly used for storing flat files. Unlike Excel, they don't have any formatting—just the number or text in the cell.
 
-"CSV" stands for "Comma Separated Values", letting you know that a comma is used to separate one variable from the next.
+"CSV" stands for "Comma Separated Values", letting you know that a comma is used to separate one variable from the next. You may also encounter Tab Separated Values, known as TSV files.
 
 The **R** package {readr} is designed to make importing these files simple.
 
 
-(This example comes straight from the reference material for the {readr} package, found at https://readr.tidyverse.org/index.html)
+This example comes straight from the reference material for the {readr} package, found at https://readr.tidyverse.org/index.html
 
 
 Run this code chunk to create an object called `mtcars`, from a CSV file of the same name.
@@ -102,76 +102,147 @@ Fixed-width files are a hold-over from the days when storage was expensive and/o
 
 If you ever have to deal with a fixed-width file, you will (or should!) receive a companion file letting you know the locations of each variable in every row.
 
+In this example, we will use the one provided in the {readr} package, `fwf-sample.txt`. This simple file has four (or as we will see, sometimes three, if we combine first and last name as one) variables, and three records (or rows).
 
-Star Wars characters: https://rdrr.io/cran/dplyr/man/starwars.html
+> 1 John  Smith    WA    418-Y11-4111
+> 2 Mary  Hartford CA    319-Z19-4341
+> 3 Evan  Nolan    IL    219-532-c301
+
+The first approach would be to allow {readr} to guess where the column breaks are. Note that the column names are specified in a list. The `fwf_empty()` function looks through the specified file and returns the beginning and ending locations it has guessed, as well as the `skip` value that the `read_fwf()` function uses.
+
+Note that {readr} will impute the variable type, as it did with the CSV file. And although we won't implement it in these examples, in the same way we can use the `col_types` specification, as well as `na`, `skip`, and others. See the `read_fwf` reference at https://readr.tidyverse.org/reference/read_fwf.html for all the details.
 
 ```{r}
 
-starwars <- dplyr::starwars
+read_fwf("fwf-sample.txt", fwf_empty("fwf-sample.txt", col_names = c("first", "last", "state", "ssn")))
+
+```
+
+So that worked, but it could break quite easily. We just need one person with a three or more components to their name (initials, spaces, or hyphens, as in [Ursula K. Le Guin](https://en.wikipedia.org/wiki/Ursula_K._Le_Guin) or [Ta-Nehisi Coates](https://en.wikipedia.org/wiki/Ta-Nehisi_Coates)), or some missing values, and the inconsistent structure throws off the parser.
+
+```{r}
+
+read_fwf("fwf-sample2.txt", fwf_empty("fwf-sample2.txt", col_names = c("first", "last", "state", "ssn")))
+
+```
+
+A more reliable approach is to specify exactly the width of each column. Note that in this example, we specify only "name" without splitting it.
+
+```{r}
+
+read_fwf("fwf-sample.txt", fwf_widths(c(20, 10, 12), c("name", "state", "ssn")))
+
+```
+
+A third option is to provide two lists of locations using `fwf_positions()`, the first with the start positions, and the second with the end positions. The first variable "name" starts at position 1 and ends at position 20, and the second variable "ssn" starts at 30 and ends at 42. Note that we won't read the "state" variable which occupies the ten columns from 21 through 29.
+
+```{r}
+read_fwf("fwf-sample.txt", fwf_positions(c(1, 30), c(20, 42), c("name", "ssn")))
+```
+
+The fourth is a syntactic variation on the third, with the same values but in a different order. This time, all of the relevant information about each variable is aggregated, with the name followed by the start and end locations.
+
+```{r}
+
+read_fwf("fwf-sample2.txt", fwf_cols(name = c(1, 20), ssn = c(30, 42)))
+
+```
+
+And finally, {readr} provides a fifth way to read in a fixed-width file that is a variation on the second approach we saw, with the name and the width values aggregated.
+
+```{r}
+
+read_fwf("fwf-sample2.txt", fwf_cols(name = 20, state = 10, ssn = 12))
+
+```
 
 
-starwars %>% 
-  filter(films == "A New Hope")
+## Your turn: penguins
 
-lapply(starwars$films, `[[`, 1)
+Everybody likes penguins! Here is some data collected at the Palmer Station in Antarctica. It's got some measurement information about three different species of penguins, from three different islands. You can find out more about the data, as well as some details about exploring the data using R, here: https://allisonhorst.github.io/palmerpenguins/ 
+
+![palmerpenguins](logo.png)
+
+There are X different variables, described in the table below:
+
+Variable           Width
+--------           -----
+species            9
+island             9
+bill_length_mm     4
+bill_depth_mm      4
+flipper_length_mm  3
+body_mass_g        4
+sex                6
+year               4
+
+
+
+The fixed-width file has been created to minimize white space. The first 4 and last 2 rows of the data look like this:
+
+`Adelie   Torgersen39.118.71813750male  2007`
+
+`Adelie   Torgersen39.517.41863800female2007`
+
+`Adelie   Torgersen40.318.01953250female2007`
+
+`Adelie   Torgersen                     2007`
+
+`ChinstrapDream    50.819.02104100male  2009`
+
+`ChinstrapDream    50.218.71983775female2009`
+
+Note that the first row is _not_ the variable names—this is common in fixed-width files.
+
+
+_Using what you've learned from the names file "fwf-sample.txt" above, read the file "penguins_fwf.txt" into R. Assign the "sex" variable as a factor, and "year" as an integer._
+
+
+```{r}
+# solution
+
+# read 
+read_fwf("penguins_fwf.txt", 
+         fwf_cols(
+           species = 9,
+           island = 9,
+           bill_length_mm = 4,
+           bill_depth_mm = 4,
+           flipper_length_mm = 3,
+           body_mass_g = 4,
+           sex = 6,
+           year = 4
+           )
+         )
+
+# with column specification
+read_fwf("penguins_fwf.txt", 
+         fwf_cols(
+           species = 9, 
+                  island = 9,
+                  bill_length_mm = 4,
+                  bill_depth_mm = 4,
+                  flipper_length_mm = 3,
+                  body_mass_g = 4,
+                  sex = 6,
+                  year = 4
+           ),
+         col_types =
+           cols(sex = col_factor(),
+                year = col_integer())
+         )
 
 
 
 ```
 
-
-```{r}
-detect_string <- function(your_list, vector_strings){
-  lapply(your_list, function(x) {
-    if(TRUE %in% str_detect(x, paste(vector_strings, collapse = "|"))){
-      TRUE
-    } else {FALSE}
-  })
-}
-
-detect_string(starwars$films, "A New Hope")   
-
-newhope <- starwars %>% 
-  filter(detect_string(starwars$films, "A New Hope") == TRUE) 
-
-newhope <- newhope %>% 
-  select(name, height, mass, homeworld, species) 
-
-newhope
-
-write_csv(newhope, "newhope.csv")
-
-```
-
-
-
-```{r}
-iris
-
-gdata::write.fwf(iris, file = "iris.txt", 
-                 width = (c(
-                   3,  # Sepal.Length
-                   3,   # Sepal.Width
-                   3,   # Petal.Length
-                   3,   # Petal.Width
-                   10   # Species
-                   ))
-                 )
-
-
-```
-
-
-
-
-STOP HERE ...
 
 
 # 3. Reading an Excel file
 
 If anything, Excel files are more common than CSV and other plain-text data files. They seem to multiply like coat hangers in the closet...
 
-And as we see in the article by Karl Broman & Kara Woo, ["Data Organization in Spreadsheets"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989), they can encourage some ways of storing information that makes it hard for us to analyze. Excel files can also contain a wide variety of data format types. {readxl} tries to figure out what's going on, but like {readr}, it allows you to override some of those automatic decisions.
+And as we see in the article by Karl Broman & Kara Woo, ["Data Organization in Spreadsheets"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989), Excel files can encourage some ways of storing information that makes it hard for us to analyze. Excel files can also contain a wide variety of data format types. {readxl} tries to figure out what's going on, but like {readr}, it allows you to override some of those automatic decisions.
 
 
 ```{r}
@@ -272,5 +343,4 @@ https://readr.tidyverse.org/
 
 {readxl}
 https://readxl.tidyverse.org/index.html
-
 
