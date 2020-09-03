@@ -240,7 +240,7 @@ read_fwf("penguins_fwf.txt",
 
 # 3. Reading an Excel file
 
-If anything, Excel files are more common than CSV and other plain-text data files. They seem to multiply like coat hangers in the closet...
+If anything, Excel files (with the .XLS or .XLSX extensions) are more common than CSV and other plain-text data files. They seem to multiply like coat hangers in the closet...
 
 And as we see in the article by Karl Broman & Kara Woo, ["Data Organization in Spreadsheets"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989), Excel files can encourage some ways of storing information that makes it hard for us to analyze. Excel files can also contain a wide variety of data format types. {readxl} tries to figure out what's going on, but like {readr}, it allows you to override some of those automatic decisions.
 
@@ -334,9 +334,16 @@ read_excel(datasets, 4)
 
 ## REFERENCE MATERIAL
 
-You can find more details in _R for Data Science_:
+_R for Data Science_, "Data Import":
 https://r4ds.had.co.nz/data-import.html
 
+
+_R Cookbook (2nd ed.)_, "Input and Output":
+https://rc2e.com/inputandoutput
+
+
+
+### Package reference pages
 
 {readr} 
 https://readr.tidyverse.org/
