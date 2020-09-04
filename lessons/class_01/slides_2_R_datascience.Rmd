@@ -31,7 +31,6 @@ library(tidyverse)
 ```
 
 
----
 
 ## What is "data science"?
 
@@ -71,8 +70,10 @@ Forbes: ["Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science T
 
 
 ---
+class: middle
 
-_**The topics we'll cover in BIDA 405 are essential to a successful business intelligence project**_ 
+
+_**The topics we'll cover in BIDA405 are essential to a successful business intelligence project**_ 
 
 
 
@@ -110,9 +111,44 @@ _**The topics we'll cover in BIDA 405 are essential to a successful business int
 
 * variable types
 
-* measures
+* derived measures
 
 
+
+---
+class: inverse
+
+# _Meta-meta learning objectives_
+
+* principles
+
+* techniques
+
+* _where to look for help_
+
+
+---
+class: inverse
+
+## Intelligence:
+
+"... is knowing what to do when you don't know what to do."
+
+- attributed to Jean Piaget
+
+
+---
+class: inverse
+
+This topic is changing every day
+
+* new methods
+
+* new tools
+
+* new explanations
+
+_IT IS NOT HUMANLY POSSIBLE TO KEEP UP_
 
 ---
 class: inverse
@@ -122,6 +158,53 @@ class: inverse
 --
 
 _cheat codes!_
+
+
+
+---
+
+### Sombreros on the pandas
+
+![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
+
+
+
+
+---
+
+### The truth about how programmers really work
+
+![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
+
+---
+
+### The truth about how programmers work, part 2
+
+
+![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
+
+
+---
+class: inverse
+
+
+* Cheatsheets: https://rstudio.com/resources/cheatsheets/
+
+* Package reference pages 
+
+  - vignettes
+
+* Question sites
+
+  - Stack Overflow: https://stackoverflow.com/
+
+  - RStudio Community https://community.rstudio.com 
+  
+  - _search first, ask questions later!_
+
+* Blogs
+
+
 
 
 
@@ -151,7 +234,17 @@ class: inverse
 
 class: inverse
 
-# RStudio cloud
+# R Cookbook (2nd edition)
+
+![R Cookbook](../../static/img/rcookbook2_cover.jpg)
+**[rc2e.com]**(https://rc2e.com)
+
+
+---
+
+class: inverse
+
+# RStudio
 
 ![RStudio panes](../../static/img/RStudio_panes.png)
 
@@ -447,46 +540,5 @@ class: inverse
 * Stack Overflow
 
 * blogs 
-
-
-
----
-
-### The truth about how programmers really work
-
-![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
-
----
-
-### The truth about how programmers work, part 2
-
-
-![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
-
----
-
-### Sombreros on the pandas
-
-![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
-
-
-
-
-
-
----
-class: inverse
-
-
-
-## Cheat codes
-
-* Cheatsheets: https://rstudio.com/resources/cheatsheets/
-
-* Stack Overflow: https://stackoverflow.com/
-
-* Package vignettes
-
-* Blogs
 
 

@@ -48,7 +48,9 @@ Programming environment designed for statistical analysis / data science
 
 We will also delve into SQL
 
-* The preferred programming environment of databases
+* The preferred programming environment of relational databases
+
+* A lot of data gets collected and stored in these structures
 
 ---
 class: inverse
@@ -181,6 +183,13 @@ In other words:
 ~ Be a decent human being
 
 
+---
+class: inverse
+
+Me
+
+![Martin Monkman](avatar.jpg)
+
 
 ---
 
@@ -222,7 +231,7 @@ class: inverse
 
 * first took a programming course in 1979
 
-* writing code to do data analysis since 1993
+* writing code to do data analysis since 1991
 
 * using R since 2012
 
