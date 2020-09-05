@@ -3,8 +3,11 @@ title: "Import data: CSV, TXT and Excel"
 output: html_notebook
 ---
 
-<!-- This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+
 Some of it comes straight from Hadley Wickham & Garrett Grolemund's book _R for Data Science_, found online here: https://r4ds.had.co.nz/
+
 It uses great swaths of content adapted from the tidyverse reference material for {readr} and {readxl}, by RStudio. 
 You can find that material here: 
 https://readr.tidyverse.org/index.html 
@@ -126,18 +129,18 @@ read_fwf("fwf-sample2.txt", fwf_empty("fwf-sample2.txt", col_names = c("first", 
 
 ```
 
-A more reliable approach is to specify exactly the width of each column. Note that in this example, we specify only "name" without splitting it.
+A more reliable approach is to specify exactly the width of each column. Note that in the example below, we specify only "name" without splitting it into first and last.
 
 ```{r}
 
-read_fwf("fwf-sample.txt", fwf_widths(c(20, 10, 12), c("name", "state", "ssn")))
+read_fwf("fwf-sample2.txt", fwf_widths(c(20, 10, 12), c("name", "state", "ssn")))
 
 ```
 
 A third option is to provide two lists of locations using `fwf_positions()`, the first with the start positions, and the second with the end positions. The first variable "name" starts at position 1 and ends at position 20, and the second variable "ssn" starts at 30 and ends at 42. Note that we won't read the "state" variable which occupies the ten columns from 21 through 29.
 
 ```{r}
-read_fwf("fwf-sample.txt", fwf_positions(c(1, 30), c(20, 42), c("name", "ssn")))
+read_fwf("fwf-sample2.txt", fwf_positions(c(1, 30), c(20, 42), c("name", "ssn")))
 ```
 
 The fourth is a syntactic variation on the third, with the same values but in a different order. This time, all of the relevant information about each variable is aggregated, with the name followed by the start and end locations.
@@ -153,86 +156,6 @@ And finally, {readr} provides a fifth way to read in a fixed-width file that is 
 ```{r}
 
 read_fwf("fwf-sample2.txt", fwf_cols(name = 20, state = 10, ssn = 12))
-
-```
-
-
-## Your turn: penguins
-
-Everybody likes penguins! Here is some data collected at the Palmer Station in Antarctica. It's got some measurement information about three different species of penguins, from three different islands. You can find out more about the data, as well as some details about exploring the data using R, here: https://allisonhorst.github.io/palmerpenguins/ 
-
-![palmerpenguins](logo.png)
-
-There are X different variables, described in the table below:
-
-Variable           Width
---------           -----
-species            9
-island             9
-bill_length_mm     4
-bill_depth_mm      4
-flipper_length_mm  3
-body_mass_g        4
-sex                6
-year               4
-
-
-
-The fixed-width file has been created to minimize white space. The first 4 and last 2 rows of the data look like this:
-
-`Adelie   Torgersen39.118.71813750male  2007`
-
-`Adelie   Torgersen39.517.41863800female2007`
-
-`Adelie   Torgersen40.318.01953250female2007`
-
-`Adelie   Torgersen                     2007`
-
-`ChinstrapDream    50.819.02104100male  2009`
-
-`ChinstrapDream    50.218.71983775female2009`
-
-Note that the first row is _not_ the variable names—this is common in fixed-width files.
-
-
-_Using what you've learned from the names file "fwf-sample.txt" above, read the file "penguins_fwf.txt" into R. Assign the "sex" variable as a factor, and "year" as an integer._
-
-
-```{r}
-# solution
-
-# read 
-read_fwf("penguins_fwf.txt", 
-         fwf_cols(
-           species = 9,
-           island = 9,
-           bill_length_mm = 4,
-           bill_depth_mm = 4,
-           flipper_length_mm = 3,
-           body_mass_g = 4,
-           sex = 6,
-           year = 4
-           )
-         )
-
-# with column specification
-read_fwf("penguins_fwf.txt", 
-         fwf_cols(
-           species = 9, 
-                  island = 9,
-                  bill_length_mm = 4,
-                  bill_depth_mm = 4,
-                  flipper_length_mm = 3,
-                  body_mass_g = 4,
-                  sex = 6,
-                  year = 4
-           ),
-         col_types =
-           cols(sex = col_factor(),
-                year = col_integer())
-         )
-
-
 
 ```
 
@@ -291,44 +214,6 @@ deaths
 
 
 ```
-
-
-## Your Turn 2.2
-
-Excel files often (almost always?) have multiple sheets in them. It's possible to specify which one you want to use with the `sheets = ""` option. You can also use the position number (if you happen to know it). 
-
-Note that if you don't specify the sheet, {readxl} will default to the first one.
-
-The `excel_sheets()` function will tell you the name of the sheets in an Excel file.
-
-```{r}
-datasets <- "datasets.xlsx"
-
-excel_sheets(datasets)
-
-# Example
-read_excel(datasets, "iris")
-
-```
-
-Now, read in the "mtcars" sheet using the name of the sheet.
-
-
-```{r}
-
-# Solution
-read_excel(datasets, "mtcars")
-
-```
-
-And finally, read in the "quakes" sheet, using the position.
-
-```{r}
-# Solution
-read_excel(datasets, 4)
-
-```
-
 
 
 

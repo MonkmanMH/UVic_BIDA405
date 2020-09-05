@@ -1,0 +1,171 @@
+---
+title: "Import data: CSV, TXT and Excel"
+output: html_notebook
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+
+
+
+## 1. penguins
+
+Everybody likes penguins! Here is some data collected at the Palmer Station in Antarctica. It's got some measurement information about three different species of penguins, from three different islands. You can find out more about the data, as well as some details about exploring the data using R, here: https://allisonhorst.github.io/palmerpenguins/ 
+
+![palmerpenguins](logo.png)
+
+There are 8 different variables, described in the table below:
+
+Variable           Width
+--------           -----
+species            9
+island             9
+bill_length_mm     4
+bill_depth_mm      4
+flipper_length_mm  3
+body_mass_g        4
+sex                6
+year               4
+
+
+
+The fixed-width file has been created to minimize white space. The first 4 and last 2 rows of the data look like this:
+
+`Adelie   Torgersen39.118.71813750male  2007`
+
+`Adelie   Torgersen39.517.41863800female2007`
+
+`Adelie   Torgersen40.318.01953250female2007`
+
+`Adelie   Torgersen                     2007`
+
+`ChinstrapDream    50.819.02104100male  2009`
+
+`ChinstrapDream    50.218.71983775female2009`
+
+Note that the first row is _not_ the variable names—this is common in fixed-width files.
+
+
+_Using what you've learned about the functions in the {readr} package, read the file "penguins_fwf.txt" into R. Assign the "sex" variable as a factor, and "year" as an integer._
+
+
+```{r}
+# solution
+
+# read 
+read_fwf("penguins_fwf.txt", 
+         fwf_cols(
+           species = 9,
+           island = 9,
+           bill_length_mm = 4,
+           bill_depth_mm = 4,
+           flipper_length_mm = 3,
+           body_mass_g = 4,
+           sex = 6,
+           year = 4
+           )
+         )
+
+# with column specification
+read_fwf("penguins_fwf.txt", 
+         fwf_cols(
+           species = 9, 
+                  island = 9,
+                  bill_length_mm = 4,
+                  bill_depth_mm = 4,
+                  flipper_length_mm = 3,
+                  body_mass_g = 4,
+                  sex = 6,
+                  year = 4
+           ),
+         col_types =
+           cols(sex = col_factor(),
+                year = col_integer())
+         )
+
+
+
+```
+
+
+
+
+## 2. Excel datasets
+
+Excel files often (almost always?) have multiple sheets in them. It's possible to specify which one you want to use with the `sheets = ""` option. You can also use the position number (if you happen to know it). 
+
+Note that if you don't specify the sheet, {readxl} will default to the first one.
+
+The `excel_sheets()` function will tell you the name of the sheets in an Excel file.
+
+```{r}
+datasets <- "datasets.xlsx"
+
+excel_sheets(datasets)
+
+# Example
+read_excel(datasets, "iris")
+
+```
+
+Now, read in the "mtcars" sheet using the name of the sheet.
+
+
+```{r}
+
+# Solution
+read_excel(datasets, "mtcars")
+
+```
+
+And finally, read in the "quakes" sheet, using the position.
+
+```{r}
+# Solution
+read_excel(datasets, 4)
+
+```
+
+
+
+## 3. Delimited files
+
+While delimited files have some clear upsides compared to the fixed width approach, they are not without problems. Please read: 
+
+* the wikipedia page on [delimiter separated values](https://en.wikipedia.org/wiki/Delimiter-separated_values) https://en.wikipedia.org/wiki/Delimiter-separated_values
+
+There are differences around the world as how to indicate the decimal portion of a number (here in North America we use a period, as in 3.14159) but in most European countries they use a comma (3,14159). As well, the use of digit separators in large numbers is common; the North American approach is to use a comma (so one thousand is represented as 1,000) and in other countries a space will be used (1 000).
+
+* See the wikipedia page on [decimal separator](https://en.wikipedia.org/wiki/Decimal_separator) https://en.wikipedia.org/wiki/Decimal_separator
+
+The {readr} package in R gives some solutions to these challenges, as well as others that result from the different ways that people communicate. See the [detailed page on "locale"](https://readr.tidyverse.org/articles/locales.html) that provides some examples of the challenges you might face:  https://readr.tidyverse.org/articles/locales.html 
+
+
+3a. _What are the pros of a delimited file storage solution, compared to a fixed width?_
+
+3b. _You've just received a plain-text data file from a colleague in Quebec. What sorts of things will you have to watch out for in how the data are encoded?_
+
+
+
+## REFERENCE MATERIAL
+
+_R for Data Science_, "Data Import":
+https://r4ds.had.co.nz/data-import.html
+
+
+_R Cookbook (2nd ed.)_, "Input and Output":
+https://rc2e.com/inputandoutput
+
+
+
+### Package reference pages
+
+{readr} 
+https://readr.tidyverse.org/
+
+{readxl}
+https://readxl.tidyverse.org/index.html
+
+
