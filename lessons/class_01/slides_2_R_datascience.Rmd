@@ -73,7 +73,7 @@ Forbes: ["Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science T
 class: middle
 
 
-_**The topics we'll cover in BIDA405 are essential to a successful business intelligence project**_ 
+###_**The topics we'll cover in BIDA405 are essential to a successful business intelligence project**_ 
 
 
 
@@ -148,6 +148,8 @@ This topic is changing every day
 
 * new explanations
 
+--
+
 _IT IS NOT HUMANLY POSSIBLE TO KEEP UP_
 
 ---
@@ -155,11 +157,11 @@ class: inverse
 
 
 ![Wreck-It Ralph](..\..\static\img\wreckit_cheat.jpg)
---
+???
 
 _cheat codes!_
 
-
+image: the Konami cheat code, as seen in _Wreck-It Ralph_
 
 ---
 
@@ -168,21 +170,21 @@ _cheat codes!_
 ![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
 
 
-
-
 ---
 
-### The truth about how programmers really work
-
-![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
-
----
-
-### The truth about how programmers work, part 2
+### The truth about how programmers work
 
 
 ![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
 
+
+
+
+---
+
+### The truth about how programmers really work, part 2
+
+![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
 
 ---
 class: inverse
