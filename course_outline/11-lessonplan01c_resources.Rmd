@@ -21,7 +21,22 @@ Garrett Grolemund, _Hands-On Programming with R_
 * [Appendix B: "R Packages"](https://rstudio-education.github.io/hopr/packages2.html)
 
 
+J.D. Long and Paul Teetor, _R Cookbook (2nd edition)_
+
+* ["Getting Started and Getting Help"](https://rc2e.com/gettingstarted)
+
+* See recipies 1.1 through 1.3
+
+
 ## Reading list
+
+
+Sharon E. Ellis and Jeffrey T. Leek, "How to Share Data for Collaboration", _The American Statistician_, 72:1, 553-57, 
+
+* [UVic library link](https://www-tandfonline-com.ezproxy.library.uvic.ca/doi/pdf/10.1080/00031305.2017.1375987?needAccess=true)
+
+
+
 
 Paul Murrell, _Introduction to Data Technologies_:
 
@@ -35,12 +50,6 @@ Paul Murrell, _Introduction to Data Technologies_:
 * [entire book: homepage](https://www.stat.auckland.ac.nz/~paul/ItDT/)
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/introduction-to-data/9781420065183/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1595819339&id=081854077E8F5A7C7006AE8AEE9FEC6EE37CC34A)
-
-
-
-Sharon E. Ellis and Jeffrey T. Leek, "How to Share Data for Collaboration", _The American Statistician_, 72:1, 553-57, 
-
-* [UVic library link](https://www-tandfonline-com.ezproxy.library.uvic.ca/doi/pdf/10.1080/00031305.2017.1375987?needAccess=true)
 
 
 

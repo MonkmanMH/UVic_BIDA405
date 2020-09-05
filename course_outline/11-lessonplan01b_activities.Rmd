@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 1"
-subtitle: "2020-09-05 & 2020-09-05 "
+subtitle: "2020-09-05 & 2020-09-06"
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output:
@@ -52,15 +52,9 @@ Format: participation and instructor lecture w/ slides
 
 Time allocation: 45 minutes (9:45 to 10:30)
 
-- Activity: breakout rooms—practice breakout rooms, introduce yourself to three others
+- Activity: breakout rooms—practice breakout rooms
 
-### 1c-ii. An introduction to R & RStudio
-
-Format: participation and instructor lecture w/ slides
-
-Time allocation: 15 minutes (9:45 to 10:30)
-
-- Activity: short RStudio exercise
+- Introduce yourself to three others by answering the question "What's one thing you haven't been able to do because of the pandemic?"
 
 
 
@@ -77,11 +71,11 @@ Time allocation: 15 minutes (10:30 to 10:45)
 _Understand how provisioning, importing, extracting and manipulation fits into the whole of a data analytics project_
 
 
-### 2a. The Data Science Process
+### 2a. The Data Science Process 
 
 Format: instructor, lecture w/slides
 
-Time allocation: 15 minutes (10:45 to 11:00)
+Time allocation: 30 minutes (10:45 to 11:15)
 
 
 ### 2b. Introduction to R & RStudio 
@@ -91,17 +85,37 @@ _Demonstrate familiarity with the R programming language_
 
 Format: instructor, lecture w/slides
 
-Time allocation: 15 minutes (10:45 to 11:00)
+Time allocation: 15 minutes (11:15 to 11:30)
 
 
 
-Format: hands-on exercise, learner (instructor guided)
 
-Time allocation: 60 minutes (11:00 to 12:00)
+### 2b. Tonight's reading and wrap-up 
 
-Activity:
 
-* import simple file
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (11:30 to noon)
+
+
+#### Reading: How data is stored
+
+Please read Ellis and Leek, "How to Share Data for Collaboration" (link below). The article is aimed at scientists ("data generators") who are have collected the data and are preparing it for further analysis in an academic environment—the authors speak about "preparing data for a statistician". 
+
+While Ellis and Leek have a specific context in mind, the principles in their paper have broad applicability, and the practices are be essential in any environment, including a business, government, or non-profit organization. And in those contexts, the roles and responsibilities are often different. The data collection and storage is often to support a business need, and the use of the data for business intelligence is a secondary benefit. As a result, there is often a middle person who isn't involved in the collection of the data, but who does the preparation of the data for the modeling, visualization, and reporting.
+
+On Sunday morning, we will be going into breakout groups to discuss the following questions:
+
+* What things do Ellis and Leek say you should pass to the person doing the modeling, visualization and reporting?
+
+* What are the three things that should be in the data dictionary?
+
+* Why would you want to prepare the items in the first two bullets by using a scripting environment (such as **R**) rather than a GUI (Graphical User Interface)?
+
+  - Watch Hadley Wickham's presentation "You can't do data science in a GUI" (40 minutes) https://vimeo.com/240400798 
+  
+  - The slide deck is here: https://speakerdeck.com/hadley/you-cant-do-data-science-in-a-gui?slide=45
+
 
 ***
 
@@ -111,7 +125,7 @@ Activity:
 
 
 
-### 3a. Discussion -- how data is stored
+### 3a. Discussion: How data is stored
 
 _Discussion: responding to readings_
 
