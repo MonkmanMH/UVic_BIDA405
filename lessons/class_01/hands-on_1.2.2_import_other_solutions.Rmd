@@ -14,7 +14,7 @@ https://haven.tidyverse.org/
 
 Run this code chunk:
 
-```{r}
+```{r setup}
 library(tidyverse)  
 library(haven)
 ```
@@ -34,8 +34,6 @@ haven::read_sas("iris.sas7bdat")
 ```
 
 
-# 1. Reading an SPSS file
-
 Here's the code to read that same data file in SPSS's ".sav" format:
 
 ```{r}
@@ -45,14 +43,36 @@ read_sav("iris.sav")
 ```
 
 
+## Reading an SPSS file: "Video"
 
 The file used in this example comes from the University of Sheffield Mathematics and Statistics Help's "Datasets for Teaching"
 https://www.sheffield.ac.uk/mash/statistics/datasets
 
 > This dataset was collected by Scott Smith (University of Sheffield) to evaluate the use of best method for informing the public about a certain medical condition. There were three videos (New general video A, new medical profession video B, the old video C and a demonstration using props D). He wanted to see if the new methods were more popular so collected data using mostly Likert style questions about a range of things such as understanding and general impressions. This reduced dataset contains some of those questions and 4 scale scores created from summing 5 ordinal questions to give a scale score.
 
+If you were working in SPSS, when you open the file, you would see the data like this:
 
-## read spss data
+![SPSS data view](video_view_data.PNG)
+
+
+SPSS also gives you the option to view the variables:
+
+![SPSS variable view](video_view_variable.PNG)
+
+In this view, we can see both the variable names and the variable labels (in this case, the precise wording of the survey question).
+
+![SPSS variable label](video_heard_label.PNG)
+
+And we can also drill deeper, and see the value labels:
+
+![SPSS variable label](video_heard_values.PNG)
+
+
+The R package {haven} allows us to capture all of this information.
+
+
+
+## Read SPSS data into R
 
 For the first step, we will read in the data with the default parameters.
 
@@ -68,6 +88,8 @@ df_video
 Note that in the variable descriptions, it includes `<S3: haven_labelled>` for those that bring the SPSS labels with them.
 
 But some of the variable names have leading `@` (at sign)...they will cause us some headaches later, so let's use the `clean_names()` function from the {janitor} package to clean them up.
+
+* the reference page for {janitor} is here: http://sfirke.github.io/janitor/
 
 ```{r}
 
@@ -141,7 +163,7 @@ attributes(df_video$heardofcondition)$labels
 
 
 
-### Factors
+## Factors
 
 Factors behave differently than labels: they don't preserve both the label and the value. Instead they display the value and preserve the sort order (that can be either automatically set, or defined in the code).
 
@@ -157,7 +179,7 @@ In the code below, we will set all of the variables in the `df_video` dataframe 
 
 
 
-### {labelled} -
+## {labelled} -
 
 The package {labelled} gives us a range of powerful tools for working with the variable labels, value labels and defined missing values in an SPSS (or SAS or Stata) dataframe.
 
