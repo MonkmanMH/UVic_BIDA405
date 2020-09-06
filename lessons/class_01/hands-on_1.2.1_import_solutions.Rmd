@@ -19,7 +19,7 @@ https://readxl.tidyverse.org/index.html
 
 Run this code chunk:
 
-```{r}
+```{r setup}
 library(tidyverse)  # we will be using the functions of {readr}
 library(readxl)
 ```
@@ -107,9 +107,10 @@ If you ever have to deal with a fixed-width file, you will (or should!) receive 
 
 In this example, we will use the one provided in the {readr} package, `fwf-sample.txt`. This simple file has four (or as we will see, sometimes three, if we combine first and last name as one) variables, and three records (or rows).
 
-> 1 John  Smith    WA    418-Y11-4111
-> 2 Mary  Hartford CA    319-Z19-4341
-> 3 Evan  Nolan    IL    219-532-c301
+If we open the file in a text editor, we see this:
+
+![fwf-sample.txt](names_img1.jpg)
+
 
 The first approach would be to allow {readr} to guess where the column breaks are. Note that the column names are specified in a list. The `fwf_empty()` function looks through the specified file and returns the beginning and ending locations it has guessed, as well as the `skip` value that the `read_fwf()` function uses.
 
@@ -131,6 +132,29 @@ read_fwf("fwf-sample2.txt", fwf_empty("fwf-sample2.txt", col_names = c("first", 
 
 A more reliable approach is to specify exactly the width of each column. Note that in the example below, we specify only "name" without splitting it into first and last.
 
+The variables and their widths are as follows:
+
+
+Variable           Width   Start position   End position
+--------           -----   --------------   ------------
+name               20       1               20
+state              10       21              30
+ssn                12       31              42
+
+
+Visually, the file looks like this (the digits across the top represent the column position):
+
+
+![fwf-sample.txt](names_columns.png)
+
+
+Those column positions can also be used to determine the width of each variable:
+
+
+![fwf-sample.txt](names_arrows.png)
+
+The widths can be added to the `fwf_widths` argument:
+
 ```{r}
 
 read_fwf("fwf-sample2.txt", fwf_widths(c(20, 10, 12), c("name", "state", "ssn")))
@@ -140,14 +164,14 @@ read_fwf("fwf-sample2.txt", fwf_widths(c(20, 10, 12), c("name", "state", "ssn"))
 A third option is to provide two lists of locations using `fwf_positions()`, the first with the start positions, and the second with the end positions. The first variable "name" starts at position 1 and ends at position 20, and the second variable "ssn" starts at 30 and ends at 42. Note that we won't read the "state" variable which occupies the ten columns from 21 through 29.
 
 ```{r}
-read_fwf("fwf-sample2.txt", fwf_positions(c(1, 30), c(20, 42), c("name", "ssn")))
+read_fwf("fwf-sample2.txt", fwf_positions(c(1, 31), c(20, 42), c("name", "ssn")))
 ```
 
 The fourth is a syntactic variation on the third, with the same values but in a different order. This time, all of the relevant information about each variable is aggregated, with the name followed by the start and end locations.
 
 ```{r}
 
-read_fwf("fwf-sample2.txt", fwf_cols(name = c(1, 20), ssn = c(30, 42)))
+read_fwf("fwf-sample2.txt", fwf_cols(name = c(1, 20), ssn = c(31, 42)))
 
 ```
 
@@ -159,6 +183,32 @@ read_fwf("fwf-sample2.txt", fwf_cols(name = 20, state = 10, ssn = 12))
 
 ```
 
+
+## An extreme example of a fixed-width file
+
+Statistics Canada has made available a Public-Use Microdata File (PUMF) of the Joint Canada/United States Survey of Health, a telephone survey conducted in late 2002 and early 2003. There were 8,688 respondents to the survey, 3,505 Canadians and 5,183 Americans. The data file that's available is anonymized, so we have access to the individual responses, which will facilitate additional analysis.
+
+The webpage for the survey, including the PUMF file, data dictionary, and methodological notes, is here:
+https://www150.statcan.gc.ca/n1/pub/82m0022x/2003001/4069119-eng.htm
+
+The PUMF is a fixed-width file. Compared to the names example above, this is _huge_. There are the 8,688 records to start with. But the data takes up 552 columns! 
+
+Here's what the first two-and-a-bit records look like:
+
+![health survey data](health_first10.PNG)
+
+You can spot the end of each record, as the partial line. There's not a bit of white space anywhere in this data file!
+
+Here's how one variable, highest level of post-secondary education achieved, appears in the data dictionary:
+
+
+![health survey example](healthsurv_var_postsec.JPG)
+
+The variable is 1 character long, in postion 502 of the data.
+
+The researchers might look at the relationship between education level and different health outcomes, so this variable would be a important one. The variable is only 1 character long, but when coupled with the "content" column, it becomes a very powerful piece of information. 
+
+Imagine, though, the challenge of handling this amount of data at one time! Between the many variables and the complex value labels, the "data" is more than just the fixed-width file. This is a circumstance where a different data storage solution (as we will see later) might have some strengths.
 
 
 # 3. Reading an Excel file

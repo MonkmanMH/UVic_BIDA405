@@ -1,0 +1,200 @@
+---
+title: "Import data: SPSS and other formats"
+output: html_notebook
+---
+
+<!-- This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+It uses reference material for {haven}, by RStudio. 
+You can find that material here: 
+https://haven.tidyverse.org/
+-->
+
+
+# Getting started
+
+Run this code chunk:
+
+```{r}
+library(tidyverse)  
+library(haven)
+```
+
+
+If you work with statisticians, economists, sociologists, survey practioners, and many others, you will find yourself encountering data files created using the software packages SAS, SPSS, and Stata. 
+
+The **R** package {haven} provides the functionality to read these three types of files; the reference page for {haven} is here: https://haven.tidyverse.org/index.html
+
+For these examples, we will work with SPSS formatted files; the approach is similar for the other two formats, and only differs in the details.
+
+
+```{r}
+
+haven::read_sas("iris.sas7bdat")
+
+```
+
+
+# 1. Reading an SPSS file
+
+Here's the code to read that same data file in SPSS's ".sav" format:
+
+```{r}
+
+read_sav("iris.sav")
+
+```
+
+
+
+The file used in this example comes from the University of Sheffield Mathematics and Statistics Help's "Datasets for Teaching"
+https://www.sheffield.ac.uk/mash/statistics/datasets
+
+> This dataset was collected by Scott Smith (University of Sheffield) to evaluate the use of best method for informing the public about a certain medical condition. There were three videos (New general video A, new medical profession video B, the old video C and a demonstration using props D). He wanted to see if the new methods were more popular so collected data using mostly Likert style questions about a range of things such as understanding and general impressions. This reduced dataset contains some of those questions and 4 scale scores created from summing 5 ordinal questions to give a scale score.
+
+
+## read spss data
+
+For the first step, we will read in the data with the default parameters.
+
+```{r}
+
+df_video <- read_spss("Video_SPSS.sav")
+
+# display the data in the console
+df_video
+
+```
+
+Note that in the variable descriptions, it includes `<S3: haven_labelled>` for those that bring the SPSS labels with them.
+
+But some of the variable names have leading `@` (at sign)...they will cause us some headaches later, so let's use the `clean_names()` function from the {janitor} package to clean them up.
+
+```{r}
+
+df_video <- janitor::clean_names(df_video)
+
+df_video
+
+```
+
+
+
+
+## Handling missing values 
+
+Very often, SPSS files will have "user defined missing values". As we see above, they have been coded as "NA". But often, the analysis of survey results will have multiple types of "missing values":
+
+* respondent left the question blank
+
+* respondent didn't answer the question because of skip logic
+
+* the analyst may have decided to code "Don't know" or "Not applicable" as "missing" when calculating the percentages of responses in the other categories.
+
+Depending on the circumstance, you may want to count some of these. For example, if there a lot of "Don't know" and "Not applicable" responses, you may wish to analyze which one it is (they mean very different things!) If the are all coded as 
+"NA", you have lost that ability.
+
+In the code below, adding the `user_na = TRUE` maintains the original values.
+
+```{r}
+df_video <- read_spss("Video_SPSS.sav", user_na = TRUE)
+
+df_video <- janitor::clean_names(df_video)
+
+df_video
+
+```
+
+What were "NA" in the first version are now "0".
+
+
+## Exploring the data
+
+The `attributes()` function gives us a way to view the details of the variables.
+
+First, we can look at the attributes of the whole dataframe.
+
+```{r}
+
+attributes(df_video)
+
+```
+
+Or we can look at the attributes of a single variable; in this case, `heardofcondition`
+
+```{r}
+
+attributes(df_video$heardofcondition)
+
+```
+
+The `$label` is the question, and the `$labels` are the labels associated with each value, including N/A. Note that there's also a `$na_values` shown.
+
+You can also string these together; for example, if we want to see the value labels and nothing else, the code would be as follows:
+
+
+```{r}
+
+attributes(df_video$heardofcondition)$labels
+
+```
+
+
+
+
+### Factors
+
+Factors behave differently than labels: they don't preserve both the label and the value. Instead they display the value and preserve the sort order (that can be either automatically set, or defined in the code).
+
+In the code below, we will set all of the variables in the `df_video` dataframe as factors, first without any additional parameters, and then with the `levels` parameter set to `both`.
+
+```{r}
+
+(df_video_factor <- as_factor(df_video))
+
+(df_video_both <- as_factor(df_video, levels="both"))
+
+```
+
+
+
+### {labelled} -
+
+The package {labelled} gives us a range of powerful tools for working with the variable labels, value labels and defined missing values in an SPSS (or SAS or Stata) dataframe.
+
+The package's reference page is here: http://larmarange.github.io/labelled/index.html
+
+As well, there is a good introduction to the functions in the package here: http://larmarange.github.io/labelled/articles/intro_labelled.html
+
+
+One of the most useful functions is `look_for()`, which provides an instant data dictionary of the dataframe:
+
+```{r}
+labelled::look_for(df_video)
+```
+
+
+For more about {labelled}, see 
+
+* http://larmarange.github.io/labelled/
+
+* https://cran.r-project.org/web/packages/labelled/
+
+
+
+
+
+
+
+## REFERENCE MATERIAL
+
+You can find more details in _R for Data Science_:
+https://r4ds.had.co.nz/data-import.html
+
+
+{readr} 
+https://readr.tidyverse.org/
+
+{readxl}
+https://readxl.tidyverse.org/index.html
+
+
