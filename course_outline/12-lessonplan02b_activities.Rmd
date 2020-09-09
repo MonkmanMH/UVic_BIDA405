@@ -31,7 +31,7 @@ Time allocation: 15 minutes (9:15 to 9:30)
 
 ### 1b. Importing other data formats
 
-_Import SPSS, database (db), and dataframe_
+_Import SPSS files_
 
 
 Format: instructor, lecture w/slides
@@ -58,9 +58,9 @@ Time allocation: 15 minutes (10:30 to 10:45)
 ***
 
 
-### 2a. Regular expressions
+### 2a. Import other data formats
 
-_Demonstrate basic understanding of regular expressions and their utility_
+_Import db files_
 
 Format: instructor lecture w/ slides
 
@@ -132,12 +132,24 @@ Time allocation: 15 minutes (10:30 to 10:45)
 
 ### 4a. Webscraping - using regular expressions to find what you want
 
-_Reading data from a webpage_
+_Demonstrate basic understanding of regular expressions and their utility_
 
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:30 to 10:30)
+
+
+Format: hands-on exercise
+
+Time allocation: 45 minutes (9:45 to 10:30)
+
+
+  - RStudio Cloud / regex101.com exercise
 
 Format: instructor, lecture w/slides
 
 Time allocation: 15 minutes (10:45 to 11:00)
+
 
 
 Format: learner (instructor guided)
@@ -148,6 +160,8 @@ Time allocation: 30 minutes (11:00 to 11:30)
 ## 4b. Assignment #2
 
 _Introduction of Assignment #2_
+
+_Reading data from a webpage_
 
 
 Time allocation: 15 minutes (11:30 to 11:45)
