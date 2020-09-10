@@ -1,0 +1,56 @@
+---
+title: "Import data: accessing data through web apis"
+output: html_notebook
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. 
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Elements are drawn from the reference materials for the packages
+* {haven} -- https://haven.tidyverse.org/
+* {labelled} -- http://larmarange.github.io/labelled/reference/index.html
+
+Data is from the University of Sheffield Mathematics and Statistics Help's "Datasets for Teaching"
+https://www.sheffield.ac.uk/mash/statistics/datasets
+The data is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+-->
+
+
+# Getting started
+
+Run this code chunk:
+
+```{r setup}
+library(tidyverse)  
+
+# 
+library(cansim)     # access Statistics Canada's CANSIM data repository
+library(bcdata)     # access the BC Government's open data catalogue
+```
+
+
+There is a lot of valuable data out there on the internet, just waiting for curious data analysts to pull nuggets of insight out of it. There are a variety of ways to get it; in some cases, you can download a CSV or Excel file and then read that into R.
+
+But the brilliant people that make up the R community have made our life a whole lot easier by creating packages that allow us to write R scripts that link directly to data we want. This is particularly valuable if you are accessing a data set that gets updated regularly (say, a weekly financial report or a monthly survey).
+
+In this section, we will explore two examples that allow access to the data repository hosted by Statistics Canada, and the British Columbia Government's open data catalogue.
+
+
+
+
+## REFERENCE MATERIAL
+
+* Statistics Canada 
+
+  - {cansim}: https://mountainmath.github.io/cansim/index.html 
+  
+* BC Data Catalogue 
+  
+  - {bcdata}: https://bcgov.github.io/bcdata/
+
+
+### Other R packages to access data
+

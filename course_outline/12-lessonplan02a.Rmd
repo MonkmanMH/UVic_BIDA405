@@ -46,7 +46,7 @@ At the end of the second part of this lesson, learners will:
 |1a          | 9:00 to 9:30   | Homework review  | &#8212; |
 |1b          | 9:30 to 10:30  | Importing other data formats: SPSS | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|2a          | 10:45 to 11:30 | Importing other data formats: db | &#8212; |
+|2a          | 10:45 to 11:30 | Importing from web sources | &#8212; |
 |2b          | 11:30 to 12:00 | Homework <br> - Readings: webpage format | &#8212; |
 |**Sunday**  |**Web scraping** |&#8212; |&#8212; |
 |3a          | 9:00 to 9:30   | Discussion <br> - Readings: webpage format  | &#8212; |

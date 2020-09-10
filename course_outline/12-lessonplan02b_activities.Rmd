@@ -58,9 +58,8 @@ Time allocation: 15 minutes (10:30 to 10:45)
 ***
 
 
-### 2a. Import other data formats
+### 2a. Import from web sources
 
-_Import db files_
 
 Format: instructor lecture w/ slides
 
@@ -72,10 +71,12 @@ Format: hands-on exercise
 Time allocation: 45 minutes (9:45 to 10:30)
 
 
-  - RStudio Cloud / regex101.com exercise
+  - Statistics Canada {cansim}: https://mountainmath.github.io/cansim/index.html 
+  
+  - BC Data Catalogue {bcdata}: https://bcgov.github.io/bcdata/
   
 
-### 2b. Homework - Readings: webpage format
+### 2b. Excercise - Readings: webpage format
 
 Format: instructor, lecture w/slides
 
