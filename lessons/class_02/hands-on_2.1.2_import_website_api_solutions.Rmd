@@ -110,12 +110,12 @@ The Province of British Columbia has an open data initiative, that has over 2,00
 
 The R package {bcdata} has been written to facilitate efficient downloads of data in the Data BC catalogue directly into your R environment.
 
-For this example we will look at the data published about COVID-19 cases in British Columbia:
+For this example we will look at the data published about the number of students in the K-12 schools in British Columbia who have one of a variety of special needs: https://catalogue.data.gov.bc.ca/dataset/student-headcount-by-special-needs-category
 
 I have found that the best thing to do is to use the `bcdc_search()` function to find the table I want.
 
 ```{r}
-bcdc_search("COVID")
+bcdc_search("headcount by special needs")
 ```
 
 
@@ -124,9 +124,19 @@ You can use the record name or permanent ID in the function `bcdc_get_data()`.
 
 
 ```{r}
-covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
+special_needs <- bcdc_get_data("1e730ea9-dd19-4c22-aa95-fe644efc7a06")
+
+special_needs <- bcdc_get_data("student-headcount-by-special-needs-category")
+
 ```
 
+
+
+## APIs
+
+An API is an "Application Programming Interfaces"—a set of instructions or rules that allow software applications to interact with one another. This can happen on one computer or across a network. The packages above embed the rules of the host API to allow us to seamlessly connect. But what if nobody has written a package to connect? Fortunately for those of us who aren't whiz-bang programmers, there are packages to help us with this too.
+
+We may come back to this topic later in the course.
 
 
 
@@ -145,3 +155,17 @@ covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
 
 ### Other R packages to access data
 
+{opendatatoronto} - https://sharlagelfand.github.io/opendatatoronto/
+
+{eurostat} - Tools for Eurostat Open Data - https://cran.r-project.org/web/packages/eurostat/index.html
+
+### APIs
+
+* https://www.dataquest.io/blog/r-api-tutorial/ -- using the the {httr} and {jsonlite} packages
+
+
+* https://www.r-bloggers.com/accessing-apis-from-r-and-a-little-r-programming/#:~:text=There%20are%20many%20facilities%20in,lot%20by%20the%20jsonlite%20package.
+
+* https://medium.com/@traffordDataLab/querying-apis-in-r-39029b73d5f1
+
+* {crul} crul: HTTP Client - https://cran.r-project.org/web/packages/crul/ (see vignettes)
