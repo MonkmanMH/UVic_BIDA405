@@ -39,16 +39,94 @@ But the brilliant people that make up the R community have made our life a whole
 In this section, we will explore two examples that allow access to the data repository hosted by Statistics Canada, and the British Columbia Government's open data catalogue. There are many other tools available; some are listed at the bottom of this page.
 
 
-## CANSIM
+## Statistics Canada's CANSIM
 
 Statistics Canada, a department of the Government of Canada, provides a socioeconomic time series database known as "CANSIM". The data posted to the database is most of the aggregate data collected by Statistics Canada on a regular basis, such as the Labour Force Survey (from which we get updates on the unemployment rate), the Consumer Price Index Survey (about inflation), and health-related information from pregnancy and births to life expectancy and deaths.
 
-One of the many tables related to international travel that is published in CANSIM is "Table: 24-10-0006-01 Non-resident travellers entering Canada, by country of residence, seasonally adjusted". Here's a screenshot of the table, showing the number of people arriving by their continent of residence. 
+One of the many tables related to international travel that is published in CANSIM is "Table: 24-10-0006-01 Non-resident travellers entering Canada, by country of residence, seasonally adjusted". 
+
+The webpage for the table, showing the most recently available data, is here: https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=2410000601
+
+
+Here's a screenshot of the table, showing the number of people arriving by their continent of residence. 
 
 ![table](cansim_24-10-0006-01_2020-09-10.JPG)
 
 
-This table might be useful if you were developing a marketing campaign and you wanted to understand where tourists are coming from—the biggest markets and the fastest growing. But as shown, it is at too high a level; this is Canada by continent. For our purposes, we need to see specific country, and those entering Canada via British Columbia.
+This table might be useful if you were developing a marketing campaign and you wanted to understand where tourists are coming from—the biggest markets and the fastest growing. But as shown, it is at too high a level; this is Canada by continent. For our purposes, we need to see specific country, those entering Canada via British Columbia, and a longer time series. 
+
+We could use the filters and fiddle around making sure we got the right selections and then download the data, but if we have to do that next month it is going to be inefficient. We could also first click on the "download options" button and select "download entire table..." but again, this is not the most efficient way to do this, since there are a few manual steps we have to take and then open the file into R and filter to select the series we want. 
+
+This is where the {cansim} package comes it. 
+
+Step 1: download the data.
+
+* the `get_cansim()` function takes the table number as the parameter, and connects to CANSIM and downloads the data into an R dataframe.
+
+```{r}
+
+travellers <- get_cansim("24-10-0006-01")
+
+```
+
+We will come back to filtering and variable selection along with working with date fields later, but here's the code in R using the functions of the {dplyr} package to filter for the British Columbia cases during the month of June 2020:
+
+```{r}
+
+travellers_bc <-
+travellers %>% 
+  filter(GEO == "British Columbia",
+         REF_DATE == "2020-06")
+
+travellers_bc
+
+```
+
+There are six categories in the `Country of residence` variable. What if we just want a monthly report on a single continent? One of the features of CANSIM and other similar tables is that the individual series are given a single identifier. In the case of CANSIM, these are called the "vector numbers". Scroll to the right on this table, and you'll see a variable called `VECTOR`. The vector identifier (sometimes called "the vector number" even though it's a character string!) for European travellers entering Canada via British Columbia is v32214508.
+
+CANSIM gives us a function to select a single vector number, so we can be more efficient still. We can speed up the download time _and_ skip the filtering steps to get to the one we want. (Note that this function requires us to enter a start date, and converts the reference date variable to the YYYY-MM-DD format.)
+
+```{r}
+
+get_cansim_vector("v32214508", "2015-01-01")
+
+```
+
+
+There are other very useful functions if you find yourself exploring Statistics Canada data sets. 
+
+The function `get_cansim_table_overview()` provides an abstract about the data table.
+
+```{r}
+
+get_cansim_table_overview("24-10-0006-01")
+
+```
+
+
+## The BC Data Catalogue
+
+The Province of British Columbia has an open data initiative, that has over 2,000 different data sets published. Some of these are geographic files, but most are data tables. The website for the catalogue is here: https://catalogue.data.gov.bc.ca/dataset?download_audience=Public
+
+The R package {bcdata} has been written to facilitate efficient downloads of data in the Data BC catalogue directly into your R environment.
+
+For this example we will look at the data published about COVID-19 cases in British Columbia:
+
+I have found that the best thing to do is to use the `bcdc_search()` function to find the table I want.
+
+```{r}
+bcdc_search("COVID")
+```
+
+
+You can use the record name or permanent ID in the function `bcdc_get_data()`.
+
+
+
+```{r}
+covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
+```
+
 
 
 
@@ -57,6 +135,8 @@ This table might be useful if you were developing a marketing campaign and you w
 * Statistics Canada 
 
   - {cansim}: https://mountainmath.github.io/cansim/index.html 
+  
+  - Dmitry Shkolnik, [The CANSIM package, Canadian tourism, and slopegraphs](https://www.dshkol.com/2018/cansim-package-tourism-slopegraphs/)
   
 * BC Data Catalogue 
   

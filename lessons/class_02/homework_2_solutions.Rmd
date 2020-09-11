@@ -1,0 +1,61 @@
+---
+title: "Import data: CSV, TXT and Excel"
+output: html_notebook
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). 
+https://creativecommons.org/licenses/by-sa/4.0/
+-->
+
+
+
+```{r setup}
+library(tidyverse)
+library(readxl)
+```
+
+
+
+
+## 1. COVID-19 in BC
+
+Use what you know about the functions in the {bcdata} package to import the details about COVID-19 cases in British Columbia. Assign the data to an R dataframe object with a meaningful name.
+
+
+### solution
+
+First search the data catalogue
+
+```{r}
+bcdc_search("COVID")
+```
+
+Then access the data.
+
+```{r}
+covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
+```
+
+
+
+## REFERENCE MATERIAL
+
+_R for Data Science_, "Data Import":
+https://r4ds.had.co.nz/data-import.html
+
+
+_R Cookbook (2nd ed.)_, "Input and Output":
+https://rc2e.com/inputandoutput
+
+
+
+### Package reference pages
+
+{readr} 
+https://readr.tidyverse.org/
+
+{readxl}
+https://readxl.tidyverse.org/index.html
+
+
