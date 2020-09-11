@@ -18,15 +18,11 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Objectives
 
-> Some people, when confronted with a problem, think: “I know, I’ll use regular expressions.” Now they have two problems.
-— Jamie Zawinski
-
 
 At the end of the first part of this lesson, learners will:
 
-1. Demonstrate the ability to load data files in a variety of formats into an R environment; and 
+1. Demonstrate the ability to load data from a variety of file and web sources into an R environment; and 
 
-1. Understand fundamental elements of regular expressions, and where to find additional resources to help create regular expressions.
 
 
 At the end of the second part of this lesson, learners will:
@@ -47,12 +43,12 @@ At the end of the second part of this lesson, learners will:
 |1b          | 9:30 to 10:30  | Importing other data formats: SPSS | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
 |2a          | 10:45 to 11:30 | Importing from web sources | &#8212; |
-|2b          | 11:30 to 12:00 | Homework <br> - Readings: webpage format | &#8212; |
+|2b          | 11:30 to 12:00 | Homework <br> - Readings: project-based workflow | &#8212; |
 |**Sunday**  |**Web scraping** |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Discussion <br> - Readings: webpage format  | &#8212; |
+|3a          | 9:00 to 9:30   | Discussion <br> - Readings: project-based workflow  | &#8212; |
 |3b          | 9:30 to 10:30  | Webscraping - introduction | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|4a          | 10:45 to 11:45 | Webscraping - using regular expressions to find what you want | 
+|4a          | 10:45 to 11:45 | Webscraping - part 2 | 
 |4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
 
 

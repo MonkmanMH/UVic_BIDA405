@@ -1,6 +1,8 @@
 ---
-title: "Import data: SPSS and other formats"
-output: html_notebook
+title: 'Import data: SPSS and other formats'
+output:
+  html_document:
+    df_print: paged
 ---
 
 <!-- This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
@@ -12,9 +14,15 @@ https://haven.tidyverse.org/
 
 # Getting started
 
-Run this code chunk:
 
-```{r setup}
+
+If you work with statisticians, economists, sociologists, survey practioners, and many others, you will find yourself encountering data files created using the software packages SAS, SPSS, and Stata. 
+
+The **R** package {haven} provides the functionality to read these three types of files; the reference page for {haven} is here: https://haven.tidyverse.org/index.html
+
+Run this code chunk to load the packages:
+
+```{r setup, message = FALSE}
 library(tidyverse)  
 
 # 
@@ -23,12 +31,9 @@ library(labelled)  # {labelled} is a package that provides functions to work wit
 ```
 
 
-If you work with statisticians, economists, sociologists, survey practioners, and many others, you will find yourself encountering data files created using the software packages SAS, SPSS, and Stata. 
-
-The **R** package {haven} provides the functionality to read these three types of files; the reference page for {haven} is here: https://haven.tidyverse.org/index.html
-
 For these examples, we will work with SPSS formatted files; the approach is similar for the other two formats, and only differs in the details.
 
+But first, let's read the "iris" data table in from an SAS data file (with the "sas7bdat" extension):
 
 ```{r}
 
@@ -102,14 +107,14 @@ df_video
 
 ```
 
-Compare all the variable names--in addition to the "@" symbol being replaced by the letter "x", what other changes do you see?
+Compare all the variable names--in addition to the "@" symbol being replaced by the letter "x", what other changes in variable names do you see?
 
 
 
 
 ## Handling missing values 
 
-Very often, SPSS files will have "user defined missing values". As we see above, they have been coded as "NA" when they were read in. But often, the analysis of survey results will have multiple types of "missing values":
+Very often, SPSS files will have "user defined missing values". As we see above, the values in `heardofcondition` that were "N/A" (that is, coded as "0") have been read in as "NA". But often, survey data will have a number of different responses we might want to analyze as "missing values":
 
 * respondent left the question blank
 
@@ -117,8 +122,7 @@ Very often, SPSS files will have "user defined missing values". As we see above,
 
 * the analyst may have decided to code "Don't know" or "Not applicable" as "missing" when calculating the percentages of responses in the other categories.
 
-Depending on the circumstance, you may want to include these responses in your calculations. For example, if there a lot of "Don't know" and "Not applicable" responses, you may wish to analyze which one it is (they mean very different things!) If the are all coded as 
-"NA", you have lost that ability to differentiate, and ultimately to understand the responses.
+Depending on the circumstance, you may want to include these responses in your calculations. For example, if there a lot of "Don't know" and "Not applicable" responses, you may wish to analyze the proportions of each (they mean very different things!) If the are all coded as "NA", you have lost that ability to differentiate, and ultimately to understand the responses.
 
 In the code below, adding the `user_na = TRUE` to the `read_spss()` function maintains the original values.
 

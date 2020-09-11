@@ -36,20 +36,20 @@ _Import SPSS files_
 
 Format: instructor, lecture w/slides
 
-Time allocation: 15 minutes (10:45 to 11:00)
+Time allocation: 15 minutes (9:30 to 9:45)
 
 
 
 Format: hands-on exercise, learner (instructor guided)
 
-Time allocation: 60 minutes (11:00 to 12:00)
+Time allocation: 60 minutes (9:45 to 10:30)
 
 Activity:
 
 * import various files
 
 
-
+***
 
 ## BREAK
 
@@ -61,29 +61,25 @@ Time allocation: 15 minutes (10:30 to 10:45)
 ### 2a. Import from web sources
 
 
-Format: instructor lecture w/ slides
-
-Time allocation: 15 minutes (9:30 to 10:30)
-
-
 Format: hands-on exercise
 
-Time allocation: 45 minutes (9:45 to 10:30)
+Time allocation: 45 minutes (10:45 to 11:30)
 
 
   - Statistics Canada {cansim}: https://mountainmath.github.io/cansim/index.html 
   
   - BC Data Catalogue {bcdata}: https://bcgov.github.io/bcdata/
+
   
 
-### 2b. Excercise - Readings: projects
+### 2b. Excercise - Readings: project-oriented workflow
 
 Format: instructor, lecture w/slides
 
 Time allocation: 15 minutes (11:45 to 11:00)
 
 
-Last week, the reading focussed on the end result of the import:tidy:transform process—the data artifacts and documentation that is produced. For this week's between-class-readings, we will look at two related pieces that stress the importance of _how_ we work. In particular, the focus is on creating a self-contained **project**, both the how and the why (these are about projects using R and RStudio, but the principles apply no matter what tool you use).
+Last week, the reading focussed on the end result of the import:tidy:transform process—the data artifacts and documentation that is produced. For this week's between-class-readings, we will look at two related articles that stress the importance of _how_ we work. In particular, the focus is on creating a self-contained **project**, both the how and the why. (These are about projects using R and RStudio, but the principles apply no matter what tool you use.)
 
 Please read:
 
@@ -111,34 +107,34 @@ Now, using the instructions in _R for Data Science_ ([8.4, RStudio projects](htt
 2020-09-13
 
 
-### 3a. Discussion - Readings: webpage format
+### 3a. Introductions
 
-Format: instructor lecture w/ slides
+_who are we?_
 
-Time allocation: 15 minutes (9:00 to 9:15)
+Time allocation: 30 minutes (9:00 to 9:30)
+
+
+
+### 3b. Discussion - Readings: project-oriented workflow
 
 
 Format: breakout rooms
 
-Time allocation: 15 minutes (9:15 to 9:30)
+Time allocation: 15 minutes (9:30 to 9:45)
 
 
-### 3b. Webscraping - introduction
+Format: lecture w/slides
 
-_Discussion: responding to readings_
+Time allocation: 15 minutes (9:45 to 10:00)
 
-Format: instructor, lecture w/slides
 
-Time allocation: 10 minutes (9:00 to 9:10)
+### 3c. Webscraping - introduction
 
-Format: learner groups (instructor guided), breakout rooms
+_Demonstrate basic understanding of regular expressions and their utility_
 
-Time allocation: 10 minutes (9:10 to 9:20)
+Format: instructor lecture w/ slides
 
-Format: learner group report out
-
-Time allocation: 10 minutes (9:20 to 9:30)
-
+Time allocation: 30 minutes (10:00 to 10:30)
 
 
 
@@ -151,46 +147,30 @@ Time allocation: 15 minutes (10:30 to 10:45)
 
 ***
 
-### 4a. Webscraping - using regular expressions to find what you want
+### 4a. Webscraping 
 
-_Demonstrate basic understanding of regular expressions and their utility_
+_Demonstrate basic understanding of approaches to webscraping_
 
 Format: instructor lecture w/ slides
 
-Time allocation: 15 minutes (9:30 to 10:30)
+Time allocation: 15 minutes (10:45 to 11:30)
 
 
 Format: hands-on exercise
 
-Time allocation: 45 minutes (9:45 to 10:30)
-
-
-  - RStudio Cloud / regex101.com exercise
-
-Format: instructor, lecture w/slides
-
-Time allocation: 15 minutes (10:45 to 11:00)
+Time allocation: 15 minutes (10:45 to 11:30)
 
 
 
 Format: learner (instructor guided)
 
-Time allocation: 30 minutes (11:00 to 11:30)
+Time allocation: 30 minutes (11:30 to 11:45)
 
 
-## 4b. Assignment #2
-
-_Introduction of Assignment #2_
-
-_Reading data from a webpage_
-
-
-Time allocation: 15 minutes (11:30 to 11:45)
-
-
-## 4c. Wrap up
+## 4b. Wrap up
 
 Time allocation: 15 minutes (11:45 to 12:00)
+
 
 ### Summary
 
