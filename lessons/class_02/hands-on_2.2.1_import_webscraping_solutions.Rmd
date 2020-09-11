@@ -1,0 +1,139 @@
+---
+title: "Import data: accessing data through web apis"
+output: html_notebook
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. 
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Elements are drawn from the reference materials for the packages
+* {haven} -- https://haven.tidyverse.org/
+* {labelled} -- http://larmarange.github.io/labelled/reference/index.html
+
+
+-->
+
+
+
+# Webscraping {#webscraping}
+
+As we've seen yesterday, we can access data on the web through various R packages, and using APIs. These tools give us access to data tables that are published as data tables. But what if the data you want populates a web page in a non-tabular format?
+
+
+* The [Billboard Hot 100 music chart](https://www.billboard.com/charts/hot-100) is updated weekly.
+
+* Weather forecast pages are updated hourly or daily.
+
+
+See [@Gandrud_2015]
+
+
+## Getting started
+
+Run this code chunk:
+
+```{r setup}
+library(tidyverse)  
+# 
+library(datapasta) # copy-paste!
+#
+library(rvest)     # webscraping
+```
+
+
+## Copy-paste
+
+This is perhaps the simplest approach...select the range of what you want, and paste it to the file you want. However, how can you paste a web data table directly into a structure that R can use?  This is where {datapasta} comes in. (Of course, it can be used to copy-paste from other sources, as well. For example, I made an R datatable from the PDF of the class list.)
+
+
+Reference page: https://milesmcbain.github.io/datapasta/
+
+Once you've installed {datapasta} with `install.packages("datapasta")`, it will appear in your RStudio "Addins"
+
+Let's practice: we will copy and paste the Japanese league stats for the baseball player Ichiro Suzuki (usually just known by his first name).
+
+We can select the range in the "Register Batting" table, and then hit "<ctrl> C" (or "<cmd> C" on a Mac) to copy the range to our clipboard.
+
+If we were to paste it to a text editor, it would look like this:
+
+`Year	Age	AgeDif	Tm	Lg	Lev	Aff	G	PA	AB	R	H	2B	3B	HR	RBI	SB	CS	BB	SO	BA	OBP	SLG	OPS	TB	GDP	HBP	SH	SF	IBB`
+`1992	18	-10.8	Orix	JPPL	Fgn		40	99	95	9	24	5	0	0	5	3	2	3	11	.253	.276	.305	.581	29	0	0	1	0	0`
+`1993	19	-10.1	Orix	JPPL	Fgn		43	67	64	4	12	2	0	1	3	0	2	2	7	.188	.212	.266	.478	17	2	0	1	0	0`
+`1994	20	-9.1	Orix	JPPL	Fgn		130	616	546	111	210	41	5	13	54	29	7	51	53	.385	.445	.549	.994	300	3	10	7	2	8`
+`1995	21	-7.6	Orix	JPPL	Fgn		130	613	524	104	179	23	4	25	80	49	9	68	52	.342	.432	.544	.976	285	7	18	0	3	17`
+`1996	22	-6.5	Orix	JPPL	Fgn		130	611	542	104	193	24	4	16	84	35	3	56	57	.356	.422	.504	.926	273	8	9	0	4	13`
+`1997	23	-4.9	Orix	JPPL	Fgn		135	607	536	94	185	31	4	17	91	39	4	62	36	.345	.414	.513	.927	275	10	4	0	5	14`
+`1998	24	-4.1	Orix	JPPL	Fgn		135	558	506	79	181	36	3	13	71	11	4	43	35	.358	.414	.518	.932	262	21	7	0	2	15`
+`1999	25	-2.9	Orix	JPPL	Fgn		103	468	411	80	141	27	2	21	68	12	1	45	46	.343	.412	.572	.984	235	5	7	0	5	15`
+`2000	26	-2.6	Orix	JPPL	Fgn		105	459	395	73	153	22	1	12	73	21	1	54	36	.387	.460	.539	.999	213	3	4	0	`
+
+We might be able to fuss about with this and make it work (remember about space delimited plain text files!), but {datapasta} allows us to paste it directly into our R code chunk.
+
+Using the addin or the keyboard shortcut for a tribble, it looks like this:
+
+```{r}
+
+
+
+
+```
+
+
+
+
+More "how to datapasta" https://milesmcbain.github.io/datapasta/articles/how-to-datapasta.html
+
+
+## Lesson: Introduction to webscraping
+
+Library Carpentry, https://librarycarpentry.org/lc-webscraping/
+
+
+
+
+
+## Lesson: Webscraping
+
+[Tutorial: Web Scraping in R with rvest](https://www.dataquest.io/blog/web-scraping-in-r-rvest/)
+
+
+## Lesson: 
+
+Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
+
+* [Webscraping: (1) Server-side and CSS](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/07-web-css/07-web-css.html)
+
+* [Webscraping: (2) Client-side and APIs](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/08-web-api/08-web-api.html)
+
+
+## Other lessons
+
+[Examples of Web Scraping With R](https://www.programmingr.com/examples/examples-web-scraping-r/)
+
+[Web Scraping with R](https://www.scrapingbee.com/blog/web-scraping-r/) - ?
+
+
+[Beginner’s Guide on Web Scraping in R (using rvest) with hands-on example](https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/)
+
+
+[Tidy web scraping in R — Tutorial and resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
+
+
+
+## {polite} package
+
+https://dmi3kno.github.io/polite/index.html
+
+[@R-polite]
+
+
+
+## {rvest} package
+
+[@R-rvest]
+
+
+[@doi:10.1080/10691898.2020.1787116]
+
+
