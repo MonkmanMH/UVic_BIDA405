@@ -34,10 +34,21 @@ library(bcdata)     # access the BC Government's open data catalogue
 
 There is a lot of valuable data out there on the internet, just waiting for curious data analysts to pull nuggets of insight out of it. There are a variety of ways to get it; in some cases, you can download a CSV or Excel file and then read that into R.
 
-But the brilliant people that make up the R community have made our life a whole lot easier by creating packages that allow us to write R scripts that link directly to data we want. This is particularly valuable if you are accessing a data set that gets updated regularly (say, a weekly financial report or a monthly survey).
+But the brilliant people that make up the R community have made our life a whole lot easier by creating packages that allow us to write R scripts that link directly to data we want. This is particularly valuable if you are accessing a data set that gets updated regularly (say, a weekly financial report or the results of a monthly survey).
 
-In this section, we will explore two examples that allow access to the data repository hosted by Statistics Canada, and the British Columbia Government's open data catalogue.
+In this section, we will explore two examples that allow access to the data repository hosted by Statistics Canada, and the British Columbia Government's open data catalogue. There are many other tools available; some are listed at the bottom of this page.
 
+
+## CANSIM
+
+Statistics Canada, a department of the Government of Canada, provides a socioeconomic time series database known as "CANSIM". The data posted to the database is most of the aggregate data collected by Statistics Canada on a regular basis, such as the Labour Force Survey (from which we get updates on the unemployment rate), the Consumer Price Index Survey (about inflation), and health-related information from pregnancy and births to life expectancy and deaths.
+
+One of the many tables related to international travel that is published in CANSIM is "Table: 24-10-0006-01 Non-resident travellers entering Canada, by country of residence, seasonally adjusted". Here's a screenshot of the table, showing the number of people arriving by their continent of residence. 
+
+![table](cansim_24-10-0006-01_2020-09-10.JPG)
+
+
+This table might be useful if you were developing a marketing campaign and you wanted to understand where tourists are coming from—the biggest markets and the fastest growing. But as shown, it is at too high a level; this is Canada by continent. For our purposes, we need to see specific country, and those entering Canada via British Columbia.
 
 
 

@@ -76,13 +76,33 @@ Time allocation: 45 minutes (9:45 to 10:30)
   - BC Data Catalogue {bcdata}: https://bcgov.github.io/bcdata/
   
 
-### 2b. Excercise - Readings: webpage format
+### 2b. Excercise - Readings: projects
 
 Format: instructor, lecture w/slides
 
 Time allocation: 15 minutes (11:45 to 11:00)
 
 
+Last week, the reading focussed on the end result of the import:tidy:transform process—the data artifacts and documentation that is produced. For this week's between-class-readings, we will look at two related pieces that stress the importance of _how_ we work. In particular, the focus is on creating a self-contained **project**, both the how and the why (these are about projects using R and RStudio, but the principles apply no matter what tool you use).
+
+Please read:
+
+* Hadley Wickham and Garrett Grolemund, [_R for Data Science_, Chapter 8—Workflow: projects](https://r4ds.had.co.nz/workflow-projects.html)
+
+* Jenny Bryan, [Project-oriented workflow](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
+
+  - Optional: [a subsequent discussion on RStudio Community](https://community.rstudio.com/t/project-oriented-workflow-setwd-rm-list-ls-and-computer-fires/3549) will provide some additional ideas about Project-oriented workflow.
+
+Note that  `rm()` removes specified objects, and `ls()` creates a list of all of the objects in your environment. So combining them into `rm(list = ls())` clears all of the objects out of your environment.
+
+
+Come to class on Sunday ready to answer and discuss the following:
+
+* What are some specific reasons why a project-based workflow will "maximize effectiveness and reduce frustration" (to quote Jenny Bryan)?
+
+* What are the elements of your work that are "product" or "real"?  
+
+Now, using the instructions in _R for Data Science_ ([8.4, RStudio projects](https://r4ds.had.co.nz/workflow-projects.html#rstudio-projects)), turn the folder with your BIDA405 materials into an RStudio "Project". Now you can simply click on the project, and it will launch RStudio with that folder as the "root". 
 
 ***
 
