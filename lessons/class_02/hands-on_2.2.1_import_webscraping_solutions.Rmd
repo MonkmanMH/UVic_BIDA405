@@ -188,7 +188,7 @@ More "how to datapasta" https://milesmcbain.github.io/datapasta/articles/how-to-
 [Tutorial: Web Scraping in R with rvest](https://www.dataquest.io/blog/web-scraping-in-r-rvest/)
 
 
-## Lesson: 
+## Other lessons
 
 Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
 
@@ -197,7 +197,7 @@ Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
 * [Webscraping: (2) Client-side and APIs](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/08-web-api/08-web-api.html)
 
 
-## Other lessons
+
 
 [Examples of Web Scraping With R](https://www.programmingr.com/examples/examples-web-scraping-r/)
 
@@ -208,6 +208,16 @@ Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
 
 
 [Tidy web scraping in R — Tutorial and resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
+
+
+## Readings
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 6, "Getting Data into and out of R"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c06.xhtml#c6)
+
 
 
 
