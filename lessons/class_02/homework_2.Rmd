@@ -30,13 +30,13 @@ Use what you know about the functions in the {bcdata} package to import the deta
 First search the data catalogue
 
 ```{r}
-bcdc_search("COVID")
+
 ```
 
 Then access the data.
 
 ```{r}
-covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
+
 ```
 
 
@@ -53,18 +53,8 @@ Create a data table using the `tribble()` function from the {tibbble} package. T
 
 How will you deal with the fact that the first day or two of the table aren't part of the month? And that the last day of the month is a Wednesday?
 
-### solution
 
 ```{r}
-
-tribble(
-  ~Sunday, ~Monday, ~Tuesday, ~Wednesday, ~Thursday, ~Friday, ~Saturday,
-  NA, NA, 1, 2, 3, 4, 5,
-  6, 7, 8, 9, 10, 11, 12,
-  13, 14, 15, 16, 17, 18, 19,
-  20, 21, 22, 23, 24, 25, 26,
-  27, 28, 29, 30, NA, NA, NA
-)
 
 
 ```
@@ -93,8 +83,6 @@ List the sheet names in the file.
 
 ```{r}
 
-excel_sheets("bc-stats_2018-new-homes-data_tosend.xlsx")
-
 ```
 
 
@@ -115,8 +103,6 @@ Read in the sheet, using no options. What is notable about the content of the R 
 
 ```{r}
 
-read_excel("bc-stats_2018-new-homes-data_tosend.xlsx", sheet = "Purpose Built Rental")
-
 ```
 
 Read the file again, so that the header rows are in the right place, and with the "Note:" column omitted.
@@ -128,48 +114,11 @@ Note: some solutions to this problem would involve some of the {dplyr} data mani
 
 ```{r}
 
-housing1 <- read_excel("bc-stats_2018-new-homes-data_tosend.xlsx", sheet = "Single Detached", 
-                       na = "*",
-                       skip = 3)
-
-# Because this has columns F and G included, we can then use "select" to pick the ones we want
-
-housing1 <- housing1 %>% 
-  select(1:4) %>% 
-  rename("community" = `...1` )
-
-housing1
 
 ```
 
 
 
-
-```{r}
-
-housing2 <- read_excel("bc-stats_2018-new-homes-data_tosend.xlsx", sheet = "Single Detached", 
-                       na = "*",
-                       range = cell_limits(c(4, NA), c(NA, 5)))
-
-housing2 %>% 
-  select(2:5) %>%
-  rename("community" = `...2`)
-
-```
-
-
-
-```{r}
-
-housing3 <- 
-  read_excel("bc-stats_2018-new-homes-data_tosend.xlsx", sheet = "Single Detached",
-             na = "*",
-             range = anchored("B4", dim = c(NA, 4)))
-
-housing3 %>%
-  rename("community" = "...1")
-
-```
 
 
 
@@ -181,12 +130,6 @@ If so, use the pivot functions from {tidyr} to turn it into a tidy structure.
 
 ```{r}
 
-housing1
-
-housing1_long <- housing1 %>%
-  pivot_longer(-community, names_to = "year", values_to = "units")
-
-housing1_long
 
 ```
 

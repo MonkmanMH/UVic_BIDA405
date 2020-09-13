@@ -1,6 +1,8 @@
 ---
-title: "Import data: accessing data through web apis"
-output: html_notebook
+title: 'Import data: web data'
+output:
+  html_document:
+    df_print: paged
 ---
 
 <!-- 
@@ -26,8 +28,6 @@ As we've seen yesterday, we can access data on the web through various R package
 * Weather forecast pages are updated hourly or daily.
 
 
-See [@Gandrud_2015]
-
 
 ## Getting started
 
@@ -49,11 +49,34 @@ library(rvest)     # webscraping
 
 In R, we can build a data table by writing some code with instructions to take some numbers, characters, etc. and assemble it into columns (variables) and rows (individual records or observations).
 
-The {tidyverse} approach to this is a _tibble_, which is either the phonetic sounding out of the letters "t-b-l" (sometimes used as an extension for a table file), or the spelling of how New Zealanders pronounce the word "table" (there are a few important figures in the R community, including the two professors who first developed the program).
+In this example, we will use the {base} R function `data.frame` to create a table with two variables, `x` and `y`. `x` will be the integers from 1 to 5, and `y` will be equal to 2.
 
-In _R for Data Science_ there is [an entire chapter devoted to tibbles ](https://r4ds.had.co.nz/tibbles.html)
+```{r}
 
-In this example, we will create a tibble with three variables, `x`, `y`, and `z`. `x` will be equal to 2, `y` will be the integers from 1 to 5, and `z` will be `x` + `y` squared.
+df_five <- data.frame(
+  x = 1:5,
+  y = 2
+)
+
+df_five
+
+```
+
+```{r}
+
+df_five$z <- df_five$x * df_five$y
+
+df_five 
+
+```
+
+
+
+The {tidyverse} approach to this is a _tibble_, which is either the phonetic sounding out of the letters "t-b-l" (sometimes used as an extension for a table file).
+
+In _R for Data Science_ there is [an entire chapter devoted to tibbles](https://r4ds.had.co.nz/tibbles.html)
+
+One of the upsides to using tibbles is that it allows us to run calculations on variables we've just created--so we can add the syntax for our `z` variable right away.
 
 ```{r}
 
@@ -68,31 +91,53 @@ We can also create a _tribble_, which is a _transposed tibble_ (and also a _Star
 
 ![tribble](tribble.jpg)
 
-Note that in this case, the variables are listed first and are each identified with a tilde ~, and then each row's contents. In this way, it is visually structured more like the table we want. In this case, we have the names of the Star Fleet captains central to the _Star Trek_ t.v. shows, the actor who portrayed that character, and the year the series first appeared.
+In this example, we have the names of the Star Fleet captains who were central to the first four _Star Trek_ t.v. series, the actor who portrayed that character (two variables that are character type, pardon the pun), and the year the series first appeared (a numeric variable). 
+
+Note that in the way that the `tribble()` function code is structured, the variables are listed first and are each identified with a tilde ~. This is then followed by each row's contents. In this way, it is visually structured more like the table we want. 
 
 ```{r}
 
+captains <-
 tribble(
-  ~"lastname", ~"actor", ~"first_appeared",
+  ~"captain", ~"actor", ~"first_appeared",
   "Kirk", "William Shatner", 1966,
   "Picard", "Patrick Stewart", 1987,
   "Sisko", "Avery Brooks", 1993,
   "Janeway", "Kate Mulgrew", 1995
 )
 
+captains
 ```
 
-There are similar ways to make a `data.frame()`
+
+```{r}
+max(captains$`first appeared`)
+
+max(captains$"first appeared")
+
+max(captains$first_appeared)
+
+```
 
 
 ### ...back to copy & paste
 
-This is perhaps the simplest approach...select the range of what you want, and paste it to the file you want. However, how can you paste a web data table directly into a structure that R can use?  This is where {datapasta} comes in. (Of course, it can be used to copy-paste from other sources, as well. For example, I made an R datatable from the PDF of the class list.)
+This is perhaps the simplest approach to get data from the web...select the range of what you want, and paste it to the file you want. However, how can you paste a web data table directly into a structure that R can use?  This is where {datapasta} comes in. (Of course, it can be used to copy-paste from other sources, as well. For example, I made an R tibble from the PDF of the class list.)
 
 
 Reference page: https://milesmcbain.github.io/datapasta/
 
 Once you've installed {datapasta} with `install.packages("datapasta")`, it will appear in your RStudio "Addins"
+
+> Tangent: RStudio Addins and Keyboard Shortcuts
+
+> * [RStudio addins, or how to make your coding life easier](https://towardsdatascience.com/rstudio-addins-or-how-to-make-your-coding-life-easier-6b627c7b2240)
+
+> * [Keyboard shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
+
+> [Customizing Keyboard Shortcuts](https://support.rstudio.com/hc/en-us/articles/206382178-Customizing-Keyboard-Shortcuts)
+
+
 
 Let's practice: we will copy and paste the Major League Baseball stats for the baseball player Hyun Jin Ryu, the first player from South Korea to be the starting pitcher in a World Series Game.
 
@@ -113,13 +158,30 @@ If we were to paste it to a text editor, it would look like this:
 `2020	33	TOR	AL	3	1	.750	3.19	9	9	0	0	0	0	48.0	41	19	17	6	14	0	53	1	0	1	198	143	3.55	1.146	7.7	1.1	2.6	9.9	3.79	`
 
 
-We might be able to fuss about with this and make it work (remember about space delimited plain text files!), but {datapasta} allows us to paste it directly into our R code chunk.
+We might be able to fuss about with this and make it work (remember about space delimited plain text files!). I've pasted it into a .txt file, which we can read in using the `read_table()` function in {readr}, which uses the spaces as a delimiter:
+
+```{r}
+
+readr::read_table("hyun_jin_ryu.txt")
+
+```
+
+Hmm...that didn't work. But this gives us a significant clue—each column is separated by `\t`. This is the coding for a tab—this is a tab separated file. We can use `read_tsv()` instead.
+
+```{r}
+
+readr::read_tsv("hyun_jin_ryu.txt")
+
+```
+
+
+An alterative is {datapasta}, which allows us to paste it directly into our R code chunk.
 
 Using the addin or the keyboard shortcut for a data.frame, it looks like this:
 
 ```{r}
 
-hyun <- tibble::tribble(
+tibble::tribble(
   ~Year, ~Age,   ~Tm,  ~Lg,  ~W, ~L, ~`W-L%`,  ~ERA,  ~G, ~GS, ~GF, ~CG, ~SHO, ~SV,   ~IP,   ~H,  ~R, ~ER, ~HR, ~BB, ~IBB,  ~SO, ~HBP, ~BK, ~WP,  ~BF, ~`ERA+`, ~FIP, ~WHIP,  ~H9, ~HR9, ~BB9, ~SO9, ~`SO/W`,           ~Awards,
   2013L,  26L, "LAD", "NL", 14L, 8L,   0.636,     3, 30L, 30L,  0L,  2L,   1L,  0L,   192, 182L, 67L, 64L, 15L, 49L,   4L, 154L,   1L,  0L,  5L, 783L,    119L, 3.24, 1.203,  8.5,  0.7,  2.3,  7.2,    3.14,           "RoY-4",
   2014L,  27L, "LAD", "NL", 14L, 7L,   0.667,  3.38, 26L, 26L,  0L,  0L,   0L,  0L,   152, 152L, 60L, 57L,  8L, 29L,   2L, 139L,   3L,  0L,  2L, 631L,    103L, 2.62, 1.191,    9,  0.5,  1.7,  8.2,    4.79,                NA,
@@ -180,34 +242,6 @@ tibble::tribble(
 
 More "how to datapasta" https://milesmcbain.github.io/datapasta/articles/how-to-datapasta.html
 
-
-
-
-## Lesson: Webscraping
-
-[Tutorial: Web Scraping in R with rvest](https://www.dataquest.io/blog/web-scraping-in-r-rvest/)
-
-
-## Other lessons
-
-Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
-
-* [Webscraping: (1) Server-side and CSS](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/07-web-css/07-web-css.html)
-
-* [Webscraping: (2) Client-side and APIs](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/08-web-api/08-web-api.html)
-
-
-
-
-[Examples of Web Scraping With R](https://www.programmingr.com/examples/examples-web-scraping-r/)
-
-[Web Scraping with R](https://www.scrapingbee.com/blog/web-scraping-r/) - ?
-
-
-[Beginner’s Guide on Web Scraping in R (using rvest) with hands-on example](https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/)
-
-
-[Tidy web scraping in R — Tutorial and resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
 
 
 ## Readings

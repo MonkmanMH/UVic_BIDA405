@@ -1,0 +1,115 @@
+---
+title: 'Import data: web scraping'
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License. 
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Elements are drawn from the reference materials for the packages
+* {haven} -- https://haven.tidyverse.org/
+* {labelled} -- http://larmarange.github.io/labelled/reference/index.html
+
+
+-->
+
+
+
+# Webscraping {#webscraping}
+
+
+## Getting started
+
+Run this code chunk:
+
+```{r setup}
+library(tidyverse)  
+# 
+library(datapasta) # copy-paste!
+#
+library(rvest)     # webscraping
+```
+
+
+Rather than create a whole new lesson, we will walk through two similar but different blog post / tutorials that other people have written.
+
+1. Mayank Agrawal, [Scraping Data using R](https://rpubs.com/Mayank7j_2020/billboard_2020)
+
+
+2. Christian Pascual, [Tutorial: Web Scraping in R with rvest](https://www.dataquest.io/blog/web-scraping-in-r-rvest/)
+
+
+Some key points to take away from this:
+
+* find the nodes that contain the data or the data table you want
+
+* webpage structure ranges from simple to very, very complex—the data table might be nested a few layers deep in the XML structure
+
+* the developer tools in your browser is essential to effectively understanding the structure, and figuring out where your data is located
+
+* you might need to use regular expressions to find the specific nodes you want.
+  
+  - [14.3 Matching patterns with regular expressions](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) in _R for Data Science_ by Hadley Wickham and Garrett Grolemund
+  
+  - [Chapter 10 Regular expressions](https://smltar.com/regexp.html) in _Supervised Machine Learning for Text Analysis in R_ by Emil Hvitfeldt and Julia Silge
+  
+  - [1.7 Text Processing and Regular Expressions](https://bookdown.org/rdpeng/RProgDA/text-processing-and-regular-expressions.html) in _Mastering Software Development in R_ by Roger Peng
+
+
+
+
+## Other lessons
+
+Grant R. McDermott, _Big Data in Economics_ [@McDermott_BDE_2020]
+
+* [Webscraping: (1) Server-side and CSS](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/07-web-css/07-web-css.html)
+
+* [Webscraping: (2) Client-side and APIs](https://raw.githack.com/uo-ec510-2020-spring/lectures/master/08-web-api/08-web-api.html)
+
+
+
+
+[Examples of Web Scraping With R](https://www.programmingr.com/examples/examples-web-scraping-r/)
+
+[Web Scraping with R](https://www.scrapingbee.com/blog/web-scraping-r/) - ?
+
+
+[Beginner’s Guide on Web Scraping in R (using rvest) with hands-on example](https://www.analyticsvidhya.com/blog/2017/03/beginners-guide-on-web-scraping-in-r-using-rvest-with-hands-on-knowledge/)
+
+
+[Tidy web scraping in R — Tutorial and resources](https://towardsdatascience.com/tidy-web-scraping-in-r-tutorial-and-resources-ac9f72b4fe47)
+
+Note: Hadley Wickham, [rvest: easy web scraping with R](https://blog.rstudio.com/2014/11/24/rvest-easy-web-scraping-with-r/) doesn't work because the structure of IMDB pages has changed!
+
+
+
+## Readings
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 6, "Getting Data into and out of R"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c06.xhtml#c6)
+
+
+
+
+## {polite} package
+
+https://dmi3kno.github.io/polite/index.html
+
+[@R-polite]
+
+
+
+## {rvest} package
+
+[@R-rvest]
+
+
+[@doi:10.1080/10691898.2020.1787116]
+
+

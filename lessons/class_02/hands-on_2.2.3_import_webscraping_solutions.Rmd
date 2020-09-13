@@ -1,0 +1,74 @@
+---
+title: "rvest tutorial"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is the code from  blog article [Tutorial: Web Scraping in R with rvest](https://www.dataquest.io/blog/web-scraping-in-r-rvest/)
+
+
+```{r setup}
+
+library(rvest)
+
+```
+
+
+Read the html code
+
+```{r}
+simple <- read_html("http://dataquestio.github.io/web-scraping-pages/simple.html")
+
+simple
+
+```
+
+
+```{r}
+
+simple %>%
+  html_nodes("p") %>%
+  html_text()
+
+```
+
+San Francisco weather page
+
+
+```{r}
+
+forecasts <- read_html("https://forecast.weather.gov/MapClick.php?x=173&y=89&site=sew&zmx=&zmy=&map_x=173&map_y=89#.X15lDGhKiUk") 
+
+forecasts <- forecasts %>% 
+    html_nodes(".temp") %>%
+    html_text()
+
+forecasts
+
+```
+
+
+Parse the numbers out of the text
+
+```{r}
+
+df_forecast <- readr::parse_number(forecasts)
+
+df_forecast
+
+df_forecast <- as_tibble(df_forecast)
+
+df_forecast <- tibble::rowid_to_column(df_forecast, "ID")
+
+df_forecast
+```
+
+```{r}
+
+ggplot(df_forecast, aes(y = value, x = ID)) +
+  geom_line()
+
+```
+
+
