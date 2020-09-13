@@ -23,7 +23,7 @@ library(readxl)
 Use what you know about the functions in the {bcdata} package to import the details about COVID-19 cases in British Columbia. Assign the data to an R dataframe object with a meaningful name.
 
 
-### solution
+### hint
 
 First search the data catalogue
 
@@ -36,6 +36,18 @@ Then access the data.
 ```{r}
 covid_cases <- bcdc_get_data("b-c-covid-19-case-details")
 ```
+
+
+
+## 2. Pasting a data table from the web
+
+
+### solution
+
+```{r}
+
+```
+
 
 
 

@@ -5,7 +5,10 @@ output:
     df_print: paged
 ---
 
-<!-- This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+
+
 It uses reference material for {haven}, by RStudio. 
 You can find that material here: 
 https://haven.tidyverse.org/
@@ -16,7 +19,7 @@ https://haven.tidyverse.org/
 
 
 
-If you work with statisticians, economists, sociologists, survey practioners, and many others, you will find yourself encountering data files created using the software packages SAS, SPSS, and Stata. 
+If you work with statisticians, economists, sociologists, survey practioners, and many others, you will find yourself encountering data files created using the software packages SAS, SPSS, and Stata. These data files have their own unique attributes, and require some decoding to sort through.
 
 The **R** package {haven} provides the functionality to read these three types of files; the reference page for {haven} is here: https://haven.tidyverse.org/index.html
 
@@ -26,8 +29,8 @@ Run this code chunk to load the packages:
 library(tidyverse)  
 
 # 
-library(haven)     # {haven} is the tidyverse package for reading spss files
-library(labelled)  # {labelled} is a package that provides functions to work with the metadata in spss files
+library(haven)     # {haven} is the tidyverse package for reading spss, sas, and stata files
+library(labelled)  # {labelled} is a package that provides functions to work with the metadata that {haven} reads from spss files
 ```
 
 
@@ -156,6 +159,8 @@ Or we can look at the attributes of a single variable; in this case, `heardofcon
 
 attributes(df_video$heardofcondition)
 
+attributes(df_video$gender)
+
 ```
 
 The `$label` is the question that was asked in the survey.
@@ -171,6 +176,13 @@ In the script you can also string these together; for example, if we want to see
 ```{r}
 
 attributes(df_video$heardofcondition)$labels
+
+
+ls(df_video)
+
+ls.str(df_video)
+
+summary(df_video)
 
 ```
 
@@ -191,7 +203,9 @@ In the code below, we will set all of the variables in the `df_video` dataframe 
 
 (df_video_both <- as_factor(df_video, levels="both"))
 
+
 ```
+
 
 
 

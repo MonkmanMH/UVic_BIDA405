@@ -44,6 +44,49 @@ library(rvest)     # webscraping
 
 ## Copy-paste
 
+
+### Tangent: making a tibble
+
+In R, we can build a data table by writing some code with instructions to take some numbers, characters, etc. and assemble it into columns (variables) and rows (individual records or observations).
+
+The {tidyverse} approach to this is a _tibble_, which is either the phonetic sounding out of the letters "t-b-l" (sometimes used as an extension for a table file), or the spelling of how New Zealanders pronounce the word "table" (there are a few important figures in the R community, including the two professors who first developed the program).
+
+In _R for Data Science_ there is [an entire chapter devoted to tibbles ](https://r4ds.had.co.nz/tibbles.html)
+
+In this example, we will create a tibble with three variables, `x`, `y`, and `z`. `x` will be equal to 2, `y` will be the integers from 1 to 5, and `z` will be `x` + `y` squared.
+
+```{r}
+
+tibble(
+  x = 1:5,
+  y = 2,
+  z = x^2 + y
+)
+```
+
+We can also create a _tribble_, which is a _transposed tibble_ (and also a _Star Trek_ reference).
+
+![tribble](tribble.jpg)
+
+Note that in this case, the variables are listed first and are each identified with a tilde ~, and then each row's contents. In this way, it is visually structured more like the table we want. In this case, we have the names of the Star Fleet captains central to the _Star Trek_ t.v. shows, the actor who portrayed that character, and the year the series first appeared.
+
+```{r}
+
+tribble(
+  ~"lastname", ~"actor", ~"first_appeared",
+  "Kirk", "William Shatner", 1966,
+  "Picard", "Patrick Stewart", 1987,
+  "Sisko", "Avery Brooks", 1993,
+  "Janeway", "Kate Mulgrew", 1995
+)
+
+```
+
+There are similar ways to make a `data.frame()`
+
+
+### ...back to copy & paste
+
 This is perhaps the simplest approach...select the range of what you want, and paste it to the file you want. However, how can you paste a web data table directly into a structure that R can use?  This is where {datapasta} comes in. (Of course, it can be used to copy-paste from other sources, as well. For example, I made an R datatable from the PDF of the class list.)
 
 
@@ -51,24 +94,24 @@ Reference page: https://milesmcbain.github.io/datapasta/
 
 Once you've installed {datapasta} with `install.packages("datapasta")`, it will appear in your RStudio "Addins"
 
-Let's practice: we will copy and paste the Japanese league stats for the baseball player Ichiro Suzuki (usually just known by his first name).
+Let's practice: we will copy and paste the Major League Baseball stats for the baseball player Hyun Jin Ryu, the first player from South Korea to be the starting pitcher in a World Series Game.
 
-His player page at baseball-reference.com is https://www.baseball-reference.com/register/player.fcgi?id=suzuki001ich
+His player page at baseball-reference.com is https://www.baseball-reference.com/players/r/ryuhy01.shtml
 
-We can select the range in the "Register Batting" table, and then hit "<ctrl> C" (or "<cmd> C" on a Mac) to copy the range to our clipboard.
+We can select the range in the "Standard Pitching" table, and then hit "<ctrl> C" (or "<cmd> C" on a Mac) to copy the range to our clipboard.
 
 If we were to paste it to a text editor, it would look like this:
 
-`Year	Age	AgeDif	Tm	Lg	Lev	Aff	G	PA	AB	R	H	2B	3B	HR	RBI	SB	CS	BB	SO	BA	OBP	SLG	OPS	TB	GDP	HBP	SH	SF	IBB`
-`1992	18	-10.8	Orix	JPPL	Fgn		40	99	95	9	24	5	0	0	5	3	2	3	11	.253	.276	.305	.581	29	0	0	1	0	0`
-`1993	19	-10.1	Orix	JPPL	Fgn		43	67	64	4	12	2	0	1	3	0	2	2	7	.188	.212	.266	.478	17	2	0	1	0	0`
-`1994	20	-9.1	Orix	JPPL	Fgn		130	616	546	111	210	41	5	13	54	29	7	51	53	.385	.445	.549	.994	300	3	10	7	2	8`
-`1995	21	-7.6	Orix	JPPL	Fgn		130	613	524	104	179	23	4	25	80	49	9	68	52	.342	.432	.544	.976	285	7	18	0	3	17`
-`1996	22	-6.5	Orix	JPPL	Fgn		130	611	542	104	193	24	4	16	84	35	3	56	57	.356	.422	.504	.926	273	8	9	0	4	13`
-`1997	23	-4.9	Orix	JPPL	Fgn		135	607	536	94	185	31	4	17	91	39	4	62	36	.345	.414	.513	.927	275	10	4	0	5	14`
-`1998	24	-4.1	Orix	JPPL	Fgn		135	558	506	79	181	36	3	13	71	11	4	43	35	.358	.414	.518	.932	262	21	7	0	2	15`
-`1999	25	-2.9	Orix	JPPL	Fgn		103	468	411	80	141	27	2	21	68	12	1	45	46	.343	.412	.572	.984	235	5	7	0	5	15`
-`2000	26	-2.6	Orix	JPPL	Fgn		105	459	395	73	153	22	1	12	73	21	1	54	36	.387	.460	.539	.999	213	3	4	0	`
+
+`Year	Age	Tm	Lg	W	L	W-L%	ERA	G	GS	GF	CG	SHO	SV	IP	H	R	ER	HR	BB	IBB	SO	HBP	BK	WP	BF	ERA+	FIP	WHIP	H9	HR9	BB9	SO9	SO/W	Awards`
+`2013	26	LAD	NL	14	8	.636	3.00	30	30	0	2	1	0	192.0	182	67	64	15	49	4	154	1	0	5	783	119	3.24	1.203	8.5	0.7	2.3	7.2	3.14	RoY-4`
+`2014	27	LAD	NL	14	7	.667	3.38	26	26	0	0	0	0	152.0	152	60	57	8	29	2	139	3	0	2	631	103	2.62	1.191	9.0	0.5	1.7	8.2	4.79	`
+`2016	29	LAD	NL	0	1	.000	11.57	1	1	0	0	0	0	4.2	8	6	6	1	2	1	4	0	0	0	24	37	5.50	2.143	15.4	1.9	3.9	7.7	2.00	`
+`2017	30	LAD	NL	5	9	.357	3.77	25	24	1	0	0	1	126.2	128	58	53	22	45	3	116	4	1	4	541	110	4.74	1.366	9.1	1.6	3.2	8.2	2.58	`
+`2018	31	LAD	NL	7	3	.700	1.97	15	15	0	0	0	0	82.1	68	23	18	9	15	1	89	1	0	0	324	198	3.00	1.008	7.4	1.0	1.6	9.7	5.93	`
+`2019	32	LAD	NL	14	5	.737	2.32	29	29	0	1	1	0	182.2	160	53	47	17	24	2	163	4	0	0	723	179	3.10	1.007	7.9	0.8	1.2	8.0	6.79	AS,CYA-2,MVP-19`
+`2020	33	TOR	AL	3	1	.750	3.19	9	9	0	0	0	0	48.0	41	19	17	6	14	0	53	1	0	1	198	143	3.55	1.146	7.7	1.1	2.6	9.9	3.79	`
+
 
 We might be able to fuss about with this and make it work (remember about space delimited plain text files!), but {datapasta} allows us to paste it directly into our R code chunk.
 
@@ -76,132 +119,59 @@ Using the addin or the keyboard shortcut for a data.frame, it looks like this:
 
 ```{r}
 
-data.frame(
-  stringsAsFactors = FALSE,
-       check.names = FALSE,
-              Year = c(1992L,1993L,1994L,1995L,
-                       1996L,1997L,1998L,1999L,2000L),
-               Age = c(18L, 19L, 20L, 21L, 22L, 23L, 24L, 25L, 26L),
-            AgeDif = c(-10.8, -10.1, -9.1, -7.6, -6.5, -4.9, -4.1, -2.9, -2.6),
-                Tm = c("Orix","Orix","Orix","Orix",
-                       "Orix","Orix","Orix","Orix","Orix"),
-                Lg = c("JPPL","JPPL","JPPL","JPPL",
-                       "JPPL","JPPL","JPPL","JPPL","JPPL"),
-               Lev = c("Fgn","Fgn","Fgn","Fgn",
-                       "Fgn","Fgn","Fgn","Fgn","Fgn"),
-               Aff = c(NA, NA, NA, NA, NA, NA, NA, NA, NA),
-                 G = c(40L, 43L, 130L, 130L, 130L, 135L, 135L, 103L, 105L),
-                PA = c(99L, 67L, 616L, 613L, 611L, 607L, 558L, 468L, 459L),
-                AB = c(95L, 64L, 546L, 524L, 542L, 536L, 506L, 411L, 395L),
-                 R = c(9L, 4L, 111L, 104L, 104L, 94L, 79L, 80L, 73L),
-                 H = c(24L, 12L, 210L, 179L, 193L, 185L, 181L, 141L, 153L),
-              `2B` = c(5L, 2L, 41L, 23L, 24L, 31L, 36L, 27L, 22L),
-              `3B` = c(0L, 0L, 5L, 4L, 4L, 4L, 3L, 2L, 1L),
-                HR = c(0L, 1L, 13L, 25L, 16L, 17L, 13L, 21L, 12L),
-               RBI = c(5L, 3L, 54L, 80L, 84L, 91L, 71L, 68L, 73L),
-                SB = c(3L, 0L, 29L, 49L, 35L, 39L, 11L, 12L, 21L),
-                CS = c(2L, 2L, 7L, 9L, 3L, 4L, 4L, 1L, 1L),
-                BB = c(3L, 2L, 51L, 68L, 56L, 62L, 43L, 45L, 54L),
-                SO = c(11L, 7L, 53L, 52L, 57L, 36L, 35L, 46L, 36L),
-                BA = c(0.253,0.188,0.385,0.342,
-                       0.356,0.345,0.358,0.343,0.387),
-               OBP = c(0.276,0.212,0.445,0.432,
-                       0.422,0.414,0.414,0.412,0.46),
-               SLG = c(0.305,0.266,0.549,0.544,
-                       0.504,0.513,0.518,0.572,0.539),
-               OPS = c(0.581,0.478,0.994,0.976,
-                       0.926,0.927,0.932,0.984,0.999),
-                TB = c(29L, 17L, 300L, 285L, 273L, 275L, 262L, 235L, 213L),
-               GDP = c(0L, 2L, 3L, 7L, 8L, 10L, 21L, 5L, 3L),
-               HBP = c(0L, 0L, 10L, 18L, 9L, 4L, 7L, 7L, 4L),
-                SH = c(1L, 1L, 7L, 0L, 0L, 0L, 0L, 0L, 0L),
-                SF = c(0L, 0L, 2L, 3L, 4L, 5L, 2L, 5L, 6L),
-               IBB = c(0L, 0L, 8L, 17L, 13L, 14L, 15L, 15L, 16L)
-)data.frame(
-  stringsAsFactors = FALSE,
-       check.names = FALSE,
-               Year = c(1992L,1993L,1994L,1995L,
-                        1996L,1997L,1998L,1999L,2000L),
-               Age = c(18L, 19L, 20L, 21L, 22L, 23L, 24L, 25L, 26L),
-            AgeDif = c(-10.8, -10.1, -9.1, -7.6, -6.5, -4.9, -4.1, -2.9, -2.6),
-                 Tm = c("Orix","Orix","Orix",
-                        "Orix","Orix","Orix","Orix","Orix","Orix"),
-                 Lg = c("JPPL","JPPL","JPPL",
-                        "JPPL","JPPL","JPPL","JPPL","JPPL","JPPL"),
-                Lev = c("Fgn","Fgn","Fgn","Fgn",
-                        "Fgn","Fgn","Fgn","Fgn","Fgn"),
-               Aff = c(NA, NA, NA, NA, NA, NA, NA, NA, NA),
-                 G = c(40L, 43L, 130L, 130L, 130L, 135L, 135L, 103L, 105L),
-                PA = c(99L, 67L, 616L, 613L, 611L, 607L, 558L, 468L, 459L),
-                AB = c(95L, 64L, 546L, 524L, 542L, 536L, 506L, 411L, 395L),
-                 R = c(9L, 4L, 111L, 104L, 104L, 94L, 79L, 80L, 73L),
-                 H = c(24L, 12L, 210L, 179L, 193L, 185L, 181L, 141L, 153L),
-              `2B` = c(5L, 2L, 41L, 23L, 24L, 31L, 36L, 27L, 22L),
-              `3B` = c(0L, 0L, 5L, 4L, 4L, 4L, 3L, 2L, 1L),
-                HR = c(0L, 1L, 13L, 25L, 16L, 17L, 13L, 21L, 12L),
-               RBI = c(5L, 3L, 54L, 80L, 84L, 91L, 71L, 68L, 73L),
-                SB = c(3L, 0L, 29L, 49L, 35L, 39L, 11L, 12L, 21L),
-                CS = c(2L, 2L, 7L, 9L, 3L, 4L, 4L, 1L, 1L),
-                BB = c(3L, 2L, 51L, 68L, 56L, 62L, 43L, 45L, 54L),
-                SO = c(11L, 7L, 53L, 52L, 57L, 36L, 35L, 46L, 36L),
-                 BA = c(0.253,0.188,0.385,0.342,
-                        0.356,0.345,0.358,0.343,0.387),
-                OBP = c(0.276,0.212,0.445,0.432,
-                        0.422,0.414,0.414,0.412,0.46),
-                SLG = c(0.305,0.266,0.549,0.544,
-                        0.504,0.513,0.518,0.572,0.539),
-                OPS = c(0.581,0.478,0.994,0.976,
-                        0.926,0.927,0.932,0.984,0.999),
-                TB = c(29L, 17L, 300L, 285L, 273L, 275L, 262L, 235L, 213L),
-               GDP = c(0L, 2L, 3L, 7L, 8L, 10L, 21L, 5L, 3L),
-               HBP = c(0L, 0L, 10L, 18L, 9L, 4L, 7L, 7L, 4L),
-                SH = c(1L, 1L, 7L, 0L, 0L, 0L, 0L, 0L, 0L),
-                SF = c(0L, 0L, 2L, 3L, 4L, 5L, 2L, 5L, 6L),
-               IBB = c(0L, 0L, 8L, 17L, 13L, 14L, 15L, 15L, 16L)
- )
+hyun <- tibble::tribble(
+  ~Year, ~Age,   ~Tm,  ~Lg,  ~W, ~L, ~`W-L%`,  ~ERA,  ~G, ~GS, ~GF, ~CG, ~SHO, ~SV,   ~IP,   ~H,  ~R, ~ER, ~HR, ~BB, ~IBB,  ~SO, ~HBP, ~BK, ~WP,  ~BF, ~`ERA+`, ~FIP, ~WHIP,  ~H9, ~HR9, ~BB9, ~SO9, ~`SO/W`,           ~Awards,
+  2013L,  26L, "LAD", "NL", 14L, 8L,   0.636,     3, 30L, 30L,  0L,  2L,   1L,  0L,   192, 182L, 67L, 64L, 15L, 49L,   4L, 154L,   1L,  0L,  5L, 783L,    119L, 3.24, 1.203,  8.5,  0.7,  2.3,  7.2,    3.14,           "RoY-4",
+  2014L,  27L, "LAD", "NL", 14L, 7L,   0.667,  3.38, 26L, 26L,  0L,  0L,   0L,  0L,   152, 152L, 60L, 57L,  8L, 29L,   2L, 139L,   3L,  0L,  2L, 631L,    103L, 2.62, 1.191,    9,  0.5,  1.7,  8.2,    4.79,                NA,
+  2016L,  29L, "LAD", "NL",  0L, 1L,       0, 11.57,  1L,  1L,  0L,  0L,   0L,  0L,   4.2,   8L,  6L,  6L,  1L,  2L,   1L,   4L,   0L,  0L,  0L,  24L,     37L,  5.5, 2.143, 15.4,  1.9,  3.9,  7.7,       2,                NA,
+  2017L,  30L, "LAD", "NL",  5L, 9L,   0.357,  3.77, 25L, 24L,  1L,  0L,   0L,  1L, 126.2, 128L, 58L, 53L, 22L, 45L,   3L, 116L,   4L,  1L,  4L, 541L,    110L, 4.74, 1.366,  9.1,  1.6,  3.2,  8.2,    2.58,                NA,
+  2018L,  31L, "LAD", "NL",  7L, 3L,     0.7,  1.97, 15L, 15L,  0L,  0L,   0L,  0L,  82.1,  68L, 23L, 18L,  9L, 15L,   1L,  89L,   1L,  0L,  0L, 324L,    198L,    3, 1.008,  7.4,    1,  1.6,  9.7,    5.93,                NA,
+  2019L,  32L, "LAD", "NL", 14L, 5L,   0.737,  2.32, 29L, 29L,  0L,  1L,   1L,  0L, 182.2, 160L, 53L, 47L, 17L, 24L,   2L, 163L,   4L,  0L,  0L, 723L,    179L,  3.1, 1.007,  7.9,  0.8,  1.2,    8,    6.79, "AS,CYA-2,MVP-19",
+  2020L,  33L, "TOR", "AL",  3L, 1L,    0.75,  3.19,  9L,  9L,  0L,  0L,   0L,  0L,    48,  41L, 19L, 17L,  6L, 14L,   0L,  53L,   1L,  0L,  1L, 198L,    143L, 3.55, 1.146,  7.7,  1.1,  2.6,  9.9,    3.79,                NA
+  )
 
-data.frame(
-  stringsAsFactors = FALSE,
-       check.names = FALSE,
-              Year = c(1992L,1993L,1994L,1995L,
-                       1996L,1997L,1998L,1999L,2000L),
-               Age = c(18L, 19L, 20L, 21L, 22L, 23L, 24L, 25L, 26L),
-            AgeDif = c(-10.8, -10.1, -9.1, -7.6, -6.5, -4.9, -4.1, -2.9, -2.6),
-                Tm = c("Orix","Orix","Orix","Orix",
-                       "Orix","Orix","Orix","Orix","Orix"),
-                Lg = c("JPPL","JPPL","JPPL","JPPL",
-                       "JPPL","JPPL","JPPL","JPPL","JPPL"),
-               Lev = c("Fgn","Fgn","Fgn","Fgn",
-                       "Fgn","Fgn","Fgn","Fgn","Fgn"),
-               Aff = c(NA, NA, NA, NA, NA, NA, NA, NA, NA),
-                 G = c(40L, 43L, 130L, 130L, 130L, 135L, 135L, 103L, 105L),
-                PA = c(99L, 67L, 616L, 613L, 611L, 607L, 558L, 468L, 459L),
-                AB = c(95L, 64L, 546L, 524L, 542L, 536L, 506L, 411L, 395L),
-                 R = c(9L, 4L, 111L, 104L, 104L, 94L, 79L, 80L, 73L),
-                 H = c(24L, 12L, 210L, 179L, 193L, 185L, 181L, 141L, 153L),
-              `2B` = c(5L, 2L, 41L, 23L, 24L, 31L, 36L, 27L, 22L),
-              `3B` = c(0L, 0L, 5L, 4L, 4L, 4L, 3L, 2L, 1L),
-                HR = c(0L, 1L, 13L, 25L, 16L, 17L, 13L, 21L, 12L),
-               RBI = c(5L, 3L, 54L, 80L, 84L, 91L, 71L, 68L, 73L),
-                SB = c(3L, 0L, 29L, 49L, 35L, 39L, 11L, 12L, 21L),
-                CS = c(2L, 2L, 7L, 9L, 3L, 4L, 4L, 1L, 1L),
-                BB = c(3L, 2L, 51L, 68L, 56L, 62L, 43L, 45L, 54L),
-                SO = c(11L, 7L, 53L, 52L, 57L, 36L, 35L, 46L, 36L),
-                BA = c(0.253,0.188,0.385,0.342,
-                       0.356,0.345,0.358,0.343,0.387),
-               OBP = c(0.276,0.212,0.445,0.432,
-                       0.422,0.414,0.414,0.412,0.46),
-               SLG = c(0.305,0.266,0.549,0.544,
-                       0.504,0.513,0.518,0.572,0.539),
-               OPS = c(0.581,0.478,0.994,0.976,
-                       0.926,0.927,0.932,0.984,0.999),
-                TB = c(29L, 17L, 300L, 285L, 273L, 275L, 262L, 235L, 213L),
-               GDP = c(0L, 2L, 3L, 7L, 8L, 10L, 21L, 5L, 3L),
-               HBP = c(0L, 0L, 10L, 18L, 9L, 4L, 7L, 7L, 4L),
-                SH = c(1L, 1L, 7L, 0L, 0L, 0L, 0L, 0L, 0L),
-                SF = c(0L, 0L, 2L, 3L, 4L, 5L, 2L, 5L, 6L),
-               IBB = c(0L, 0L, 8L, 17L, 13L, 14L, 15L, 15L, 16L)
-)
+
+```
+
+
+Note that not all tables will paste elegantly! Using {datapasta} to paste the latest COVID-19 data in the "Reported Cases and Deaths by Country, Territory, or Conveyance" table at worldometers.info  https://www.worldometers.info/coronavirus/ doesn't work very well. 
+
+* It seems the header row gets split in two
+
+* The first row (with the total for the World) has many missing values.
+
+* The numbers with commas get read as characters (the commas are in the paste)
+
+Excel does a better job of interpreting the table! So your solution might be to paste the table into Excel and then read the Excel results.
+
+```{r}
+tibble::tribble(
+       ~Other,        ~Total,
+      "Cases",         "New",
+      "Cases",       "Total",
+     "Deaths",         "New",
+     "Deaths",       "Total",
+  "Recovered",      "Active",
+      "Cases",    "Serious,",
+   "Critical",  "Tot Cases/",
+     "1M pop",     "Deaths/",
+     "1M pop",       "Total",
+      "Tests",      "Tests/",
+     "1M pop",  "Population",
+      "World",  "28,931,434",
+   "+282,391",     "924,080",
+     "+4,983",  "20,800,209",
+  "7,207,145",      "60,887",
+      "3,712",       "118.6",
+           NA,            NA,
+          "1",         "USA",
+  "6,676,601",     "+39,282",
+    "198,128",        "+707",
+  "3,950,354",   "2,528,119",
+     "14,366",      "20,147",
+        "598",  "91,703,503",
+    "276,720", "331,393,984"
+  )
 
 
 ```
@@ -209,12 +179,6 @@ data.frame(
 
 
 More "how to datapasta" https://milesmcbain.github.io/datapasta/articles/how-to-datapasta.html
-
-
-## Lesson: Introduction to webscraping
-
-Library Carpentry, https://librarycarpentry.org/lc-webscraping/
-
 
 
 
