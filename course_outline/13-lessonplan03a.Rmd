@@ -30,7 +30,7 @@ At the end of the first part of this lesson, learners will:
 
 At the end of the second part of this lesson, learners will:
 
-1. Demonstrate an understanding of tools and techniques to programatically identify and correct problems with data.
+1. Demonstrate an understanding of tools and techniques to programatically identify and correct problems (that is, clean) data.
 
 
 ***

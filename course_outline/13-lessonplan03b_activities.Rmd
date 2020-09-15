@@ -27,6 +27,10 @@ Format: breakout rooms
 
 Time allocation: 15 minutes (9:15 to 9:30)
 
+Question to discuss: 
+
+* What was one thing in the assignment that you might still wonder about?
+
 
 
 ### 1b. The nature of bad data 
