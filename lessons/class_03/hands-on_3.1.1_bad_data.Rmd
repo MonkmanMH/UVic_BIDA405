@@ -48,7 +48,87 @@ What are common dirty data problems?
 See [@Zumel_Mount_2019, chapters 3 and 4]
 
 
+The first challenge: how do we find these things?
 
+The second challenge: what can and should we do about them?
+
+
+## Identifying dirty data
+
+There are some approaches to finding problems in the data that can be automated (done programmatically). These are sometimes called "data validation" methods; they can be applied when the data is collected (for example, in a web-based survey tool) or after the data has been collected.
+
+The analyst can specify parameters prior to it being made available for the next steps. These can be expressed as rules or assumptions, and are based on knowledge of the subject. 
+
+^[Mark van der Loo and Edwin de Jonge, [_Statistical Data Cleaning with Applications in R_, Chapter 6: Data Validation](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600297427&id=39EE56C0062775092344911C1657C64468AFDE9B)]
+
+* A field such as postal code has to be structured in a certain way (this is where your regex skills come in)
+
+* A value might have a certain range 
+
+* Some values, such as age, have to be positive
+
+* There might be a known relationship between two or more variables
+
+
+### The {validate} package
+
+As with other data analysis topics, people in the R user community have confronted the problem of dirty data, and have written and shared functions to help the rest of us. The {validate} package was written and is supported by two of the methodologists at Statistics Netherlands.
+
+The first function we will investigate is `check_that`, using the data in {palmerpenguins}
+
+```{r setup}
+library(tidyverse)
+
+library(palmerpenguins)
+library(validate)
+
+
+```
+
+
+Range: we know, being experts on all things penguin, that gentoo penguins are the third largest of the penguin species, and can weigh up to 8.5 kg. So we might want to see if we have any records with penguins with a body mass of more than 8500 grams. 
+
+```{r}
+
+check_penguins <- check_that(penguins, body_mass_g <= 8500)
+
+summary(check_penguins)
+
+```
+
+What we see is that none of the penguins have a body mass of greater than 8500 grams, and there are 2 "NA" values in the data.
+
+
+Relationship: 
+
+While the heaviest gentoo penguins can be up to 8.5 kg, it is very unusual to find an Adélie or Chinstrap penguin that weighs more than 5 kg.
+
+In our script, we use an `if()` statement that filters out the gentoo penguins, then checks the body mass.
+
+```{r}
+
+check_penguins <- check_that(penguins, 
+                             if (species != "Gentoo") body_mass_g <= 5000)
+
+summary(check_penguins)
+
+```
+
+In addition to telling us that there are 61 records where the value in the `body_mass_g` variable is greater than 5000 grams, it is also letting us know that there is 1 `NA` values.
+
+Let's explore the data a bit more...if we filter our penguins by size, what do we see?
+
+```{r}
+penguins %>%
+  filter(body_mass_g > 5000) %>% 
+  distinct(species)
+
+```
+
+So this is 
+
+
+Relationship: we know that some species have only been measured on one of the three islands. Gentoo penguins have only been sampled on Biscoe Island, and chinstrap penguins in our sample come only from Dream Island.
 
 
 ## REFERENCE MATERIAL
