@@ -82,6 +82,8 @@ library(tidyverse)
 library(palmerpenguins)
 library(validate)
 
+penguins
+
 ```
 
 
@@ -170,9 +172,9 @@ summary(check_penguins)
 We can also test against a list:
 
 ```{r}
-adelie_islands <- c("Biscoe", "Dream", "Torgersen")
+island_list <- c("Biscoe", "Dream", "Torgersen")
 
-check_penguins <- check_that(penguins, if (species == "Adelie") island %in% adelie_islands)
+check_penguins <- check_that(penguins, if (species == "Adelie") island %in% island_list)
 
 summary(check_penguins)
 
@@ -187,7 +189,7 @@ Year
 
 ```{r}
 
-check_penguins <- check_that(penguins, year < 2007 | year > 2009)
+check_penguins <- check_that(penguins, year >= 2007 & year <= 2009)
 summary(check_penguins)
 
 ```
@@ -203,6 +205,19 @@ summary(check_penguins)
 The output gives us the number of cases in that year in the `passes` the test, and the number of cases that are not in that year in the `fails`.
 
 
+
+```{r}
+reallybadpenguins <- read_rds(here::here("data", "reallybadpenguins.rds"))
+
+check_penguins <- check_that(reallybadpenguins, year >= 2007 & year <= 2009)
+summary(check_penguins)
+
+```
+
+```{r}
+check_penguins <- check_that(reallybadpenguins, island %in% island_list)
+summary(check_penguins)
+```
 
 
 ## REFERENCE MATERIAL
