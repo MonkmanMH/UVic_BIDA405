@@ -82,7 +82,6 @@ library(tidyverse)
 library(palmerpenguins)
 library(validate)
 
-
 ```
 
 
@@ -125,10 +124,85 @@ penguins %>%
 
 ```
 
-So this is 
+So this is confirms that all of the heavier penguins are gentoo, meeting our expectations.
 
 
-Relationship: we know that some species have only been measured on one of the three islands. Gentoo penguins have only been sampled on Biscoe Island, and chinstrap penguins in our sample come only from Dream Island.
+Relationship: we know that some species have only been measured on one of the three islands. Gentoo penguins have only been sampled on Biscoe Island, and chinstrap penguins in our sample come only from Dream Island. Does the data reflect that?
+
+In the first test, if it's not a gentoo it gets included in the `passes`--and if it is a gentoo, it has to be on Biscoe Island to get a pass.
+
+
+```{r}
+
+check_penguins <- check_that(penguins, 
+                             g = if (species == "Gentoo") island == "Biscoe",
+                             c = if  (species == "Chinstrap") island == "Dream")
+
+summary(check_penguins)
+
+```
+
+Both tests have all of the cases pass, and none fail. 
+
+We could have written code to generate a summary table to check this. In many cases, however, there will be too many cases to investigate.
+
+```{r}
+penguins %>% 
+  group_by(species, island) %>% 
+  tally
+```
+
+A single test could be written using the "OR" operator `|`.
+
+```{r}
+
+check_penguins <- check_that(penguins, 
+                             if (species == "Gentoo") island == "Biscoe" &
+                             if  (species == "Chinstrap") island == "Dream")
+
+summary(check_penguins)
+
+
+
+```
+
+
+We can also test against a list:
+
+```{r}
+adelie_islands <- c("Biscoe", "Dream", "Torgersen")
+
+check_penguins <- check_that(penguins, if (species == "Adelie") island %in% adelie_islands)
+
+summary(check_penguins)
+
+
+```
+
+_What happens if we fail to include Dream Island in our list of islands where Adélie penguins are found?_
+
+
+
+Year
+
+```{r}
+
+check_penguins <- check_that(penguins, year < 2007 | year > 2009)
+summary(check_penguins)
+
+```
+
+What if we check for a single year?
+
+```{r}
+check_penguins <- check_that(penguins, year == 2009)
+summary(check_penguins)
+
+```
+
+The output gives us the number of cases in that year in the `passes` the test, and the number of cases that are not in that year in the `fails`.
+
+
 
 
 ## REFERENCE MATERIAL
