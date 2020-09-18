@@ -12,7 +12,47 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 
 # Getting started
 
-We've read in our raw data. The next step is to make sure that the data is what we expect, and what we need for our analysis. We need to _clean the data_. Which doesn't sound like a lot of fun. Didn't we want to be data scientists or business intelligence experts or academic scientists to uncover the insights hiding in the data? 
+We've read in our raw data. The next step is to make sure that the data is what we expect, and what we need for our analysis. That is , what is the data's _quality_.
+
+There is quite a lot of literature on how to define data quality; the concepts in the hierarchical dimensions described by Wang, Reddy and Kon ^[Richard Y. Wang, M.P. Reddy and Henry B. Kon, "Toward quality data: An attribute-based approach", _Decision Support Systems_, 13 (1995) 349-372] is as follows:
+
+* Accessible
+
+  - Available
+  
+* Interpretable
+
+  - Syntax
+  
+  - Semantics
+  
+* Useful
+
+  - Relevant
+  
+  - Timely
+  
+    - Current
+    
+    - Non-volatile
+    
+* Believable
+
+  - Complete
+  
+  - Consistent
+  
+  - From a credible source
+  
+  - Accurate
+  
+
+
+
+
+
+
+We need to _clean the data_. Which doesn't sound like a lot of fun. Didn't we want to be data scientists or business intelligence experts or academic scientists to uncover the insights hiding in the data? 
 
 > The act of cleaning data imposes values/judgments/interpretations upon data intended to allow downstream analysis algorithms to function and give results. That’s exactly the same as doing data analysis. In fact, “cleaning” is just a spectrum of reusable data transformations on the path towards doing a full data analysis. —Randy Au, 2020-09-15 ^[["Data Cleaning IS Analysis, Not Grunt Work"](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt)]
 
