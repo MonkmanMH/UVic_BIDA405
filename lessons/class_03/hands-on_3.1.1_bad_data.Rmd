@@ -281,6 +281,20 @@ summary(check_penguins)
 _What happens if we fail to include Dream Island in our list of islands where Adélie penguins are found?_
 
 
+{validator} also allows us to check variable types. Because R stores a dataframe column as a single type, this returns only one pass/fail evaluation.
+
+```{r}
+
+penguins
+
+is.integer(penguins$year)
+
+summary(check_that(penguins, is.integer(year)))
+
+```
+
+### badpenguins
+
 I changed the penguins data by adding five fictional penguins, and added some measurement data for them. Let's load the data file "badpenguins.rds" (an R data file) and run a couple of the tests we used earlier:
 
 
@@ -298,8 +312,38 @@ check_penguins <- check_that(badpenguins, island %in% island_list)
 summary(check_penguins)
 ```
 
-In both cases, we get 5 "fails". How can we check which records have failed? {validate} provides another function, `confront()`, which provides a detailed record-by-record account of which records have failed our test.
+In both cases, we get 5 "fails". How can we check which records have failed? {validate} provides two other functions, `validator()` and `confront()`, which is a way to generatea detailed record-by-record account of which records have failed our test.
 
+First, we assign our tests using `validator()`
+
+
+```{r}
+
+v <- validator(
+  island %in% island_list,
+  year >= 2007 & year <= 2009,
+  body_mass_g <= 8500
+)
+
+```
+
+
+```{r}
+
+cf <- confront(badpenguins, v)
+
+cf
+```
+
+Let's look at the last ten rows in our `badpenguins` data. Rows 340 through 344 are original to the clean `penguins` dataset; 345 through 349 are the ones I added. The first one fails on all 3 tests, while the others fail on the first two but have "NA" values for the remainder.
+
+```{r}
+
+tail(values(cf), 10)
+
+```
+
+We can identify each of the rows where we have a failed test using a filter:
 
 
 
