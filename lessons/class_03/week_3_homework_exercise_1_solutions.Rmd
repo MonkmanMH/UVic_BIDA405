@@ -16,7 +16,7 @@ library(validate)
 
 # Using {validate} 
 
-Load the `retailer` data (housed in the {validate} package)
+Load the `retailers` data (housed in the {validate} package)
 
 ```{r}
 
@@ -24,4 +24,84 @@ data(retailers)
 
 ```
 
+
+Check the following assumptions:
+
+* Turnover is larger than or equal to zero (Turnover can't be a negative number)
+
+* The costs per staff are below 50,000 (This is a "sanity check"--in general in the retail sector, we would expect costs to be below this threshold)
+
+```{r}
+
+cf <- check_that(retailers, turnover > 0, staff.costs/staff < 50)
+summary(cf)
+
+```
+
+
+> Q1. Summarize what this table is telling us.
+
+
+Now we will create an object using the `validator()` function, with the two tests above plus three more: 
+
+```{r}
+
+v <- validator(
+    turnover > 0
+  , staff.costs / staff < 50
+  , total.costs >= 0
+  , staff >= 0
+  , turnover + other.rev == total.rev
+)
+v
+
+```
+
+> Q2. Write a text description of the three additional tests
+
+
+> Q3. Create a single `validator()` object for the `retailers` dataset with the following rules:
+>
+>* Non-negativity for the variables `staff`, `staff.cost`, and `total.cost`
+>
+>* `if (staff > 0) staff.cost > 0`
+>
+>* The total cost must be larger than or equal to the staff cost
+>
+
+## Solution
+
+```{r}
+
+Q3v <- validator(
+    staff > 0,
+    staff.costs > 0,
+    total.costs > 0,
+    if (staff > 0) staff.cost > 0,
+    total.costs >= staff.costs)
+
+cf_retail <- confront(retailers, Q3v)
+
+cf_retail
+
+summary(cf_retail)
+```
+
+
+
+>Confront this validator object with the `retailers` dataset and summarize the result with `summary`. Answer >the following questions:
+>
+>Q4a. Which rule is violated most often?
+>
+>Q4b. Which rule resulted in the most missings?
+
+V5, total cost > staff costs (it combines the missings from both variables)
+
+>
+>Q4c. Discuss the expression for the conditional rule on `staff` and `staff.cost`
+
+The variable is `staff.costs` with an "s" at the end, so the typo is throwing an error
+
+
+ 
 
