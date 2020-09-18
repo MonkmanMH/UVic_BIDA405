@@ -1,6 +1,6 @@
 ---
 title: "BIDA 405 - week 3"
-subtitle: "homework exercise #3: solutions"
+subtitle: "homework assignment #3: solutions"
 author: "Martin Monkman"
 date: "2020/09/20"
 output: html_notebook
@@ -18,6 +18,8 @@ library(validate)
 
 Load the `retailers` data (housed in the {validate} package)
 
+(Note that we use the function `data()` to access data tables that are included in an R package.)
+
 ```{r}
 
 data(retailers)
@@ -25,7 +27,7 @@ data(retailers)
 ```
 
 
-Check the following assumptions:
+Use the `check_that()` function to check the following assumptions:
 
 * Turnover is larger than or equal to zero (Turnover can't be a negative number)
 
@@ -46,18 +48,31 @@ Now we will create an object using the `validator()` function, with the two test
 
 ```{r}
 
-v <- validator(
-    turnover > 0
-  , staff.costs / staff < 50
-  , total.costs >= 0
-  , staff >= 0
-  , turnover + other.rev == total.rev
+val_retail <- validator(
+    turnover > 0, staff.costs / staff < 50,
+    total.costs >= 0,
+    staff >= 0,
+    turnover + other.rev == total.rev
 )
-v
+
+val_retail
 
 ```
 
-> Q2. Write a text description of the three additional tests
+> Q2a. Write a text description of the three additional tests
+
+> Q2b. Run the validator scripts against the `retailers` data, and write a short text description of the passes, fails and NAs of each test
+
+```{r}
+
+cf <- confront(retailers, val_retail)
+cf
+
+summary(cf)
+
+```
+
+
 
 
 > Q3. Create a single `validator()` object for the `retailers` dataset with the following rules:
