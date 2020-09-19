@@ -52,7 +52,27 @@ class: inverse
 ## Bad Data: some examples
 
 * Column headers are values, not variable names
-* Changing type of data (a column of numbers gets stored as character because some have commas)
+* Changing type of data (a column of numbers has two or more variable types in it)
+
+---
+class: inverse
+
+## Bad Data: an example
+
+![BC COVID data](bc_covid_2020-08-24.jpg)
+
+BCCDC data
+
+???
+
+https://github.com/jeanpaulrsoucy/covid-19-canada-gov-data/blob/master/bc/case-data/BCCDC_COVID19_Dashboard_Case_Details_2020-08-24_20-45.csv
+
+---
+class: inverse
+
+## Bad Data: other examples
+
+
 * Multiple variables are stored in one column
 * Misspellings (typing errors)
 
@@ -98,10 +118,17 @@ class: inverse
 
 ## Validation
 
-
+>"Data validation is an activity that consists of verifying whether a collection of values comes from a set of predefined collections of values."
+>—Mark van der Loo
 
 ---
 class: inverse
 
 
-## A last slide
+## A human in the loop
+
+![BC population 2015](BC_population_2015_600.png)
+
+???
+
+BC Stats
