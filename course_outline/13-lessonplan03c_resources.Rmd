@@ -27,7 +27,7 @@ Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, C
 
 Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_ (2018):
 
-* Chapter 11, "Example: A Small Data-Cleaning System"
+* Chapter 6, "Data Validation" (sections 6.1-6.2)
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/c11.xhtml#c11)
 

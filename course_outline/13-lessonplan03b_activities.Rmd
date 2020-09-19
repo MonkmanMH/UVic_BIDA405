@@ -29,7 +29,7 @@ Time allocation: 15 minutes (9:15 to 9:30)
 
 Question to discuss: 
 
-* What was one thing in the assignment that you might still wonder about?
+* What was one thing in the week 1 assignment or week 2 exercise that you might still wonder about?
 
 
 
@@ -40,8 +40,7 @@ _Data quality_
 
 Format: instructor, lecture w/slides
 
-Time allocation: 15 minutes (10:45 to 11:00)
-
+Time allocation: 15 minutes (9:45 to 10:15)
 
 
 Format: hands-on exercise, learner (instructor guided)
@@ -68,23 +67,46 @@ _Demonstrate..._
 
 Format: instructor lecture w/ slides
 
-Time allocation: 15 minutes (9:30 to 10:30)
+Time allocation: 15 minutes (10:45 to 11:00)
 
 
 Format: hands-on exercise
 
-Time allocation: 45 minutes (9:45 to 10:30)
+Time allocation: 45 minutes (11:00 to 11:45)
 
 
   - R exercise
   
 
-### 2b. Homework - Readings: Data quality
+### 2b. Homework - Readings: Naming things
 
 Format: instructor, lecture w/slides
 
 Time allocation: 15 minutes (11:45 to 11:00)
 
+I have learned the hard way that being organized and having a system for naming files pay benefits now and in the future. It can also help the people you collaborate with—they can find your files more easily, and they can easily locate the elements of your project that they need.
+
+> Your closest collaborator is you six months ago, but you don't reply to emails.
+— Karl Broman
+
+_You_ will be the beneficiary of a more organized and systematic workflow. Even if you never come back to a project in the future, if you are organized and name things well now, it will help avoid the future with a dark timeline.
+
+
+
+> File organization and naming are powerful weapons against chaos.
+— Jenny Bryan
+
+Please read Karl Broman, "Tools for Reproducible Research: Organizing projects; exploratory data analysis":
+https://kbroman.org/Tools4RR/assets/lectures/06_org_eda_withnotes.pdf
+
+* What are the three steps of the basic principles that Broman emphasizes?
+
+> There are only two hard things in Computer Science: cache invalidation and naming things.
+— Phil Karlton from Martin Fowler
+
+Please read Jenny Bryan, "Naming Things", presentation to Reproducible Science Workshop: https://speakerdeck.com/jennybc/how-to-name-files
+
+* What are the three principles for file names?  Be ready to explain in your own words what the three principles mean.
 
 
 ***
@@ -94,7 +116,7 @@ Time allocation: 15 minutes (11:45 to 11:00)
 2020-09-20
 
 
-### 3a. Discussion - Readings: Data quality
+### 3a. Discussion - Readings: Naming things
 
 Format: instructor lecture w/ slides
 
@@ -135,8 +157,6 @@ Time allocation: 15 minutes (10:30 to 10:45)
 ***
 
 ### 4a. Data cleaning - tools and techniques
-
-_Reading data from a webpage_
 
 
 Format: instructor, lecture w/slides
