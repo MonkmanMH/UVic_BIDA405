@@ -113,7 +113,7 @@ So what are we doing when we say we are "cleaning the data"? And how can we conf
 **The second challenge**: what can and should we do about them?
 
 
-## Identifying dirty data
+## Exploratory data analysis
 
 One way to identify dirty data is through the process of _exploratory data analysis_ (EDA). This consists of two groups of techniques:
 
@@ -121,16 +121,12 @@ One way to identify dirty data is through the process of _exploratory data analy
 
 * data visualization
 
-## Summary statistics
+### Summary statistics
 
 ```{r}
 
 library(tidyverse)
 
-```
-
-
-```{r}
 # read in the data
 customer_data <- readRDS("custdata.RDS")
 
@@ -152,7 +148,7 @@ The things to look for:
 summary(customer_data)
 ```
 
-## Data visualization
+### Data visualization
 
 A plot can show us a wealth of information that cannot be expressed in the summary statistics. Here's the `age` variable from the customer data:
 
