@@ -1,6 +1,6 @@
 ---
-title: "data_cleaning_definition"
-author: "Martin Monkman"
+title: ""
+author: ""
 date: "15/09/2020"
 output: html_document
 ---
@@ -10,19 +10,25 @@ output: html_document
 https://sk-sagepub-com.ezproxy.library.uvic.ca/reference/the-sage-encyclopedia-of-communication-research-methods/i3980.xml
 
 Data Cleaning
+
 By: Karina L. Willes
+
 In: The SAGE Encyclopedia of Communication Research Methods
+
 Edited by: Mike Allen
+
 Subject:Communication Research Methods (general)
-icon eyeShow page numbers
-Data cleaning, data cleansing, or data scrubbing is the process of improving the quality of data by correcting inaccurate records from a record set. The term specifically refers to detecting and modifying, replacing, or deleting incomplete, incorrect, improperly formatted, duplicated, or irrelevant records, otherwise referred to as “dirty data,” within a database. Data cleaning also includes removing duplicated data within a database.
+
+**Data cleaning, data cleansing, or data scrubbing** is the process of improving the quality of data by correcting inaccurate records from a record set. The term specifically refers to detecting and modifying, replacing, or deleting incomplete, incorrect, improperly formatted, duplicated, or irrelevant records, otherwise referred to as “dirty data,” within a database. Data cleaning also includes removing duplicated data within a database.
 
 Data provided for communication research often rely on manual data entry, performed by humans, and therefore are subject to error introduction. Because of this manual process, the data require cleaning. The need for such cleaning increases when data come from multiple sources and a standard schema was not used across sources. The goal of data cleaning is to provide a data set that is consistent enough to allow for accurate analysis. The original intent and meaning of the information provided by the participant are not altered but rather inconsistencies caused by data transmission problems, the use of different definitions in different data stores, and user entry errors are addressed to remove or manage the inconsistent data. This entry introduces the data cleansing process, including its manual and computer-assisted approaches, and further discusses the difference between data cleansing and data validation.
 
-The Data Cleansing Process
+**The Data Cleansing Process**
+
 To begin, cleaning data involves reviewing data to identify inconsistencies. Inconsistent or incorrect data could be caused by typographical errors, misspellings, or incomplete answers. The inconsistent data are validated against a known list of options. With strict validation, any records containing invalid responses are removed completely from the record set. If fuzzy validation is acceptable, the data are corrected when a close match or known answer is available. For example, under fuzzy validation, if a research participant provides an e-mail address such as JSmith@college.edw, the researcher changes the e-mail address to JSmith@college.edu knowing that the original e-mail address provided contained an invalid suffix. Under strict validation, the invalid e-mail address would be removed from the record set.
 
-Common Practices and Approach
+**Common Practices and Approach**
+
 A typical approach to cleaning data begins on the broadest possible level. To begin, the effort focuses on detecting and removing all major inconsistencies in the data. As the major errors are corrected, it becomes easier to perform a more detailed analysis of the remaining dirty data. The first step to data cleaning is analysis (e.g., detecting errors and inconsistencies that require attention). The second step is to determine the codes to be used to map the source data to the common or standard codes. The third step entails testing the transformation of the data using the standard codes on a subset of data to ensure the expected results when applied to the entire dataset. The final step is the transformation of the data using the standard codes. During this final step, the faulty data are removed or transformed, changing the incorrect data to the correct values based on the standard data model.
 
 One of the primary data cleaning practices is the deduplication of records. In practical terms, if the data exist in a spreadsheet or a data table, this entails sorting the data and scanning for multiple rows with the same data. Should any duplicates exist, the researcher needs to remove all of the duplicate entries leaving only one in the dataset.
@@ -35,14 +41,16 @@ A common practice of data cleaning is standardizing the data, sometimes called h
 
 Another example that is slightly more complex involves the harmonization of data collected by participants who self-identify sexual orientation. If participants self-identify sexual orientation using their own language, the possible responses are numerous: gay, lesbian, homosexual, bisexual, queer, heterosexual, and straight to name only a few possible options. In many cases, standardizing these responses to terms such as homosexual, bisexual, heterosexual, and other provides for easier data analysis, and therefore, it is desired by the researcher.
 
-Computer-Assisted Data Cleaning
+**Computer-Assisted Data Cleaning**
+
 Data cleaning, referred to as data scrubbing by organizations working with large amounts of data, uses software tools to enable the continuous cleaning required to ensure data remain accurate and standardized. These tools provide the mechanisms to systematically update data to ensure consistency.
 
 Computer-assisted data scrubbing includes enhancing the data by adding additional data to complete a record. For example, if a record contains an address, data scrubbing tools may append a zip code and/or the last four digits of a zip code when missing from the entry. Likewise, computer-assisted scrubbing tools may locate associated phone numbers for the address. Some tools add additional information beyond the basic completion of a record, such as finding additional people who live at the address provided in the referenced record.
 
 The use of computer-assisted data cleaning or scrubbing tools expands the capabilities of researchers and database administrators and managers. These tools provide powerful mechanisms to systematically improve the consistency of data within a record set.
 
-Data Cleansing Versus Data Validation
+**Data Cleansing Versus Data Validation**
+
 Data validation, which is also the process of addressing inconsistent or invalid data within a database, happens at the point of data entry. For example, if an online survey is used to collect data from research participants, validation can be set on a particular field of that survey to avoid the introduction of invalid data at its entry point.
 
 Data cleaning, conversely, is a process that occurs after the data have been collected on the entire batch of data in the database. Using effective data validation tools and techniques helps to minimize the amount of data cleaning needed once the data reaches the database.
@@ -51,7 +59,8 @@ Karina L. Willes
 
 See also Data; Data Reduction; Data Transformation; Data Trimming; Databases, Academic
 
-Further Readings
+**Further Readings**
+
 Batrinca, B., & Treleaven, P. C. (2015). Social media analytics: A survey of techniques, tools and platforms. AI & Society, 30(1), 89–116. doi:10.1007/s00146-014-0549-4
 
 Hernández, M. A., & Stolfo, S. J. (1998). Real-world data is dirty: Data cleansing and the Merge/Purge problem. Data Mining and Knowledge Discovery, 2(1), 9–37. doi:10.1023/A:1009761603038

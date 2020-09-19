@@ -1,0 +1,107 @@
+---
+title: "Data Cleaning & Validation"
+subtitle: ""
+author: "Martin Monkman"
+date: "2020/09/19"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* A variety of file types
+* Tweaking the variable type
+
+But the data has all been a-ok (except perhaps for a few "NA" values)
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Cleaning and Validation
+
+---
+class: inverse
+
+
+## Or is it...
+
+## Validation and Cleaning?
+
+---
+class: inverse
+
+## Bad Data: some examples
+
+* Column headers are values, not variable names
+* Changing type of data (a column of numbers gets stored as character because some have commas)
+* Multiple variables are stored in one column
+* Misspellings (typing errors)
+
+---
+class: inverse
+
+## Bad Data: some more examples
+
+* Values don't fit with known reality (e.g. too big or too small) 
+* Value in wrong field (e.g. country entered into city field)
+* Irregularities in unit of measurement (salary field in international survey, filled in as Canadian, U.S., and Australian dollars)
+* Contradiction (for example, two databases with the same person but the date of birth differs)
+
+---
+class: inverse
+
+## Bad Data: even more examples
+
+
+* Field inconsistency (happens a lot with dates with non-ISO8601 format: 07-08-79 and 08-07-79 both have the same digits but one could be mm-dd-yy and the other dd-mm-yy…we just don’t know which is the correct one. Or is one a typo?)
+
+* Logical inconsistency (union dues deducted from non-union staff member)
+
+* Default values in the place of missing values.
+
+
+
+---
+
+class: inverse
+
+## So...we need to find the errors first
+
+## then clean
+
+But note: further analysis of the data might discover other invalid data...
+
+
+
+---
+class: inverse
+
+
+## Validation
+
+
+
+---
+class: inverse
+
+
+## A last slide
