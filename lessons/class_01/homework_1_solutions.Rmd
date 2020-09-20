@@ -124,7 +124,7 @@ _Now, create a dataframe object called "mtcars" by reading in the "mtcars" sheet
 ```{r}
 
 # Solution
-read_excel(datasets, "mtcars")
+mtcars <- read_excel(datasets, "mtcars")
 
 ```
 
@@ -183,6 +183,9 @@ Answers:
 * Times: what time zone will be used to record the time?
 
 * Costs: what is used to separate the thousands and the decimals? 
+
+* GST: inconsistent across provinces
+
 
 
 ## REFERENCE MATERIAL

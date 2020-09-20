@@ -1,0 +1,43 @@
+---
+title: "Validation and cleaning"
+subtitle: "1: cleaning"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+
+
+
+## Cleaning dirty data
+
+
+## REFERENCE MATERIAL
+
+Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_ (2018):
+
+* Chapter 6, "Data Validation" (sections 6.1-6.2)
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/c11.xhtml#c11)
+
+
+
+This example is from Nina Zumel and John Mount _Practical Data Science with R (2nd edition)_:
+
+* Chapter 3 "Exploring Data" and Chapter 4 "Managing Data"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
+
+
+{readr} 
+https://readr.tidyverse.org/
+
+{readxl}
+https://readxl.tidyverse.org/index.html
+
+
