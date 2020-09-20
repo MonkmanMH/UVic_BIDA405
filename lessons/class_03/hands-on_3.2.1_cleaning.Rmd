@@ -22,6 +22,19 @@ library(tidyverse)
 > Cleaning the data is a prerequisite to getting a rock solid understanding of the underlying data.
 — Randy Au
 
+The two things I took from Randy Au's recent article, ["Data Cleaning IS Analysis, Not Grunt Work"](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt) (2020-09-15):
+
+1. Data cleaning is not separate from analysis
+
+2. Data cleaning requires judgment, which in turn requires subject matter knowledge and an understanding of the research question you are trying to answer. As the questions changes, so might the cleaning you need to undertake.
+
+This leads to his conclusion that the "data cleaning" needs to be redefined as "building reusable transformations".
+
+
+***
+
+## Next up:
+
 We have explored the data and found anomalies and missing values, run the validation tests to find cases that are outside the bounds of expected values, and now we have to make some decisions as to how we want to _clean_ the data. Being good data analysts, we know things like extreme cases and missing values can have an impact on our results.
 
 The challenge with cleaning data is that it requires judgment. This judgment in turn requires someone with knowledge of the subject area and the research question to decide what needs to be cleaned, and how.
@@ -49,6 +62,10 @@ This then leads to the conclusion that for one data set, what constitutes clean 
 
 3. Eliminate bias (where you can)
 
+> We want to allow our analysis code to run, control useless variance, eliminate bias, and document for others to use, all in service to the array of potential analyses we want to run in the future.
+— Randy Au
+
+***
 
 ## Some cleaning methods
 
@@ -339,11 +356,6 @@ can_city %>%
   distinct(city, .keep_all = TRUE)
 
 ```
-
-
-### Correcting spelling mistakes
-
-
 
 
 ## REFERENCE MATERIAL
