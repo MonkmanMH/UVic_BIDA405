@@ -110,6 +110,17 @@ diamonds2 <- diamonds %>%
 nrow(diamonds) - nrow(diamonds2)
 ```
 
+There are potential problems with the approach of removing records that have a missing value:
+
+* it might remove many valid and useful values;
+
+* it might leave too little data to be analyzed, particularly if there are many variables with missing values;
+
+* it might introduce selection bias in the resulting data.
+
+^[van der Loo & de Jonge, chapter 7]
+
+
 An other option—which retains the all records, but drops those records from future calculations—is to replace the unusual values with NA.
 
 Important note: this code creates a new dataframe, `diamonds2`
@@ -191,7 +202,8 @@ For example, if one of your variables is income, and you have a few missing case
 
 **Important note:** Use imputation with caution. It may sound like a great way to replace missing values, but if a variable's missingness is _not_ random (for example, older people may be less likely to report their income—retired people many not interpret their pension as "income", so resond with a "not applicable" answer), then imputation will potentially introduce bias into the data.
 
-The methodologies behind different imputation methods are supported by a rich literature; I don't want to discourage you, but only to raise this as a flag.
+The methodologies behind different imputation methods are supported by a rich literature; I don't want to discourage you, but only to raise this as a flag. (For more on imputation, see van der Loo & de Jonge, chapter 10)
+)
 
 In this example, we will create two new variables, based on y, in the diamonds dataframe
 
@@ -224,11 +236,101 @@ diamonds2 %>%
 
 ```
 
-### Normalizing values
-
 
 ### Removing duplicate records
 
+One "dirty data" problem that sometimes occurs, particularly if data tables are combined, is that records end up duplicated. R has some functions to speed this cleaning.
+
+```{r}
+# Generate a vector 
+set.seed(158)
+x <- round(rnorm(20, 10, 5)) #random, normal distribution, 20 cases, mean of 10, s.d. of 5
+
+x1 <- sort(x)
+
+x1
+duplicated(x1)
+
+```
+
+Note that the first instance of a number (e.g. the first 3) returns a FALSE, and the 2nd and subsequent instances return TRUE
+
+Get the values of the duplicated entries
+
+```{r}
+
+# The values of the duplicated entries
+# Note that '6' appears in the original vector three times, and so it has two
+# entries here.
+x[duplicated(x)]
+#> [1] 10  3 11  8 10  8  5  6  6
+
+# Duplicated entries, without repeats
+unique(x[duplicated(x)])
+#> [1] 10  3 11  8  5  6
+
+# The original vector with all duplicates removed. These do the same:
+unique(x)
+#>  [1] 14 11  8  4 12  5 10  3  6  0 16
+x[!duplicated(x)]
+#>  [1] 14 11  8  4 12  5 10  3  6  0 16
+
+```
+
+(from http://www.cookbook-r.com/Manipulating_data/Finding_and_removing_duplicate_records/)
+
+
+To remove duplicate rows in a data frame, we can use the `distinct` function in {dplyr}.
+
+Here's a data table with Canadian cities (Census Metropolitan Areas) and their populations in 2019.
+
+Our data table contains 2 duplicated records: the entire Vancouver row is repeated, and the Victoria row is repeated but with different population values (the smaller value is the population in 2018).
+
+data source: https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710013501
+
+```{r}
+
+can_city <- tribble(
+  ~city, ~province, ~population,
+  "St. John's", "NL", 212433,
+  "Fredricton", "NB", 109883,
+  "Halifax", "NS", 440348,
+  "Québec", "PQ", 824411,
+  "Toronto", "ON", 6471850,
+  "Vancouver", "BC", 2691351,
+  "Victoria", "BC", 402271,
+  "Vancouver", "BC", 2691351,
+  "Victoria", "BC", 396110
+)
+
+can_city
+```
+
+
+We can use the `distinct()` function in {dplyr} to clean this.
+
+To remove the entire duplicated rows (i.e. all columns), we can do the following:
+
+```{r}
+can_city %>% 
+  distinct()
+```
+
+This removes the duplicated Vancouver row, but leaves both of the Victoria rows. 
+
+If we want to preserve only the first of the city and province combinations, we specify the columns in our `distinct()` function:
+
+```{r}
+
+can_city %>% 
+  distinct(city, .keep_all = TRUE)
+
+```
+
+
+
+
+### Correcting spelling mistakes
 
 
 

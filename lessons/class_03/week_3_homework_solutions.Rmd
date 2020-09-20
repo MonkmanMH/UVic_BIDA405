@@ -108,7 +108,7 @@ summary(cf_retail)
 >
 >Q4a. Which rule is violated most often?
 >
->Q4b. Which rule resulted in the most missings?
+>Q4b. Which rule resulted in the most missings? Why do you think this is?
 
 V5, total cost > staff costs (it combines the missings from both variables)
 
@@ -118,5 +118,48 @@ V5, total cost > staff costs (it combines the missings from both variables)
 The variable is `staff.costs` with an "s" at the end, so the typo is throwing an error
 
 
- 
+## Remove duplicates
 
+Here's a longer version of the Canadian city population table.
+ 
+```{r}
+
+can_city <- tribble(
+  ~city, ~province, ~population,
+  "St. John's", "NL", 212433,
+  "Fredricton", "NB", 109883,
+  "Halifax", "NS", 440348,
+  "Québec", "PQ", 824411,
+  "Toronto", "ON", 6471850,
+  "Vancouver", "BC", 2691351,
+  "Victoria", "BC", 402271,
+  "Vancouver", "BC", 2691351,
+  "Victoria", "BC", 396110
+)
+
+can_city
+
+```
+
+>Q5. What happens when we use `distinct(province, .keep_all = TRUE)` ?_
+
+
+>Q6. This function reads the CSV file with the BC COVID-19 cases by age. The code chunk below reads the file, and then tabulates the cases by the age groups. (Data source: https://github.com/jeanpaulrsoucy/covid-19-canada-gov-data/blob/master/bc/case-data/BCCDC_COVID19_Dashboard_Case_Details_2020-08-24_20-45.csv)
+
+> This chunk shows how the "10-19" age group category was converted to a date by Excel, so now it reads "19-Oct".
+
+
+```{r}
+
+bccovid <- read_csv("BCCDC_COVID19_Dashboard_Case_Details_2020-08-24_20-45.csv")
+
+bccovid %>% 
+    group_by(Age_Group) %>% 
+    tally()
+
+```
+
+> Use a `case_when()` function to correct this error in labeling.
+
+
+-30-
