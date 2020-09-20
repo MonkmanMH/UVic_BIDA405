@@ -117,6 +117,8 @@ One strategy might be to filter these records out entirely:
 
 
 ```{r}
+summary(diamonds)
+
 diamonds %>% 
   filter(y < 3 | y > 20)
 
@@ -125,6 +127,7 @@ diamonds2 <- diamonds %>%
 
 # how many rows got filtered out?
 nrow(diamonds) - nrow(diamonds2)
+
 ```
 
 There are potential problems with the approach of removing records that have a missing value:
@@ -144,7 +147,10 @@ Important note: this code creates a new dataframe, `diamonds2`
 
 ```{r}
 diamonds2 <- diamonds %>% 
-  mutate(y = ifelse(y < 3 | y > 20, NA, y))
+  mutate(y2 = ifelse(y < 3 | y > 20, NA, y))
+
+diamonds2 %>% 
+  filter(y < 3 | y > 20)
 
 ```
 
@@ -163,6 +169,31 @@ diamonds
 diamonds2 %>% 
   filter(y < 3 | y > 20)
 ```
+
+### `case_when()` - a tangent
+
+From the `case_when()` reference page:
+
+Note that this is using different combinations of three variables to create a single fourth variable.
+
+```{r}
+# case_when is particularly useful inside mutate when you want to
+# create a new variable that relies on a complex combination of existing
+# variables
+starwars
+
+starwars %>%
+  select(name:mass, gender, species) %>%
+  mutate(
+    type = case_when(
+      species == "Droid"        ~ "robot",
+      height > 150 | mass > 200 ~ "large",
+      TRUE                      ~ "other"
+    )
+  )
+
+```
+
 
 ### Cleaning special codes
 
@@ -224,7 +255,7 @@ The methodologies behind different imputation methods are supported by a rich li
 
 In this example, we will create two new variables, based on y, in the diamonds dataframe
 
-```{r}
+```{r missing_values}
 # y2: replace unusual values with NA
 diamonds2 <- diamonds %>% 
   mutate(y2 = case_when(
@@ -261,12 +292,12 @@ One "dirty data" problem that sometimes occurs, particularly if data tables are 
 ```{r}
 # Generate a vector 
 set.seed(158)
-x <- round(rnorm(20, 10, 5)) #random, normal distribution, 20 cases, mean of 10, s.d. of 5
+x <- round(rnorm(100, 10, 5)) #random, normal distribution, 20 cases, mean of 10, s.d. of 5
 
 x1 <- sort(x)
 
-x1
-duplicated(x1)
+x
+duplicated(x)
 
 ```
 

@@ -127,7 +127,7 @@ vanisle_city
 
 ```
 
->Q5. What happens when we use `distinct(province, .keep_all = TRUE)` ?_
+>Q5. What happens when we use `distinct(province, .keep_all = TRUE)` ?
 
 
 ```{r}

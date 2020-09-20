@@ -16,7 +16,16 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 
 
-## Reading list
+### Reading list
+
+Randy Au, ["Data Cleaning IS Analysis, Not Grunt Work"](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt) (2020-09-15)
+
+Karl Broman, "Tools for Reproducible Research: Organizing projects; exploratory data analysis":
+https://kbroman.org/Tools4RR/assets/lectures/06_org_eda_withnotes.pdf
+
+Jenny Bryan, "Naming Things", presentation to Reproducible Science Workshop: https://speakerdeck.com/jennybc/how-to-name-files
+
+### Text references
 
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
 
@@ -40,7 +49,13 @@ Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
 
 
 
-### R packages
+### R help
+
+Using the `?` and `??` approach to getting help with functions and packages:
+
+* [Getting Help with R](https://www.r-project.org/help.html)
+
+* [_R Cookbook_, 2nd edition: sections 1.7 to 1.14](https://rc2e.com/gettingstarted#recipe-id265)
 
 
 
