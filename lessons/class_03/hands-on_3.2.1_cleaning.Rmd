@@ -1,6 +1,6 @@
 ---
 title: "Validation and cleaning"
-subtitle: "1: cleaning"
+subtitle: "3: cleaning"
 output:
   html_document:
     df_print: paged
@@ -11,9 +11,65 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 -->
 
 
-
-
 ## Cleaning dirty data
+
+> Cleaning the data is a prerequisite to getting a rock solid understanding of the underlying data.
+— Randy Au
+
+We have explored the data and found anomalies and missing values, run the validation tests to find cases that are outside the bounds of expected values, and now we have to make some decisions as to how we want to _clean_ the data. Being good data analysts, we know things like extreme cases and missing values can have an impact on our results.
+
+The challenge with cleaning data is that it requires judgment. This judgment in turn requires someone with knowledge of the subject area and the research question to decide what needs to be cleaned, and how.
+
+In his recent paper on data cleaning, Randy Au provides the example of a US Government form that generated multiple different spellings for the name of the city Philadelphia. But as he explains, and as is further developed in the paper by Rawson and Muñoz, in some research contexts there might be value in _not_ correcting the spelling.
+
+This then leads to the conclusion that for one data set, what constitutes clean data might differ from one analytic question to another.
+
+**Rule #1: keep the raw data!**
+
+
+> The act of “cleaning data” is actually building a library of transformations that are largely reusable across multiple analyses on the same data set.
+— Randy Au
+
+**Rule #2: keep a record (documentation and code) of the transformations that were used to transform the data**
+
+
+### Goals of data cleaning
+
+(from Randy Au, "Data Cleaning IS Analysis, Not Grunt Work")
+
+1. Fix things that will make your analysis algorithm choke
+
+2. Reduce unwanted variation
+
+3. Eliminate bias (where you can)
+
+
+## Some cleaning methods
+
+### Dealing with NA values
+
+NA values are (perhaps) the easiest thing to deal with. If you are using R, you'll find that most functions treat NA values as contagious: one NA in your calculation, and the whole thing won't run. Here's two short examples:
+
+```{r}
+# find mean of x
+x <- c(1, 2, 3, 4, 5, NA)
+
+mean(x)
+
+
+```
+
+We can solve this by adding the argument `na.rm = TRUE` to the function.
+
+```{r}
+# find mean of x
+x <- c(1, 2, 3, 4, 5, NA)
+
+mean(x, na.rm = TRUE)
+
+
+```
+
 
 
 ## REFERENCE MATERIAL
@@ -26,11 +82,19 @@ Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Application
 
 
 
-This example is from Nina Zumel and John Mount _Practical Data Science with R (2nd edition)_:
+Nina Zumel and John Mount _Practical Data Science with R (2nd edition)_:
 
 * Chapter 3 "Exploring Data" and Chapter 4 "Managing Data"
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
+
+Hadley Wickham and Garrett Grolemund, _R for Data Science_, [Chapter 7: Exploratory Data Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html)
+
+Randy Au, ["Data Cleaning IS Analysis, Not Grunt Work"](https://counting.substack.com/p/data-cleaning-is-analysis-not-grunt), 2020-09-15
+
+
+Katie Rawson and Trevor Muñoz, ["Against Cleaning"](https://dhdebates.gc.cuny.edu/read/untitled-f2acf72c-a469-49d8-be35-67f9ac1e3a60/section/07154de9-4903-428e-9c61-7a92a6f22e51)
 
 
 
