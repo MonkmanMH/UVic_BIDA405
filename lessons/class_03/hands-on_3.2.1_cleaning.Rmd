@@ -10,6 +10,12 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
+```{r setup}
+library(tidyverse)
+
+```
+
+
 
 ## Cleaning dirty data
 
@@ -48,7 +54,7 @@ This then leads to the conclusion that for one data set, what constitutes clean 
 
 ### Dealing with NA values
 
-NA values are (perhaps) the easiest thing to deal with. If you are using R, you'll find that most functions treat NA values as contagious: one NA in your calculation, and the whole thing won't run. Here's two short examples:
+If you are using R, you'll find that some functions treat NA values as contagious: one NA in your calculation, and the whole thing won't run. Here's two short examples:
 
 ```{r}
 # find mean of x
@@ -56,10 +62,13 @@ x <- c(1, 2, 3, 4, 5, NA)
 
 mean(x)
 
+# find the sum of x
+sum(x)
+
 
 ```
 
-We can solve this by adding the argument `na.rm = TRUE` to the function.
+We can solve this by adding the argument `na.rm = TRUE` to the function. This is a strategy that doesn't require explicitly cleaning the data, but it's worth noting that it reduces the number of valid cases that the calculation uses.
 
 ```{r}
 # find mean of x
@@ -67,8 +76,160 @@ x <- c(1, 2, 3, 4, 5, NA)
 
 mean(x, na.rm = TRUE)
 
+# find the sum of x
+sum(x, na.rm = TRUE)
+
+# count the number of valid (not NA) cases in x
+sum(!is.na(x))
 
 ```
+
+
+**NOTE:** not all R functions treat NAs in this way! Some functions will quietly drop the NAs for you, which can sometimes be exactly what you want. But sometimes you want to know if there are NAs--make sure you check the documentation, since the creator of the package may have set `na.rm = TRUE` as the default. 
+
+
+
+### Dealing with unusual cases
+
+(adapted from _R for Data Science_, [Chapter 7: Exploratory Data Analysis](https://r4ds.had.co.nz/exploratory-data-analysis.html))
+
+
+In the `diamonds` data set, there are some unusual values: some have a y axis dimension (the variable "y" in the data) of 0 mm, and some have values in the range of 30 and 60 mm. Zero is impossible, and a 30 mm diamond is BIG.
+
+One strategy might be to filter these records out entirely:
+
+
+```{r}
+diamonds %>% 
+  filter(y < 3 | y > 20)
+
+diamonds2 <- diamonds %>% 
+  filter(between(y, 3, 20))
+
+# how many rows got filtered out?
+nrow(diamonds) - nrow(diamonds2)
+```
+
+An other option—which retains the all records, but drops those records from future calculations—is to replace the unusual values with NA.
+
+Important note: this code creates a new dataframe, `diamonds2`
+
+```{r}
+diamonds2 <- diamonds %>% 
+  mutate(y = ifelse(y < 3 | y > 20, NA, y))
+
+```
+
+An alternative syntax is to use the `case_when()` function (from the {dplyr} package; see https://dplyr.tidyverse.org/reference/case_when.html):
+
+```{r}
+diamonds2 <- diamonds %>% 
+  mutate(y2 = case_when(
+    y < 3 ~ NA_real_,
+    y > 20 ~ NA_real_,
+    TRUE ~ y
+  ))
+
+diamonds
+
+diamonds2 %>% 
+  filter(y < 3 | y > 20)
+```
+
+### Cleaning special codes
+
+Often, a variable with have "unusual values" that are used intentionally. For example, in many surveys that use a Likert scale (the familiar "on a scale of 1 to 5, where 1 is Very Dissatisfied and 5 is Very Satisfied"), values like 98 and 99 are used to record "Don't Know" or "Not Applicable" responses.
+
+If these are converted to NA values, the information in the value is lost. An alternate strategy is to create new variables that record this information. This type of variable is sometimes known as an _indicator variable_.
+
+An example from _Practical Data Science with R_ shows us how this is done. The variable `gas_usage` is, for most records, a numeric value of gas usage. But there are also three special codes, the values 1, 2, and 3.
+
+* 1 = "Gas bill included in rent or condo fee"
+
+* 2 = "Gas bill included in electricity payment"
+
+* 3 = "No charge or gas not used"
+
+```{r}
+customer_data <- readRDS("custdata.RDS")
+
+customer_data %>% 
+  group_by(gas_usage) %>% 
+  tally()
+
+```
+
+```{r}
+
+customer_data2 <- customer_data %>% 
+  # create indicator variables
+  mutate(gas_with_rent = (gas_usage == 1),
+         gas_with_electricity = (gas_usage == 2),
+         no_gas_bill = (gas_usage == 3)
+         ) %>% 
+  # convert the 1-3 values to NA
+  mutate(gas_usage = ifelse(gas_usage < 4, NA, gas_usage))
+
+customer_data2 %>% 
+  group_by(gas_usage, gas_with_rent) %>% 
+  tally()
+
+```
+
+These new indicator variables can be used in the analysis without compromising the information in the "gas_usage" variable..."gas_usage" now means gas usage.
+
+
+### Replacing missing values
+
+If you suspect that missing values are "missing at random"—that is, the reason they are missing has nothing to do with any of the other variables—you can replace the missing values with a reasonable estimate. Often, this is the mean of the value in that column. This doesn't change the average of the variable.
+
+
+
+If you know that the missing variable has a relationship with other variables in your data, you can _impute_ an estimate of the missing value that is more accurate than the mean.
+
+For example, if one of your variables is income, and you have a few missing cases, you could replace those missing values with the mean of income from the non-missing records. But income is often correlated with education and age, so you can run a regression model to estimate the impact of those two variables on income, and replace the missing income values with the estimated value from your regression model.
+
+**Important note:** Use imputation with caution. It may sound like a great way to replace missing values, but if a variable's missingness is _not_ random (for example, older people may be less likely to report their income—retired people many not interpret their pension as "income", so resond with a "not applicable" answer), then imputation will potentially introduce bias into the data.
+
+The methodologies behind different imputation methods are supported by a rich literature; I don't want to discourage you, but only to raise this as a flag.
+
+In this example, we will create two new variables, based on y, in the diamonds dataframe
+
+```{r}
+# y2: replace unusual values with NA
+diamonds2 <- diamonds %>% 
+  mutate(y2 = case_when(
+    y < 3 ~ NA_real_,
+    y > 20 ~ NA_real_,
+    TRUE ~ y
+  ))
+
+# calculate the mean of y2 (remember to na.rm!)
+y_mean <- mean(diamonds2$y2, na.rm = TRUE)
+
+# y3: replace unusual values with mean of y2 (with dropped unusual values)
+diamonds2 <- diamonds2 %>% 
+  mutate(y3 = case_when(
+    y < 3 ~ y_mean,
+    y > 20 ~ y_mean,
+    TRUE ~ y
+  ))
+
+
+diamonds2
+
+diamonds2 %>% 
+  filter(y < 3 | y > 20) %>% 
+  select(carat, y, y2, y3)
+
+```
+
+### Normalizing values
+
+
+### Removing duplicate records
+
+
 
 
 
