@@ -1,6 +1,6 @@
 ---
 title: "BIDA 405 - week 3"
-subtitle: "homework assignment #3: solutions"
+subtitle: "homework assignment #3"
 author: "Martin Monkman"
 date: "2020/09/20"
 output: html_notebook
@@ -73,10 +73,6 @@ val_retail
 
 ```{r}
 # solution
-cf <- confront(retailers, val_retail)
-cf
-
-summary(cf)
 
 ```
 
@@ -92,27 +88,10 @@ summary(cf)
 >* The total cost must be larger than or equal to the staff cost
 >
 
-## Solution
-
-```{r}
-
-Q3v <- validator(
-    staff > 0,
-    staff.costs > 0,
-    total.costs > 0,
-    if (staff > 0) staff.cost > 0,
-    total.costs >= staff.costs)
-
-cf_retail <- confront(retailers, Q3v)
-
-cf_retail
-
-summary(cf_retail)
-```
 
 
 
->Confront this validator object with the `retailers` dataset and summarize the result with `summary`. 
+>Q4. Confront this validator object with the `retailers` dataset and summarize the result with `summary`. 
 
 > Answer the following questions:
 >
@@ -120,14 +99,10 @@ summary(cf_retail)
 >
 >Q4b. Which rule resulted in the most missings? Why do you think this is?
 
-solution:
-V5, total cost > staff costs (it combines the missings from both variables)
 
 >
 >Q4c. Discuss the expression for the conditional rule on `staff` and `staff.cost`
 
-solution:
-The variable is `staff.costs` with an "s" at the end, so the typo is throwing an error
 
 
 # B. Remove duplicates
@@ -157,8 +132,6 @@ vanisle_city
 
 ```{r}
 # solution
-vanisle_city %>% 
-  distinct(province, .keep_all = TRUE)
 
 ```
 

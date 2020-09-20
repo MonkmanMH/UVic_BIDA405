@@ -282,28 +282,31 @@ x[!duplicated(x)]
 
 To remove duplicate rows in a data frame, we can use the `distinct` function in {dplyr}.
 
-Here's a data table with Canadian cities (Census Metropolitan Areas) and their populations in 2019.
+Here's a data table with the capital cities of the Canadian (Census Metropolitan Areas and Census Agglomerations) and their populations in 2019.
 
-Our data table contains 2 duplicated records: the entire Vancouver row is repeated, and the Victoria row is repeated but with different population values (the smaller value is the population in 2018).
+Our data table contains 2 duplicated records: the entire Edmonton row is repeated, and the Victoria row is repeated but with different population values (the smaller value is the population in 2018).
 
 data source: https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710013501
 
 ```{r}
 
 can_city <- tribble(
-  ~city, ~province, ~population,
-  "St. John's", "NL", 212433,
-  "Fredricton", "NB", 109883,
-  "Halifax", "NS", 440348,
-  "Québec", "PQ", 824411,
-  "Toronto", "ON", 6471850,
-  "Vancouver", "BC", 2691351,
-  "Victoria", "BC", 402271,
-  "Vancouver", "BC", 2691351,
-  "Victoria", "BC", 396110
+  ~city, ~province, ~year, ~population,
+  "Victoria", "BC", 2018, 396110,
+  "Victoria", "BC", 2019, 402271,
+  "Edmonton", "AB", 2019, 1447143,
+  "Edmonton", "AB", 2019, 1447143,
+  "Regina", "SK", 2019, 261684,
+  "Winnipeg", "MB", 2019, 844566,
+  "Toronto", "ON", 2019, 6471850,
+  "Québec", "PQ", 2019, 824411,
+  "Fredricton", "NB", 2019, 109883,
+  "Halifax", "NS", 2019, 440348,
+  "Charlottetown", "PE", 2019, 78568,
+  "St. John's", "NL", 2019, 212433
 )
 
-can_city
+head(can_city, 12)
 ```
 
 
@@ -316,9 +319,9 @@ can_city %>%
   distinct()
 ```
 
-This removes the duplicated Vancouver row, but leaves both of the Victoria rows. 
+This removes the duplicated Edmonton row, but leaves both of the Victoria rows. 
 
-If we want to preserve only the first of the city and province combinations, we specify the columns in our `distinct()` function:
+We can specify the column we want to retain in our `distinct()` function:
 
 ```{r}
 
@@ -327,7 +330,15 @@ can_city %>%
 
 ```
 
+To resolve the "first found, first kept" challenge, we might first filter by year, then apply the `distinct()` function.
 
+```{r}
+
+can_city %>%
+  filter(year == 2019) %>% 
+  distinct(city, .keep_all = TRUE)
+
+```
 
 
 ### Correcting spelling mistakes
