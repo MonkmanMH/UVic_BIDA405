@@ -1,0 +1,480 @@
+---
+title: "Validation and Cleaning"
+subtitle: "4: cleaning character strings"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(tidyverse)
+
+```
+
+
+
+### Correcting spelling mistakes
+
+> Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. 
+
+R provides some robust tools for working with characters strings. In particular, the {stringr} package is very flexible.
+
+{stringr} reference page: https://stringr.tidyverse.org/
+
+
+```{r setup}
+
+library(tidyverse)
+#
+library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
+
+```
+
+
+
+## Objectives
+
+* Understand the basics of regular expressions (regexps)
+
+* Understand basic functions in {stringr} for working with strings
+
+* Demonstrate ability to use those functions
+
+
+## Strings
+
+Characters, numbers, etc
+
+```{r}
+
+string1 <- "This is my 1st string!"
+
+string1
+
+```
+
+## 1. Regular expressions
+
+See https://stringr.tidyverse.org/articles/regular-expressions.html
+
+Also, as a handy tool: https://regex101.com/
+
+
+### matching functions
+
+| character | what it does |
+| ---- | ---- |
+| "abc" | matches "abc" |
+| "[a][b][c]" | matches "abc" |
+| "[abc]" | matches "a", "b", or "c" |
+| "[^abc]" | matches anything _except_ "a", "b", or "c" |
+| "^" | match start of string |
+| "$" | match end of string |
+
+
+```{r}
+x <- c("apple", "banana", "pear")
+
+# which words start with "a"?
+str_view(x, "^a")
+
+# which words have an "ea" combination?
+
+str_view(x, "ea")
+
+```
+
+### Your turn 1.1 
+
+Which words end with "a"?
+
+```{r}
+# solution
+str_view(x, "a$")
+
+
+```
+
+
+frequency of match
+
+| character | what it does |
+| ---- | ---- |
+| "?" | 0 or 1 |
+| "+" | 1 or more |
+| "*" | 0 or more |
+
+
+The question mark is useful for words with various spellings -- the British and American variations of words like "colour" and "neighbour".
+
+| character | what it does |
+| ---- | ---- |
+| "{n}" | exactly n times |
+| "{n,}" | n or more |
+| "{n,m}" | between n and m times |
+
+
+```{r}
+# which words have a double "p"?
+
+str_view(x, "p{2}")
+
+```
+
+
+## 2. Special characters
+
+**quotes**
+
+Single and double quotes need to be "escaped" with a `\`
+
+```{r}
+
+double_quote <- "\"" # or '"'
+single_quote <- '\'' # or "'"
+
+double_quote
+single_quote
+
+```
+
+
+* to see a representation of the string as it will print, use the function `writeLines()`
+
+```{r}
+
+writeLines(double_quote)
+
+```
+
+
+
+```{r}
+
+string2 <- 'The 2nd string has a "quote" so it is inside single quotes'
+
+string2
+
+writeLines(string2)
+
+```
+
+
+**other special characters**
+
+These also need to be escaped:
+
+| character | what it is |
+| ---- | ---- |
+| "\\" | backslash |
+| "\d" | any digit |
+| "\n" | newline (line break) |
+| "\s" | any whitespace (space, tab, newline)
+| "\t" | tab |
+| "\u..." | unicode characters* |
+
+
+* https://en.wikipedia.org/wiki/List_of_Unicode_characters
+
+See the help function for `?'"'`
+
+```{r}
+interrobang <- "\u2048"
+interrobang
+
+```
+
+
+To make a shruggie, you need to escape the backslash
+
+```{r}
+
+shruggie <- glue::glue("¯\\_(ツ)_/¯")
+shruggie
+
+shruggie <- glue::glue("¯\\", "_(ツ)_", "/¯")
+shruggie
+
+```
+
+
+
+
+
+## 3. Basic functions in {stringr}.
+ 
+
+![stringr hex](..\img\stringr_300.png)
+
+
+```{r string_length}
+
+x <- c("Sly", "Billie", "Thelonious", "Maroon", "Willie", "Led")
+x
+str_length(x) 
+
+```
+
+
+use `str_c` to collapse list into one string
+
+```{r str_c}
+
+str_c(x, collapse = ", ")
+
+```
+
+
+---
+
+## 4. Combining strings
+
+Use `str_c` to join two character vectors, separated by a space
+
+
+```{r str_c_2}
+
+
+y <- c("Stone", "Ellish", "Monk", "5", "Nelson", "Zeppelin")
+
+str_c(x, y, sep = " ")
+
+```
+
+## Your turn 4.1
+
+Now join `x` to `y` (the other way around!), separated by an apostrophe and a space
+
+```{r your_turn_1.1}
+
+#solution
+str_c(y, x, sep = ", ")
+
+
+```
+
+---
+
+## 5. Pattern matching
+
+## Your turn 5.1
+
+Are there any vowels in the string `x`? Use `str_detect()`
+
+And count them with `str_count()`:
+
+```{r str_count}
+# solution
+str_detect(x, "[aeiou]")
+
+str_count(x, "[aeiou]")
+
+```
+
+Are there any digits in `y`? (Don't forget that you need to escape any backslashes you use!)
+
+```{r}
+# solution
+str_detect(y, "\\d")
+
+```
+
+
+
+
+Extract chunks of text by their location: `str_sub(x, start, end)`
+
+
+```{r str_sub}
+# solution
+str_sub(x, 1, 2)  
+
+
+```
+
+
+`str_locate()` finds the first position of the pattern:
+
+```{r}
+
+# look for pairs of vowels
+str_locate(x, "[aeiou][aeiou]")
+
+# look for a specific match ...
+str_locate(x, "oo")
+
+```
+
+
+Extract the first case of a vowel:
+
+```{r}
+
+str_extract(x, "[aeiou]")
+
+```
+
+## Your turn 5.2
+
+Extract the pairs of vowels:
+
+```{r}
+# solution
+str_extract(x, "[aeiou][aeiou]")
+
+# alternate solution
+str_extract(x, "[aeiou]{2}")
+
+
+```
+
+
+
+---
+
+## 6. Splitting strings
+
+https://stringr.tidyverse.org/reference/str_split.html
+
+function: `str_split()`
+
+
+Back to the various ways dates are represented: if it's a character string with the month and year.
+
+"Jan 2019"
+
+```{r}
+
+our_date <- "Jan 2019"
+
+
+lubridate::ymd(our_date)
+
+
+```
+
+So that doesn't work.
+
+We can split the string into two parts using `str_split()`, where we specify the space as the splitting element:
+
+```{r}
+
+str_split(our_date, " ")
+
+```
+
+Here we have four month-years, arranged alphabetically:
+
+```{r}
+
+four_dates <- tribble(~ref_date, "Dec 2019", "Feb 2020", "Jan 2018", "Mar 2021")
+
+four_dates <- four_dates %>% 
+  mutate(value = 1:4)
+
+four_dates
+
+```
+
+Inside a tibble, we use `separate()` from the {tidyr} package:
+
+* https://tidyr.tidyverse.org/reference/separate.html
+
+```{r}
+
+four_dates2 <- four_dates %>% 
+  separate(ref_date, into = c("ref_mon", "ref_year"), sep = " ")
+
+four_dates2
+
+```
+
+https://stackoverflow.com/questions/6549239/convert-months-mmm-to-numeric
+
+
+Back to factors!
+
+```{r}
+
+# create a list that will be the month levels:
+
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+
+
+four_dates3 <- four_dates2 %>% 
+  mutate(ref_mon2 = factor(ref_mon, levels = month_levels)) %>%
+  arrange(ref_mon2)
+
+four_dates3
+
+```
+
+
+```{r}
+
+four_dates_list <- four_dates3 %>% 
+  glue::glue_data("{ref_year}-{ref_mon2}-01")
+
+four_dates_list
+
+```
+
+
+Now it's in a format that {lubridate} can understand, and convert to a <date> class:
+
+```{r}
+
+
+ymd(four_dates_list)
+
+```
+
+
+And here's three different ways to add our new list back onto the data table:
+
+```{r}
+# in a pipe:
+four_dates3 %>% 
+  mutate(ref_date_x = ymd(four_dates_list))
+
+# for fans of the <table>$<variable> structure:
+four_dates3$ref_date_y <- ymd(four_dates_list)
+
+# and a new function, `cbind()`:
+cbind(four_dates3, ymd(four_dates_list))
+
+```
+
+
+For more on `cbind()` (for column bind) and its parallel `rbind()` (for row bind), see:
+https://www.dummies.com/programming/r/how-to-add-variables-to-a-data-frame-in-r/
+
+
+
+---
+
+## REFERENCE
+
+[{stringr}](https://stringr.tidyverse.org/)
+
+[regex101](https://regex101.com/)
+
+["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
+
+["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
+
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
+
+
