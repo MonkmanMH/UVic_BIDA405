@@ -1,0 +1,41 @@
+---
+title: "BIDA405: Lesson Plan, Week 3"
+subtitle: "2020-09-19 & 2020-09-20 "
+author: "Martin Monkman"
+date: "latest revision: `r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+
+
+## Readings & Reference Materials
+
+
+
+## Reading list
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 7, "Data Handling in Practice"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c07.xhtml#c7)
+
+
+Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_ (2018):
+
+* Chapter 11, "Example: A Small Data-Cleaning System"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/c11.xhtml#c11)
+
+
+
+### R packages
+
+
+
+
+-30-
