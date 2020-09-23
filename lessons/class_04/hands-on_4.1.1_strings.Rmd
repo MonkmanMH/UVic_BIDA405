@@ -55,9 +55,30 @@ string1 <- "This is my 1st string!"
 
 string1
 
+# number stored as number
+numstring1 <- 1234
+
+# number stored as string
+numstring2 <- "1234"
+
+numstring1 + numstring2
+
+as.integer(numstring2)
+
+
+# number with a comma (string)
+numstring3 <- "1,234"
+
+as.integer(numstring3)
+
+as.integer(gsub(",", "", numstring3))
+
 ```
 
 ## 1. Regular expressions
+
+>Some people, when confronted with a problem, think: “I know, I’ll use regular expressions.” Now they have two problems.
+— Jamie Zawinski
 
 See https://stringr.tidyverse.org/articles/regular-expressions.html
 
@@ -202,6 +223,19 @@ shruggie
 ```
 
 
+
+## 2a. Postal code
+
+
+```{r}
+postalcode <- "^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$"
+
+pc1 <- c("V1A2B3", "V1A 2B3", "V1A-2B3")
+
+str_detect(pc1, postalcode)
+
+
+```
 
 
 
