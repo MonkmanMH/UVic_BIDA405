@@ -228,9 +228,21 @@ shruggie
 
 
 ```{r}
+# list of postal codes
+pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
+
+# regex for Canadian postal codes
+# ^ : start of string
+# [A-Za-z] : all the letters upper and lower case
+# \\d : any numerical digit
+# [ -]? : space or hyphen, ? to make either optional (i.e. it may be there or not)
+# $ : end of string
 postalcode <- "^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$"
 
-pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
+# option: (?i) : make it case insensitive
+#         (?-i) : turn off insensitivity
+postalcode <- "(?i)^[A-Z]\\d[A-Z][ -]?\\d[A-Z]\\d$(?-i)"
+
 
 str_detect(pc1, postalcode)
 
