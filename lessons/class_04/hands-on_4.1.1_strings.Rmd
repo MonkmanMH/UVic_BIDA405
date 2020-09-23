@@ -230,7 +230,7 @@ shruggie
 ```{r}
 postalcode <- "^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$"
 
-pc1 <- c("V1A2B3", "V1A 2B3", "V1A-2B3")
+pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
 
 str_detect(pc1, postalcode)
 

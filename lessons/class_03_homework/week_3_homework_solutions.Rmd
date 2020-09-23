@@ -68,7 +68,7 @@ val_retail
 >
 >* Create a summary table of the results of the validation tests, and 
 >
->* Write a short text description of the passes, fails and NAs of each test
+>* Write a short text description of the passes, fails and NAs of each test (write an interpretation of what each test summary means.)
 
 
 ```{r}
