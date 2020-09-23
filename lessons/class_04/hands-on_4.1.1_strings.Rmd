@@ -250,6 +250,10 @@ str_detect(pc1, postalcode)
 ```
 
 
+### Replace postal code with consistent layout
+
+
+
 
 ## 3. Basic functions in {stringr}.
  
