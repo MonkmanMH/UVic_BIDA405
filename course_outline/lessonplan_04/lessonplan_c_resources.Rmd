@@ -18,19 +18,30 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Reading list
 
+Hadley Wickham, Wickham, Hadley. 2014. “Tidy Data.” _Journal of Statistical Software_ 59 (1): 1–23. https://doi.org/10.18637/jss.v059.i10.
+
+* a concise summary of tidy data principles can be found in [_R for Data Science_, "Tidy Data"](https://r4ds.had.co.nz/tidy-data.html)
+
+
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
 
 * Chapter 7, "Data Handling in Practice"
 
-* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c07.xhtml#c7)
+* [UVic Library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c07.xhtml#c7)
 
 
 Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_ (2018):
 
 * Chapter 11, "Example: A Small Data-Cleaning System"
 
-* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/c11.xhtml#c11)
+* [UVic Library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/statistical-data-cleaning/9781118897157/c11.xhtml#c11)
 
+
+### SQL
+
+Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (2016)
+
+* [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
 
 
 ### R packages
