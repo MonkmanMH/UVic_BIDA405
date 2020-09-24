@@ -1,0 +1,65 @@
+---
+title: "Data Structures"
+subtitle: "_tidy data_"
+author: "Martin Monkman"
+date: "2020/09/26"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* Cleaning data
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Manipulation of data
+
+---
+class: inverse
+
+## Adding new variables
+
+* calculation
+
+* outside sources
+
+  - joins (columns and rows)
+
+
+
+---
+class: inverse
+
+## Mutating variables
+
+a) calculation
+
+  - X + Y
+  
+  - index (% change from fixed point)
+
+b) merge from other
+
+  - database joins
+

@@ -1,0 +1,121 @@
+---
+title: "Data Structures"
+subtitle: "_tidy data_"
+author: "Martin Monkman"
+date: "2020/09/26"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* Cleaning data
+* Data manipulation
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Manipulation of data
+
+---
+class: inverse
+
+
+
+---
+
+## What makes data tidy? 1/3
+
+* Each variable must have its own column.
+
+![each variable is a column](tidy-1a.png)
+
+---
+
+## What makes data tidy? 1/2
+
+* Each observation must have its own row.
+
+![each observation is a row](tidy-1b.png)
+---
+
+## What makes data tidy? 1/3
+
+* Each value must have its own cell.
+
+![value has cell](tidy-1c.png)
+
+---
+class: inverse
+
+## A tidy example: penguins
+
+```{r echo = FALSE, warning = FALSE}
+library(palmerpenguins)
+penguins
+```
+
+
+---
+class: inverse
+
+## An untidy example
+
+
+![untidy](alligator_untidy.jpg)
+
+
+
+---
+class: inverse
+
+## A tidy version of the same data
+
+
+![tidy](alligator_tidy.jpg)
+???
+
+from Hart EM, Barmby P, LeBauer D, Michonneau F, Mount S, Mulrooney P, et al. (2016) Ten Simple Rules for Digital Data Storage. _PLoS Comput Biol_ 12(10): e1005097. https://doi.org/10.1371/journal.pcbi.1005097
+
+---
+class: inverse
+
+## Other structural principles
+
+
+
+
+---
+class: inverse
+
+## Mutating variables
+
+a) calculation
+
+  - X + Y
+  
+  - index (% change from fixed point)
+
+b) merge from other
+
+  - database joins
+

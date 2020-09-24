@@ -17,7 +17,7 @@ library(tidyverse)
 
 
 
-### Correcting spelling mistakes
+### Cleaning strings
 
 > Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. 
 
@@ -517,6 +517,8 @@ https://www.dummies.com/programming/r/how-to-add-variables-to-a-data-frame-in-r/
 [regex101](https://regex101.com/)
 
 ["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
+
+["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
 
 ["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
 
