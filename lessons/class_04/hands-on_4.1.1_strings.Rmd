@@ -20,6 +20,7 @@ library(tidyverse)
 ### Cleaning strings
 
 > Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. 
+—{stringr} reference page
 
 R provides some robust tools for working with characters strings. In particular, the {stringr} package is very flexible.
 
@@ -45,9 +46,10 @@ library(stringr)  # {stringr} is part of the tidyverse, but not a core package t
 * Demonstrate ability to use those functions
 
 
-## Strings
+## 1. Strings
 
-Characters, numbers, etc
+Characters, numbers, etc that are enclosed in quotation marks become a character string.
+
 
 ```{r}
 
@@ -60,6 +62,12 @@ numstring1 <- 1234
 
 # number stored as string
 numstring2 <- "1234"
+
+```
+
+Can we add `numstring1` and `numstring2` together? No, unless we make a change to the type of variable.
+
+```{r}
 
 numstring1 + numstring2
 
@@ -75,7 +83,40 @@ as.integer(gsub(",", "", numstring3))
 
 ```
 
-## 1. Regular expressions
+
+Columns (variables) in a dataframe can be of the type "character", denoted by `chr` or `<chr>`.
+
+Note that in this example, variable "a" and "b" are both <chr>, "c" is <dbl> and "d" (with the "L" after the number) is an integer.
+
+```{r}
+
+onefish <- tibble(
+       a = c("12", "34"),
+       b = c("12", "fish"),
+       c = c(12, 34),
+       d = c(12L, 34L),
+)
+
+ls.str(onefish)
+
+onefish
+
+```
+
+We can convert "a" to a numeric variable, but if we try it with "b", the not-a-number gets converted to an NA.
+
+```{r}
+
+onefish %>% 
+  mutate(a = as.numeric(a))
+
+onefish %>% 
+  mutate(b = as.numeric(b))
+
+```
+
+
+## 2. Regular expressions
 
 >Some people, when confronted with a problem, think: “I know, I’ll use regular expressions.” Now they have two problems.
 — Jamie Zawinski
@@ -87,25 +128,30 @@ Also, as a handy tool: https://regex101.com/
 
 ### matching functions
 
+Some useful functions:
+
 | character | what it does |
 | ---- | ---- |
 | "abc" | matches "abc" |
 | "[a][b][c]" | matches "abc" |
 | "[abc]" | matches "a", "b", or "c" |
+| "[a-c]" | matches any of "a" to "c" <br>(that is, matches "a", "b", or "c") |
 | "[^abc]" | matches anything _except_ "a", "b", or "c" |
 | "^" | match start of string |
 | "$" | match end of string |
+| "." | matches any string |
 
 
 ```{r}
 x <- c("apple", "banana", "pear")
 
 # which words start with "a"?
-str_view(x, "^a")
+str_detect(x, "^a")
 
 # which words have an "ea" combination?
 
-str_view(x, "ea")
+str_detect(x, "ea")
+
 
 ```
 
@@ -226,23 +272,38 @@ shruggie
 
 ## 2a. Postal code
 
+Canadian postal codes follow a consistent pattern:
+ - letter digit letter (space, or sometimes a hyphen) digit letter digit
+
+The regex for this is shown below, with the component parts as follows:
+
+* ^ : start of string
+
+* [A-Za-z] : all the letters upper and lower case
+
+* \\d : any numerical digit
+
+* [ -]? : space or hyphen; "?" to make either optional (i.e. it may be there or not)
+
+* $ : end of string
+
 
 ```{r}
-# list of postal codes
-pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
-
 # regex for Canadian postal codes
 # ^ : start of string
 # [A-Za-z] : all the letters upper and lower case
 # \\d : any numerical digit
 # [ -]? : space or hyphen, ? to make either optional (i.e. it may be there or not)
 # $ : end of string
+
 postalcode <- "^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$"
 
 # option: (?i) : make it case insensitive
 #         (?-i) : turn off insensitivity
 postalcode <- "(?i)^[A-Z]\\d[A-Z][ -]?\\d[A-Z]\\d$(?-i)"
 
+# list of postal codes
+pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
 
 str_detect(pc1, postalcode)
 
@@ -251,6 +312,9 @@ str_detect(pc1, postalcode)
 
 
 ### Replace postal code with consistent layout
+
+
+
 
 
 
