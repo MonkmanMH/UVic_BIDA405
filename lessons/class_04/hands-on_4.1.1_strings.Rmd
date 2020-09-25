@@ -310,6 +310,26 @@ str_detect(pc1, postalcode)
 
 ```
 
+Advice from the masters:
+
+> If your regular expression gets overly complicated, try breaking it up into smaller pieces, giving each piece a name, and then combining the pieces with logical operations.
+—Wickham and Grolemund, _R for Data Science_, ["Detect matches"](https://r4ds.had.co.nz/strings.html#detect-matches)
+
+
+### useful {stringr} functions
+
+See 
+
+* reference page: [stringr.tidyverse.org](https://stringr.tidyverse.org/)
+
+* cheat sheet: at RStudio "Cheatsheets" page https://rstudio.com/resources/cheatsheets/ 
+
+| function | purpose |
+| ---- | ---- |
+| `str_detect` | logical; returns TRUE if pattern found |
+
+
+
 
 ### Replace postal code with consistent layout
 
