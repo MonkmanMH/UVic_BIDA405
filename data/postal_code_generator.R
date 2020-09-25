@@ -68,11 +68,16 @@ tail(pc_last3)
 
 bc_pc <- 
   tidyr::crossing(fsa_list, pc_last3) %>% 
-  mutate(postcode = glue::glue('{FSA_clean} {value}'))
+  mutate(postalcode = glue::glue('{FSA_clean} {value}'))
   
 
 bc_pc %>% 
   filter(FSA_clean == "V0A") 
+
+# leave single column with just `postalcode`
+bc_pc <- bc_pc %>% 
+  select(postalcode)
+
 
 write_rds(bc_pc, here::here("data", "bc_pc.rds"))
 write_csv(bc_pc, here::here("data", "bc_pc.csv"))

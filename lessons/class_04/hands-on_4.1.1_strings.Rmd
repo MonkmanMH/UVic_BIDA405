@@ -126,7 +126,7 @@ See https://stringr.tidyverse.org/articles/regular-expressions.html
 Also, as a handy tool: https://regex101.com/
 
 
-### matching functions
+#### - matching functions
 
 Some useful functions:
 
@@ -155,7 +155,7 @@ str_detect(x, "ea")
 
 ```
 
-### Your turn 1.1 
+### Your turn 2.1 
 
 Which words end with "a"?
 
@@ -193,7 +193,7 @@ str_view(x, "p{2}")
 ```
 
 
-## 2. Special characters
+### 2a. Special characters
 
 **quotes**
 
@@ -270,7 +270,7 @@ shruggie
 
 
 
-## 2a. Postal code
+### 2b. Postal code
 
 Canadian postal codes follow a consistent pattern:
  - letter digit letter (space, or sometimes a hyphen) digit letter digit
@@ -316,7 +316,7 @@ Advice from the masters:
 —Wickham and Grolemund, _R for Data Science_, ["Detect matches"](https://r4ds.had.co.nz/strings.html#detect-matches)
 
 
-### useful {stringr} functions
+### 2c. useful {stringr} functions
 
 See 
 
@@ -324,271 +324,116 @@ See
 
 * cheat sheet: at RStudio "Cheatsheets" page https://rstudio.com/resources/cheatsheets/ 
 
+#### - string characteristics
+
 | function | purpose |
 | ---- | ---- |
+| `str_length` | numeric; returns the length of the string |
 | `str_detect` | logical; returns TRUE if pattern found |
+| `str_sub` | character; returns the defined subset using start and end positions |
+| `str_subset` | character; returns the cases which contain a match |
+| `str_which` | numeric; returns the vector location of matches |
+| `str_count` | numeric; returns the number of times the pattern appears in the string |
 
-
-
-
-### Replace postal code with consistent layout
-
-
-
-
-
-
-
-## 3. Basic functions in {stringr}.
- 
-
-![stringr hex](..\img\stringr_300.png)
-
-
-```{r string_length}
-
-x <- c("Sly", "Billie", "Thelonious", "Maroon", "Willie", "Led")
-x
-str_length(x) 
-
-```
-
-
-use `str_c` to collapse list into one string
-
-```{r str_c}
-
-str_c(x, collapse = ", ")
-
-```
-
-
----
-
-## 4. Combining strings
-
-Use `str_c` to join two character vectors, separated by a space
-
-
-```{r str_c_2}
-
-
-y <- c("Stone", "Ellish", "Monk", "5", "Nelson", "Zeppelin")
-
-str_c(x, y, sep = " ")
-
-```
-
-## Your turn 4.1
-
-Now join `x` to `y` (the other way around!), separated by an apostrophe and a space
-
-```{r your_turn_1.1}
-
-#solution
-str_c(y, x, sep = ", ")
-
-
-```
-
----
-
-## 5. Pattern matching
-
-## Your turn 5.1
-
-Are there any vowels in the string `x`? Use `str_detect()`
-
-And count them with `str_count()`:
-
-```{r str_count}
-# solution
-str_detect(x, "[aeiou]")
-
-str_count(x, "[aeiou]")
-
-```
-
-Are there any digits in `y`? (Don't forget that you need to escape any backslashes you use!)
-
-```{r}
-# solution
-str_detect(y, "\\d")
-
-```
-
-
-
-
-Extract chunks of text by their location: `str_sub(x, start, end)`
-
-
-```{r str_sub}
-# solution
-str_sub(x, 1, 2)  
-
-
-```
-
-
-`str_locate()` finds the first position of the pattern:
 
 ```{r}
 
-# look for pairs of vowels
-str_locate(x, "[aeiou][aeiou]")
+fruit <- c("apple", "banana", "pear", "pineapple")
 
-# look for a specific match ...
-str_locate(x, "oo")
-
-```
-
-
-Extract the first case of a vowel:
-
-```{r}
-
-str_extract(x, "[aeiou]")
-
-```
-
-## Your turn 5.2
-
-Extract the pairs of vowels:
-
-```{r}
-# solution
-str_extract(x, "[aeiou][aeiou]")
-
-# alternate solution
-str_extract(x, "[aeiou]{2}")
+str_length(fruit)       # how many characters is the string?
+str_detect(fruit, "e")  # does the string have the pattern ("e")?
+str_sub(fruit, 1, 2)    # starting at the first position (1), two characters (2)
 
 
 ```
 
-
-
----
-
-## 6. Splitting strings
-
-https://stringr.tidyverse.org/reference/str_split.html
-
-function: `str_split()`
-
-
-Back to the various ways dates are represented: if it's a character string with the month and year.
-
-"Jan 2019"
-
 ```{r}
-
-our_date <- "Jan 2019"
-
-
-lubridate::ymd(our_date)
-
+str_subset(fruit, "e")  # which strings have the pattern ("e")?
+str_which(fruit, "e")   # which strings have the pattern ("e"), by location?
 
 ```
 
-So that doesn't work.
-
-We can split the string into two parts using `str_split()`, where we specify the space as the splitting element:
-
 ```{r}
-
-str_split(our_date, " ")
-
+str_count(fruit, "e")     # how many times does the letter "e" appear in the string?
+str_count(fruit, "[aeiou]") # how many times does a vowel (a, e, i, o, or u) appear in the string?
 ```
 
-Here we have four month-years, arranged alphabetically:
+#### - matching, replacing, spliting
+
+| function | purpose |
+| ---- | ---- |
+| `str_locate` | numeric; gives the position of the first match |
+| `str_extract` | extracts the text of the match
+| `str_match` | extracts the text of the match and parts of the match within parenthesis |
+| `str_replace` | replaces the matches with new text |
+| `str_split` | splits up a string at the pattern |
+
+
 
 ```{r}
 
-four_dates <- tribble(~ref_date, "Dec 2019", "Feb 2020", "Jan 2018", "Mar 2021")
+str_locate(fruit, "e") # where is the first e" in the string?
+str_locate(fruit, "[aeiou]") # where is the first vowel in the string?
 
-four_dates <- four_dates %>% 
-  mutate(value = 1:4)
+str_extract(fruit, "[aeiou]")  # which is the first vowel?
 
-four_dates
-
-```
-
-Inside a tibble, we use `separate()` from the {tidyr} package:
-
-* https://tidyr.tidyverse.org/reference/separate.html
-
-```{r}
-
-four_dates2 <- four_dates %>% 
-  separate(ref_date, into = c("ref_mon", "ref_year"), sep = " ")
-
-four_dates2
-
-```
-
-https://stackoverflow.com/questions/6549239/convert-months-mmm-to-numeric
-
-
-Back to factors!
-
-```{r}
-
-# create a list that will be the month levels:
-
-month_levels <- c(
-  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-)
-
-
-four_dates3 <- four_dates2 %>% 
-  mutate(ref_mon2 = factor(ref_mon, levels = month_levels)) %>%
-  arrange(ref_mon2)
-
-four_dates3
+str_match(fruit, "(.)[aeiou]") # what is the first letter that comes before a vowel?
 
 ```
 
 
 ```{r}
-
-four_dates_list <- four_dates3 %>% 
-  glue::glue_data("{ref_year}-{ref_mon2}-01")
-
-four_dates_list
-
+str_replace(fruit, "e", "E")
 ```
 
 
-Now it's in a format that {lubridate} can understand, and convert to a <date> class:
+```{r}
+str_split(fruit, "e")
+```
+
+
+```{r}
+UVic_address <- "Continuing Studies, Continuing Studies Building, 3800 Finnerty Rd, Victoria, BC, V8P 5C2"
+  
+str_split(UVic_address, ", ")
+```
+
+#### - convert case
+
+{stringr} has functions to change the case of the string. See [{stringr}: Convert case of a string](https://stringr.tidyverse.org/reference/case.html)
+
+
+### 3. Replace postal code with consistent layout
+
+
+How can we clean up this list so that our postal codes are in a consistent format?
+
+```{r}
+# list of postal codes
+pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
+```
+
+One solution:
+
+a. remove space or hyphen
 
 ```{r}
 
+gsub(pattern = " ", replacement = "", x = pc1)
+gsub(pattern = "-", replacement = "", x = pc1)
 
-ymd(four_dates_list)
+# combine the two in single regex
+pc_clean <- gsub("[ -]", "", pc1)
+pc_clean
 
 ```
 
-
-And here's three different ways to add our new list back onto the data table:
+b. all caps
 
 ```{r}
-# in a pipe:
-four_dates3 %>% 
-  mutate(ref_date_x = ymd(four_dates_list))
-
-# for fans of the <table>$<variable> structure:
-four_dates3$ref_date_y <- ymd(four_dates_list)
-
-# and a new function, `cbind()`:
-cbind(four_dates3, ymd(four_dates_list))
-
+pc_clean <- str_to_upper(pc_clean)
+pc_clean
 ```
-
-
-For more on `cbind()` (for column bind) and its parallel `rbind()` (for row bind), see:
-https://www.dummies.com/programming/r/how-to-add-variables-to-a-data-frame-in-r/
 
 
 

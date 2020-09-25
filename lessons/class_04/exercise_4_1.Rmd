@@ -1,0 +1,150 @@
+---
+title: "Working with strings & dates"
+subtitle: "cleaning date fields"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+
+```{r setup}
+
+library(tidyverse)
+library(lubridate)
+
+```
+
+
+
+## Cleaning dates
+
+
+One of the ways dates are represented is as a character string with the month and year.
+
+"Jan 2019"
+
+This is common with summaries—the number of COVID cases recording during the month, or total sales for the month, or the number of passengers carried on BC Ferries during the month.
+
+But working with dates in this sort of structure is problematic.
+
+* you can't easily create an annual total, because the month and year are in the same string (i.e. it's a single value, violating one of the principles of tidy data)
+
+* character months don't sort in the right order; alphabetically, "April" is the first month of the year and "September" is last
+
+* most (all?) programs that have a "date" format don't recognize this format; they want a day as well (and of course, this is not [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) compliant)
+
+```{r}
+
+our_date <- "Jan 2019"
+
+lubridate::ymd(our_date)
+
+
+```
+
+So that doesn't work.
+
+We can split the string into two parts using `str_split()`, where we specify the space as the splitting element:
+
+```{r}
+
+str_split(our_date, " ")
+
+```
+
+Here we have four month-years, arranged alphabetically:
+
+```{r}
+
+four_dates <- tribble(~ref_date, "Apr 2019", "Dec 2020", "Jan 2018", "Sep 2021")
+
+four_dates <- four_dates %>% 
+  mutate(value = 1:4)
+
+four_dates
+
+```
+
+Inside a tibble, we use `separate()` from the {tidyr} package:
+
+* https://tidyr.tidyverse.org/reference/separate.html
+
+```{r}
+
+four_dates2 <- four_dates %>% 
+  separate(ref_date, into = c("ref_mon", "ref_year"), sep = " ")
+
+four_dates2
+
+```
+
+https://stackoverflow.com/questions/6549239/convert-months-mmm-to-numeric
+
+
+Back to factors!
+
+```{r}
+
+# create a list that will be the month levels:
+
+month_levels <- c(
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+)
+
+
+four_dates3 <- four_dates2 %>% 
+  mutate(ref_mon2 = factor(ref_mon, levels = month_levels)) %>%
+  arrange(ref_mon2)
+
+four_dates3
+
+```
+
+
+```{r}
+
+four_dates_list <- four_dates3 %>% 
+  glue::glue_data("{ref_year}-{ref_mon2}-01")
+
+four_dates_list
+
+```
+
+
+Now it's in a format that {lubridate} can understand, and convert to a <date> class:
+
+```{r}
+
+
+four_dates_date <- ymd(four_dates_list)
+four_dates_date
+
+sort(four_dates_date)
+```
+
+
+And here's three different ways to add our new list back onto the data table:
+
+```{r}
+# in a pipe:
+four_dates3 %>% 
+  mutate(ref_date_x = ymd(four_dates_list))
+
+# for fans of the <table>$<variable> structure:
+four_dates3$ref_date_y <- ymd(four_dates_list)
+
+# and a new function, `cbind()`:
+cbind(four_dates3, ymd(four_dates_list))
+
+```
+
+
+For more on `cbind()` (for column bind) and its parallel `rbind()` (for row bind), see:
+https://www.dummies.com/programming/r/how-to-add-variables-to-a-data-frame-in-r/
+
+
