@@ -69,13 +69,14 @@ numstring1 + numstring2
 
 as.integer(numstring2)
 
+numstring1 + as.integer(numstring2)
 
 # number with a comma (string)
 numstring3 <- "1,234"
 
 as.integer(numstring3)
 
-as.integer(gsub(",", "", numstring3))
+as.integer(gsub(",", "", numstring3)) + numstring1
 
 ```
 
@@ -87,10 +88,10 @@ Note that in this example, variable "a" and "b" are both <chr>, "c" is <dbl> and
 ```{r}
 
 onefish <- tibble(
-       a = c("12", "34"),
-       b = c("12", "fish"),
+       a = c(12, "34"),
+       b = c(12, "fish"),
        c = c(12, 34),
-       d = c(12L, 34L),
+       d = c(12, 34L),
 )
 
 ls.str(onefish)
@@ -104,7 +105,7 @@ We can convert "a" to a numeric variable, but if we try it with "b", the not-a-n
 ```{r}
 
 onefish %>% 
-  mutate(a = as.numeric(a))
+  mutate(a1 = as.numeric(a))
 
 onefish %>% 
   mutate(b = as.numeric(b))
@@ -142,11 +143,11 @@ Some useful functions:
 x <- c("apple", "banana", "pear")
 
 # which words start with "a"?
-str_detect(x, "^a")
+str_detect(x, "^[a]")
 
 # which words have an "ea" combination?
 
-str_detect(x, "ea")
+str_detect(x, ".[a].")
 
 
 ```
@@ -159,6 +160,7 @@ Which words end with "a"?
 # solution
 str_view(x, "a$")
 
+str_view(x, ".[a]")
 
 ```
 
@@ -299,7 +301,7 @@ postalcode <- "^[A-Za-z]\\d[A-Za-z][ -]?\\d[A-Za-z]\\d$"
 postalcode <- "(?i)^[A-Z]\\d[A-Z][ -]?\\d[A-Z]\\d$(?-i)"
 
 # list of postal codes
-pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3")
+pc1 <- c("V1A2B3", "V1A 2B3", "v1a-2b3", "V1A 2B33")
 
 str_detect(pc1, postalcode)
 
@@ -338,7 +340,7 @@ fruit <- c("apple", "banana", "pear", "pineapple")
 
 str_length(fruit)       # how many characters is the string?
 str_detect(fruit, "e")  # does the string have the pattern ("e")?
-str_sub(fruit, 1, 2)    # starting at the first position (1), two characters (2)
+str_sub(fruit, 1, 2)    # starting at the first position (1), end at second position (2)
 
 
 ```
@@ -371,9 +373,14 @@ str_count(fruit, "[aeiou]") # how many times does a vowel (a, e, i, o, or u) app
 str_locate(fruit, "e") # where is the first e" in the string?
 str_locate(fruit, "[aeiou]") # where is the first vowel in the string?
 
-str_extract(fruit, "[aeiou]")  # which is the first vowel?
+vowel_ex <- str_extract(fruit, "[aeiou]")  # which is the first vowel?
 
-str_match(fruit, "(.)[aeiou]") # what is the first letter that comes before a vowel?
+vowel_ma <- str_match(fruit, "(.)[aeiou]") # what is the first letter that comes before a vowel?
+
+fruit_t <- as.tibble(fruit)
+
+fruit_t %>% 
+  mutate(first_v = str_match(value, "[aeiou]"))
 
 ```
 

@@ -64,6 +64,10 @@ Note: this is known as a _conditional transformation_, since the value is "condi
 
 ```{r}
 
+penguins %>% 
+  mutate(body_mass_pct = body_mass_g / mean(body_mass_g, na.rm = TRUE) * 100) 
+
+
 penguin_mass <- penguins %>% 
   group_by(species) %>% 
   mutate(body_mass_pct = body_mass_g / mean(body_mass_g, na.rm = TRUE) * 100) 
@@ -84,7 +88,7 @@ We could add more grouping variables, such as `sex`, to compare each bird to the
 ```{r}
 
 penguin_mass <- penguins %>% 
-  group_by(species) %>% 
+  group_by(species, sex) %>% 
   mutate(body_mass_pct = body_mass_g / mean(body_mass_g, na.rm = TRUE) * 100) 
 
 penguin_mass
@@ -114,10 +118,8 @@ An index is used to measure change from a single point in time. This is a valuab
 For this example, let's compare the population growth in the Vancouver Census Metropolitan Region (CMA) to the Victoria CMA.
 
 ```{r}
-
-#can_pop <- get_cansim("17-10-0135-01")
-#
-#unique(can_pop$GEO)
+# run this chunk to get the full data table from cansim
+can_pop <- get_cansim("17-10-0135-01")
 #
 # Vancouver, both sexes, all ages: vector v1060818031
 # Victoria, both sexes, all ages: vector v1060818691
@@ -149,6 +151,7 @@ pop_van_vic <- pop_van_vic %>%
   group_by(GEO) %>% 
   mutate(index_val = first(VALUE)) %>% 
   mutate(index_2006 = VALUE / first(VALUE) *100) %>% 
+  mutate(index_2011 = VALUE / nth(VALUE, 6) *100) %>% 
   ungroup()
 
 pop_van_vic
@@ -156,7 +159,7 @@ pop_van_vic
 
 
 ```{r}
-ggplot(pop_van_vic, aes(x = REF_DATE, y = index_2006, colour = GEO)) +
+ggplot(pop_van_vic, aes(x = REF_DATE, y = index_2011, colour = GEO)) +
   geom_line(size = 1.2) +
   theme(legend.position="bottom")
   
