@@ -18,19 +18,25 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Objectives
 
-> “Without a systematic way to start and keep data clean, bad data will happen.” — Donato Diorio
+> “Tidy datasets are easy to manipulate, model and visualize.” — Hadley Wickham
 
 
 At the end of the first part of this lesson, learners will:
 
-1. Be able to explain the attributes of "good data" (and by extension, be able to identify "bad data"); and 
+1. Have a basic understanding of regular expressions; 
 
-1. Demonstrate an understanding of tools to validate data quality;   
+1. Be able to demonstrate string manipulation using regular expressions in R;
+
+1. Explain the principles of "tidy data" and identify whether a dataset is tidy;   
 
 
 At the end of the second part of this lesson, learners will:
 
-1. Demonstrate an understanding of tools and techniques to programatically identify and correct problems with data.
+1. Explain the context when a relational database is a desirable dataset structure; 
+
+1. Demonstrate an understanding of relational database structure; and
+
+1. Demonstrate the ability to filter rows, select columns, and join tables using SQL and R commands.
 
 
 ***
@@ -39,17 +45,16 @@ At the end of the second part of this lesson, learners will:
 
 | Block      | Time           | Topics  | &#8212; |
 |---         |:---            |:---     |:---:  |
-|**Saturday**|**Data quality**     |&#8212; |&#8212; |
-|1a          | 9:00 to 9:30   | Homework review  | &#8212; |
-|1b          | 9:30 to 10:30  | The nature of bad data <br> Hierarchy of data quality | &#8212; |
+|**Saturday**|**Cleaning (2) and adding variables**     |&#8212; |&#8212; |
+|1a          | 9:00 to 10:30   | Regular expressions <br> Cleaning strings in R  | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|2a          | 10:45 to 11:30 | Data validation methods | &#8212; |
-|2b          | 11:30 to 12:00 | Homework <br> - Readings: data quality | &#8212; |
-|**Sunday**  |**Data cleaning** |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Discussion <br> - Readings: data quality  | &#8212; |
-|3b          | 9:30 to 10:30  | Data cleaning - introduction | &#8212; |
+|2a          | 10:45 to 11:30 | Data manipulation | &#8212; |
+|2b          | 11:30 to 12:00 | Exercise <br> - Setting up SQLite | &#8212; |
+|**Sunday**  |**Relational databases** |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Homework review  | &#8212; |
+|3b          | 9:30 to 10:30  | Tidy data and relational databases | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|4a          | 10:45 to 11:45 | Data cleaning - tools and techniques | 
+|4a          | 10:45 to 11:45 | Relational datasets in SQL and R | 
 |4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
 
 

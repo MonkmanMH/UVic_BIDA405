@@ -41,6 +41,12 @@ Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Application
 
 Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (2016)
 
+* Chapter 2, "Databases"
+
+* Chapter 9, "Database design"
+
+* Installing SQLite: Chapter 3, "SQLite"
+
 * [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
 
 

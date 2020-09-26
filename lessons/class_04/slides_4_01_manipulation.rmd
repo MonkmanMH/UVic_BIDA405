@@ -63,3 +63,14 @@ b) merge from other
 
   - database joins
 
+
+---
+class: inverse
+
+## Calculated variables
+
+Dealing with differences in scale
+
+* index (set one point = 100)
+
+* _z_ score (standard deviations from the mean)

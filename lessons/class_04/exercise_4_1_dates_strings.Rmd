@@ -18,6 +18,18 @@ library(lubridate)
 
 ```
 
+## {lubridate}
+
+Dates (and times) are commonly used in datasets, but there are a variety of ways they can end up messy. There's the order of the days and months in a string, for one thing, which is why you should always strive for YYYY-MM-DD format. 
+
+* see [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), the international standard for date and time formats.
+
+Other things that makes dates and times a challenge include time zones, leap days, and daylight savings times.
+
+The R package {lubridate} has been designed to streamline working with dates in R, including the individual components of the date (for example, extracting the year or month).
+
+* package reference page: https://lubridate.tidyverse.org/
+
 
 
 ## Cleaning dates
@@ -27,15 +39,20 @@ One of the ways dates are represented is as a character string with the month an
 
 "Jan 2019"
 
-This is common with summaries—the number of COVID cases recording during the month, or total sales for the month, or the number of passengers carried on BC Ferries during the month.
+This is common with data summaries—examples include the number of COVID cases recording during the month, or total sales for the month, and the number of passengers carried on BC Ferries during the month.
 
 But working with dates in this sort of structure is problematic.
 
 * you can't easily create an annual total, because the month and year are in the same string (i.e. it's a single value, violating one of the principles of tidy data)
 
-* character months don't sort in the right order; alphabetically, "April" is the first month of the year and "September" is last
+* character months don't sort in the right order; alphabetically, "April" is the first month of the year and "September" is last.
+
+* compounding this, if we were to sort a list of dates recorded like this, "Jan 2020" would follow "Jan 2019", both behind "Feb 2019" and "Feb 2020".
 
 * most (all?) programs that have a "date" format don't recognize this format; they want a day as well (and of course, this is not [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) compliant)
+
+
+First, let's apply the {lubridate} function `ymd()` to the date.
 
 ```{r}
 
@@ -63,7 +80,7 @@ Here we have four month-years, arranged alphabetically:
 four_dates <- tribble(~ref_date, "Apr 2019", "Dec 2020", "Jan 2018", "Sep 2021")
 
 four_dates <- four_dates %>% 
-  mutate(value = 1:4)
+  mutate(posnum = row_number())
 
 four_dates
 
@@ -82,10 +99,18 @@ four_dates2
 
 ```
 
-https://stackoverflow.com/questions/6549239/convert-months-mmm-to-numeric
 
+### factors
 
-Back to factors!
+In R, factor variables are specifically designed to work with categorical variables. The package {forcats} is designed to work with factors:
+
+* {forcats} reference page: https://forcats.tidyverse.org/
+
+* [Chapter 15, Factors in _R for Data Science_](https://r4ds.had.co.nz/factors.html)
+
+In this example, we want a list of factor levels that are the 12 months of the year in sequential order. Once the list is created, we can apply that list using the `levels=` argument in the `factor()` function.
+
+Then when we sort the variable, it will follow the order as specified in the factor levels.
 
 ```{r}
 
@@ -105,6 +130,8 @@ four_dates3
 
 ```
 
+
+A common and effective strategy for working with dates that are missing a component (in this case, the day) is to assign a default value. In our example, we will assume that every record represents the first day of the month, so using the {glue} package we will combine the year and month to a short string "-01".
 
 ```{r}
 
