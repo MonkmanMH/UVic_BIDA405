@@ -1,6 +1,6 @@
 ---
-title: "Manipulation of data tables"
-subtitle: ""
+title: "Data manipulation"
+subtitle: "Creating new variables"
 output:
   html_document:
     df_print: paged
@@ -15,31 +15,28 @@ library(tidyverse)
 #
 library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
 
+# penguins dataset
+library(palmerpenguins)
+# Statistics Canada data from CANSIM
+library(cansim)
+
 ```
 
-
-
-# Data Transformations
 
 
 
 ## Objectives
 
-* Understand the basics of creating new variables
+* Understand the reasons for creating new variables
 
-* Understand the basics of combining tables
-
-  - Adding columns (table joins)
-  
-  - Adding rows
-  
-  
+* Explore some approaches to creating new variables
 
 
-## 1. Creating new variables
 
 
 There are a variety of reasons why you would want to create a new variable, and for every reason there's going to be a variety of ways to address the reason.
+
+## 1. Ratio
 
 Let's start with creating a new variable that is the result of two others in the same observation: a ratio
 
@@ -48,14 +45,14 @@ In the {palmerpenguin} data, there are two measures of the bird bills: bill leng
 
 ```{r}
 
-library(palmerpenguins)
-
 penguins
 
 penguins %>%
   mutate(culmen_ratio = bill_depth_mm / bill_length_mm)
 
 ```
+
+# 2. Distribution
 
 We might also want to compare a single value to the average of the group. For example, we might want to compare the weight of each bird to the others of the same species. One comparison would be as a percentage of the average—is it 5% lighter or 10% heavier?
 
@@ -74,75 +71,126 @@ penguin_mass <- penguins %>%
 penguin_mass
 
 penguin_mass %>% 
-  arrange(body_mass_pct)
+  arrange(body_mass_pct) %>% 
+  select(species, sex, body_mass_g, body_mass_pct)
+
 
 ```
 
 We could add more grouping variables, such as `sex`, to compare each bird to the same sex in their species.
 
-We could use a similar approach to calculate other comparative variables such as index, standardized scores, and so on.
-
-
-### Sampling
-
-Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset. This might be to create a survey frame or a training set for a machine learning model.
-
-R provides a number of sampling functions that allow us to sample our dataset.
-
-In {dplyr}, these functions are `sample_n()` and `sample_frac()`:
-
-* see https://dplyr.tidyverse.org/reference/sample.html
-
-```{r}
-# sample 25 rows from penguins
-penguins %>% 
-  sample_n(25)
-
-# sample 10% of the records in penguins (34 of 344 rows)
-penguins %>% 
-  sample_frac(0.1)
-
-```
-
-In combination with `group_by()`, these functions also allow stratified sampling. In this example, the sample will be of 3 penguins of each species.
 
 
 ```{r}
-penguins %>% 
+
+penguin_mass <- penguins %>% 
   group_by(species) %>% 
-  sample_n(3)
+  mutate(body_mass_pct = body_mass_g / mean(body_mass_g, na.rm = TRUE) * 100) 
+
+penguin_mass
+
+penguin_mass %>% 
+  arrange(body_mass_pct) %>% 
+  select(species, sex, body_mass_g, body_mass_pct)
+
+
 ```
 
-The approach below is more complex, in that it keeps the entire dataset intact, and adds a new variable to indicate if the record is sampled or not.
 
-The `runif()` function is in base {r}, and creates a random point between 0 and 1 on a uniform scale (that is, every point has an equal probability of being selected). The `length()` function is required to indicate how may random values are to be created.
+Other measures of a value's position within a distribution include
 
-The final line assigns a TRUE or FALSE value, depending on whether the value that's randomly generated is larger or smaller than 0.5 (there should be roughly an equal number of values on either side of this point.)
+* standardization (using the _z_ score)
+
+* rank
+  
+  - percentile rank
+
+
+
+## 3. Index
+
+An index is used to measure change from a single point in time. This is a valuable tool for comparing growth rates when the absolute values are very different, and the differences in magnitude will obscure the growth rate differences.
+
+For this example, let's compare the population growth in the Vancouver Census Metropolitan Region (CMA) to the Victoria CMA.
+
+```{r}
+
+#can_pop <- get_cansim("17-10-0135-01")
+#
+#unique(can_pop$GEO)
+#
+# Vancouver, both sexes, all ages: vector v1060818031
+# Victoria, both sexes, all ages: vector v1060818691
+
+pop_van_vic <- can_pop %>%
+  mutate(REF_DATE = lubridate::ymd(REF_DATE, truncated = 2L)) %>%
+  filter(VECTOR %in% c("v1060818031", "v1060818691"))
+
+pop_van_vic <- pop_van_vic %>% 
+  arrange(GEO) %>% 
+  select(GEO, REF_DATE, VALUE)
+
+pop_van_vic
+```
+
+```{r}
+ggplot(pop_van_vic, aes(x = REF_DATE, y = VALUE, colour = GEO)) +
+  geom_line(size = 1.2) +
+  theme(legend.position="bottom") +
+  ylim(0, 3000000)
+  
+```
+
+If we use an index value, it allows for a direct comparison of the growth rates.
+
+```{r}
+
+pop_van_vic <- pop_van_vic %>% 
+  group_by(GEO) %>% 
+  mutate(index_val = first(VALUE)) %>% 
+  mutate(index_2006 = VALUE / first(VALUE) *100) %>% 
+  ungroup()
+
+pop_van_vic
+```
 
 
 ```{r}
-penguin_sample <- penguins %>% 
-  group_by(species) %>% 
-  mutate(sampled = runif(length(species))) %>% 
-  mutate(sample_tf = ifelse(sampled > 0.5, TRUE, FALSE))
+ggplot(pop_van_vic, aes(x = REF_DATE, y = index_2006, colour = GEO)) +
+  geom_line(size = 1.2) +
+  theme(legend.position="bottom")
+  
 
-penguin_sample %>% 
-  group_by(species, sample_tf) %>% 
-  tally()
 ```
+
+
+Data source: https://www150.statcan.gc.ca/n1/pub/91-214-x/91-214-x2020001-eng.htm
+
+## 4. Other {dplyr} functions for transformation
+
+Some useful functions:
+
+| function | what it does |
+| ---- | ---- |
+| `lead()` , `lag()` | computes lead or lag values |
+| `nth()` , `first()` , `last()` | extract the first, last or nth value from a vector |
+| `cumsum()` etc. | cumulative sum (in {base}) |
+| `cumall()` , `cumany()` , `cummean()` | cumulative functions |
+
+
+
+See: 
+
+* {dplyr} "Vector functions": https://dplyr.tidyverse.org/reference/index.html#section-vector-functions
+
+* {base} "Cumulative Sums, Products, and Extremes" https://stat.ethz.ch/R-manual/R-devel/library/base/html/cumsum.html
+
 
 
 
 ---
 
 ## REFERENCE
-
-["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
-
-["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
-
-["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
-
 
 
 Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
@@ -151,11 +199,5 @@ Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
 
-
-Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
-
-* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
-
-* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
 
 

@@ -1,0 +1,110 @@
+---
+title: "Manipulation of data tables"
+subtitle: ""
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(tidyverse)
+#
+library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
+
+# penguins dataset
+library(palmerpenguins)
+
+```
+
+
+
+## Objectives
+
+* Understand the reasons for sampling
+
+* Explore techniques for sampling
+
+
+
+## Sampling
+
+Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset. This might be to create a survey frame or a training set for a machine learning model.
+
+R provides a number of sampling functions that allow us to sample our dataset.
+
+In {dplyr}, these functions are `sample_n()` and `sample_frac()`:
+
+* see https://dplyr.tidyverse.org/reference/sample.html
+
+```{r}
+# sample 25 rows from penguins
+penguins %>% 
+  sample_n(25)
+
+# sample 10% of the records in penguins (34 of 344 rows)
+penguins %>% 
+  sample_frac(0.1)
+
+```
+
+In combination with `group_by()`, these functions also allow stratified sampling. In this example, the sample will be of 3 penguins of each species.
+
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  sample_n(3)
+```
+
+The approach below is more complex, in that it keeps the entire dataset intact, and adds a new variable to indicate if the record is sampled or not.
+
+The `runif()` function is in base {r}, and creates a random point between 0 and 1 on a uniform scale (that is, every point has an equal probability of being selected). The `length()` function is required to indicate how may random values are to be created.
+
+The final line assigns a TRUE or FALSE value, depending on whether the value that's randomly generated is larger or smaller than 0.5 (there should be roughly an equal number of values on either side of this point.)
+
+
+```{r}
+penguin_sample <- penguins %>% 
+  group_by(species) %>% 
+  mutate(sampled = runif(length(species))) %>% 
+  mutate(sample_tf = ifelse(sampled > 0.5, TRUE, FALSE))
+
+penguin_sample
+
+penguin_sample %>% 
+  group_by(species, sample_tf) %>% 
+  tally()
+```
+
+
+
+---
+
+## REFERENCE
+
+["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
+
+["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
+
+["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
+
+
+
+Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
+
+* Chapter 4 "Managing Data" (4.2 Data transformations)
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
+
+

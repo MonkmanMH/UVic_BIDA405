@@ -1,6 +1,6 @@
 ---
-title: "Data Structures"
-subtitle: "_tidy data_"
+title: "Manipulating data"
+subtitle: "_calculating variables_"
 author: "Martin Monkman"
 date: "2020/09/26"
 output:
@@ -40,11 +40,16 @@ class: inverse
 
 ## Adding new variables
 
-* calculation
+* conditional values
 
-* outside sources
+  - `case_when()`
+
+* other sources
 
   - joins (columns and rows)
+
+* calculation
+
 
 
 
@@ -58,10 +63,6 @@ a) calculation
   - combining variables (a + b)
   
   - individual value relative to group
-
-b) merge from other
-
-  - database joins
 
 
 ---
@@ -80,6 +81,8 @@ Dealing with differences in scale
 ---
 
 ## New Housing Price Index
+
+Compare change, not absolute value
 
 December 2016 = 100
 
