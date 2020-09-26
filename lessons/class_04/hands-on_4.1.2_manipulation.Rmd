@@ -85,7 +85,51 @@ We could use a similar approach to calculate other comparative variables such as
 
 ### Sampling
 
-Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset.
+Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset. This might be to create a survey frame or a training set for a machine learning model.
+
+R provides a number of sampling functions that allow us to sample our dataset.
+
+In {dplyr}, these functions are `sample_n()` and `sample_frac()`:
+
+* see https://dplyr.tidyverse.org/reference/sample.html
+
+```{r}
+# sample 25 rows from penguins
+penguins %>% 
+  sample_n(25)
+
+# sample 10% of the records in penguins (34 of 344 rows)
+penguins %>% 
+  sample_frac(0.1)
+
+```
+
+In combination with `group_by()`, these functions also allow stratified sampling. In this example, the sample will be of 3 penguins of each species.
+
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  sample_n(3)
+```
+
+The approach below is more complex, in that it keeps the entire dataset intact, and adds a new variable to indicate if the record is sampled or not.
+
+The `runif()` function is in base {r}, and creates a random point between 0 and 1 on a uniform scale (that is, every point has an equal probability of being selected). The `length()` function is required to indicate how may random values are to be created.
+
+The final line assigns a TRUE or FALSE value, depending on whether the value that's randomly generated is larger or smaller than 0.5 (there should be roughly an equal number of values on either side of this point.)
+
+
+```{r}
+penguin_sample <- penguins %>% 
+  group_by(species) %>% 
+  mutate(sampled = runif(length(species))) %>% 
+  mutate(sample_tf = ifelse(sampled > 0.5, TRUE, FALSE))
+
+penguin_sample %>% 
+  group_by(species, sample_tf) %>% 
+  tally()
+```
 
 
 
