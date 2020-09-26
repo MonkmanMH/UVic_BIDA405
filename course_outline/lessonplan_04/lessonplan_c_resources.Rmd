@@ -18,16 +18,35 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Reading list
 
+### Tidy data
+
 Hadley Wickham, Wickham, Hadley. 2014. “Tidy Data.” _Journal of Statistical Software_ 59 (1): 1–23. https://doi.org/10.18637/jss.v059.i10.
 
 * a concise summary of tidy data principles can be found in [_R for Data Science_, "Tidy Data"](https://r4ds.had.co.nz/tidy-data.html)
 
 
+
+### Strings
+
+
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
 
-* Chapter 7, "Data Handling in Practice"
+* Chapter 4, "R Data, Part 3: Text and Factors"
 
 * [UVic Library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c07.xhtml#c7)
+
+
+### Data manipulation
+
+
+Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
+
+* Chapter 4 "Managing Data" (4.2 Data transformations)
+
+* Chapter 5, "Data engineering and data shaping"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
 
 
 Mark van der Loo and Edwin de Jonge, _Statistical Data Cleaning with Applications in R_ (2018):

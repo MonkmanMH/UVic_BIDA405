@@ -10,8 +10,12 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
+
 ```{r setup}
+
 library(tidyverse)
+#
+library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
 
 ```
 
@@ -26,14 +30,6 @@ R provides some robust tools for working with characters strings. In particular,
 
 {stringr} reference page: https://stringr.tidyverse.org/
 
-
-```{r setup}
-
-library(tidyverse)
-#
-library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
-
-```
 
 
 

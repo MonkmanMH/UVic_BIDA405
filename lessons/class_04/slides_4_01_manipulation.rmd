@@ -55,9 +55,9 @@ class: inverse
 
 a) calculation
 
-  - X + Y
+  - combining variables (a + b)
   
-  - index (% change from fixed point)
+  - individual value relative to group
 
 b) merge from other
 
@@ -71,6 +71,23 @@ class: inverse
 
 Dealing with differences in scale
 
+* standardizing (_z_ score or standard deviations from the mean)
+
+* normalizing (0-1 scale)
+
 * index (set one point = 100)
 
-* _z_ score (standard deviations from the mean)
+---
+
+## New Housing Price Index
+
+December 2016 = 100
+
+![NHPI](NHPI_plot_420.png)
+
+
+
+
+
+
+

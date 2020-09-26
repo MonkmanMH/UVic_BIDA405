@@ -1,0 +1,117 @@
+---
+title: "Manipulation of data tables"
+subtitle: ""
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(tidyverse)
+#
+library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
+
+```
+
+
+
+# Data Transformations
+
+
+
+## Objectives
+
+* Understand the basics of creating new variables
+
+* Understand the basics of combining tables
+
+  - Adding columns (table joins)
+  
+  - Adding rows
+  
+  
+
+
+## 1. Creating new variables
+
+
+There are a variety of reasons why you would want to create a new variable, and for every reason there's going to be a variety of ways to address the reason.
+
+Let's start with creating a new variable that is the result of two others in the same observation: a ratio
+
+In the {palmerpenguin} data, there are two measures of the bird bills: bill length and bill depth. A thin pointy bill will have a small ratio of depth to length, and a larger ratio will look kind of stubby. Let's calculate the ratio of the two for every bird in the dataset:
+
+
+```{r}
+
+library(palmerpenguins)
+
+penguins
+
+penguins %>%
+  mutate(culmen_ratio = bill_depth_mm / bill_length_mm)
+
+```
+
+We might also want to compare a single value to the average of the group. For example, we might want to compare the weight of each bird to the others of the same species. One comparison would be as a percentage of the average—is it 5% lighter or 10% heavier?
+
+R's {dplyr} functions are designed for this sort of calculation.
+
+While we could compare each bird to all of the others in the dataset, in this case we want to compare them within their species. First we group by species, then calculate a new variable with the `mutate()` function. Note that we have to use `na.rm = TRUE` in the `mean()` function.
+
+Note: this is known as a _conditional transformation_, since the value is "conditioned" or "conditional" on the species.
+
+```{r}
+
+penguin_mass <- penguins %>% 
+  group_by(species) %>% 
+  mutate(body_mass_pct = body_mass_g / mean(body_mass_g, na.rm = TRUE) * 100) 
+
+penguin_mass
+
+penguin_mass %>% 
+  arrange(body_mass_pct)
+
+```
+
+We could add more grouping variables, such as `sex`, to compare each bird to the same sex in their species.
+
+We could use a similar approach to calculate other comparative variables such as index, standardized scores, and so on.
+
+
+### Sampling
+
+Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset.
+
+
+
+---
+
+## REFERENCE
+
+["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
+
+["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
+
+["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
+
+
+
+Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
+
+* Chapter 4 "Managing Data" (4.2 Data transformations)
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
+
+
