@@ -28,12 +28,38 @@ Hadley Wickham, Wickham, Hadley. 2014. “Tidy Data.” _Journal of Statistical 
 
 ### Strings
 
+{stringr} reference page: https://stringr.tidyverse.org/
+
+* cheat sheet: at RStudio "Cheatsheets" page https://rstudio.com/resources/cheatsheets/ 
+
+
+["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
+
+["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
+
+
 
 Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
 
 * Chapter 4, "R Data, Part 3: Text and Factors"
 
 * [UVic Library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c07.xhtml#c7)
+
+
+
+
+#### Regular expressions
+
+[regex101](https://regex101.com/)
+
+["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
+
+Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
+
+* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
+
 
 
 ### Data manipulation
@@ -67,9 +93,6 @@ Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (201
 * Installing SQLite: Chapter 3, "SQLite"
 
 * [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
-
-
-### R packages
 
 
 

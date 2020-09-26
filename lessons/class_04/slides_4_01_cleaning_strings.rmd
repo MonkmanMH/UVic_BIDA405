@@ -1,0 +1,93 @@
+---
+title: "Data cleaning"
+subtitle: "Strings"
+author: "Martin Monkman"
+date: "2020/09/26"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* Cleaning data
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Cleaning strings
+
+---
+class: inverse
+
+> Strings are not glamorous, high-profile components of R, but they do play a big role in many data cleaning and preparation tasks. 
+—{stringr} reference page
+
+---
+class: inverse
+
+### Cleaning strategies
+
+* select or filter
+
+* replace or substitute
+
+* extract
+
+* standardize
+
+* validate
+
+
+---
+
+### Postal code examples
+
+Kimberley, BC V1A 2B3
+
+| postal code | status |
+| ---- | ---- |
+| V1A2B3 | perfect! |
+| V1A 2B3 | space |
+| v1a-2b3 | hyphen; lower case |
+| T1A 2B3 | T (Alberta) |
+| W1I OD3 | invalid letters |
+
+
+
+
+---
+class: inverse
+
+![{stringr}](stringr_400.png)
+https://stringr.tidyverse.org/
+
+
+---
+
+## Regular expressions
+
+Powerful, but ...
+
+>Some people, when confronted with a problem, think: “I know, I’ll use regular expressions.” Now they have two problems.
+— Jamie Zawinski
+
+

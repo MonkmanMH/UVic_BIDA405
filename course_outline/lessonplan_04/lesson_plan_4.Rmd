@@ -14,10 +14,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-## Lesson #3
+## Lesson #4
 
-```{r, child=c('lessonplan_a.Rmd', 'lessonplan_b_activities.Rmd', 'lessonplan_c_resources.Rmd')}
+```{r, child=c('lessonplan_a.Rmd', 'lessonplan_c_resources.Rmd')}
 
 ```
 
-
+<!---
+'lessonplan_b_activities.Rmd', 
+--->
