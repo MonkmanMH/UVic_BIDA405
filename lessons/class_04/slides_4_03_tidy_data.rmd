@@ -139,3 +139,32 @@ Advantages of relational databases
 
 * easier to maintain (only need to make changes in one place)
 
+* stored remotely—efficient use of comptuer memory
+
+???
+
+You have so much data that it does not all fit into memory simultaneously and you need to use some external storage engine. {dbplyr}
+
+---
+class: inverse
+
+## SQL
+
+"sequel" or "ess-cue-ell"?
+
+* both!
+
+"Structured Query Language"
+
+---
+class: inverse
+
+## language of databases
+
+* Relation DataBase Management System (RDBMS)
+
+
+---
+
+![Getting started with SQL](Getting_started_with_SQL.jpg)
+

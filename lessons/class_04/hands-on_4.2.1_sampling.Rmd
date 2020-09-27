@@ -1,6 +1,6 @@
 ---
 title: "Manipulation of data tables"
-subtitle: ""
+subtitle: "sampling"
 output:
   html_document:
     df_print: paged
@@ -86,25 +86,11 @@ penguin_sample %>%
 
 ## REFERENCE
 
-["Strings" in _R for Data Science_](https://r4ds.had.co.nz/strings.html) by Hadley Wickham and Garrett Grolemund
-
-["Strings and Dates" in _The R Cookbook_, 2nd ed.](https://rc2e.com/stringsanddates) by J.D. Long and Paul Teetor
-
-["Regular Expressions" in _Supervised Machine Learning for Text Analysis in R_](https://smltar.com/regexp.html) by Emil Hvitfeldt and Julia Silge
-
-
 
 Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
 
-* Chapter 4 "Managing Data" (4.2 Data transformations)
+* Chapter 4 "Managing Data" (4.3 Sampling for modeling and validation)
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
-
-
-Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, Cleaning and Managing Data in R_ (2017):
-
-* Chapter 4, "R Data, Part 3: Text and Factors / 4.4 Regular Expressions"
-
-* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/a-data-scientists/9781119080022/c04.xhtml)
 
 
