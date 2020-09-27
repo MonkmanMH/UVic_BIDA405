@@ -2,7 +2,7 @@
 title: "Data Structures"
 subtitle: "_tidy data_"
 author: "Martin Monkman"
-date: "2020/09/26"
+date: "2020/09/27"
 output:
   xaringan::moon_reader:
     css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    

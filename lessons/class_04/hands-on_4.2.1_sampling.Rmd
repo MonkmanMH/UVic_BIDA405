@@ -32,7 +32,20 @@ library(palmerpenguins)
 
 ## Sampling
 
-Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset. This might be to create a survey frame or a training set for a machine learning model.
+Frequently, we are called upon to provide a randomly selected sub-set of the whole dataset. 
+
+Why sample? 
+
+* In development stages, it's often easier to test and debug with a smaller dataset.
+
+* A training set for a machine learning model. 
+
+* Create a survey frame. 
+
+* In visualization, too many data points can obscure patterns.
+
+* Sampling can help anonymize records in a sensitive dataset.
+
 
 R provides a number of sampling functions that allow us to sample our dataset.
 
@@ -41,6 +54,8 @@ In {dplyr}, these functions are `sample_n()` and `sample_frac()`:
 * see https://dplyr.tidyverse.org/reference/sample.html
 
 ```{r}
+set.seed(1)
+
 # sample 25 rows from penguins
 penguins %>% 
   sample_n(25)
@@ -71,7 +86,7 @@ The final line assigns a TRUE or FALSE value, depending on whether the value tha
 penguin_sample <- penguins %>% 
   group_by(species) %>% 
   mutate(sampled = runif(length(species))) %>% 
-  mutate(sample_tf = ifelse(sampled > 0.5, TRUE, FALSE))
+  mutate(sample_tf = ifelse(sampled < 0.1, TRUE, FALSE))
 
 penguin_sample
 
