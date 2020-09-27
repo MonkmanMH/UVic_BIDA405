@@ -194,6 +194,18 @@ starwars %>%
 
 ```
 
+A short version:
+
+```{r}
+starwars %>%
+  mutate(
+    type = case_when(
+      species == "Droid"        ~ "robot",
+      TRUE                      ~ "other"
+    )
+  )
+```
+
 
 ### Cleaning special codes
 

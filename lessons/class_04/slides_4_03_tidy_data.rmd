@@ -34,10 +34,7 @@ class: inverse
 
 ## Next: 
 
-## Manipulation of data
-
----
-class: inverse
+## Data structures
 
 
 
@@ -74,6 +71,32 @@ library(palmerpenguins)
 penguins
 ```
 
+---
+class: inverse
+
+## `penguins` characteristics
+
+* every variable is a column
+
+* every observation is a row (the same penguin might be measured in multiple years)
+
+* every cell has a single value 
+
+---
+class: inverse
+
+## bonus `penguins` characteristics
+
+* variable names are descriptive
+
+  - including units
+
+* variable names glob 
+
+  - all variables about bills start with "bill_" 
+
+
+
 
 ---
 class: inverse
@@ -84,11 +107,15 @@ class: inverse
 ![untidy](alligator_untidy.jpg)
 
 
+---
+class: inverse
+
+A logical step is to go beyond cleaning the data to _restructuring the data_
 
 ---
 class: inverse
 
-## A tidy version of the same data
+## The same data as relational tables
 
 
 ![tidy](alligator_tidy.jpg)
@@ -97,14 +124,18 @@ class: inverse
 from Hart EM, Barmby P, LeBauer D, Michonneau F, Mount S, Mulrooney P, et al. (2016) Ten Simple Rules for Digital Data Storage. _PLoS Comput Biol_ 12(10): e1005097. https://doi.org/10.1371/journal.pcbi.1005097
 
 ---
-class: inverse
+class:inverse
 
-## Other structural principles
-
-
+![tidy](alligator_db_2.png)
 
 ---
-
 class: inverse
 
-## Joining tables
+Advantages of relational databases
+
+* _normalization_ - separating the different types of data into their own tables
+
+* reduces redundancy
+
+* easier to maintain (only need to make changes in one place)
+

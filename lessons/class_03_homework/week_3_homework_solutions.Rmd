@@ -181,5 +181,21 @@ bccovid %>%
 
 >Q6. Use a {dplyr} `case_when()` function to correct this error in labeling.
 
+```{r}
+
+bccovid <- bccovid %>% 
+  mutate(age_grp = case_when(
+    Age_Group == "19-Oct" ~ "10-19",
+    TRUE ~ Age_Group
+  ))
+
+bccovid %>% 
+    group_by(age_grp) %>% 
+    tally()
+
+
+```
+
+
 
 -30-
