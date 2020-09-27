@@ -1,0 +1,21 @@
+---
+title: "week 5"
+output: html_notebook
+---
+
+things to do
+
+## SQL
+
+* https://medium.com/predict/sql-equivalents-in-r-d1a4dfc27ab4
+
+* https://www.pluralsight.com/blog/software-development/relational-non-relational-databases#:~:text=Relational%20databases%20use%20Structured%20Querying,the%20management%20of%20several%20transactions.&text=And%20if%20your%20application%20is,those%20transactions%20are%20processed%20reliably.
+
+
+
+## {dbplyr}
+
+* https://cran.r-project.org/web/packages/dbplyr/vignettes/dbplyr.html
+
+
+
