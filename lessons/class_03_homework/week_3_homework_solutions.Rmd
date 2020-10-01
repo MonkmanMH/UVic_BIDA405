@@ -43,6 +43,11 @@ summary(cf)
 
 > Q1. Summarize what this table is telling us.
 
+1st rule is turnover > 0, a non-negativity restriction which is checked against 60 records out of which 56 records comply with it with 0 failures and 4 records no data was available to check the rule. There were no errors or warnings.
+  
+2nd Rule is staff.costs/staff < 50, a sanity check on cost per staff is satisfied by 39 records and failed by 5 records and 16 records did not have the data to check the rule. There were no errors or warnings.
+
+
 
 Now we will create an object using the `validator()` function, with the two tests above plus three more: 
 
@@ -190,7 +195,7 @@ bccovid <- bccovid %>%
   ))
 
 bccovid %>% 
-    group_by(age_grp) %>% 
+    group_by(Age_Group, age_grp) %>% 
     tally()
 
 

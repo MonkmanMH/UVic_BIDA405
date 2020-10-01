@@ -13,10 +13,8 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 ```{r setup}
 library(tidyverse)
 #
-library(stringr)  # {stringr} is part of the tidyverse, but not a core package that loads with {tidyverse}
 
 # datasets
-library(palmerpenguins)
 library(nycflights13)
 library(Lahman)
 ```
@@ -83,7 +81,7 @@ planes %>%
   filter(n > 1)
 
 # alternate solution
-planes %>% 
+flights %>% 
   count(tailnum) %>% 
   summarise(max(n))
 
@@ -119,6 +117,8 @@ y <- tribble(
      4, "y3"
 )
 
+x
+y
 
 ```
 
@@ -138,7 +138,7 @@ inner_join(x, y, key = "key")
 
 Left, right, and full joins are varieties of "outer joins".
 
-Join the two tables using a left join: ... all of the observations from the first table (on the left-hand side of the function), and variables from the matching records from the secon (the right-hand side of the function).
+Join the two tables using a left join: ... all of the observations from the first table (on the left-hand side of the function), and variables from the matching records from the second (the right-hand side of the function).
 
 The {dplyr} function for this is `left_join()`
 
@@ -163,33 +163,10 @@ See what happens when you join the tables with a `right_join()`, followed by a `
 
 ```{r}
 # solution
-full_join(x, y, key = "key")
-```
+right_join(x, y, key = "key")
 
-
-### Your turn 2.2
-
-In this example, we will add the name of the airline to the `flights` table. First, we will make a smaller version of the `flights` table by selecting a few of the variables.
-
-```{r}
-flights2 <- flights %>% 
-  select(year:day, hour, origin, dest, tailnum, carrier)
-flights2
-```
-
-To this table we will add the name of the airline, which we can find in the table `airlines`.
-
-* both tables have the variable "carrier"
-
-* we want a `left_join`: all the `flight` observations, and adding the "name" variable from `airlines`
-
-
-```{r}
 # solution
-left_join(flights2, airlines, by = "carrier")
-# alternate version, using a pipe
-flights2 %>%
-  left_join(airlines, by = "carrier")
+full_join(x, y, key = "key")
 ```
 
 
@@ -225,6 +202,8 @@ Join the tables with `left_join()`, with `x` as the table on the left.
 
 ```{r}
 # solution
+x
+y
 
 left_join(x, y, key = "key")
 
@@ -266,6 +245,12 @@ left_join(x, y, by = "key")
 
 ```
 
+```{r}
+
+x %>% 
+  distinct(key, .keep_all = TRUE)
+
+```
 
 
 
@@ -324,15 +309,15 @@ The Lahman baseball database contains a comprehensive listing of annual summarie
 
 For this exercise, we will use three of the tables:
 
-* "Master_2000s.csv" -- all active players from the years 2000 to 2018.
+* "People" -- all players
 
-* "Salaries_2016.csv" -- the annual summary of each player's compensation, for the 2016 season.
+* "Salaries" -- an incomplete list of the annual summary of each player's compensation.
  
-* "Batting_2016.csv" -- the annual summary of each player's batting, for the 2016 season. (Note #1: that this omits pitchers who did not come to bat in the 2016 season. Note #2: players who were traded between teams mid-season show up with a record for their performance of each team.)
+* "Batting" -- the annual summary of each player's batting. (Note: players who were traded between teams mid-season show up with a record for their performance of each team.)
 
 Think of these as the sorts of files that you would find in any human resources department: 
 
-* the People file contains the personal details of each individual employed by the enterprise, for the years 2000 through 2018.
+* the People file contains the personal details of each individual employed by the enterprise.
 
 * Batting contains in-depth performance measures for the employees in a specific task group
 
@@ -361,7 +346,7 @@ A: `People` has the primary key. It lists all individual players. The other data
 
 > iii. Why would the designers of the table put only one variable in the Batting table that identifies a player?
 
-A: Since all of the data in `People` is constant (name, birthdate, etc) there is no need to repeat those variables in the other tables where there are multiple records for the same player. It also means that this contsistent data only has to be edited in one location, not across all of the tables.
+A: Since all of the data in `People` is constant (name, birthdate, etc) there is no need to repeat those variables in the other tables where there are multiple records for the same player. It also means that this consistent data only has to be edited in one location, not across all of the tables.
 
 ### 4c. Joins
 
@@ -377,7 +362,7 @@ MLB_HR_data <- Batting %>%
 MLB_HR_data
 
 MLB_HR_data %>% 
-  group_by(teamID, birthCountry) %>% 
+  group_by(birthCountry, teamID) %>% 
   tally() 
 
 

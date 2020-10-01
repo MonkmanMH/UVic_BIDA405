@@ -1,0 +1,54 @@
+---
+title: "BIDA405: Lesson Plan, Week 5"
+subtitle: "2020-10-03 & 2020-10-24 "
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+
+
+## Readings & Reference Materials
+
+
+
+## Reading list
+
+
+### Data tables: protecting confidentiality
+
+
+Bruce Schneier, _Secrets and Lies: Digital Security in a Networked World_, 2000
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/secrets-and-lies/9781119092438/)
+
+
+
+
+Matthias Templ, _Statistical Disclosure Control for Microdata: Methods and Applications in R_, 2017
+
+*[UVic library link](https://link-springer-com.ezproxy.library.uvic.ca/book/10.1007%2F978-3-319-50272-4) (downloadable PDF)
+
+
+
+
+### SQL
+
+Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (2016)
+
+* Chapter 2, "Databases"
+
+* Chapter 9, "Database design"
+
+* Installing SQLite: Chapter 3, "SQLite"
+
+* [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
+
+
+
+
+-30-
