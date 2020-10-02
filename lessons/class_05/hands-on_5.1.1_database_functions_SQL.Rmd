@@ -77,7 +77,7 @@ In this short chunk, all of the variables (indicated by the asterix "*", acting 
 
 Note the semi-colon at the end to close the script.
 
-```{sql}
+```{sql eval=FALSE}
 
 SELECT * 
 FROM BATTING
@@ -86,9 +86,12 @@ WHERE yearID = 2019;
 
 ```
 
+![](SQLite_Lahman_batting.JPG)
+
+
 This second example shows how selection of the `playerID`, `teamID` and `R` (for Runs scored) variables would be chosen.
 
-```{sql}
+```{sql eval=FALSE}
 
 SELECT playerID, teamID, R
 FROM BATTING
@@ -97,6 +100,8 @@ WHERE yearID = 2019;
 
 ```
 
+![](SQLite_Lahman_players_1.JPG)
+
 
 ### 1c. Aggregate functions
 
@@ -104,14 +109,20 @@ Aggregate functions like `sum()` or `count()` are an important part of creating 
 
 The first script counts the number of players on each team; the second calculates the number of runs each team scored in 2019.
 
-```{sql}
+```{sql eval=FALSE}
 
 -- calculate number of players on each team 
 SELECT teamID, count(teamID)  
 FROM BATTING 
 WHERE yearID = 2019
 GROUP BY teamID;
+```
 
+
+![](SQLite_Lahman_1c.JPG)
+
+
+```{sql eval=FALSE}
 -- calculate number of runs each team scored
 SELECT teamID, sum(R)  
 FROM BATTING 
@@ -120,6 +131,7 @@ GROUP BY teamID;
 
 ```
 
+![](SQLite_Lahman_runs.JPG)
 
 ### 1d. Joins
 
@@ -147,7 +159,7 @@ And finally, the filtering by year uses the SQL function `WHERE`.
 
 So it would be:
 
-```{sql}
+```{sql eval=FALSE}
 -- use a left join
 -- select all columns from both tables with "*"
 SELECT * 
@@ -156,11 +168,13 @@ ON BATTING.playerID = PEOPLE.playerID
 WHERE yearID = 2019;
 ```
 
+![](SQLite_Lahman_players_2.JPG)
+
 In this second example, the `SELECT` function is used to specify the columns we want in the final table. Note that columns from both tables can be named.
 
 This example uses an `INNER JOIN`, returning the cases where there is a match in both tables.
 
-```{sql}
+```{sql eval=FALSE}
 
 -- use an inner join
 -- select specific columns from both tables
@@ -170,6 +184,9 @@ ON BATTING.playerID = PEOPLE.playerID
 WHERE yearID = 2019;
 
 ```
+
+![](SQLite_Lahman_players_3.JPG)
+
 
 Back to R: with our combined tables, we use the `group_by()` function to assign the variables that we want in our table, and then the `tally()` function to count the number of rows. The last line sorts the tabluation, first by team and then in descending order the counts.
 
@@ -200,7 +217,7 @@ The next lines have the `INNER JOIN` function we saw earlier, followed by the fi
 The final line shows the `GROUP BY` function that implements the aggregation.
 
 
-```{sql}
+```{sql eval=FALSE}
 -- grouping join to calculate number of players on each team by country of birth
 SELECT teamID, birthCountry, COUNT(birthCountry)
 FROM BATTING INNER JOIN PEOPLE
@@ -209,6 +226,7 @@ WHERE yearID = 2019
 GROUP BY teamID, birthCountry;
 
 ```
+![](SQLite_Lahman_country.JPG)
 
 
 This next chunk expands the one above.
@@ -217,7 +235,7 @@ In the first line, the tally gets renamed `n` using the `AS` function.
 
 The last lines add the ordering, first the teams alphabetically (ascending, or `ASC`), then the counts from largest to smallest (descending, `DESC`).
 
-```{sql}
+```{sql eval=FALSE}
 
 -- grouping join to calculate number of players on each team by country of birth
 -- add sort (ORDER BY)
@@ -233,6 +251,7 @@ ORDER BY
 
 
 ```
+![](SQLite_Lahman_country_sort.JPG)
 
 
 
@@ -263,7 +282,7 @@ jays_roi %>%
 
 The SQL version:
 
-```{sql}
+```{sql eval=FALSE}
 
 
 SELECT  teamID, yearID, sum(R), sum(salary), sum(salary)/sum(R) AS ROI  
@@ -285,6 +304,8 @@ GROUP BY BATTING.teamID, BATTING.yearID;
 
 ```
 
+
+![](SQLite_Lahman_ROI.JPG)
 
 
 ***
