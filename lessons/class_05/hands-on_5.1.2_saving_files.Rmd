@@ -1,0 +1,147 @@
+---
+title: "Saving files"
+subtitle: ""
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(readr)
+library(readxl)
+library(openxlsx)
+library(feather)
+
+```
+
+## Objectives
+
+* Demonstrate understanding of exporting tables and other objects (saving files) in R
+
+* Demonstrate understanding of the pros and cons of each file format, including context for use
+
+
+## Saving your tables
+
+So far we have covered
+
+* importing data
+
+* validating and cleaning data
+
+* creating summary tables in R and SQL
+
+
+Now we are at the point where we want to save our efforts. This might be 
+
+* to make the file available to a collaborator, 
+
+* to shift to another tool,
+
+* create a save point in our workflow, so that we can continue our work later but without having to re-do everything we've done.
+
+![Final Fantasy save point](ff7_save_point.gif)
+
+In base R, we can save many file formats. For this exercise, we will focus on the most popular.
+
+## R data files
+
+R data format files (.Rds) make a lot of sense as save points in your workflow. All of the variable types are preserved (e.g. dates and factors) that would be lost in a plain text file.
+
+| function | base R | {readr}
+|---|---|---|
+|write Rds | `saveRDS()` | `write_rds()` |
+|read Rds | `readRDS` | `read_rds()` |
+
+{readr}: https://readr.tidyverse.org/reference/read_rds.html
+
+
+
+## Plain text (CSV)
+
+* csv 
+
+
+With {readr}:
+
+* [writing to CSV](https://rc2e.com/inputandoutput#recipe-id028)
+
+
+## Excel files
+
+{readxl}:
+
+* [writing to Excel](https://rc2e.com/inputandoutput#recipe-writeexcel)
+
+
+{openxlsx}: Read, Write and Edit xlsx Files}
+
+This package gives you a great deal of power to add formatting, named ranges, and other artifacts to your Excel output.
+
+* CRAN site https://cran.r-project.org/package=openxlsx
+
+* Reference site: https://ycphs.github.io/openxlsx/index.html
+
+
+
+## Other formats
+
+
+### {feather}
+
+
+### database
+
+
+
+
+
+***
+
+## REFERENCE
+
+### Packages
+
+{readr}: https://readr.tidyverse.org/index.html
+
+{readxls}: 
+
+
+## Other references
+
+
+### SQLite
+
+[SQLite tutorial](https://www.sqlitetutorial.net/)
+
+* [Export SQLite Database To a CSV File](https://www.sqlitetutorial.net/sqlite-tutorial/sqlite-export-csv/)
+
+* [SQLite functions](https://www.sqlitetutorial.net/sqlite-functions/)
+
+
+
+
+### SQL
+
+Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (2016)
+
+* Chapter 2, "Databases"
+
+* Chapter 9, "Database design"
+
+* Installing SQLite: Chapter 3, "SQLite"
+
+* [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
+
+
+### SQL from R Markdown
+
+[_R Markdown: The Definitive Guide_, 2.7.3 SQL](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql) by Yihui Xie, J. J. Allaire, Garrett Grolemund
+
+* instructions on how to set up your R Markdown (in RStudio) so that you can run SQL language chunks, including using SQLite
+
+

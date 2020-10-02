@@ -1,6 +1,6 @@
 ---
 title: "Manipulation of data tables"
-subtitle: "sampling"
+subtitle: "SQL"
 output:
   html_document:
     df_print: paged
@@ -15,7 +15,7 @@ library(tidyverse)
 #
 
 # datasets
-library(nycflights13)
+#library(nycflights13)
 library(Lahman)
 ```
 
@@ -78,7 +78,7 @@ In this short chunk, all of the variables (indicated by the asterix "*", acting 
 Note the semi-colon at the end to close the script.
 
 ```{sql eval=FALSE}
-
+--- SQL
 SELECT * 
 FROM BATTING
 WHERE yearID = 2019;
@@ -92,6 +92,7 @@ WHERE yearID = 2019;
 This second example shows how selection of the `playerID`, `teamID` and `R` (for Runs scored) variables would be chosen.
 
 ```{sql eval=FALSE}
+--- SQL
 
 SELECT playerID, teamID, R
 FROM BATTING
@@ -110,6 +111,7 @@ Aggregate functions like `sum()` or `count()` are an important part of creating 
 The first script counts the number of players on each team; the second calculates the number of runs each team scored in 2019.
 
 ```{sql eval=FALSE}
+--- SQL
 
 -- calculate number of players on each team 
 SELECT teamID, count(teamID)  
@@ -123,6 +125,8 @@ GROUP BY teamID;
 
 
 ```{sql eval=FALSE}
+--- SQL
+
 -- calculate number of runs each team scored
 SELECT teamID, sum(R)  
 FROM BATTING 
@@ -160,6 +164,8 @@ And finally, the filtering by year uses the SQL function `WHERE`.
 So it would be:
 
 ```{sql eval=FALSE}
+--- SQL
+
 -- use a left join
 -- select all columns from both tables with "*"
 SELECT * 
@@ -175,6 +181,7 @@ In this second example, the `SELECT` function is used to specify the columns we 
 This example uses an `INNER JOIN`, returning the cases where there is a match in both tables.
 
 ```{sql eval=FALSE}
+--- SQL
 
 -- use an inner join
 -- select specific columns from both tables
@@ -218,6 +225,8 @@ The final line shows the `GROUP BY` function that implements the aggregation.
 
 
 ```{sql eval=FALSE}
+--- SQL
+
 -- grouping join to calculate number of players on each team by country of birth
 SELECT teamID, birthCountry, COUNT(birthCountry)
 FROM BATTING INNER JOIN PEOPLE
@@ -236,6 +245,7 @@ In the first line, the tally gets renamed `n` using the `AS` function.
 The last lines add the ordering, first the teams alphabetically (ascending, or `ASC`), then the counts from largest to smallest (descending, `DESC`).
 
 ```{sql eval=FALSE}
+--- SQL
 
 -- grouping join to calculate number of players on each team by country of birth
 -- add sort (ORDER BY)
@@ -283,6 +293,7 @@ jays_roi %>%
 The SQL version:
 
 ```{sql eval=FALSE}
+--- SQL
 
 
 SELECT  teamID, yearID, sum(R), sum(salary), sum(salary)/sum(R) AS ROI  
