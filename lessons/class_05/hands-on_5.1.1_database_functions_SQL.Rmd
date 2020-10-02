@@ -121,11 +121,11 @@ GROUP BY teamID;
 ```
 
 
-### 1c. Joins
+### 1d. Joins
 
 Join the tables in such a way so that you can tabulate the number of batters that played on each team in 2019, by birth country.
 
-To accomplish this in R, our {dplyr} pipe looked like this:
+To accomplish this in R, the first {dplyr} pipe that filters to the year and joins the tables looked like this:
 
 ```{r}
 MLB_HR_data <- Batting %>% 
@@ -164,34 +164,79 @@ This example uses an `INNER JOIN`, returning the cases where there is a match in
 
 -- use an inner join
 -- select specific columns from both tables
-SELECT playerID, yearID, teamID, R, birthCountry 
+SELECT nameFirst, nameLast, playerID, yearID, teamID, R 
 FROM BATTING INNER JOIN PEOPLE
 ON BATTING.playerID = PEOPLE.playerID
 WHERE yearID = 2019;
 
 ```
 
+Back to R: with our combined tables, we use the `group_by()` function to assign the variables that we want in our table, and then the `tally()` function to count the number of rows. The last line sorts the tabluation, first by team and then in descending order the counts.
 
 
 ```{r}
-MLB_HR_data
-
 MLB_HR_data %>% 
-  group_by(birthCountry, teamID) %>% 
-  tally() 
+  group_by(teamID, birthCountry) %>% 
+  tally() %>% 
+  arrange(teamID, desc(n))
 ```
 
-# NOTES
-#
-# * both tables have the variable "playerID"
-# 
-# * we want a `left_join`: all the observations from the active season, and adding the country of birth variable from "People"
-#
-# * an `inner_join` will work for "Batting", with added "People" because all players are listed in both. 
+A single R pipe that starts with the two tables and generates our summary would combine the contents of the two chunks:
+
+```{r}
+Batting %>% 
+  filter(yearID == 2019) %>% 
+  left_join(People, by = "playerID") %>% 
+  group_by(teamID, birthCountry) %>% 
+  tally() %>% 
+  arrange(teamID, desc(n))
+```
+
+
+The SQL function to accomplish the same end is somewhat different. We start by selecting the three variables we want in our summary table: `teamID`, `birthCountry`, and using the aggregate function `COUNT()` to tally the number of rows. Note that the two variables we are working with are from different tables.
+
+The next lines have the `INNER JOIN` function we saw earlier, followed by the filter on `yearID`.
+
+The final line shows the `GROUP BY` function that implements the aggregation.
+
+
+```{sql}
+-- grouping join to calculate number of players on each team by country of birth
+SELECT teamID, birthCountry, COUNT(birthCountry)
+FROM BATTING INNER JOIN PEOPLE
+ON BATTING.playerID = PEOPLE.playerID
+WHERE yearID = 2019
+GROUP BY teamID, birthCountry;
 
 ```
 
-### 1d. What was the Blue Jays' ROI?
+
+This next chunk expands the one above.
+
+In the first line, the tally gets renamed `n` using the `AS` function.
+
+The last lines add the ordering, first the teams alphabetically (ascending, or `ASC`), then the counts from largest to smallest (descending, `DESC`).
+
+```{sql}
+
+-- grouping join to calculate number of players on each team by country of birth
+-- add sort (ORDER BY)
+SELECT teamID, birthCountry, count(birthCountry) AS n
+FROM BATTING INNER JOIN PEOPLE
+ON BATTING.playerID = PEOPLE.playerID
+WHERE yearID = 2019
+GROUP BY teamID, birthCountry
+ORDER BY
+  teamID ASC, 
+  n DESC;
+
+
+
+```
+
+
+
+### 2a. What was the Blue Jays' ROI?
 
 Let's join the tables to calculate how much it cost the Blue Jays per run scored in 2016 (the last year for which there is salary data). Remember that this is incomplete, as the salary data is incomplete.
 
@@ -212,6 +257,31 @@ jays_roi %>%
   summarise(dollars = sum(salary),
             runs = sum(R),
             roi = dollars/runs)
+
+```
+
+
+The SQL version:
+
+```{sql}
+
+
+SELECT  teamID, yearID, sum(R), sum(salary), sum(salary)/sum(R) AS ROI  
+FROM BATTING 
+
+INNER JOIN PEOPLE
+ON BATTING.playerID = PEOPLE.playerID
+
+INNER JOIN SALARIES
+ON PEOPLE.playerID = SALARIES.playerID
+AND BATTING.yearID = SALARIES.yearID
+AND BATTING.teamID = SALARIES.teamID
+
+WHERE BATTING.yearID = 2016
+AND BATTING.teamID = "TOR"
+
+GROUP BY BATTING.teamID, BATTING.yearID;
+
 
 ```
 
@@ -238,12 +308,11 @@ This hands-on exercise draws heavily on the following sources:
 ## Other references
 
 
+### SQLite
 
-Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
+[SQLite tutorial](https://www.sqlitetutorial.net/)
 
-* Chapter 5 "Data Engineering and Data Shaping" (5.4 Multitable data transformations)
-
-* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+* [SQLite functions](https://www.sqlitetutorial.net/sqlite-functions/)
 
 
 
@@ -259,5 +328,11 @@ Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (201
 
 * [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
 
+
+### SQL from R Markdown
+
+[_R Markdown: The Definitive Guide_, 2.7.3 SQL](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql) by Yihui Xie, J. J. Allaire, Garrett Grolemund
+
+* instructions on how to set up your R Markdown (in RStudio) so that you can run SQL language chunks, including using SQLite
 
 
