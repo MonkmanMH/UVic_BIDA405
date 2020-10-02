@@ -1,0 +1,263 @@
+---
+title: "Manipulation of data tables"
+subtitle: "sampling"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(tidyverse)
+#
+
+# datasets
+library(nycflights13)
+library(Lahman)
+```
+
+## Objectives
+
+* Using SQL: understand how to join tables
+
+* Using SQL: understand the primary types of mutating and filtering joins
+
+
+
+
+## 1. Joins with HR data
+
+For this exercise, we will use the same database as last week's endeavour, but instead of the functions in R's {dplyr} package, we will use the ubiquitous database interface language SQL.
+ 
+The Lahman baseball database contains a comprehensive listing of annual summaries for the major leagues of baseball, going back to 1871. 
+
+For this exercise, we will use three of the tables:
+
+* "People" -- all players
+
+* "Salaries" -- an incomplete list of the annual summary of each player's compensation.
+ 
+* "Batting" -- the annual summary of each player's batting. (Note: players who were traded between teams mid-season show up with a record for their performance of each team.)
+
+Think of these as the sorts of files that you would find in any human resources department: 
+
+* the People file contains the personal details of each individual employed by the enterprise.
+
+* Batting contains in-depth performance measures for the employees in a specific task group
+
+* Salaries is an incomplete tables showing the compensation of some of the employees
+
+
+### 1a. Read in the three tables
+
+Relational database systems (RDBMS) don't load the entire database into your computer's memory, but instead send the instructions to the database and extract only the variables and records that you specify. This makes them more efficient when working with large datasets—harnessing the computing power and memory of the database server, rather than pushing your desktop machine to it's limits.
+
+
+### 1b. Understanding the tables
+
+
+> i. What is the key variable that links the three tables?
+
+A: playerID
+
+The ID is unique so they don’t need any other way to identify the players. Any other table can be joined with the players table for more information about a player.
+ 
+> ii. Which table has the primary key? What is the reason behind your answer?
+
+A: `People` has the primary key. It lists all individual players. The other dataframes potentially include multiple entries for each player ID. For example, a player might be traded mid-season and have two records in `Batting`, one for each team played for that season. 
+
+> iii. Why would the designers of the table put only one variable in the Batting table that identifies a player?
+
+A: Since all of the data in `People` is constant (name, birthdate, etc) there is no need to repeat those variables in the other tables where there are multiple records for the same player. It also means that this consistent data only has to be edited in one location, not across all of the tables.
+
+In this short chunk, all of the variables (indicated by the asterix "*", acting as a wildcard) in the `Batting` table are selected, and then filtered to include only 2019 records.
+
+Note the semi-colon at the end to close the script.
+
+```{sql}
+
+SELECT * 
+FROM BATTING
+WHERE yearID = 2019;
+
+
+```
+
+This second example shows how selection of the `playerID`, `teamID` and `R` (for Runs scored) variables would be chosen.
+
+```{sql}
+
+SELECT playerID, teamID, R
+FROM BATTING
+WHERE yearID = 2019;
+
+
+```
+
+
+### 1c. Aggregate functions
+
+Aggregate functions like `sum()` or `count()` are an important part of creating data summaries.
+
+The first script counts the number of players on each team; the second calculates the number of runs each team scored in 2019.
+
+```{sql}
+
+-- calculate number of players on each team 
+SELECT teamID, count(teamID)  
+FROM BATTING 
+WHERE yearID = 2019
+GROUP BY teamID;
+
+-- calculate number of runs each team scored
+SELECT teamID, sum(R)  
+FROM BATTING 
+WHERE yearID = 2019
+GROUP BY teamID;
+
+```
+
+
+### 1c. Joins
+
+Join the tables in such a way so that you can tabulate the number of batters that played on each team in 2019, by birth country.
+
+To accomplish this in R, our {dplyr} pipe looked like this:
+
+```{r}
+MLB_HR_data <- Batting %>% 
+  filter(yearID == 2019) %>% 
+  left_join(People, by = "playerID")
+
+```
+
+
+In SQL, we use `SELECT` to select the columns we want (the same term as {dplyr}). The asterix "*" is a wildcard to select all the tables.
+
+`FROM` indicates which tables. 
+
+The joins are named using terms similar to {dplyr}. This left join will return all of the records from the `batting` table, and the variables from `people` where there is a match (in the case of the Lahman database, this is all of them).
+
+To indicate the key variable for the join, we use `ON`. Note that we specify the table and the variable, separated by a period.
+
+And finally, the filtering by year uses the SQL function `WHERE`.
+
+So it would be:
+
+```{sql}
+-- use a left join
+-- select all columns from both tables with "*"
+SELECT * 
+FROM BATTING LEFT JOIN PEOPLE
+ON BATTING.playerID = PEOPLE.playerID
+WHERE yearID = 2019;
+```
+
+In this second example, the `SELECT` function is used to specify the columns we want in the final table. Note that columns from both tables can be named.
+
+This example uses an `INNER JOIN`, returning the cases where there is a match in both tables.
+
+```{sql}
+
+-- use an inner join
+-- select specific columns from both tables
+SELECT playerID, yearID, teamID, R, birthCountry 
+FROM BATTING INNER JOIN PEOPLE
+ON BATTING.playerID = PEOPLE.playerID
+WHERE yearID = 2019;
+
+```
+
+
+
+```{r}
+MLB_HR_data
+
+MLB_HR_data %>% 
+  group_by(birthCountry, teamID) %>% 
+  tally() 
+```
+
+# NOTES
+#
+# * both tables have the variable "playerID"
+# 
+# * we want a `left_join`: all the observations from the active season, and adding the country of birth variable from "People"
+#
+# * an `inner_join` will work for "Batting", with added "People" because all players are listed in both. 
+
+```
+
+### 1d. What was the Blue Jays' ROI?
+
+Let's join the tables to calculate how much it cost the Blue Jays per run scored in 2016 (the last year for which there is salary data). Remember that this is incomplete, as the salary data is incomplete.
+
+```{r}
+jays_salaries <- Salaries %>%
+  filter(yearID == 2016,
+         teamID == "TOR") %>% 
+  arrange(desc(salary))
+
+jays_batting <- Batting %>% 
+  filter(yearID == 2016,
+         teamID == "TOR")
+
+jays_roi <- jays_salaries %>% 
+  left_join(jays_batting, by = "playerID")
+
+jays_roi %>% 
+  summarise(dollars = sum(salary),
+            runs = sum(R),
+            roi = dollars/runs)
+
+```
+
+
+
+***
+
+## REFERENCE
+
+This hands-on exercise draws heavily on the following sources:
+
+* ["Relational data" at _R for Data Science_](https://r4ds.had.co.nz/relational-data.html)
+
+* ["Join two tables" at the STAT545 site](https://stat545.com/join-cheatsheet.html)
+
+{dplyr} reference page: https://dplyr.tidyverse.org/
+
+* ["Two-table verbs", article at the {dplyr} website](https://dplyr.tidyverse.org/articles/two-table.html)
+
+* ["Join two tbls together", part of the {dplyr} reference pages](https://dplyr.tidyverse.org/reference/join.html)
+
+
+
+## Other references
+
+
+
+Nina Zumel and John Mount, _Practical Data Science with R (2nd edition)_ (2020)
+
+* Chapter 5 "Data Engineering and Data Shaping" (5.4 Multitable data transformations)
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600527352&id=DC7689B4AD2FA446468DD1CE0CCCD91B187CD9C4)
+
+
+
+### SQL
+
+Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (2016)
+
+* Chapter 2, "Databases"
+
+* Chapter 9, "Database design"
+
+* Installing SQLite: Chapter 3, "SQLite"
+
+* [UVic Library link](https://proquestcombo-safaribooksonline-com.ezproxy.library.uvic.ca/9781491938607?ar&orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1600913295&id=2C359E41B596290424E03BF0F243BBA36BFDDBFA)
+
+
+
