@@ -1,0 +1,116 @@
+---
+title: "BIDA 405 - week 4"
+subtitle: "homework assignment #4"
+author: "Martin Monkman"
+date: "2020/09/20"
+output: html_notebook
+---
+
+```{r setup}
+
+library(tidyverse)
+
+library(validate)
+
+library(nycflights13)
+
+```
+
+# A. strings with regular expressions 
+
+In the in-class example of regular expressions, we saw a regex to identify Canadian postal codes. However, the example was generalized to include all the letters of the alphabet. In reality, postal codes:
+
+* do not include the letters D, F, I, O, Q or U. (These are letters that could be mistaken for numbers.)
+
+* the first position also does not make use of the letters W or Z.
+
+### Q1. Write a case-insensitive regular expression to test for valid Canadian postal codes. Test it on the following lists:
+
+
+```{r}
+# postal code lists
+valid_pc <- c(
+  "a1a1a1", # Lower Battery Road, St. John's NL
+  "a1a 1a2", # Middle Battery Road
+  "a1a-1a3", # East Middle Battery Road
+  "H0H0H0", # North Pole
+  "K1M 1M4", # 24 Sussex Drive, Ottawa (Prime Minister's residence)
+  "M5W-1E6", # CBC Toronto
+  "T2P 1j9", # Calgary Tower
+  "j8v 2L8", # British Columbia Parliament Buildings
+  "V8P5C2", # UVic
+  "X1A-0A1" # Yellowknife, NT
+              )
+
+invalid_pc <- c("H0H OH0", # capital O--letter for number
+                "W1A 1A1", # W in first position
+                "A1A_1A3" # underscore, not hyphen
+                )
+
+```
+
+
+```{r}
+
+# solution
+
+```
+
+
+## Q2. More postal codes
+
+Following the pattern of letter-number-letter (space) number-letter-number in Canadian postal codes, there are 676,000 possible postal codes in British Columbia alone, where the first letter is "V".
+
+The file "bc_pc.csv" contains every one of these possible codes.
+
+```{r}
+bc_pc <- read_csv("bc_pc.csv")
+bc_pc <- read_rds("bc_pc.rds")
+
+```
+
+However, as we saw in the first part of this question, some of the possible codes are not valid, because some letters of the alphabet are not used. 
+
+### Q2a. Test to see how many of the possible B.C. postal codes are invalid (that is, use letters that are not authorized.) 
+
+```{r}
+# solution 
+
+
+```
+
+
+### Q2b. Using the _valid_ postal codes from "bc_pc.csv", create a list with the unique Forward Sortation Areas (FSAs)
+
+Canada Post uses the first three digits of postal codes as higher-level aggregation groups. In the same way that the letter "V" is used as the first letter in all postal codes in British Columbia (and in no other province), the FSA groups postal codes.
+
+An example: the postal code of the Continuing Studies Department at UVic is "V8P 5C2". The FSA is "V8P".
+
+```{r}
+# solution
+
+```
+
+
+## Q3. Joins - flights
+
+In this example, we will add the name of the airline to the `flights` table. First, we will make a smaller version of the `flights` table by selecting a few of the variables.
+
+```{r}
+flights2 <- flights %>% 
+  select(year:day, hour, origin, dest, tailnum, carrier)
+flights2
+```
+
+To this table, add the name of the airline found in the table `airlines`.
+
+* which is the key variable that you use for the join?
+
+
+```{r}
+# solution
+
+```
+
+
+-30-
