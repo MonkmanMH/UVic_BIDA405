@@ -109,6 +109,28 @@ Aggregate functions like `sum()` or `count()` are an important part of creating 
 
 The first script counts the number of players on each team; the second calculates the number of runs each team scored in 2019.
 
+```{r}
+
+Batting %>% 
+  filter(yearID == 2019) %>% 
+  group_by(teamID) %>% 
+  tally()
+
+Batting %>% 
+  filter(yearID == 2019) %>% 
+  group_by(teamID) %>% 
+  summarise(n = n())
+  
+Batting %>% 
+  filter(yearID == 2019) %>% 
+  group_by(teamID) %>% 
+  summarise(n = n(),
+            runs_per_player = mean(R)) %>% 
+  arrange(desc(teamID)) 
+
+```
+
+
 ```{sql eval=FALSE}
 --- SQL
 

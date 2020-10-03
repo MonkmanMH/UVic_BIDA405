@@ -61,7 +61,7 @@ R data format files (.Rds) make a lot of sense as save points in your workflow. 
 | function | base R | {readr}
 |---|---|---|
 |write Rds | `saveRDS()` | `write_rds()` |
-|read Rds | `readRDS` | `read_rds()` |
+|read Rds | `readRDS()` | `read_rds()` |
 
 
 With {readr}: 
@@ -142,7 +142,8 @@ You can also write a list of data tables to a single Excel file.
 # create data table with opulation instead of gdp
 gm_pop_2007 <- gapminder %>%
   filter(year == 2007) %>% 
-  select(country, continent, year, pop)
+  select(country, continent, year, pop) %>% 
+  arrange(desc(pop))
 
 # create a list of the data tables
 dfs <- list("GDP" = gm_gdp_2007, "Population" = gm_pop_2007)
@@ -177,7 +178,7 @@ writeDataTable(wb, sheet = 1, x = gm_gdp_2007,
 setColWidths(wb, sheet = 1, cols = "A", widths = 18)
 
 # and save
-saveWorkbook(wb, "gm_gdp.xlsx")
+saveWorkbook(wb, "gm_gdp_wb.xlsx")
 ```
 
 
@@ -197,6 +198,16 @@ saveWorkbook(wb, "gm_gdp.xlsx")
 
 
 ### {feather}
+
+> Feather: fast, interoperable binary data frame storage for Python, R, and more
+
+
+https://github.com/wesm/feather
+
+https://blog.rstudio.com/2016/03/29/feather/
+
+> while R’s data frames and Python’s pandas data frames utilize very different internal memory representations, they share a very similar semantic model. In both R and Panda’s, data frames are lists of named, equal-length columns, which can be numeric, boolean, and date-and-time, categorical (_factors), or _string. Every column can have missing values.
+
 
 
 ### database

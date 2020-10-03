@@ -135,6 +135,6 @@ writeData(wb = wb, sheet = test.n, x = x)
 
 ## view without saving
 openXL(wb)
-Further Examples
+#Further Examples
 ```
 

@@ -37,7 +37,17 @@ If it's a one-off project, you can probably have a minimum (but not zero!) recor
 
 And it's important to think about this at the beginning—maybe even _before_ the beginning. Then it gets build into the process and your daily workflow, can happen in parallel with the work. Record the source of your data as you're downloading it; make comments about why you chose a particular function as soon as you incorporate the function into your script.
 
-So what are the elements of effective recordkeeping? Some of the things to note:
+### Elements of effective recordkeeping
+
+There are two things to capture in your recordkeeping:
+
+1. The why and how of the decisions made.
+
+1. How things work together, and how to make changes.
+
+
+
+So what are the elements of effective recordkeeping? Some of the things to capture:
 
 * a brief description of the project, analysis, and research objective
 
@@ -57,15 +67,18 @@ So what are the elements of effective recordkeeping? Some of the things to note:
   
   - links to additional documentation about the data, such as the data dictionary
 
-* how the analysis was done (a high-level statement: "this analysis used the data from 2010 through 2019, calculated average per month volumes, and used an ARIMA model to develop a 6 month forecast")
+* a high-level statement about how the analysis was done ("This analysis used the daily data from 2010 through 2019 to calculate average per month volumes, and used an ARIMA model to develop a 6 month forecast")
 
-  - things that informed decisions ("I chose this statistical test because..." or "The variable date of birth was transformed into "Age on July 1, 2020 because...")
+
+* details about the analysis and code
+
+  - things that informed decisions ("I chose this statistical test because..." or "The variable date of birth was transformed into 'Age on July 1, 2020' because...")
   
   - descriptive text to describe what chunks of code are doing (see Knuth's "Literate Programming" paper)
 
   - a data dictionary
 
-  - a file folder map
+  - a map of the file folder structure
 
 * details about the software and packages used
 
