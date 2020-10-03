@@ -29,62 +29,74 @@ library(feather)
 
 There doesn't seem to be a single-best overview of "documentation" in the context of data science. The term appears in the periphery of some of the textbooks and manuals on how to do data science, and what advice there is tends to be prescriptive at a very high level, and not overly descriptive of what makes good documentation.
 
-The recent blog post by Randy Au expresses on key idea in the title, and builds on it: bein intentional in our actions around documentation (or as he argues, a better term might be "recordkeeping").
+The recent blog post by Randy Au ^[["Let's Get Intentional About Documentation"](https://counting.substack.com/p/lets-get-intentional-about-documentation), 2020-09-29] expresses on key idea in the title, and builds on it: we need to be intentional in our actions around documentation (or as he argues, a better term might be "recordkeeping").
 
 >Recordkeeping is keeping records, notes, and artifacts around to **help in creating documentation in the future.** It’s done by the people involved in doing the actual work saving things and making clarifications that only they really understand, with no expectation that someone else needs to understand everything. The material collected is primarily intended for use to write the actual documentation. Think of it as preserving raw data for future use.
+
+I like the way this is framed. "Documentation" then becomes a fully-realized user manual, suitable for complex and recurring projects with many different contributors, and that might be considered mission critical. A lot of data science work doesn't meet those criteria, so what we need isn't "documentation" but the notes that someone could use to build the documentation.
 
 If it's a one-off project, you can probably have a minimum (but not zero!) recordkeeping. But a project that repeats on a regular schedule (whether daily or annually) should have more robust recordkeeping, and potentially some documentation.
 
 And it's important to think about this at the beginning—maybe even _before_ the beginning. Then it gets build into the process and your daily workflow, can happen in parallel with the work. Record the source of your data as you're downloading it; make comments about why you chose a particular function as soon as you incorporate the function into your script.
 
+
 ### Elements of effective recordkeeping
 
-There are two things to capture in your recordkeeping:
+There are three things to capture in your recordkeeping:
 
 1. The why and how of the decisions made.
 
-1. How things work together, and how to make changes.
+1. How things work together. 
+
+1. How to make changes.
 
 
 
 So what are the elements of effective recordkeeping? Some of the things to capture:
 
-* a brief description of the project, analysis, and research objective
+* A brief description of the project, analysis, and research objective.
 
-* diagrams that capture logic, flow, and inter-relationships
+* Diagrams that capture logic, flow, and inter-relationships.
 
-* detailed source data information
+* Detailed information about the data source:
 
-  - name of organization that collected the data
+  - Name of organization that collected the data
   
-  - name of contact at that organization
+  - Name and contact information of individual at that organization
   
-  - date of download or extract
+  - Date of download or extract
   
-  - web links
+  - Web links
   
-  - original file names
+  - Original file names
   
-  - links to additional documentation about the data, such as the data dictionary
+  - Links to additional documentation about the data, such as the data dictionary
 
-* a high-level statement about how the analysis was done ("This analysis used the daily data from 2010 through 2019 to calculate average per month volumes, and used an ARIMA model to develop a 6 month forecast")
+* A high-level statement about _how_ the analysis was done
+
+  - "This analysis used the daily data from 2010 through 2019 to calculate average per month volumes, which were then used in an ARIMA model to develop a 6 month forecast".
 
 
-* details about the analysis and code
+* Details about the analysis and code:
 
-  - things that informed decisions ("I chose this statistical test because..." or "The variable date of birth was transformed into 'Age on July 1, 2020' because...")
+  - Things that informed decisions ("I chose this statistical test because..." or "The variable date of birth was transformed into 'Age on July 1, 2020' because...")
   
-  - descriptive text to describe what chunks of code are doing (see Knuth's "Literate Programming" paper)
+  - Descriptive text to describe what chunks of code are doing (see Knuth's "Literate Programming" paper)
 
-  - a data dictionary
+  - The data dictionary
 
-  - a map of the file folder structure
+  - A map of the file folder structure
 
-* details about the software and packages used
 
-  - versions and (if available) dates
+* Details about the software and packages used:
+
+  - Versions and (if available) dates
+
+
+
+## Tools to help with documentation
   
-  - (see [{packrat}](https://rstudio.github.io/packrat/))
+  - [{packrat}](https://rstudio.github.io/packrat/)
 
 
 
