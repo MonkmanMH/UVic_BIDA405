@@ -25,12 +25,63 @@ library(feather)
 * Demonstrate understanding of the pros and cons of each file format, including context for use
 
 
-## Documentation and Record Keeping
+## Documentation and Recordkeeping
+
+There doesn't seem to be a single-best overview of "documentation" in the context of data science. The term appears in the periphery of some of the textbooks and manuals on how to do data science, and what advice there is tends to be prescriptive at a very high level, and not overly descriptive of what makes good documentation.
+
+The recent blog post by Randy Au expresses on key idea in the title, and builds on it: bein intentional in our actions around documentation (or as he argues, a better term might be "recordkeeping").
+
+>Recordkeeping is keeping records, notes, and artifacts around to **help in creating documentation in the future.** It’s done by the people involved in doing the actual work saving things and making clarifications that only they really understand, with no expectation that someone else needs to understand everything. The material collected is primarily intended for use to write the actual documentation. Think of it as preserving raw data for future use.
+
+If it's a one-off project, you can probably have a minimum (but not zero!) recordkeeping. But a project that repeats on a regular schedule (whether daily or annually) should have more robust recordkeeping, and potentially some documentation.
+
+And it's important to think about this at the beginning—maybe even _before_ the beginning. Then it gets build into the process and your daily workflow, can happen in parallel with the work. Record the source of your data as you're downloading it; make comments about why you chose a particular function as soon as you incorporate the function into your script.
+
+So what are the elements of effective recordkeeping? Some of the things to note:
+
+* a brief description of the project, analysis, and research objective
+
+* diagrams that capture logic, flow, and inter-relationships
+
+* detailed source data information
+
+  - name of organization that collected the data
+  
+  - name of contact at that organization
+  
+  - date of download or extract
+  
+  - web links
+  
+  - original file names
+  
+  - links to additional documentation about the data, such as the data dictionary
+
+* how the analysis was done (a high-level statement: "this analysis used the data from 2010 through 2019, calculated average per month volumes, and used an ARIMA model to develop a 6 month forecast")
+
+  - things that informed decisions ("I chose this statistical test because..." or "The variable date of birth was transformed into "Age on July 1, 2020 because...")
+  
+  - descriptive text to describe what chunks of code are doing (see Knuth's "Literate Programming" paper)
+
+  - a data dictionary
+
+  - a file folder map
+
+* details about the software and packages used
+
+  - versions and (if available) dates
+  
+  - (see [{packrat}](https://rstudio.github.io/packrat/))
+
 
 
 
 
 ## REFERENCES
+
+Randy Au, ["Let's Get Intentional About Documentation"](https://counting.substack.com/p/lets-get-intentional-about-documentation), 2020-09-29
+
+Randy Au, ["Data Science Practice 101: Always Leave An Analysis Paper Trail"](https://towardsdatascience.com/data-science-practice-101-always-leave-an-analysis-paper-trail-cc17079fae5a), 2019-04-16
 
 Buttery and Whitaker, chapter 7.6
 

@@ -154,6 +154,35 @@ write.xlsx(dfs, file = "gm_tables.xlsx", asTable = TRUE)
 ```
 
 
+It is also possible to start a workbook from scratch and add default formatting:
+
+```{r}
+# create workbook object
+wb <- createWorkbook()
+
+# set various format options
+options("openxlsx.borderColour" = "#4F80BD")
+options("openxlsx.borderStyle" = "thin")
+modifyBaseFont(wb, fontSize = 10, fontName = "Arial Narrow")
+
+# add a sheet named GDP
+addWorksheet(wb, sheetName = "GDP", gridLines = FALSE)
+
+freezePane(wb, sheet = 1, firstRow = TRUE, firstCol = TRUE) ## freeze first row and column
+# write the GDP data object to the sheet
+writeDataTable(wb, sheet = 1, x = gm_gdp_2007,
+               colNames = TRUE, rowNames = TRUE,
+               tableStyle = "TableStyleLight9")
+
+# more format
+setColWidths(wb, sheet = 1, cols = "A", widths = 18)
+
+# and save
+saveWorkbook(wb, "gm_gdp.xlsx")
+```
+
+
+
 
 {openxlsx}: Read, Write and Edit xlsx Files}
 
