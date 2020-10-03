@@ -10,7 +10,7 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 # file read/save packages
 library(readr)
 library(readxl)
@@ -22,7 +22,6 @@ library(dplyr)
 
 # data
 library(gapminder)
-
 ```
 
 ## Objectives

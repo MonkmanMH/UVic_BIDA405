@@ -1,6 +1,6 @@
 ---
-title: "Manipulation of data tables"
-subtitle: "SQL"
+title: "Manipulation of data tables with SQL"
+subtitle: ""
 output:
   html_document:
     df_print: paged
@@ -10,10 +10,9 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
 #
-
 # datasets
 #library(nycflights13)
 library(Lahman)
