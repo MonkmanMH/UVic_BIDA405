@@ -1,0 +1,38 @@
+---
+title: "Documentation"
+subtitle: ""
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup}
+library(readr)
+library(readxl)
+library(openxlsx)
+library(feather)
+
+```
+
+## Objectives
+
+* Demonstrate understanding of exporting tables and other objects (saving files) in R
+
+* Demonstrate understanding of the pros and cons of each file format, including context for use
+
+
+## Documentation and Record Keeping
+
+
+
+
+## REFERENCES
+
+Buttery and Whitaker, chapter 7.6
+
+
+

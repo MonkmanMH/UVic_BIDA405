@@ -11,10 +11,17 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 -->
 
 ```{r setup}
+# file read/save packages
 library(readr)
 library(readxl)
 library(openxlsx)
 library(feather)
+
+# data wrangling
+library(dplyr)
+
+# data
+library(gapminder)
 
 ```
 
@@ -38,9 +45,9 @@ So far we have covered
 
 Now we are at the point where we want to save our efforts. This might be 
 
-* to make the file available to a collaborator, 
+* to make the file available to a collaborator; 
 
-* to shift to another tool,
+* to shift our workflow to another tool (for example, deplying a visualization to Tableau); or
 
 * create a save point in our workflow, so that we can continue our work later but without having to re-do everything we've done.
 
@@ -57,13 +64,37 @@ R data format files (.Rds) make a lot of sense as save points in your workflow. 
 |write Rds | `saveRDS()` | `write_rds()` |
 |read Rds | `readRDS` | `read_rds()` |
 
-{readr}: https://readr.tidyverse.org/reference/read_rds.html
+
+With {readr}: 
+
+* https://readr.tidyverse.org/reference/read_rds.html
+
+
+In the chunk below, a summary of the {gapminder} table is created with the 2007 GDP per capita, and saved as a .rds file.
+
+```{r}
+
+gm_gdp_2007 <- gapminder %>%
+  filter(year == 2007) %>% 
+  select(country, continent, year, gdpPercap)
+
+# base R
+saveRDS(gm_gdp_2007, "gm_gdp_2007.rds")
+
+# readr
+write_rds(gm_gdp_2007, "gm_gdp_2007.rds")
+
+```
+
 
 
 
 ## Plain text (CSV)
 
-* csv 
+| function | base R | {readr}
+|---|---|---|
+|write csv | `write.csv` | `write_csv()` |
+|read csv | `read.csv` | `read_csv()` |
 
 
 With {readr}:
@@ -71,20 +102,66 @@ With {readr}:
 * [writing to CSV](https://rc2e.com/inputandoutput#recipe-id028)
 
 
+There are of course also options to write a tab-separated value (TSV) or fixed-width file, but CSV are the more familiar type.
+
+See also Hadley Wickham and Garrett Grolemund, _R for Data Science_, [Chapter 11 Data import: 11.5 Writing to a file](https://r4ds.had.co.nz/data-import.html#writing-to-a-file)
+
+```{r}
+
+# base R
+write.csv(gm_gdp_2007, "gm_gdp_2007.csv")
+
+# readr
+write_csv(gm_gdp_2007, "gm_gdp_2007.csv")
+
+```
+
+
 ## Excel files
 
-{readxl}:
+Excel files are everywhere, because Excel is everywhere. In a lot of circumstances, you will find that the downstream consumers of your data tables will explicitly ask for their tables to be in Excel.
 
-* [writing to Excel](https://rc2e.com/inputandoutput#recipe-writeexcel)
+Two packages provide a full suite of functionality for working with Excel files. For straight-forward saving, {writexl} is arguably the better of the two. 
+
+{writexl}:
+
+* [The writexl package](https://docs.ropensci.org/writexl/)
+
+
+The other package, {openxlsx}, has a huge amount of functionality. This package gives you a great deal of power to add formatting, named ranges, and other artifacts to your Excel output.
+
+```{r}
+write.xlsx(gm_gdp_2007, file = "gm_gdp_2007.xlsx")
+
+# to write as an Excel table
+write.xlsx(gm_gdp_2007, file = "gm_gdp_2007_1.xlsx", asTable = TRUE)
+```
+
+You can also write a list of data tables to a single Excel file.
+
+```{r}
+# create data table with opulation instead of gdp
+gm_pop_2007 <- gapminder %>%
+  filter(year == 2007) %>% 
+  select(country, continent, year, pop)
+
+# create a list of the data tables
+dfs <- list("GDP" = gm_gdp_2007, "Population" = gm_pop_2007)
+
+write.xlsx(dfs, file = "gm_tables.xlsx", asTable = TRUE)
+
+
+```
+
 
 
 {openxlsx}: Read, Write and Edit xlsx Files}
 
-This package gives you a great deal of power to add formatting, named ranges, and other artifacts to your Excel output.
-
 * CRAN site https://cran.r-project.org/package=openxlsx
 
 * Reference site: https://ycphs.github.io/openxlsx/index.html
+
+* [_R Cookbook_, 2nd ed.: Writing a Data Frame to Excel](https://rc2e.com/inputandoutput#recipe-writeexcel)
 
 
 
@@ -112,6 +189,10 @@ This package gives you a great deal of power to add formatting, named ranges, an
 
 
 ## Other references
+
+
+Buttery and Neild, Chapter 6 Getting Data into and out of R
+
 
 
 ### SQLite
