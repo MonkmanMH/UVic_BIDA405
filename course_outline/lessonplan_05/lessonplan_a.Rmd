@@ -1,0 +1,66 @@
+---
+title: "BIDA405: Lesson Plan, Week 5"
+subtitle: "2020-10-03 & 2020-10-24 "
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+***
+
+**_subject to change_**
+
+
+
+## Objectives
+
+
+At the end of the first part of this lesson, learners will:
+
+1. Have a basic understanding of data manipulation with SQL; 
+
+1. Be able to that understanding by writing short SQL queries;
+
+1. Demonstrate the ability to save tabluar files in a variety of formats; and
+
+1. Understand the reasons for saving files in different formats.
+
+
+At the end of the second part of this lesson, learners will:
+
+1. Explain the value of documentation; 
+
+1. Demonstrate an understanding of components of documentation; and
+
+1. Use R tools to build a data dictionary
+
+
+
+***
+
+## Activities: summary
+
+| Block      | Time           | Topics  | &#8212; |
+|---         |:---            |:---     |:---:  |
+|**Saturday**|**SQL**     |&#8212; |&#8212; |
+|1a          | 9:00 to 10:30   | Introduction to SQL  | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|2a          | 10:45 to 11:30 | File saving | &#8212; |
+|2b          | 11:30 to 12:00 | Exercise <br>  | &#8212; |
+|**Sunday**  |**Relational databases** |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Homework review  | &#8212; |
+|3b          | 9:30 to 10:30  | Documentation | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|4a          | 10:45 to 11:45 | Documentation: building a data dictionary  | 
+|4b          | 11:45 to 12:00 | Wrap-up and summary | &#8212; |
+
+
+***
+
+![](unfinished_work.png)
+
+
