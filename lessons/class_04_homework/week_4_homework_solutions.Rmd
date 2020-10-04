@@ -140,6 +140,13 @@ bc_pc_test2 <- bc_pc_test %>%
 
 bc_pc_test2
 
+# another approach using `group_by()`
+bc_pc_test %>% 
+  filter(pc_clean == TRUE) %>% 
+  mutate(fsa = str_sub(postalcode, 1, 3)) %>% 
+  group_by(fsa) %>% 
+  tally()
+
 ```
 
 
@@ -159,6 +166,7 @@ To this table, add the name of the airline found in the table `airlines`.
 
 
 ```{r}
+data("flights")
 # solution
 left_join(flights2, airlines, by = "carrier")
 # alternate version, using a pipe

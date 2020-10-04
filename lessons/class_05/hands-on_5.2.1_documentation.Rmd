@@ -11,10 +11,10 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 -->
 
 ```{r setup, message=FALSE, warning=FALSE}
-library(tidyverse)
-library(magrittr)
+library(tidyverse) # Easily Install and Load the 'Tidyverse'
+library(magrittr) # A Forward-Pipe Operator for R
 
-library(palmerpenguins)
+library(palmerpenguins) # Palmer Archipelago (Antarctica) Penguin Data
 
 ```
 
@@ -195,7 +195,7 @@ Some other tips the authors provide:
 
 Another source that describes a README for data files is the ["Guide to writing "readme" style metadata"](https://data.research.cornell.edu/content/readme#:~:text=A%20readme%20file%20provides%20information,when%20sharing%20or%20publishing%20data.) written by the Research Data Management Service Group at Cornell University.
 
-The SFBrigage, a San Francisco volunteer civic tech group, has created a data science specific README outline for their projects: https://github.com/sfbrigade/data-science-wg/blob/master/dswg_project_resources/Project-README-template.md
+The SFBrigade, a San Francisco volunteer civic tech group, has created a data science specific README outline for their projects: https://github.com/sfbrigade/data-science-wg/blob/master/dswg_project_resources/Project-README-template.md
 
 The basic minimum structure they have is:
 
@@ -265,6 +265,7 @@ R.Version()
 #
 rversion <- R.Version()
 rversion$version.string
+
 # or
 version
 
@@ -278,7 +279,7 @@ This RStudio add-in adds information about the packages in your script
 
 ```{r}
 
-library(Lahman) 
+library(Lahman) # CRAN v8.0-0  
 
 ```
 
@@ -289,11 +290,12 @@ The package {fs} has a function `dir_tree()` that will create a dendogram of the
 
 ```{r}
 
-library(fs)
+library(fs) # Cross-Platform File System Operations Based on 'libuv'
 
 fs::dir_tree(path = "E:/project_template", recurse = TRUE)
 
 ```
+
 
 {fs} has a variety of other functions for programming queries and changes to your file and folder structures, including returning file size, and changes such as file copying, deleting.
 
@@ -341,6 +343,10 @@ https://research.tue.nl/files/145367570/Data_Dictionary_Group_Tutorial.pdf
 http://optimumsportsperformance.com/blog/creating-a-data-dictionary-function-in-r/
 
 
+if your data sets are structurally identical from one to the next--say, a monthly extract of sales data from a retail store database--then one code book would be suitable for record keeping
+you might want to put a note to say "this code book was generated using the October 2020 data; the structure is identical to the other months but the distribution statistics will differ"
+
+
 
 #### {packrat} .
 
@@ -363,6 +369,8 @@ Donald Knuth, _Literate Programming_
 * [www.literateprogramming.com](http://www.literateprogramming.com/)
 
 * [wikipedia article](https://en.wikipedia.org/wiki/Literate_programming)
+
+
 
 
 

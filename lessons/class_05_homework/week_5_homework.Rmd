@@ -30,13 +30,35 @@ Step 3: Use the {annotater} package, which creates an RStudio Addin, to record t
 
 The function reference for annotater is here: https://github.com/luisDVA/annotater
 
-Step 3: Use the `R.Version()` function in an R code chunk to record what version of R you have running.
+Step 4: Use the `R.Version()` function in an R code chunk to record what version of R you have running.
 
 ```{r}
 
 ```
 
-Step 4: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
+Step 5: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
+
+
+Please submit either that R Markdown file or the html output from the R Markdown (generated using "Knit"). (Or submit both file!) Upload the files to the moodle site (there is a link on the Week 5 content for assignment submissions.)
+
+
+## How to install {annotater} and set up the RStudio Addins
+
+The package {annotater} is not currently available through CRAN.
+
+If you don't have the {annotater} package already installed into your package library, run the following code:
+
+* `install.packages("remotes")` in your console or use the "Packages" tab (bottom right) in your RStudio environment.
+
+(If you are copying and pasting from the R Markdown file, you'll need to make sure that the back ticks are not part of the paste into the console!)
+
+* Then run `remotes::install_github("luisDVA/annotater")`
+
+* Once you've got it installed, run `library(annotater)`
+
+* Chances are, the Addins will not yet appear in the list in your RStudio window. To get them to show up, close RStudio and re-open it.  The addins for {annotater} should be there, somewhere close to the top of the list.
+
+![annotater template](annotater_addins.JPG)
 
 
 # B. Codebook 
@@ -45,11 +67,17 @@ For this segment, create a codebook using the {palmerpenguins} data. Consider th
 
 The reference page for the {codebook} package is https://rubenarslan.github.io/codebook/ 
 
+You may find the Tutorial, under the Articles tab, to be of particular help.
+
 ```{r}
 
 penguins <- readr::read_csv("penguins.csv")
 
 ```
+
+You can use the `codebook_template.Rmd` file to create your html output.
+
+Please submit the html output for the codebook you have created. Upload that html file to the moodle site (there is a link on the Week 5 content for assignment submissions.)
 
 
 
@@ -59,13 +87,15 @@ Step 1: Create a new Markdown file and call it README.md or README.Rmd (if you c
 
 * Note: you can create a raw markdown file in a text editor like textpad or online at https://dillinger.io/
 
-Step 2: Write a short README that describes a BIDA 405 course materials "project" folder.
+Step 2: Write a short README that describes a BIDA 405 course materials "project" folder. 
 
 * What is the course?
 
 * What are some key details about the course?
 
 * Is there a logic to the folder structure that you want to describe?
+
+* If it helps, imagine that it's five years in the future and you've found a folder called "BIDA405" on your harddrive. Your computer needs an update, and you need to decide if you want to add the folder to your new computer, or if you want to archive it to a backup drive. What information would you want to capture to help you make that decision?
 
 Don't forget:
 
