@@ -1,0 +1,163 @@
+---
+title: "Documentation"
+subtitle: "Keeping a record of your work"
+author: "Martin Monkman"
+date: "2020/10/04"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* Cleaning data
+* Data manipulation
+* Data structures
+* SQL
+* Saving our data files
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Keeping a record of what we did
+
+
+---
+class: inverse
+
+## Why?
+
+* collaboration
+
+* knowledge transfer
+
+* create a save point in the workflow
+
+---
+
+![](unfinished_work_400.png)
+
+---
+class: inverse
+
+## Documentation vs. Recordkeeping
+
+Documentation:
+
+* a user manual
+
+Recordkeeping:
+
+* the information that you would use to create a user manual
+
+
+---
+class: inverse
+
+## Recordkeeping
+
+Build it in to the workflow
+
+--
+
+> If you're not thinking about keeping track of things, you won't keep track of things.
+—Karl Broman
+
+---
+class: inverse
+
+## Things to capture
+
+There are three things to capture in your recordkeeping:
+
+* The why and how of the decisions made
+
+* How things work together
+
+* How to make changes
+
+
+---
+class: inverse
+
+## What to record
+
+The project objective
+
+The computational environment
+
+The data source
+
+
+---
+class: inverse
+
+## Where to record
+
+README files
+
+In the code (literate programming)
+
+A data dictionary
+
+
+---
+class: inverse
+
+## README
+
+A short plain text file with project details
+
+---
+class: inverse
+
+## Literate programming
+
+Don't document your code: instead, code your documentation
+
+* "a brief explanatory comment at the start of each script"
+
+---
+class: inverse
+
+## Strategy for literate programming
+
+### 1. create an outline of the basic plan
+
+### 2. then add steps within the plan
+
+### 3. then add some text detail for each step
+
+### 4. and then write the code
+
+---
+class: inverse
+
+## A data dictionary
+
+A "centralized repository of information about data such as meaning, relationships to other data, origin, usage, and format"
+
+* data source
+
+* a list of variables
+
+* a list of the values of those variables
+

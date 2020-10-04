@@ -1,9 +1,9 @@
 ---
 title: "BIDA 405 - week 5"
-subtitle: "homework assignment #5: solutions"
+subtitle: "homework assignment #5"
 author: "Martin Monkman"
 date: "2020/10/04"
-output: html_notebook
+output: html_document
 ---
 
 ```{r setup}
@@ -33,11 +33,7 @@ The function reference for annotater is here: https://github.com/luisDVA/annotat
 Step 3: Use the `R.Version()` function in an R code chunk to record what version of R you have running.
 
 ```{r}
-#
-rversion <- R.Version()
-rversion$version.string
-# or
-version
+
 ```
 
 Step 4: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
@@ -52,16 +48,6 @@ The reference page for the {codebook} package is https://rubenarslan.github.io/c
 ```{r}
 
 penguins <- readr::read_csv("penguins.csv")
-
-```
-
-```{r}
-# solution
-# specify species and island as factors
-penguins %<>% 
-  mutate(species = as.factor(species),
-         island = as.factor(island))
-
 
 ```
 
@@ -86,11 +72,6 @@ Don't forget:
 * Brevity counts...this doesn't have to be long. Bullets are good, and you don't need full sentences.
 
 * Linkify
-
-
-
--30-
-
 
 
 

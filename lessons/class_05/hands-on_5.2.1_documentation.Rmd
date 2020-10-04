@@ -10,7 +10,7 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(magrittr)
 
@@ -20,6 +20,10 @@ library(palmerpenguins)
 
 > Document and comment your code for yourself as if you will need to understand it in 6 months. 
 —Jenny Bryan
+
+> If you're not thinking about keeping track of things, you won't keep track of things.
+—Karl Broman
+
 
 
 ## Objectives
@@ -66,6 +70,27 @@ I like the way this is framed. "Documentation" then becomes a fully-realized use
 If it's a one-off project, you can probably have a minimum (but not zero!) recordkeeping. But a project that repeats on a regular schedule (whether daily or annually) should have more robust recordkeeping, and potentially some documentation.
 
 And it's important to think about this at the beginning—maybe even _before_ the beginning. Then it gets built into the process and your daily workflow, and becomes part of the work. For example, record the source of your data as you're downloading it, or make comments about why you chose a particular function as soon as you incorporate the function into your script. These habits will not only capture what you're thinking at the time, but will also encourage you to think about the "why" of your decisions—and perhaps lead you to a different choice.
+
+### Literate programming
+
+Computer scientist Donald Knuth introduced the idea of "literate programming". 
+
+> a computer program is given an explanation of its logic in a natural language, such as English, interspersed with snippets of macros and traditional source code, from which compilable source code can be generated. ... [Literate programming] enables programmers to develop programs in the order demanded by the logic and flow of their thoughts.
+—Source: Wikipedia, [Literate programming](https://en.wikipedia.org/wiki/Literate_programming)
+
+The idea is to "code your documentation, instead of document your code".
+
+> Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.
+—Donald Knuth
+
+In the context of a data science project, this is enabled in R Markdown (or Jupyter notebooks), where text descriptions of the what and why of a code chunk can precede that chunk. So rather than existing as a separate "documentation" document, the record of the programmer's thoughts are captured in the file that runs the code.
+
+In practice, you may create an outline of the basic plan, then within that add steps that you will take in your analysis, and then add some text detail for each step, and then write the code.
+
+For example, one heading of your outline might be "Read data", which would be followed by "This chunk reads the {palmerpenguin} data, downloaded from https://github.com/allisonhorst/palmerpenguins." (Include the link!) Then the code chunk to enable that would be written. If you make a change to the code, you may want to add an additional note to the text: " Note that the variables `island` and `species` are converted to factors."
+
+
+
 
 ### Principles for a research compendia
 
@@ -183,6 +208,14 @@ The basic minimum structure they have is:
 * Team (with contact information)
 
 In an analytic project, you might also want to include the high-level findings. This might be something akin to an abstract in an academic journal article, or an executive summary in a business or government report.
+
+Some examples:
+
+* a BC Stats repository that contains the code for accessing a variety of Statistics Canada data: https://github.com/bcgov/CANSIM-dataviewer/blob/master/README.md
+
+  - note that there are links to separate descriptive files for each data series
+
+* the R package {palmerpenguins} has a comprehensive README: https://github.com/allisonhorst/palmerpenguins/blob/master/README.md
 
 
 Some other good tips can be found in [Make a README](https://www.makeareadme.com/) and [Readme Best Practices](https://github.com/jehna/readme-best-practices#readme)
@@ -326,6 +359,8 @@ Randy Au, ["Data Science Practice 101: Always Leave An Analysis Paper Trail"](ht
 Buttery and Whitaker, chapter 7.6
 
 Donald Knuth, _Literate Programming_
+
+* [www.literateprogramming.com](http://www.literateprogramming.com/)
 
 * [wikipedia article](https://en.wikipedia.org/wiki/Literate_programming)
 
