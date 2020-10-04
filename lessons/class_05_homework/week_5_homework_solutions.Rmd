@@ -1,0 +1,57 @@
+---
+title: "BIDA 405 - week 5"
+subtitle: "homework assignment #5: solutions"
+author: "Martin Monkman"
+date: "2020/10/04"
+output: html_notebook
+---
+
+```{r setup}
+
+library(tidyverse)
+
+```
+
+# A. The computational environment
+
+Q1. Use the {annotater} package, which creates an RStudio Addin, to record the package versions that are loaded into your environment.
+
+https://github.com/luisDVA/annotater
+
+Q2. Use the `R.Version()` function in an R code chunk to record what version of R you have running.
+
+```{r}
+#
+rversion <- R.Version()
+rversion$version.string
+# or
+version
+```
+
+
+
+# B. Codebook 
+
+For this segment, create a codebook using the {palmerpenguins} data. Consider the use of factor variable types and the creation of metadata about the entire dataset.
+
+The reference page for the {codebook} package is https://rubenarslan.github.io/codebook/ 
+
+```{r}
+
+penguins <- readr::read_csv("penguins.csv")
+
+```
+
+```{r}
+# solution
+# specify species and island as factors
+penguins %<>% 
+  mutate(species = as.factor(species),
+         island = as.factor(island))
+
+
+```
+
+
+
+-30-

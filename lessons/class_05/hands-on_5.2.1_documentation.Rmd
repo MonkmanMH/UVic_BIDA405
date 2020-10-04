@@ -11,10 +11,10 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 -->
 
 ```{r setup}
-library(readr) # CRAN v1.3.1 
-library(readxl) # CRAN v1.3.1 
-library(openxlsx) # CRAN v4.2.2  
-library(feather) # CRAN v0.3.5  
+library(tidyverse)
+library(magrittr)
+
+library(palmerpenguins)
 
 ```
 
@@ -192,6 +192,21 @@ http://optimumsportsperformance.com/blog/creating-a-data-dictionary-function-in-
 
 https://arxiv.org/pdf/2002.11626.pdf
 
+### The computational environment
+
+#### The verion of R
+
+The functions `R.Version()` or `version()` will both return a number of details about the version of R that you're running.
+
+```{r}
+R.Version()
+#
+rversion <- R.Version()
+rversion$version.string
+# or
+version
+
+```
 
 
 {annotater} - annotates package load calls
@@ -205,7 +220,30 @@ library(Lahman)
 ```
 
 
+### Data dictionary
 
+Web app:
+https://rubenarslan.ocpu.io/codebook/www/
+
+
+RStudio Addin:
+```{r}
+gapminder <- gapminder::gapminder
+```
+
+R code:
+
+
+
+
+
+Additional functions are also available to do similar things in the package {codebook}
+
+* https://www.rdocumentation.org/packages/codebook/versions/0.9.2
+
+* https://journals.sagepub.com/doi/full/10.1177/2515245919838783
+
+* https://rubenarslan.github.io/codebook/
 
 {dataMeta}
 
@@ -213,12 +251,6 @@ https://bookdown.org/lyzhang10/lzhang_r_tips_book/how-to-make-a-simple-data-dict
 
 https://cran.r-project.org/web/packages/dataMeta/vignettes/dataMeta_Vignette.html
 
-
-{codebook}
-
-https://www.rdocumentation.org/packages/codebook/versions/0.9.2
-
-https://journals.sagepub.com/doi/full/10.1177/2515245919838783
 
 
 #### {packrat} .
