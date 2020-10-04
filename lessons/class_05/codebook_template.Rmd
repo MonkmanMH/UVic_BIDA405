@@ -26,7 +26,9 @@ ggplot2::theme_set(ggplot2::theme_bw())
 pander::panderOptions("table.split.table", Inf)
 ```
 
-Here, we import data from formr
+
+Load the data into the environment. I've called the object `codebook_data` since that works further down in the code that's already written. (Painting sombreros on the pandas!)
+
 
 ```{r}
 library(gapminder)

@@ -10,15 +10,27 @@ output: html_notebook
 
 library(tidyverse)
 
+library(annotater)
+library(fs)
+library(here)
+
 ```
 
 # A. The computational environment
 
-Q1. Use the {annotater} package, which creates an RStudio Addin, to record the package versions that are loaded into your environment.
+For this part of the assignment, you will create a new R Markdown file that will capture three elements of the computational environment used for this homework assignment. 
 
-https://github.com/luisDVA/annotater
+NOTE: you may need to install the packages listed above. 
 
-Q2. Use the `R.Version()` function in an R code chunk to record what version of R you have running.
+Step 1: Create a new R Markdown file, and save it to your week 5 homework folder. Give the file a descriptive name.
+
+Step 2: Copy the R setup chunk of code above, with the `library()` function for all of the packages.
+
+Step 3: Use the {annotater} package, which creates an RStudio Addin, to record the package versions that are loaded into your environment.
+
+The function reference for annotater is here: https://github.com/luisDVA/annotater
+
+Step 3: Use the `R.Version()` function in an R code chunk to record what version of R you have running.
 
 ```{r}
 #
@@ -28,6 +40,7 @@ rversion$version.string
 version
 ```
 
+Step 4: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
 
 
 # B. Codebook 
@@ -51,6 +64,31 @@ penguins %<>%
 
 
 ```
+
+
+
+# C. README 
+
+Step 1: Create a new Markdown file and call it README.md or README.Rmd (if you created an R Markdown file).
+
+Step 2: Write a short README that describes a BIDA 405 "project" folder.
+
+* What is the course?
+
+* What are some key details about the course?
+
+* Is there a logic to the folder structure that you want to describe?
+
+Don't forget:
+
+* Brevity counts...this doesn't have to be long. Bullets are good, and you don't need full sentences.
+
+* Linkify
+
+
+
+-30-
+
 
 
 

@@ -24,9 +24,11 @@ library(palmerpenguins)
 
 ## Objectives
 
-* Demonstrate understanding of exporting tables and other objects (saving files) in R
+* Demonstrate understanding of the reasons for documentation and recordkeeping,
 
-* Demonstrate understanding of the pros and cons of each file format, including context for use
+* Demonstrate understanding of the important elements to record, and
+
+* Demonstrate the ability to create an artifact that captures the computing environment that a project was created in.
 
 
 ## Documentation and Recordkeeping
@@ -42,6 +44,9 @@ The reasons for documenting our workflow are similar to the reasons we would sav
 ![unfinished work](unfinished_work_400.png)
 
 _Source: [monkeyuser.com](https://www.monkeyuser.com/2018/unfinished-work/), 2018-07-03_
+
+As well, things change (the data, the sofware and hardware we use, the motivations for our work) and capturing the details about those things helps us make any necessary changes that might be required at a later date.
+
 
 
 There doesn't seem to be a single-best how-to instruction on "documentation" in the context of data science. The term appears in the periphery of some of the textbooks and manuals on how to do data science, and there are some journal articles that address documentation in the context of reproducible research. It seems what advice there is tends to be prescriptive at a high level, and not overly descriptive of what makes good documentation.
@@ -147,6 +152,41 @@ Having a README file in the root folder of your project is a good place to captu
 
 But having another README in the data folder wouldn't hurt either.
 
+The source ["Art of README"](https://github.com/noffle/art-of-readme) has some good tips on creating one. Although it's aimed at people writing computer programs and modules, the lessons apply to data science projects as well.
+
+>Your job is to
+>
+>1. tell them what it is (with context)
+>1. show them what it looks like in action
+>1. show them how they use it
+>1. tell them any other relevant details
+
+Some other tips the authors provide:
+
+* "The ideal README is as short as it can be without being any shorter."
+
+* "Aggressively linkify!"
+
+
+Another source that describes a README for data files is the ["Guide to writing "readme" style metadata"](https://data.research.cornell.edu/content/readme#:~:text=A%20readme%20file%20provides%20information,when%20sharing%20or%20publishing%20data.) written by the Research Data Management Service Group at Cornell University.
+
+The SFBrigage, a San Francisco volunteer civic tech group, has created a data science specific README outline for their projects: https://github.com/sfbrigade/data-science-wg/blob/master/dswg_project_resources/Project-README-template.md
+
+The basic minimum structure they have is:
+
+* Project Intro/Objective
+
+* Project Description
+
+  - A missing component is "Data source" 
+
+* Team (with contact information)
+
+In an analytic project, you might also want to include the high-level findings. This might be something akin to an abstract in an academic journal article, or an executive summary in a business or government report.
+
+
+Some other good tips can be found in [Make a README](https://www.makeareadme.com/) and [Readme Best Practices](https://github.com/jehna/readme-best-practices#readme)
+
 
 
 ### The instruction list
@@ -181,17 +221,6 @@ Here are the three minimum components of a data dictionary:
 ## Tools to help with documentation
 
 
-
-### In R
-
-https://research.tue.nl/files/145367570/Data_Dictionary_Group_Tutorial.pdf
-
-https://r4ds.had.co.nz/tidy-data.html#case-study
-
-http://optimumsportsperformance.com/blog/creating-a-data-dictionary-function-in-r/
-
-https://arxiv.org/pdf/2002.11626.pdf
-
 ### The computational environment
 
 #### The verion of R
@@ -208,6 +237,7 @@ version
 
 ```
 
+#### The version of the packages
 
 {annotater} - annotates package load calls
 
@@ -218,6 +248,23 @@ This RStudio add-in adds information about the packages in your script
 library(Lahman) 
 
 ```
+
+
+#### File folder structure
+
+The package {fs} has a function `dir_tree()` that will create a dendogram of the file folder structure and files in your project folder.
+
+```{r}
+
+library(fs)
+
+fs::dir_tree(path = "E:/project_template", recurse = TRUE)
+
+```
+
+{fs} has a variety of other functions for programming queries and changes to your file and folder structures, including returning file size, and changes such as file copying, deleting.
+
+The reference page for {fs}: https://fs.r-lib.org/
 
 
 ### Data dictionary
@@ -237,7 +284,7 @@ R code:
 
 
 
-Additional functions are also available to do similar things in the package {codebook}
+Reference material for {codebook}:
 
 * https://www.rdocumentation.org/packages/codebook/versions/0.9.2
 
@@ -245,11 +292,20 @@ Additional functions are also available to do similar things in the package {cod
 
 * https://rubenarslan.github.io/codebook/
 
-{dataMeta}
+
+
+Another R package that can be used to create a data dictionary is {dataMeta}:
 
 https://bookdown.org/lyzhang10/lzhang_r_tips_book/how-to-make-a-simple-data-dictionary.html
 
 https://cran.r-project.org/web/packages/dataMeta/vignettes/dataMeta_Vignette.html
+
+
+Some other resources I found but didn't use:
+
+https://research.tue.nl/files/145367570/Data_Dictionary_Group_Tutorial.pdf
+
+http://optimumsportsperformance.com/blog/creating-a-data-dictionary-function-in-r/
 
 
 
@@ -268,6 +324,10 @@ Randy Au, ["Let's Get Intentional About Documentation"](https://counting.substac
 Randy Au, ["Data Science Practice 101: Always Leave An Analysis Paper Trail"](https://towardsdatascience.com/data-science-practice-101-always-leave-an-analysis-paper-trail-cc17079fae5a), 2019-04-16
 
 Buttery and Whitaker, chapter 7.6
+
+Donald Knuth, _Literate Programming_
+
+* [wikipedia article](https://en.wikipedia.org/wiki/Literate_programming)
 
 
 
