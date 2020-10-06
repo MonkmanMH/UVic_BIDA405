@@ -46,21 +46,24 @@ Some additional assumptions:
 
   - NHS number (a unique 10-digit ID for each person registered with the National Health Service); used to link to other health databases with information such as a personal information file (with name, address, and health region), other medical treatment received under the NHS, and prescriptions
   
+  - name
+  
   - date of test
   
-  - type of test
+  - type of tests
   
   - test result (positive or negative)
 
 * Thus the first four of the 16,384 columns, containing three of the 16,383 test results, would look like this:
 
 
-| variable     | patient         | patient      | patient    |
-|--------------|-----------------|--------------|------------|
-| NHS number   | 0123456789      | "9876543210" | 1112223334 |
-| date of test | October 9, 2020 | 9-10-20      | 2020-10-09 |
-| type of test | q-tip           | Qtip         | blood      |
-| test result  | positive        | negative     | FALSE      |
+| variable     | patient         | patient          | patient    |
+|--------------|-----------------|------------------|------------|
+| name         | McCoy Tyner     | Marilyn Crispell | Vijay Iyer |
+| NHS number   | 0123456789      | "9876543210"     | 1112223334 |
+| date of test | October 9, 2020 | 9-10-20          | 2020-10-09 |
+| type of test | q-tip           | Qtip             | blood      |
+| test result  | positive        | negative         | FALSE      |
 
 
 ---
