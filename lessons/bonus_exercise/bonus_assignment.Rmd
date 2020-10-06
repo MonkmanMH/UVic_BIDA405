@@ -1,0 +1,67 @@
+---
+title: "Bonus/make up assignment"
+subtitle: "BIDA 405"
+author: "Martin Monkman"
+date: "2020/10/05"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Earlier today (2020/10/05) it was reported that health authorities in the U.K. have understated the number of COVID-19 cases due to what the BBC described as ["the ill-thought-out use of Microsoft's Excel software"](https://www.bbc.com/news/uk-54422505). Public Health England (PHE) under-reported the number of COVID-19 cases by nearly 16,000 because of the problem.
+
+This report suggests that the row limit of 65,536 (2^16) was reached due to each test consuming four rows in the data table. 
+
+Another report suggested that the tests were entered as individual columns. In Excel, it's easier for mouse-wielding humans to scroll through the data left-to-right with the width of Column A set wide and/or with text wrapping to accommodate the variable names. However, the Excel limit for columns is 16,384 (2^14, also known as column XFD), exactly one-quarter 65,536.
+
+The flippant response (as seen in [this article](https://uk.news.yahoo.com/experts-surprised-phe-excel-covid-151400756.html)) would be to say that Excel is to blame for this situation. "If only the developers had used proper Excel, which has over a million rows (2^20, or 1,048,576)." Or "They should have created a _real_ database with an implementation of the latest enterprise tech stack."
+
+A contrary opinion was presented in a 2014 blog post titled ["Stop blaming spreadsheets (and take a good look in the mirror)"](https://www.felienne.com/archives/3355), where Dr. Felienne Hermans wrote 
+
+> I asked them why they would run a bank/insurance company/airline on spreadsheets. You know what many of them say?
+>
+>_“We asked IT to build this, they said it would take 6 months and half a million euros. And most likely it will be more expensive and not what we want.”
+
+It's entirely possible that staff at the U.K. health authorities confronted the same situation, and worked with the tools at hand.
+
+---
+
+**Assignment**
+
+Assuming that this is the case, read 
+
+* Karl Broman & Kara Woo, ["Data Organization in Spreadsheets"](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989) (_The American Statistician_, Vol.72, Issue 1: Special Issue on Data Science (2018)) 
+
+* Hadley Wickham, ["Tidy Data"](https://www.jstatsoft.org/article/view/v059i10) (_Journal of Statistical Software_, Vol.59 (2014))
+
+and write a short (no more than 2 pages / 500 words) issue paper, identifying the problem(s) in the data and recommending solutions for organizing the data so that it will maximize the limited amount of space imposed by Excel, and provide a clean dataset for further analysis.
+
+Some additional assumptions:
+
+* Excel remains the tool on which the data collectors and analysts have to rely, since it comes pre-installed on their centrally-administered computers. (The staff do not have administrative privilege on their computers, and cannot install a scripting-based data science software tool such as R or Python, let alone a database.)
+
+* Each individual test result currently contains the following fields, each occupying its own row:
+
+  - NHS number (a unique 10-digit ID for each person registered with the National Health Service); used to link to other health databases with information such as a personal information file (with name, address, and health region), other medical treatment received under the NHS, and prescriptions
+  
+  - date of test
+  
+  - type of test
+  
+  - test result (positive or negative)
+
+* Thus the first four of the 16,384 columns, containing three of the 16,383 test results, would look like this:
+
+
+| variable     | patient         | patient      | patient    |
+|--------------|-----------------|--------------|------------|
+| NHS number   | 0123456789      | "9876543210" | 1112223334 |
+| date of test | October 9, 2020 | 9-10-20      | 2020-10-09 |
+| type of test | q-tip           | Qtip         | blood      |
+| test result  | positive        | negative     | FALSE      |
+
+
+---
+
