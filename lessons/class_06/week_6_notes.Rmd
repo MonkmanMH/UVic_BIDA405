@@ -1,0 +1,16 @@
+---
+title: "week 6"
+author: "Martin Monkman"
+date: "04/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+https://r4ds.had.co.nz/tidy-data.html#case-study
+
+https://arxiv.org/pdf/2002.11626.pdf
+
+
