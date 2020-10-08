@@ -43,6 +43,24 @@ version
 Step 4: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
 
 
+### _Important note!_ 
+
+**{annotater}**
+
+The {annotater} package is not on CRAN. In order to install it, you need to 
+
+* Step 1: the package {remotes} with the following code:
+
+`install.packages("remotes")`
+
+* Step 2: install {annotater} from GitHub
+
+`remotes::install_github("luisDVA/annotater")`
+
+The {annotater} reference page is https://github.com/luisDVA/annotater
+
+***
+
 # B. Codebook 
 
 For this segment, create a codebook using the {palmerpenguins} data. Consider the use of factor variable types and the creation of metadata about the entire dataset.
@@ -66,6 +84,7 @@ penguins %<>%
 ```
 
 
+***
 
 # C. README 
 

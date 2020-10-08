@@ -55,11 +55,59 @@ class: inverse
 
 ---
 
+When working with data, we need to be able to uniquely identify individuals or businesses
+
+* survey: link to administrative records
+
+* modeling: link across admin databases
+
+* business: join order to customer list
+
+---
+
+BUT when sharing data, we need to adopt proper privacy protocols
+
+???
+
+Hart, Barmby, et al. "Ten Simple Rules for Digital Data Storage"
+
+---
+
 Confidentiality of data
+
+* business data
 
 * personal information
 
-* sensitive business data
+
+---
+
+## Laws
+
+### British Columbia
+
+* Personal Information Protection Act
+
+* Freedom of Information and Protection of Privacy Act
+
+Office of the Information & Privacy Commissioner
+
+* [oipc.bc.ca](https://www.oipc.bc.ca/about/legislation/) 
+
+---
+
+## Laws
+
+### Canada
+
+* The Personal Information Protection and Electronic Documents Act
+
+* Privacy Act
+
+Office of the Privacy Commissioner of Canada
+
+* [priv.gc.ca](https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/02_05_d_15)
+
 
 ---
 
