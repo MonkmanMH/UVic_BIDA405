@@ -1,0 +1,151 @@
+---
+title: "Disclosure"
+subtitle: ""
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup, message=FALSE, warning=FALSE}
+# data wrangling
+library(tidyverse)
+
+library(readr)
+library(magrittr)
+
+library(palmerpenguins)
+```
+
+## Objectives
+
+* Demonstrate understanding of statistical disclosure
+
+
+## Making sure that individuals are not identifiable
+
+Often when we are creating summary tables of our data, we have to be aware that there is other data in circulation that might help identify an individual, even if we create summary tables. And it doesn't take very many grouping variables before we start to risk disclosure.
+
+We can see that with the {palmerpenguins} data.
+
+## Read the data
+
+```{r}
+penguins
+```
+
+First let's print the summary statistics for the penguins.
+
+```{r}
+summary(penguins)
+
+```
+
+No single penguin can be identified in this. Three years of data collection, 344 penguins in total.
+
+
+How many demographic characteristics can we tabulate before we get a unique individual?
+
+```{r}
+
+penguins %>% 
+  group_by(species) %>% 
+  summarise(n = n())
+
+penguins %>% 
+  group_by(island) %>% 
+  summarise(n = n())
+
+penguins %>% 
+  group_by(sex) %>% 
+  summarise(n = n())
+
+```
+
+```{r}
+
+penguins %>% 
+  group_by(island, species, sex) %>% 
+  summarise(n = n()) %>% 
+  arrange(n)
+
+
+```
+
+So let's choose to omit the records where sex is `NA`--perhaps our research question is to see how much weight varies by sex, so penguins without a value in that column isn't going to help. We will also select only the species, sex, and weight variables.
+
+For our next step, we will group the penguins into weight quartiles--grouping the penguins so that the smallest 25% are in one group, the next 25% are in the next group, and so on. In total, there will be 83 or 84 penguins in each quartile.
+
+```{r}
+# filter and mutate quartile groupings
+penguins_2 <- penguins %>%
+  filter(!is.na(sex)) %>% 
+  select(species, sex, body_mass_g) %>% 
+  mutate(bm_quart = as.integer(gtools::quantcut(body_mass_g, q=4)))
+
+```
+
+Here's a quick visualization of the distribution by weight, showing the quartile cut points:
+
+
+```{r}
+
+# density plot with lines showing quartiles
+ggplot(penguins_2, aes(x = body_mass_g)) +
+  geom_density() +
+  annotate(geom="text", x=q, y=0, label=names(q)) +
+  theme(text = element_text(size=10)) +
+  geom_vline(xintercept=q, linetype = "longdash")
+
+```
+
+We can now drop the `body_mass_g` variable, so all we have is species, sex, and the weight group.
+
+```{r}
+penguins_2 %<>%
+  select(species, sex, bm_quart)
+penguins_2
+```
+
+Is this data set anonymized? That is, can you identify any one penguin?
+
+To find out, we can tally the penguins by the three variables.
+
+```{r}
+penguins_2 %>% 
+  group_by(species, sex, bm_quart) %>% 
+  summarise(n = n())
+
+```
+
+There are four penguins that are identifiable by these three variables!
+
+Skill-testing question: using the what is the flipper length of the female Chinstrap penguin in the 3rd quartile?
+
+We can use the two demographic variables and our knowledge of the quartile cut points in a `filter()` to identify the penguin.
+
+```{r}
+
+penguins %>% 
+  filter(species == "Chinstrap",
+         sex == "female",
+         body_mass_g > 4050)
+  
+  
+```
+
+
+
+***
+
+## REFERENCE
+
+### Packages
+
+{readr}: https://readr.tidyverse.org/index.html
+
+{readxls}: 
+

@@ -1,0 +1,105 @@
+---
+title: "Confidentiality"
+subtitle: "Statistical Disclosure Control"
+author: "Martin Monkman"
+date: "2020/10/10"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+class: inverse
+
+# Our journey so far...
+
+* Importing data
+* Cleaning data
+* Data manipulation
+* Data structures
+* SQL
+* Saving our data files
+* Recordkeeping & documentation
+
+
+---
+class: inverse
+
+
+## Next: 
+
+## Publishing your data
+
+
+---
+class: inverse
+
+## Why?
+
+* transfer to visualization or download tool
+
+* as part of analytic report
+
+* publish ("open data")
+
+
+---
+
+Confidentiality of data
+
+* personal information
+
+* sensitive business data
+
+---
+
+By releasing data, you can be compromising that confidentiality
+
+---
+
+Intention: provide as much data as possible, without revealing individually identifiable data
+
+???
+
+Source: _Report on Statistical Disclosure Limitation Methodology_ SPWP22 (2005), Office of Management and Budget
+
+
+---
+
+Magnitude data vs Frequency data
+
+--- 
+
+Table dimensionality
+
+--- 
+
+Hierarchical structure of variables
+
+* NAICS
+
+* geography
+
+  - Country > Province > Regional District > Municipality > Neighbourhood
+  
+  - Country > Province > Census Division > Census SubDivision > Census Tract > Dissemination Area
+
+---
+
+## Types of disclosure
+
+* identity disclosure
+
+* attribute disclosure
+
+* inferential disclosure
