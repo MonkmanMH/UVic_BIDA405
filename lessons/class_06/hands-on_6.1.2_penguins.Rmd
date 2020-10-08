@@ -27,14 +27,17 @@ library(palmerpenguins)
 
 ## Making sure that individuals are not identifiable
 
-Often when we are creating summary tables of our data, we have to be aware that there is other data in circulation that might help identify an individual, even if we create summary tables. And it doesn't take very many grouping variables before we start to risk disclosure.
+Often when we are sharing our data—whether the individual records or summary tables of our data—we have to be aware that we run the risk of disclosing personal information. 
 
-We can see that with the {palmerpenguins} data.
+We also have to be aware that there is other data in circulation that might help identify an individual, even if we create summary tables. And it doesn't take very many grouping variables before we start to risk disclosure.
+
+We can see that with the {palmerpenguins} data. 
 
 ## Read the data
 
 ```{r}
-penguins
+penguins <- palmerpenguins::penguins
+  
 ```
 
 First let's print the summary statistics for the penguins.
@@ -44,7 +47,7 @@ summary(penguins)
 
 ```
 
-No single penguin can be identified in this. Three years of data collection, 344 penguins in total.
+No single penguin can be identified in this summary table. .
 
 
 How many demographic characteristics can we tabulate before we get a unique individual?
@@ -84,7 +87,9 @@ For our next step, we will group the penguins into weight quartiles--grouping th
 penguins_2 <- penguins %>%
   filter(!is.na(sex)) %>% 
   select(species, sex, body_mass_g) %>% 
-  mutate(bm_quart = as.integer(gtools::quantcut(body_mass_g, q=4)))
+  mutate(bm_quart = as.integer(gtools::quantcut(body_mass_g, q=4))) %>% 
+  mutate(bm_quart = as.factor(bm_quart))
+    
 
 ```
 
@@ -93,6 +98,8 @@ Here's a quick visualization of the distribution by weight, showing the quartile
 
 ```{r}
 
+q <- quantile(penguins$body_mass_g, na.rm = TRUE)
+
 # density plot with lines showing quartiles
 ggplot(penguins_2, aes(x = body_mass_g)) +
   geom_density() +
@@ -100,14 +107,19 @@ ggplot(penguins_2, aes(x = body_mass_g)) +
   theme(text = element_text(size=10)) +
   geom_vline(xintercept=q, linetype = "longdash")
 
+
+# modified from https://stackoverflow.com/questions/34029811/fill-different-colors-for-each-quantile-in-geom-density-of-ggplot
+
 ```
 
 We can now drop the `body_mass_g` variable, so all we have is species, sex, and the weight group.
 
 ```{r}
-penguins_2 %<>%
+penguins_3vars <- penguins_2 %>%
   select(species, sex, bm_quart)
-penguins_2
+penguins_3vars
+
+readr::write_rds(penguins_3vars, "penguins_3vars.rds")
 ```
 
 Is this data set anonymized? That is, can you identify any one penguin?
@@ -115,7 +127,7 @@ Is this data set anonymized? That is, can you identify any one penguin?
 To find out, we can tally the penguins by the three variables.
 
 ```{r}
-penguins_2 %>% 
+penguins_3vars %>% 
   group_by(species, sex, bm_quart) %>% 
   summarise(n = n())
 
@@ -137,6 +149,31 @@ penguins %>%
   
 ```
 
+
+---
+
+Here's a modified version of the table with only 3 variables:
+
+* The records with `NA` values have been filtered out, so the file is now 333 rather than 344 records. 
+
+* There are three variables:
+
+  - species and sex are from the original table
+  
+  - `bm_quart` is the quartile ranking of the body mass measure. There are four values: the lightest 25% of the penguins are coded as 1, the next weight group are coded 2, and so on
+
+
+```{r}
+penguins_3vars <- readr::read_rds("penguins_3vars.rds")
+  
+```
+
+First let's print the summary statistics for the penguins.
+
+```{r}
+summary(penguins_3vars)
+
+```
 
 
 ***
