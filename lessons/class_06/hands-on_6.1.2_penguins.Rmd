@@ -87,9 +87,13 @@ For our next step, we will group the penguins into weight quartiles--grouping th
 penguins_2 <- penguins %>%
   filter(!is.na(sex)) %>% 
   select(species, sex, body_mass_g) %>% 
+#  mutate(bm_quart = gtools::quantcut(body_mass_g, q=4))
   mutate(bm_quart = as.integer(gtools::quantcut(body_mass_g, q=4))) %>% 
   mutate(bm_quart = as.factor(bm_quart))
-    
+
+penguins_2 %>% 
+  group_by(bm_quart) %>% 
+  tally()
 
 ```
 
@@ -172,6 +176,16 @@ First let's print the summary statistics for the penguins.
 
 ```{r}
 summary(penguins_3vars)
+
+```
+
+
+
+```{r}
+penguins_3vars %>% 
+  group_by(species, sex, bm_quart) %>% 
+  tally() %>% 
+  arrange(n)
 
 ```
 
