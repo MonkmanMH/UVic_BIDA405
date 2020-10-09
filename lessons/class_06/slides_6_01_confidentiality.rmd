@@ -48,12 +48,15 @@ class: inverse
 
 * transfer to visualization or download tool
 
+* publish ("open data")
+
 * as part of analytic report
 
-* publish ("open data")
 
 
 ---
+
+## Privacy
 
 When working with data, we need to be able to uniquely identify individuals or businesses
 
@@ -151,3 +154,160 @@ Hierarchical structure of variables
 * attribute disclosure
 
 * inferential disclosure
+
+
+---
+
+## Residual disclosure
+
+Suppression in one row or column will require suppression in another
+
+---
+
+Here's a table with three people, and how many apples they have. In this place, there is disclosure of 5 or more apples, but fewer than that gets suppressed.
+
+| name | apples_n |
+|---|---|
+| Holly | 5 |
+| Ivy | 15 |
+| Lily | 1 |
+| TOTAL | 21 |
+
+---
+
+| name | apples_n |
+|---|---|
+| Holly | 5 |
+| Ivy | 15 |
+| Lily | - |
+| TOTAL | 21 |
+
+If we are concerned about the low number that Lily has and suppress it, we haven't hidden anything—it's still possible to calculate it as the _residual_ of the other values.
+
+---
+
+## Solution
+
+| name | apples_n |
+|---|---|
+| Holly | - |
+| Ivy | 15 |
+| Lily | - |
+| TOTAL | 21 |
+
+If we suppress Lily's apples, we also have to suppress Holly's—the difference of 6 (21-15) has multiple solutions, so it's impossible to know the precise number Holly and Lily have.
+
+
+---
+
+## Calculated values
+
+| name | apples_n | weight_avg_g | 
+|---|---|---|
+| Holly | 5 | 7 |
+| Ivy | 15 | 8.5 |
+| Lily | 1 | 8 |
+| TOTAL | 21 | 8.12 |
+
+Suppose we know how many apples everyone has—the personal information is the weight of their individual apples. Holly and Ivy have multiple apples, so there's no way to know the weight of any one apple. Can't we just suppress Lily's value of 8?
+
+---
+
+## Calculated values (2)
+
+| name | apples_n | weight_avg_g | total_weight_g
+|---|---|---|---|
+| Holly | 5 | 7 | 35 |
+| Ivy | 15 | 8.5 | 127.5 |
+| Lily | 1 | X1 | X2 |
+| TOTAL | 21 | 8.12 | Y |
+
+We can solve for X
+
+`X1 = X2`
+
+`Y = (35 + 127.5 + X2)`
+
+`Y = 21 * 8.12 = 170.52`
+
+`X2 = 170.52 - (35 + 127.5) = 8.02`
+
+
+---
+
+## Rows
+
+| name | apples_n | oranges_n | total_fruit_n
+|---|---|---|---|
+| Holly | 5 | 10 | 15 |
+| Ivy | 15 | 10 | 25 |
+| Lily | 1 | 5 | 6 |
+| TOTAL | 21 | 25 | 46 |
+
+---
+
+## Rows
+
+| name | apples_n | oranges_n | total_fruit_n
+|---|---|---|---|
+| Holly | 5 | 10 | 15 |
+| Ivy | 15 | 10 | 25 |
+| Lily | - | 5 | 6 |
+| TOTAL | 21 | 25 | 46 |
+
+---
+
+## Rows
+
+| name | apples_n | oranges_n | total_fruit_n
+|---|---|---|---|
+| Holly | - | - | 15 |
+| Ivy | 15 | 10 | 25 |
+| Lily | - | - | 6 |
+| TOTAL | 21 | 25 | 46 |
+
+Suppressing the number of apples & oranges Lily has still leaves the residual, so we also have to suppress Holly's apples and oranges.
+
+
+
+---
+
+# Hierarchical suppression
+
+Start with the largest unit, and suppress the lower levels of the hierarchy
+
+* _suppress sub-categories before categories_
+
+* suppress apples and oranges before total fruit
+
+* suppress city before province, province before country
+
+---
+
+## Suppression
+
+You may face choices 
+
+* penguins: would you suppress species, island, or sex?
+
+_The answer depends on the research question_
+
+
+
+---
+
+## Other ways to prevent disclosure
+
+* rounding (nearest 10, 100, 1000, ...)
+
+* random rounding, other manipulation
+
+* grouping cases ("binning")
+
+  - 5-year age group instead of single age
+
+* suppression (printing "NA")
+
+
+
+
