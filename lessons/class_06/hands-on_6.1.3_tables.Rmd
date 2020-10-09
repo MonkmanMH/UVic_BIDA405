@@ -9,6 +9,10 @@ output:
 This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
 -->
 
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
 ```{r setup, message=FALSE, warning=FALSE}
 # data wrangling
 library(tidyverse)
@@ -16,16 +20,14 @@ library(tidyverse)
 library(readr)     # for read_csv()
 library(magrittr)  # for pipes
 
-# data
-library(palmerpenguins)
-
 # table formatting
 library(kableExtra)
 ```
 
 ## Objectives
 
-* Demonstrate options for formatting tables in R Markdown
+* Demonstrate (some of the many, many) options for formatting tables in R Markdown
+
 
 ## Population of Canada
 
@@ -35,6 +37,8 @@ Creating a table that looks like the one published by Statistics Canada.
 
 ![Canada, Quarterly Population](df_17100009_2020-10-08.JPG)
 
+
+### data load
 
 First, load the data
 
@@ -50,7 +54,9 @@ head(df_17100009)
 
 ```
 
-We want `REF_DATE`, but only the last 5 dates. We also want `GEO` and `VALUE`. Time to select, and then filter.
+### filter
+
+We want `GEO` and `VALUE`. We also want `REF_DATE`, but only the most recent 5 dates.  Time to select, and then filter.
 
 ```{r}
 
@@ -60,7 +66,14 @@ head(df_pop)
 
 ```
 
-Step 1: what are the last 5 quarters?
+Filtering the most recent 5 quarters.
+
+Step 1: what are the last 5 quarters? To find the 5 largest values in any series, we can use `distinct` and then `slice_max()` from {dplyr}.
+
+There are also other "slice" functions
+https://dplyr.tidyverse.org/reference/slice.html
+
+This returns a short dataframe with only those five rows.
 
 ```{r}
 last_five_q <- df_pop %>% 
@@ -71,6 +84,7 @@ last_five_q
 
 ```
 
+Step 2: 
 
 Now we need to extract the values that are in the first (and only) column of our dataframe `last_five_q`. (See [Roger Peng, _R Programming for Data Science_ 9.1 Subsetting a Vector](https://bookdown.org/rdpeng/rprogdatascience/subsetting-r-objects.html))
 
@@ -79,6 +93,8 @@ Now we need to extract the values that are in the first (and only) column of our
 list_five <- last_five_q[[1]]
 list_five
 ```
+
+Step 3:
 
 Now we can use that list to filter the dataframe.
 
@@ -101,6 +117,9 @@ df_pop_pivot <- df_pop %>%
 
 df_pop_pivot
 ```
+
+For another example of pivoting, see [R for Social Science at Data Carpentries](https://datacarpentry.org/r-socialsci/03-dplyr-tidyr/index.html#"Reshaping with pivot_wider() and pivot_longer()")
+
 
 ## Table Formatting
 
@@ -149,12 +168,14 @@ Also the RMarkdown Cookbook has some good reference material: https://bookdown.o
 
 ```{r}
 df_pop_pivot %>% 
-  kbl() %>% # to turn the dataframe into a kable object we can use repeatedly
+  kbl() %>% # to turn the dataframe into a kable object
   kable_paper("hover", full_width = TRUE)  # the "paper" option
 
 ```
 
-In the following example, we will first change the column names to be consistent with Statistics Canada. Note that we will create a kable object with these names which we can easily reference.
+In the following example, we will create a kable object which we can easily reference.
+
+In that `kable()` function, we will first change the column names to be consistent with Statistics Canada. As well, the number formatting is set to have comma separators ("big.mark"), and no scientific notation.
 
 Then with our new object we use the "striped" option for a "paper" table, bold the most recent column, and shade the British Columbia row.
 
@@ -163,8 +184,8 @@ Then with our new object we use the "striped" option for a "paper" table, bold t
 kbl_pop <- df_pop_pivot %>% 
   kable(col.names = c("Geography", 
                 "Q3 2019", "Q4 2019", 
-                "Q1 2020", "Q2 2020", "Q3 2020"),
-        format.args = list(big.mark = ",", scientific = FALSE))
+                "Q1 2020", "Q2 2020", "Q3 2020"), # change column names
+        format.args = list(big.mark = ",", scientific = FALSE)) # change number formatting
 
 kbl_pop %>%  
   kable_paper("striped", full_width = F) %>% # the "paper" option for style
@@ -176,7 +197,8 @@ kbl_pop %>%
 ```
 
 
-Note that if we want to make changes to the head, we reference row number 0. 
+
+Note that if we want to make changes to the header row, we reference row number 0 in `row_spec()`. 
 
 ```{r}
 kbl_pop %>%  
@@ -198,29 +220,32 @@ kbl_pop %>%
 ```
 
 
-#### Putting it all together
+### Putting it all together
 
+In this code chunk, we start with the unformatted pivot table, and add all of the formatting code from above—plus grouping the provinces and territories, using the `pack_rows()` function.
 
 
 ```{r}
-
+# create the initial kable object
 kbl_pop <- df_pop_pivot %>% 
   kable(col.names = c("Geography", 
                 "Q3 2019", "Q4 2019", 
                 "Q1 2020", "Q2 2020", "Q3 2020"),
         format.args = list(big.mark = ",", scientific = FALSE))
 
+# format-a-rama
 kbl_pop %>%  
   # overall table style
   kable_classic("striped", full_width = F) %>% 
   # format header row
-  row_spec(0, bold = TRUE, color = "#ffffff", background = "#000000", font_size = 18) %>% 
+#  row_spec(0, bold = TRUE, color = "#ffffff", background = "#000000", font_size = 18) %>% 
+  row_spec(0, bold = TRUE, font_size = 18) %>% 
   # BC row
   row_spec(11, italic = TRUE) %>%
   # most recent column
   column_spec(6, bold = TRUE) %>% 
   # footnotes (with symbol)
-  footnote(alphabet = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
+  footnote(symbol = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
                       "Downloaded 2020-10-07")) %>% 
   # add grouping for provinces and territories
   pack_rows("Provinces", 2, 11) %>% 
@@ -234,8 +259,6 @@ kbl_pop %>%
 There are many other options:
 
 * conditional formatting
-
-* grouping columns and rows
 
 * tooltips and popover messages
 
