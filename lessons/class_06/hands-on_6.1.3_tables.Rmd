@@ -3,7 +3,7 @@ title: "Tables"
 subtitle: "formatting for reporting"
 output:
   html_document:
-    df_print: paged
+    df_print: kable
 ---
 
 <!-- 
@@ -21,7 +21,7 @@ library(magrittr)  # for pipes
 library(palmerpenguins)
 
 # table formatting
-library()
+library(kableExtra)
 ```
 
 ## Objectives
@@ -57,7 +57,7 @@ We want `REF_DATE`, but only the last 5 dates. We also want `GEO` and `VALUE`. T
 
 df_pop <- df_17100009 %>% 
   select(REF_DATE, GEO, VALUE)
-df_pop
+head(df_pop)
 
 ```
 
@@ -84,18 +84,124 @@ list_five
 Now we can use that list to filter the dataframe.
 
 ```{r}
-
 df_pop <- 
 df_pop %>%
   filter(REF_DATE %in% list_five)
 
-df_pop
+head(df_pop)
+```
+
+### pivot to wider
+
+The next step is to pivot the table, in order to get the correct structure. For this, we need the package {tidyr} (part of the {tidyverse} package of packages) and the function `pivot_wider()`
+
+```{r}
+
+df_pop_pivot <- df_pop %>% 
+  pivot_wider(id_cols = GEO, names_from = REF_DATE, values_from = VALUE)
+
+df_pop_pivot
+```
+
+## Table Formatting
+
+At this point we can move on to formatting the table. In its basic knitted form it's a bit uninspiring, and not what we would want to use in a handout.
+
+
+The first possible change is in the YAML: we can add
+
+`output:`
+
+  `html_document:`
+  
+    `df_print: paged`
+
+to set a "paged" option to our dataframe output.
+
+
+```{r}
+df_pop_pivot
+```
+
+It doesn't look too bad, but it is "paged" at 10 rows, and has the variable type showing. It's not quite there yet.
+
+The second option is to use the kable functions in {rmarkdown}. Again, we need to change the option in the YAML:
+
+`output:`
+
+  `html_document:`
+  
+    `df_print: kable`
+
+This will print all 14 rows in a single view.
+
+
+```{r}
+df_pop_pivot 
+```
+
+### kable tables
+
+Using kable and the package {kableExtra} opens up the possibility of a lot more formatting.
+
+See this vignette for more details: https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+
+Also the RMarkdown Cookbook has some good reference material: https://bookdown.org/yihui/rmarkdown-cookbook/kable.html
+
+```{r}
+df_pop_pivot %>% 
+  kbl() %>% # to turn the dataframe into a kable object we can use repeatedly
+  kable_paper("hover", full_width = TRUE)  # the "paper" option
+
+```
+
+In the following example, we will first change the column names to be consistent with Statistics Canada. Note that we will create a kable object with these names wich we can easily reference.
+
+Then with our new object we use the "striped" option for a "paper" table, bold the most recent column, and shade the British Columbia row.
+
+```{r}
+
+kbl_pop <- df_pop_pivot %>% 
+  kable(col.names = c("Geography", 
+                "Q3 2019", "Q4 2019", 
+                "Q1 2020", "Q2 2020", "Q3 2020"))
+
+kbl_pop %>%  
+  kable_paper("striped", full_width = F) %>% 
+  column_spec(6, bold = TRUE) %>% 
+  row_spec(11, bold = TRUE, color = "#FFD800", background = "#002680") # the "paper" option
+
+
+
 ```
 
 
-The next step is to pivot the table. For this, we need the package {tidyr}
+Note that if we want to make changes to the head, we reference row number 0. 
+
+```{r}
+kbl_pop %>%  
+  kable_paper("striped", full_width = F) %>% 
+  row_spec(0, bold = TRUE, color = "#FFD800", background = "#002680", font_size = 18)
+```
 
 
+Add a footnote:
+
+```{r}
+
+kbl_pop %>%  
+  kable_classic("striped", full_width = F) %>% 
+  footnote(number = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
+                      "Downloaded 2020-10-07"))
+
+```
+
+
+There are many other options:
+
+* conditional formatting
+
+* 
 
 ***
 
