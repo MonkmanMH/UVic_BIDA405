@@ -2,8 +2,7 @@
 title: "Tables"
 subtitle: "formatting for reporting"
 output:
-  html_document:
-    df_print: kable
+  html_document
 ---
 
 <!-- 
@@ -140,9 +139,9 @@ This will print all 14 rows in a single view.
 df_pop_pivot 
 ```
 
-### kable tables
+### kable & {kableExtra} .
 
-Using kable and the package {kableExtra} opens up the possibility of a lot more formatting.
+Using kable (part of {knitr}, which is behind R Markdown) and the package {kableExtra} opens up the possibility of a lot more formatting.
 
 See this vignette for more details: https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
@@ -155,7 +154,7 @@ df_pop_pivot %>%
 
 ```
 
-In the following example, we will first change the column names to be consistent with Statistics Canada. Note that we will create a kable object with these names wich we can easily reference.
+In the following example, we will first change the column names to be consistent with Statistics Canada. Note that we will create a kable object with these names which we can easily reference.
 
 Then with our new object we use the "striped" option for a "paper" table, bold the most recent column, and shade the British Columbia row.
 
@@ -164,12 +163,13 @@ Then with our new object we use the "striped" option for a "paper" table, bold t
 kbl_pop <- df_pop_pivot %>% 
   kable(col.names = c("Geography", 
                 "Q3 2019", "Q4 2019", 
-                "Q1 2020", "Q2 2020", "Q3 2020"))
+                "Q1 2020", "Q2 2020", "Q3 2020"),
+        format.args = list(big.mark = ",", scientific = FALSE))
 
 kbl_pop %>%  
-  kable_paper("striped", full_width = F) %>% 
+  kable_paper("striped", full_width = F) %>% # the "paper" option for style
   column_spec(6, bold = TRUE) %>% 
-  row_spec(11, bold = TRUE, color = "#FFD800", background = "#002680") # the "paper" option
+  row_spec(11, bold = TRUE, color = "#FFD800", background = "#002680") 
 
 
 
@@ -185,23 +185,63 @@ kbl_pop %>%
 ```
 
 
-Add a footnote:
+There is an option to add a footnote to the table. Here I used a number, but there's also an option for `general`, `number`, `alphabet`, and `symbol`.
 
 ```{r}
 
 kbl_pop %>%  
   kable_classic("striped", full_width = F) %>% 
   footnote(number = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
-                      "Downloaded 2020-10-07"))
+                      "Downloaded 2020-10-07")) 
+  
 
 ```
+
+
+#### Putting it all together
+
+
+
+```{r}
+
+kbl_pop <- df_pop_pivot %>% 
+  kable(col.names = c("Geography", 
+                "Q3 2019", "Q4 2019", 
+                "Q1 2020", "Q2 2020", "Q3 2020"),
+        format.args = list(big.mark = ",", scientific = FALSE))
+
+kbl_pop %>%  
+  # overall table style
+  kable_classic("striped", full_width = F) %>% 
+  # format header row
+  row_spec(0, bold = TRUE, color = "#ffffff", background = "#000000", font_size = 18) %>% 
+  # BC row
+  row_spec(11, italic = TRUE) %>%
+  # most recent column
+  column_spec(6, bold = TRUE) %>% 
+  # footnotes (with symbol)
+  footnote(alphabet = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
+                      "Downloaded 2020-10-07")) %>% 
+  # add grouping for provinces and territories
+  pack_rows("Provinces", 2, 11) %>% 
+  pack_rows("Territories", 12, 14)
+  
+```
+
+
 
 
 There are many other options:
 
 * conditional formatting
 
-* 
+* grouping columns and rows
+
+* tooltips and popover messages
+
+* changing missing values from "NA" to another representation (for example, a hyphen or double asterix)
+
+
 
 ***
 
