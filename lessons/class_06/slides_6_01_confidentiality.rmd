@@ -266,7 +266,7 @@ We can solve for X
 | Lily | - | - | 6 |
 | TOTAL | 21 | 25 | 46 |
 
-Suppressing the number of apples & oranges Lily has still leaves the residual, so we also have to suppress Holly's apples and oranges.
+Suppressing the numbers of Lily's apples & oranges still leaves the residual, so we also have to suppress Holly's apples and oranges.
 
 
 
@@ -293,7 +293,6 @@ You may face choices
 _The answer depends on the research question_
 
 
-
 ---
 
 ## Other ways to prevent disclosure
@@ -309,5 +308,32 @@ _The answer depends on the research question_
 * suppression (printing "NA")
 
 
+---
 
+So...what are the rules?
 
+--
+
+**_It depends_**
+
+---
+
+## One example of rules
+
+**BC Government's Secure Research Enviroment (SRE)**
+
+**_Output Guidance for Users_** 
+
+Overall Rules of Thumb
+
+* 10 units in all tabular output underlying any data point
+
+* 10 degrees of freedom in any modeled output
+
+* Group disclosure: in all tabular output, no cell can contain more than 90% of the total of the row or column
+
+* Dominance: the largest contributor to a cell should not contribute more than 50% of the total in the cell
+
+---
+
+-30-

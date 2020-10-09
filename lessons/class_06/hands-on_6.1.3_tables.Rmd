@@ -14,17 +14,88 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 # data wrangling
 library(tidyverse)
 
-library(readr)
-library(magrittr)
+library(readr)     # for read_csv()
+library(magrittr)  # for pipes
 
+# data
 library(palmerpenguins)
+
+# table formatting
+library()
 ```
 
 ## Objectives
 
-* Demonstrate understanding of statistical disclosure
+* Demonstrate options for formatting tables in R Markdown
 
-https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
+## Population of Canada
+
+Creating a table that looks like the one published by Statistics Canada.
+
+(Source: Statistics Canada. [Table 17-10-0009-01 Population estimates, quarterly](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000901))
+
+![Canada, Quarterly Population](df_17100009_2020-10-08.JPG)
+
+
+First, load the data
+
+```{r}
+
+df_17100009 <- read_csv("data/17100009.csv")
+
+```
+
+```{r}
+
+head(df_17100009)
+
+```
+
+We want `REF_DATE`, but only the last 5 dates. We also want `GEO` and `VALUE`. Time to select, and then filter.
+
+```{r}
+
+df_pop <- df_17100009 %>% 
+  select(REF_DATE, GEO, VALUE)
+df_pop
+
+```
+
+Step 1: what are the last 5 quarters?
+
+```{r}
+last_five_q <- df_pop %>% 
+  distinct(REF_DATE) %>% 
+  slice_max(REF_DATE, n = 5)
+  
+last_five_q
+
+```
+
+
+Now we need to extract the values that are in the first (and only) column of our dataframe `last_five_q`. (See [Roger Peng, _R Programming for Data Science_ 9.1 Subsetting a Vector](https://bookdown.org/rdpeng/rprogdatascience/subsetting-r-objects.html))
+
+```{r}
+
+list_five <- last_five_q[[1]]
+list_five
+```
+
+Now we can use that list to filter the dataframe.
+
+```{r}
+
+df_pop <- 
+df_pop %>%
+  filter(REF_DATE %in% list_five)
+
+df_pop
+```
+
+
+The next step is to pivot the table. For this, we need the package {tidyr}
+
+
 
 ***
 
@@ -45,3 +116,25 @@ https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
 {huxtable}
 
 {pixiedust}
+
+---
+
+Before we filter, let's use `case_when` to create our quarter variable, and split out the year.
+
+Note that the uses a different pipe symbol, which returns the results of the pipe to the same object.
+
+```{r evaluate = FALSE}
+
+df_pop %<>%
+  mutate(YEAR = str_sub(REF_DATE, 1, 4)) %>% 
+  mutate(quarter = case_when(
+    "01" == str_sub(REF_DATE, 6, 7) ~ "Q1",
+    "04" == str_sub(REF_DATE, 6, 7) ~ "Q2",
+    "07" == str_sub(REF_DATE, 6, 7) ~ "Q3",
+    "10" == str_sub(REF_DATE, 6, 7) ~ "Q4",
+    TRUE ~ NA_character_
+  ))
+
+df_pop
+
+```
