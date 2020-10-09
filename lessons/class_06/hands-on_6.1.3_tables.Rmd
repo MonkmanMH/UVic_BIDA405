@@ -1,0 +1,47 @@
+---
+title: "Tables"
+subtitle: "formatting for reporting"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r setup, message=FALSE, warning=FALSE}
+# data wrangling
+library(tidyverse)
+
+library(readr)
+library(magrittr)
+
+library(palmerpenguins)
+```
+
+## Objectives
+
+* Demonstrate understanding of statistical disclosure
+
+https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
+
+***
+
+## REFERENCE
+
+https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
+
+### Packages
+
+{kable}: https://readr.tidyverse.org/index.html
+
+{dt}: 
+
+{reactable}
+
+{flextable}
+
+{huxtable}
+
+{pixiedust}
