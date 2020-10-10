@@ -1,6 +1,6 @@
 ---
 title: "Tables"
-subtitle: "formatting for reporting"
+subtitle: "Exercise: penguins"
 output:
   html_document
 ---
@@ -12,14 +12,11 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0
 ```{r global options, include = FALSE}
 knitr::opts_chunk$set(warning=FALSE, message=FALSE)
 ```
-
 ```{r setup, message=FALSE, warning=FALSE}
 # data wrangling
 library(tidyverse)
-
 library(readr)     # for read_csv()
 library(magrittr)  # for pipes
-
 # table formatting
 library(kableExtra)
 ```
@@ -43,15 +40,11 @@ Creating a table that looks like the one published by Statistics Canada.
 First, load the data
 
 ```{r}
-
 df_17100009 <- read_csv("data/17100009.csv")
-
 ```
 
 ```{r}
-
 head(df_17100009)
-
 ```
 
 ### filter
@@ -59,11 +52,9 @@ head(df_17100009)
 We want `GEO` and `VALUE`. We also want `REF_DATE`, but only the most recent 5 dates.  Time to select, and then filter.
 
 ```{r}
-
 df_pop <- df_17100009 %>% 
   select(REF_DATE, GEO, VALUE)
 head(df_pop)
-
 ```
 
 Filtering the most recent 5 quarters.
@@ -81,7 +72,6 @@ last_five_q <- df_pop %>%
   slice_max(REF_DATE, n = 5)
   
 last_five_q
-
 ```
 
 Step 2: 
@@ -89,7 +79,6 @@ Step 2:
 Now we need to extract the values that are in the first (and only) column of our dataframe `last_five_q`. (See [Roger Peng, _R Programming for Data Science_ 9.1 Subsetting a Vector](https://bookdown.org/rdpeng/rprogdatascience/subsetting-r-objects.html))
 
 ```{r}
-
 list_five <- last_five_q[[1]]
 list_five
 ```
@@ -102,7 +91,6 @@ Now we can use that list to filter the dataframe.
 df_pop <- 
 df_pop %>%
   filter(REF_DATE %in% list_five)
-
 head(df_pop)
 ```
 
@@ -111,10 +99,8 @@ head(df_pop)
 The next step is to pivot the table, in order to get the correct structure. For this, we need the package {tidyr} (part of the {tidyverse} package of packages) and the function `pivot_wider()`
 
 ```{r}
-
 df_pop_pivot <- df_pop %>% 
   pivot_wider(id_cols = GEO, names_from = REF_DATE, values_from = VALUE)
-
 df_pop_pivot
 ```
 
@@ -170,7 +156,6 @@ Also the RMarkdown Cookbook has some good reference material: https://bookdown.o
 df_pop_pivot %>% 
   kbl() %>% # to turn the dataframe into a kable object
   kable_paper("hover", full_width = TRUE)  # the "paper" option
-
 ```
 
 In the following example, we will create a kable object which we can easily reference.
@@ -180,20 +165,15 @@ In that `kable()` function, we will first change the column names to be consiste
 Then with our new object we use the "striped" option for a "paper" table, bold the most recent column, and shade the British Columbia row.
 
 ```{r}
-
 kbl_pop <- df_pop_pivot %>% 
   kable(col.names = c("Geography", 
                 "Q3 2019", "Q4 2019", 
                 "Q1 2020", "Q2 2020", "Q3 2020"), # change column names
         format.args = list(big.mark = ",", scientific = FALSE)) # change number formatting
-
 kbl_pop %>%  
   kable_paper("striped", full_width = F) %>% # the "paper" option for style
   column_spec(6, bold = TRUE) %>% 
   row_spec(11, bold = TRUE, color = "#FFD800", background = "#002680") 
-
-
-
 ```
 
 
@@ -210,13 +190,11 @@ kbl_pop %>%
 There is an option to add a footnote to the table. Here I used a number, but there's also an option for `general`, `number`, `alphabet`, and `symbol`.
 
 ```{r}
-
 kbl_pop %>%  
   kable_classic("striped", full_width = F) %>% 
   footnote(number = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
                       "Downloaded 2020-10-07")) 
   
-
 ```
 
 
@@ -232,7 +210,6 @@ kbl_pop <- df_pop_pivot %>%
                 "Q3 2019", "Q4 2019", 
                 "Q1 2020", "Q2 2020", "Q3 2020"),
         format.args = list(big.mark = ",", scientific = FALSE))
-
 # format-a-rama
 kbl_pop %>%  
   # overall table style
@@ -274,29 +251,33 @@ https://rfortherestofus.com/2019/11/how-to-make-beautiful-tables-in-r/
 
 ### Packages
 
-{kable}: https://readr.tidyverse.org/index.html
+A range of other packages for formatting tables:
 
-{dt}: 
+**{flextable}**: [easily create tables for reporting and publications.](https://davidgohel.github.io/flextable/)
 
-{reactable}
+**{dt}**: [An R interface to the DataTables library](https://rstudio.github.io/DT/)
 
-{flextable}
+* "provides an R interface to the JavaScript library DataTables. R data objects (matrices or data frames) can be displayed as tables on HTML pages, and DataTables provides filtering, pagination, sorting, and many other features in the tables."
 
-{huxtable}
 
-{pixiedust}
+**{reactable}**: [Interactive data tables for R, based on the React Table library and made with reactR.](https://glin.github.io/reactable/)
+
+**{huxtable}**: [an R package to create LaTeX and HTML tables](https://hughjonesd.github.io/huxtable/)
+
+**{pixiedust}**: [_Get Your Sparkle On: A Guide to Using the Magic of pixiedust_](https://www.suchanutter.net/pixiedust/)
 
 ---
 
-Before we filter, let's use `case_when` to create our quarter variable, and split out the year.
+## A strategy for automating the column headers
 
-Note that the uses a different pipe symbol, which returns the results of the pipe to the same object.
+Above, we hard-coded the header titles for each quarter. What follows is a strategy to automatically generate those headings.
 
-```{r evaluate = FALSE}
+Let's use `case_when` to create our quarter variable, and split out the year.
 
-df_pop %<>%
+```{r}
+df_pop_2 <- df_pop %>%
   mutate(YEAR = str_sub(REF_DATE, 1, 4)) %>% 
-  mutate(quarter = case_when(
+  mutate(QUARTER = case_when(
     "01" == str_sub(REF_DATE, 6, 7) ~ "Q1",
     "04" == str_sub(REF_DATE, 6, 7) ~ "Q2",
     "07" == str_sub(REF_DATE, 6, 7) ~ "Q3",
@@ -304,6 +285,53 @@ df_pop %<>%
     TRUE ~ NA_character_
   ))
 
-df_pop
+df_pop_2
+```
+
+Next, the two new variables are pasted together in the correct order. 
+
+* [{glue} package](https://glue.tidyverse.org/index.html)
+
+We will then assign them as factor variables, which preserves their order (because alphabetically they will be mixed up, with "Q1 2019" followed by "Q1 2020", then "Q2 2019" etc).
+
+* [{forcats} package](https://forcats.tidyverse.org/index.html)
+
+* [Programming with R: Understanding Factors](https://swcarpentry.github.io/r-novice-inflammation/12-supp-factors/index.html)
+
+* [_R for Data Science_, Factors](https://r4ds.had.co.nz/factors.html)
+
+Note that this uses a different pipe symbol from the {magrittr} package, which returns the results of the pipe to the same object.
+
+* [{magrittr}](https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html)
+
+
+```{r}
+
+df_pop_2 %<>%
+  mutate(QY = glue::glue('{QUARTER} {YEAR}')) %>% 
+  mutate(QY = forcats::as_factor(QY)) 
+
+levels(df_pop_2$QY)
 
 ```
+
+```{r}
+
+df_pop_2
+
+```
+
+Now we can drop the extra columns and pivot:
+
+
+```{r}
+df_pop_pivot_2 <- df_pop_2 %>% 
+  select(Geography = GEO,       # rename field
+         QY, VALUE) %>% 
+  pivot_wider(id_cols = Geography, names_from = QY, values_from = VALUE)
+df_pop_pivot_2
+```
+
+
+
+-30-

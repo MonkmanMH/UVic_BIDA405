@@ -1,0 +1,46 @@
+---
+title: "Tables"
+subtitle: "Exercise: penguins"
+output:
+  html_document
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+```{r setup, message=FALSE, warning=FALSE}
+# data wrangling
+library(tidyverse)
+
+# table formatting
+library(kableExtra)
+
+# data
+library(palmerpenguins)
+```
+
+## Objectives
+
+For this exercise, create and format a summary table of the `penguins` dataset, showing one of the following (or some other permutation):
+
+* one or more of the "demographic" groupings (e.g., island, species, year)
+
+* one or more of the "measurement" variables
+
+This will require you to 
+
+1. wrangle the data into the structure you want
+
+1. format the wrangled table
+
+```{r}
+df_penguins <- penguins
+```
+
+
+
