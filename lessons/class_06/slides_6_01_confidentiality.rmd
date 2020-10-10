@@ -55,6 +55,7 @@ class: inverse
 
 
 ---
+class: inverse
 
 ## Privacy
 
@@ -66,24 +67,32 @@ When working with data, we need to be able to uniquely identify individuals or b
 
 * business: join order to customer list
 
----
+--
 
-BUT when sharing data, we need to adopt proper privacy protocols
+_BUT_...when sharing data, we need to adopt proper privacy protocols
 
 ???
 
 Hart, Barmby, et al. "Ten Simple Rules for Digital Data Storage"
 
 ---
+class: inverse
 
-Confidentiality of data
+## Confidentiality of data
+
+Some data is more sensitive
 
 * business data
 
+  - number of employees vs profit margin
+
 * personal information
+
+  - number of bicycles vs health issues
 
 
 ---
+class: inverse
 
 ## Laws
 
@@ -98,6 +107,7 @@ Office of the Information & Privacy Commissioner
 * [oipc.bc.ca](https://www.oipc.bc.ca/about/legislation/) 
 
 ---
+class: inverse
 
 ## Laws
 
@@ -113,39 +123,21 @@ Office of the Privacy Commissioner of Canada
 
 
 ---
+class: inverse
 
-By releasing data, you can be compromising that confidentiality
+## So what can be released?
 
----
 
 Intention: provide as much data as possible, without revealing individually identifiable data
+
+
 
 ???
 
 Source: _Report on Statistical Disclosure Limitation Methodology_ SPWP22 (2005), Office of Management and Budget
 
-
 ---
-
-Magnitude data vs Frequency data
-
---- 
-
-Table dimensionality
-
---- 
-
-Hierarchical structure of variables
-
-* NAICS
-
-* geography
-
-  - Country > Province > Regional District > Municipality > Neighbourhood
-  
-  - Country > Province > Census Division > Census SubDivision > Census Tract > Dissemination Area
-
----
+class: inverse
 
 ## Types of disclosure
 
@@ -157,6 +149,7 @@ Hierarchical structure of variables
 
 
 ---
+class: inverse
 
 ## Residual disclosure
 
@@ -235,7 +228,9 @@ We can solve for X
 
 ---
 
-## Rows
+## Rows (additional dimensions)
+
+What happens if we have an additional dimension--the type of fruit?
 
 | name | apples_n | oranges_n | total_fruit_n
 |---|---|---|---|
@@ -248,12 +243,17 @@ We can solve for X
 
 ## Rows
 
+We still want to suppresss Lily's one apple
+
+
 | name | apples_n | oranges_n | total_fruit_n
 |---|---|---|---|
 | Holly | 5 | 10 | 15 |
 | Ivy | 15 | 10 | 25 |
 | Lily | - | 5 | 6 |
 | TOTAL | 21 | 25 | 46 |
+
+But now we also have a residual on the row, as well as the column.
 
 ---
 
@@ -266,11 +266,26 @@ We can solve for X
 | Lily | - | - | 6 |
 | TOTAL | 21 | 25 | 46 |
 
-Suppressing the numbers of Lily's apples & oranges still leaves the residual, so we also have to suppress Holly's apples and oranges.
+And suppressing the numbers of Lily's apples & oranges still leaves the residual, so we also have to suppress Holly's apples and oranges.
+
+
+---
+class: inverse
+
+## Hierarchical structure of variables
+
+* geography
+
+  - Country > Province > Regional District > Municipality
+  
+* NAICS
+
+  - Sector > Industry Group > Industry 
 
 
 
 ---
+class: inverse
 
 # Hierarchical suppression
 
@@ -283,10 +298,11 @@ Start with the largest unit, and suppress the lower levels of the hierarchy
 * suppress city before province, province before country
 
 ---
+class: inverse
 
 ## Suppression
 
-You may face choices 
+You may (will?!) face choices 
 
 * penguins: would you suppress species, island, or sex?
 
@@ -294,6 +310,7 @@ _The answer depends on the research question_
 
 
 ---
+class: inverse
 
 ## Other ways to prevent disclosure
 
@@ -309,6 +326,7 @@ _The answer depends on the research question_
 
 
 ---
+class: inverse
 
 So...what are the rules?
 
@@ -317,6 +335,7 @@ So...what are the rules?
 **_It depends_**
 
 ---
+class: inverse
 
 ## One example of rules
 
@@ -324,7 +343,10 @@ So...what are the rules?
 
 **_Output Guidance for Users_** 
 
-Overall Rules of Thumb
+---
+class: inverse
+
+## Overall Rules of Thumb
 
 * 10 units in all tabular output underlying any data point
 
@@ -335,5 +357,6 @@ Overall Rules of Thumb
 * Dominance: the largest contributor to a cell should not contribute more than 50% of the total in the cell
 
 ---
+class: inverse
 
 -30-
