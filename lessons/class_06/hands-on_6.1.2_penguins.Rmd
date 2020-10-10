@@ -25,6 +25,16 @@ library(palmerpenguins)
 * Demonstrate understanding of statistical disclosure
 
 
+## Preparing files
+
+At the end of the import > cleaning > manipulation > save stream comes the step of ensuring that the files are ready to be sent on to the next step in the process, whether that's modeling, visualization, or publication.
+
+If there are no privacy or confidentiality concerns, you might simply hand your cleaned file with all of the records to whoever is responsible for the next step.
+
+But very often, there _are_ privacy or confidentiality risks associated with sharing the file. Data about penguins or the results of professional sports don't carry the requirement for confidentiality, but data collected about people does. This data might be financial, health-related, or political opinion. In Canada, there are many laws that provide protections of our personal information that is collected by government agencies and private businesses. 
+
+
+
 ## Making sure that individuals are not identifiable
 
 Often when we are sharing our data—whether the individual records or summary tables of our data—we have to be aware that we run the risk of disclosing personal information. 

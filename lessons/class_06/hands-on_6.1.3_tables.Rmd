@@ -40,7 +40,7 @@ Creating a table that looks like the one published by Statistics Canada.
 First, load the data
 
 ```{r}
-df_17100009 <- read_csv("data/17100009.csv")
+df_17100009 <- read_csv("17100009.csv")
 ```
 
 ```{r}
@@ -311,6 +311,7 @@ df_pop_2 %<>%
   mutate(QY = glue::glue('{QUARTER} {YEAR}')) %>% 
   mutate(QY = forcats::as_factor(QY)) 
 
+# check the order of the levels
 levels(df_pop_2$QY)
 
 ```
