@@ -61,11 +61,14 @@ class: inverse
 
 When working with data, we need to be able to uniquely identify individuals or businesses
 
+* business: inventory and orders
+
+* administrative: customer or client database
+
 * survey: link to administrative records
 
 * modeling: link across admin databases
 
-* business: join order to customer list
 
 --
 
@@ -89,6 +92,7 @@ Some data is more sensitive
 * personal information
 
   - number of bicycles vs health issues
+
 
 
 ---
@@ -139,7 +143,27 @@ Source: _Report on Statistical Disclosure Limitation Methodology_ SPWP22 (2005),
 ---
 class: inverse
 
-## Types of disclosure
+## Types of variables
+
+1. Non-confidential variables
+
+2. Direct identifiers
+
+3. Indirect identifers
+
+  - implicit or quasi-identifiers
+
+???
+
+Matthias Templ, _Statistical Disclosure Control for Microdata: Methods and Applications in R_, 2017
+
+
+
+
+---
+class: inverse
+
+## Risk: by types of disclosure
 
 * identity disclosure
 
@@ -147,15 +171,21 @@ class: inverse
 
 * inferential disclosure
 
+???
+
+Matthias Templ, _Statistical Disclosure Control for Microdata: Methods and Applications in R_, 2017
+
 
 ---
 class: inverse
 
-## Residual disclosure
+## Concept: residual disclosure
 
 Suppression in one row or column will require suppression in another
 
 ---
+
+## Residual disclosure: counts
 
 Here's a table with three people, and how many apples they have. In this place, there is disclosure of 5 or more apples, but fewer than that gets suppressed.
 
@@ -193,7 +223,7 @@ If we suppress Lily's apples, we also have to suppress Holly's—the difference 
 
 ---
 
-## Calculated values
+## Residual disclosure: calculated values
 
 | name | apples_n | weight_avg_g | 
 |---|---|---|
@@ -228,7 +258,9 @@ We can solve for X
 
 ---
 
-## Rows (additional dimensions)
+## Residual disclosure: additional dimensions
+
+Add columns (additional dimensions)
 
 What happens if we have an additional dimension--the type of fruit?
 
@@ -241,9 +273,8 @@ What happens if we have an additional dimension--the type of fruit?
 
 ---
 
-## Rows
 
-We still want to suppresss Lily's one apple
+We still need to suppresss Lily's one apple
 
 
 | name | apples_n | oranges_n | total_fruit_n
@@ -257,7 +288,6 @@ But now we also have a residual on the row, as well as the column.
 
 ---
 
-## Rows
 
 | name | apples_n | oranges_n | total_fruit_n
 |---|---|---|---|
@@ -328,7 +358,7 @@ class: inverse
 ---
 class: inverse
 
-So...what are the rules?
+So...what are the rules to follow?
 
 --
 

@@ -1,0 +1,44 @@
+---
+title: "BIDA405: Lesson Plan, Week 6"
+subtitle: "2020-10-10 & 2020-10-11"
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+
+
+## Readings & Reference Materials
+
+
+
+### Data tables: protecting confidentiality
+
+
+Federal Committee on Statistical Methodology, [_Report on Statistical Disclosure Limitation Methodology_](https://www.hhs.gov/sites/default/files/spwp22.pdf), Statistical Policy Working Paper 22 (2nd version, 2005) [SPWP22_rev.pdf]
+
+
+Hart, Barmby, et al. (2016) ["Ten Simple Rules for Digital Data Storage"](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005097), PLOS Computational Biology, 12(10), doi: 10.1371/journal.pcbi.1005097 [Ten_Simple_Rules_for_Digital_Data_Storage.pdf]
+
+BC Government Data Integration Program (2020) "Output Guidance for Users", 2nd edition. [DIP_Output_Guidance_Users v2 (2020 Update).pdf]
+
+Nina Zumel (2016) ["Preparing data for analysis using R"](https://winvector.github.io/DataPrep/EN-CNTNT-Whitepaper-Data-Prep-Using-R.pdf) [EN-CNTNT-Whitepaper-Data-Prep-Using-R.pdf]
+
+
+Bruce Schneier, _Secrets and Lies: Digital Security in a Networked World_, 2000
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/secrets-and-lies/9781119092438/)
+
+
+Matthias Templ, _Statistical Disclosure Control for Microdata: Methods and Applications in R_, 2017
+
+* [UVic library link](https://link-springer-com.ezproxy.library.uvic.ca/book/10.1007%2F978-3-319-50272-4) (downloadable PDF)
+
+
+
+
+-30-

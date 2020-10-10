@@ -1,0 +1,61 @@
+---
+title: "BIDA405: Lesson Plan, Week 6"
+subtitle: "2020-10-10 & 2020-10-11"
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  html_document: default
+  word_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+
+***
+
+**_subject to change_**
+
+
+
+## Objectives
+
+
+At the end of the first part of this lesson, learners will:
+
+1. Understand the risks associated with statistical disclosure; and
+
+1. Demonstrate the ability to create formatted data tables for publication.
+
+
+
+At the end of the second part of this lesson, learners will:
+
+1. Demonstrate an understanding of data structures required for visualization and modeling; and
+
+1. Review additional resources to expand their understanding of data analysis and data science.
+
+
+
+***
+
+## Activities: summary
+
+| Block      | Time           | Topics  | &#8212; |
+|---         |:---            |:---     |:---:  |
+|**Saturday**|**SQL**     |&#8212; |&#8212; |
+|1a          | 9:00 to 10:30   | Introduction to Confidentiality  | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|2a          | 10:45 to 11:30 | Formatting tables for publication | &#8212; |
+|2b          | 11:30 to 12:00 | Exercise  | &#8212; |
+|**Sunday**  |**Relational databases** |&#8212; |&#8212; |
+|3a          | 9:00 to 9:30   | Homework review  | &#8212; |
+|3b          | 9:30 to 10:30  | Data for creating plots | &#8212; |
+|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|4a          | 10:45 to 11:45 | Data for modeling  | 
+|4b          | 11:45 to 12:00 | Wrap-up and summary | &#8212; |
+
+
+***
+
+![](r_rollercoaster.png)
+
+

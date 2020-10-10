@@ -1,0 +1,176 @@
+---
+title: "BIDA405: Lesson Plan, Week 6"
+subtitle: "2020-10-10 & 2020-10-11"
+author: "Martin Monkman"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+---
+
+# Unit learning plan
+
+## Saturday
+
+2020-10-10
+
+
+### 1a. Homework review
+
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:00 to 9:15)
+
+
+Format: breakout rooms
+
+Time allocation: 15 minutes (9:15 to 9:30)
+
+
+
+### 1b. The nature of bad data 
+
+_Data quality_
+
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (10:45 to 11:00)
+
+
+
+Format: hands-on exercise, learner (instructor guided)
+
+Time allocation: 60 minutes (11:00 to 12:00)
+
+Activity:
+
+* find problems in the data
+
+
+
+
+## BREAK
+
+Time allocation: 15 minutes (10:30 to 10:45)
+
+***
+
+
+### 2a. Data validation methods
+
+_Demonstrate..._
+
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:30 to 10:30)
+
+
+Format: hands-on exercise
+
+Time allocation: 45 minutes (9:45 to 10:30)
+
+
+  - R exercise
+  
+
+### 2b. Homework - Readings: Data quality
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (11:45 to 11:00)
+
+
+
+***
+
+## Sunday
+
+2020-10-11
+
+
+### 3a. Discussion - Readings: Data quality
+
+Format: instructor lecture w/ slides
+
+Time allocation: 15 minutes (9:00 to 9:15)
+
+
+Format: breakout rooms
+
+Time allocation: 15 minutes (9:15 to 9:30)
+
+
+### 3b. Data cleaning - introduction
+
+_Discussion: responding to readings_
+
+Format: instructor, lecture w/slides
+
+Time allocation: 10 minutes (9:00 to 9:10)
+
+Format: learner groups (instructor guided), breakout rooms
+
+Time allocation: 10 minutes (9:10 to 9:20)
+
+Format: learner group report out
+
+Time allocation: 10 minutes (9:20 to 9:30)
+
+
+
+
+***
+
+## BREAK
+
+Time allocation: 15 minutes (10:30 to 10:45)
+
+
+***
+
+### 4a. Data cleaning - tools and techniques
+
+_Reading data from a webpage_
+
+
+Format: instructor, lecture w/slides
+
+Time allocation: 15 minutes (10:45 to 11:00)
+
+
+Format: learner (instructor guided)
+
+Time allocation: 30 minutes (11:00 to 11:30)
+
+
+## 4b. Assignment #3
+
+_Introduction of Assignment #3_
+
+
+Time allocation: 15 minutes (11:30 to 11:45)
+
+
+## 4c. Wrap up
+
+Time allocation: 15 minutes (11:45 to 12:00)
+
+### Summary
+
+Format: instructor summary, w/ slides
+
+### Preview/readings for next lesson
+
+Format: instructor summary, w/ slides
+
+### Questions?
+
+Format: learner Q&A
+
+
+
+
+***
+
