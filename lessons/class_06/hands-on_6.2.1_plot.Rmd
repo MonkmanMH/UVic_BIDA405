@@ -1,0 +1,112 @@
+---
+title: "Plotting"
+subtitle: "with a digression into factors"
+output:
+  html_document:
+    df_print: paged
+---
+
+<!-- 
+This file by Martin Monkman is licensed under a Creative Commons Attribution 4.0 International License. 
+-->
+
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+```{r setup, message=FALSE, warning=FALSE}
+# data wrangling
+library(tidyverse)
+library(readr)     # for read_csv()
+library(magrittr)  # for pipes
+# table formatting
+library(kableExtra)
+```
+
+## Objectives
+
+* Demonstrate options for plotting in R using {ggplot2}
+
+
+## Population of Canada
+
+Using data published by Statistics Canada, with the quarterly population of Canadian provinces and territories.
+
+(Source: Statistics Canada. [Table 17-10-0009-01 Population estimates, quarterly](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710000901))
+
+![Canada, Quarterly Population](df_17100009_2020-10-08.JPG)
+
+
+### data load
+
+First, load the data
+
+```{r}
+df_17100009 <- read_csv("17100009.csv")
+```
+
+```{r}
+head(df_17100009)
+```
+
+### data for plot 1
+
+For the first plot, we are going to make a Cleveland dot plot (sometimes also known as a lollipop plot) showing the populations of the Canadian provinces and territories at the most recent point in time.
+
+We want the variables `GEO` and `VALUE`. We also want `REF_DATE`, but 
+
+_**plot twist!**_
+
+only the most recent date.  Time to select, and then filter.
+
+```{r}
+df_pop_all <- df_17100009 %>% 
+  select(REF_DATE, GEO, VALUE)
+head(df_pop_all)
+```
+
+Filtering the most recent quarter, and just leaving the most recent quarter and dropping "Canada".
+
+Step 1: What is the most recent quarter? To find the largest value in any series, we can use `max()`.
+
+Here's that function in a stand-alone setting.
+
+```{r}
+max(df_pop_all$REF_DATE)
+
+```
+
+We can use the `max()` function in a filter of the dataframe.
+
+```{r}
+df_pop <- 
+df_pop_all %>%
+  filter(REF_DATE == max(REF_DATE),
+         GEO != "Canada")
+df_pop
+```
+
+(There is only one step!)
+
+### plot 1
+
+For a Cleveland dot plot, the values are on the X axis, and the categories (in this case, the provinces and territories) are on the Y axis.
+
+We use the `geom_point()` function in the package {ggplot2}.
+
+```{r}
+
+ggplot(df_pop, aes(x = VALUE, y = GEO)) +
+  geom_point()
+
+```
+
+Let's break down what's happening here, with the help of a ggplot flipbook:
+
+
+
+## REFERENCES
+
+Gina Reynolds, ["a ggplot2 grammar guide"](https://evamaerey.github.io/ggplot2_grammar_guide/about)
+
+
+-30-

@@ -2,7 +2,8 @@
 title: "Tables"
 subtitle: "Exercise: penguins"
 output:
-  html_document
+  html_document:
+    df_print: paged
 ---
 
 <!-- 
@@ -192,7 +193,7 @@ There is an option to add a footnote to the table. Here I used a number, but the
 ```{r}
 kbl_pop %>%  
   kable_classic("striped", full_width = F) %>% 
-  footnote(number = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
+  footnote(alphabet = c("Source: Statistics Canada, Table 17-10-0009-01 Population estimates, quarterly",
                       "Downloaded 2020-10-07")) 
   
 ```
@@ -203,7 +204,7 @@ kbl_pop %>%
 In this code chunk, we start with the unformatted pivot table, and add all of the formatting code from above—plus grouping the provinces and territories, using the `pack_rows()` function.
 
 
-```{r}
+```{r echo=FALSE}
 # create the initial kable object
 kbl_pop <- df_pop_pivot %>% 
   kable(col.names = c("Geography", 
@@ -213,7 +214,7 @@ kbl_pop <- df_pop_pivot %>%
 # format-a-rama
 kbl_pop %>%  
   # overall table style
-  kable_classic("striped", full_width = F) %>% 
+  kable_classic("hover", full_width = F) %>% 
   # format header row
 #  row_spec(0, bold = TRUE, color = "#ffffff", background = "#000000", font_size = 18) %>% 
   row_spec(0, bold = TRUE, font_size = 18) %>% 
@@ -306,7 +307,6 @@ Note that this uses a different pipe symbol from the {magrittr} package, which r
 
 
 ```{r}
-
 df_pop_2 %<>%
   mutate(QY = glue::glue('{QUARTER} {YEAR}')) %>% 
   mutate(QY = forcats::as_factor(QY)) 
