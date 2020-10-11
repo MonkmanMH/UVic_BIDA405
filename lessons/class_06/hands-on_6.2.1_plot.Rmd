@@ -83,6 +83,7 @@ df_pop_all %>%
   filter(REF_DATE == max(REF_DATE),
          GEO != "Canada")
 df_pop
+
 ```
 
 (There is only one step!)
@@ -100,13 +101,150 @@ ggplot(df_pop, aes(x = VALUE, y = GEO)) +
 
 ```
 
-Let's break down what's happening here, with the help of a ggplot flipbook:
+
+The first thing we notice is that the names of the provinces is in reverse alphabetical order. But it's not really reverse, we are just used to reading top-to-bottom, and a plot's Y axis has the smallest (i.e. first in the alphabet) at the bottom.
+
+We can re-order them alphabetically, but it would be much more interesting if they were re-ordered by the size of the population, with the largest province at the top of the list.
+
+By turning the variable GEO into a factor, we have a great deal of control over the ordering of our categories. The function `as_factor()` from the {forcats} package will assign the level order as they appear in the data. In this case, it's the Canadian provinces from east to west, then the territories from west to east.
+
+```{r}
+
+df_pop %<>% 
+  mutate(GEO = as_factor(GEO))
+
+levels(df_pop$GEO)
+```
+
+We can re-order the levels based on another variable. In this case we want to re-order them by the population of the province. To do this, we will use the `fct_reorder()` function .
+
+```{r}
+
+df_pop %<>% 
+  mutate(GEO = fct_reorder(GEO, VALUE))
+
+levels(df_pop$GEO)
+``` 
+
+This carries through to a table that we would print. 
+
+```{r}
+df_pop %>% 
+  arrange(desc(GEO))
+
+df_pop %>% 
+  arrange(desc(VALUE))
+
+```
+
+In our plot, it makes a visual difference:
+ 
+```{r}
+
+ggplot(df_pop, aes(x = VALUE, y = GEO)) +
+  geom_point()
+
+```
+
+Now we have the data structured in the way we want, and the rough outline of our plot.
+
+Let's break down what's happening here, and add some formatting, with the help of a flipbook:
+
+First, let's save the df as an rds file:
+
+```{r}
+write_rds(df_pop, "df_pop.rds")
+```
+
+
+Let's put the pieces back together and start adding formatting:
+
+```{r my_pop_2}
+
+ggplot(df_pop, aes(x = VALUE, y = GEO)) +
+  geom_point(size = 2, colour = "red") +
+  geom_segment(aes(yend=GEO, xend=0))
+```
+
+The number format requires the package {scales}
+
+```{r}
+ 
+ggplot(df_pop, aes(x = VALUE, y = GEO)) +
+  geom_point(size = 2, colour = "grey10") +
+  geom_segment(aes(yend=GEO), xend=0, colour = "grey50") +
+  scale_x_continuous(name="people", labels = scales::comma)  +
+  labs(title = "Population of Canadian provinces") +
+  labs(subtitle = "2020-07-01")+
+  labs(caption = "Statistics Canada, Table 17-10-0009-01") +
+  theme_bw() +
+  theme(axis.title.y = element_blank())
+
+```
+
+
+Group the `labs()` arguments into one, change the theme to `theme_light()`
+
+```{r}
+ 
+ggplot(df_pop, aes(x = VALUE, y = GEO)) +
+  geom_point(size = 2, colour = "grey10") +
+  geom_segment(aes(yend=GEO), xend=0, colour = "grey50") +
+  scale_x_continuous(name="people", labels = scales::comma)  +
+  labs(title = "Population of Canadian provinces",
+       subtitle = "2020-07-01",
+       caption = "Statistics Canada, Table 17-10-0009-01") +
+  theme_light() +
+  theme(axis.title.y = element_blank())
+
+```
+
+## Penguins
+
+From https://allisonhorst.github.io/palmerpenguins/articles/examples.html
+
+```{r}
+
+penguins <- palmerpenguins::penguins
+
+bill_len_dep <- ggplot(data = penguins,
+                         aes(x = bill_length_mm,
+                             y = bill_depth_mm,
+                             group = species)) +
+  geom_point(aes(color = species,
+                 shape = species),
+             size = 3,
+             alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, aes(color = species)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","purple","cyan4")) +
+  labs(title = "Penguin bill dimensions",
+       subtitle = "Bill length and depth for Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Bill length (mm)",
+       y = "Bill depth (mm)",
+       color = "Penguin species",
+       shape = "Penguin species") +
+  theme(legend.position = c(0.85, 0.15),
+        legend.background = element_rect(color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot")
+
+bill_len_dep
+```
 
 
 
 ## REFERENCES
 
+[{ggplot2} reference page](https://ggplot2.tidyverse.org/)
+
 Gina Reynolds, ["a ggplot2 grammar guide"](https://evamaerey.github.io/ggplot2_grammar_guide/about)
+
+Winston Chang, [_R Graphics Cookbook_, 2nd edition](https://r-graphics.org/)
+
+Kieran Healy, [_Data Visualization: A Practical Introduction](https://socviz.co/)
+
 
 
 -30-
