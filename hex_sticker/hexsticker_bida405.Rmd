@@ -180,6 +180,31 @@ ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
 ```
 
 
+shaded circles
+https://maketintsandshades.com/#F5AA1C
+
+
+```{r}
+
+i <- "noun_organize_1211773_fancy.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.7, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
 Solid variant: organize by  Swen-Peter Ekkebus, NL
 https://thenounproject.com/term/organize/1519532/
 

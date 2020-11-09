@@ -8,11 +8,11 @@ output: html_notebook
 
 ```{r setup}
 
-library(tidyverse)
+library(tidyverse) # Easily Install and Load the 'Tidyverse', CRAN v1.3.0 
 
-library(annotater)
-library(fs)
-library(here)
+library(annotater) # Annotate Package Load Calls, [github::luisDVA/annotater] v0.1.3 
+library(fs) # Cross-Platform File System Operations Based on 'libuv', CRAN v1.4.1 
+library(here) # A Simpler Way to Find Your Files, CRAN v0.1 
 
 ```
 
@@ -41,6 +41,13 @@ version
 ```
 
 Step 4: Use the function `fs::dir_tree` to create a tree diagram of your week 5 homework folder.
+
+
+```{r}
+
+fs::dir_tree()
+
+```
 
 
 ### _Important note!_ 
@@ -114,3 +121,6 @@ Don't forget:
 
 
 -30-
+
+
+
