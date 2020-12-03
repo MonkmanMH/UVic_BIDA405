@@ -1,0 +1,329 @@
+---
+title: "BIDA405 hexsticker"
+output:
+  html_document:
+    df_print: paged
+---
+
+
+```{r setup}
+
+library(hexSticker)
+
+```
+
+https://github.com/GuangchuangYu/hexSticker 
+
+UVic logo
+https://www.uvic.ca/brand/look-feel/logo/index.php 
+
+
+UVic colour
+https://www.uvic.ca/brand/look-feel/colour/palette/index.php
+
+
+## fonts & colours
+
+```{r fonts}
+
+library(showtext)
+## Loading Google fonts (http://www.google.com/fonts)
+font_add_google("Poiret One", "poiret")
+font_add_google("Raleway", "raleway")
+font_add_google("Roboto Slab", "roboto_slab")
+
+## loading local font 
+font_add(family = "broadway", regular = "BROADW.TTF")
+
+font_add("trebuchet",
+         regular="C:\\Windows\\Fonts\\trebuc.ttf")
+
+font_add("gill",
+         regular="C:\\Windows\\Fonts\\GILSANUB.TTF")
+
+
+
+## Automatically use showtext to render text for future devices
+showtext_auto()
+
+
+```
+
+
+### colours
+
+
+```{r colours}
+
+uvic_blue <- "#005493"    #RGB: 0-84-147
+uvic_yellow <- "#F5AA1C"    #RGB: 245-170-28  
+uvic_red <- "#C63527"    #RGB: 198-53-39
+uvic_blue_dark <- "#002754"  #RGB: 0-39-84
+
+```
+
+
+
+## organize
+
+Icon: organize by Luis Herrera from the Noun Project
+https://thenounproject.com/term/organize/1211773/ 
+
+
+```{r}
+
+i <- "noun_organize_1211773.png"
+
+BIDA405_hex <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.5, s_height=.5,
+        h_fill=uvic_yellow, h_color=uvic_blue_dark, h_size = 1.5,
+        p_color = uvic_blue_dark,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex
+
+ggplot2::ggsave("BIDA405_hex.png", width = 2, height = 2)
+
+```
+
+
+
+```{r}
+
+i <- "noun_organize_1211773_yellow.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.7, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+```{r}
+
+i <- "noun_organize_1211773_white.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.7, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+shaded circles
+https://maketintsandshades.com/#F5AA1C
+
+
+```{r}
+
+i <- "noun_organize_1211773_fancy.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.7, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+Solid variant: organize by  Swen-Peter Ekkebus, NL
+https://thenounproject.com/term/organize/1519532/
+
+
+```{r}
+
+i <- "noun_organize_1519532_yellow.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+```{r}
+
+i <- "noun_organize_1519532_yellow.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.6, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+```{r}
+
+i <- "noun_organize_1519532_yellowhite.png"
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=.6, 
+          s_width=.5, s_height=.5,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+#        p_x = 1, 
+#        p_y = 1.4,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+
+## etl
+
+Icon: etl by Timofey Rostilov from the Noun Project
+https://thenounproject.com/term/etl/2068754/
+
+```{r}
+
+i <- "noun_etl_2068754.png"
+
+BIDA405_hex <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.6, s_height=.6,
+        h_fill=uvic_yellow, h_color=uvic_blue_dark, h_size = 1.5,
+        p_color = uvic_blue_dark,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex
+
+ggplot2::ggsave("BIDA405_hex.png", width = 2, height = 2)
+
+```
+
+```{r}
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.6, s_height=.6,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+
+
+## approve folder
+
+Icon: organize by Aybige from the Noun Project
+https://thenounproject.com/aybigeaya/collection/folders/?i=552588
+
+```{r}
+
+i <- "noun_Approve folder_552588.png"
+
+BIDA405_hex <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.6, s_height=.6,
+        h_fill=uvic_yellow, h_color=uvic_blue_dark, h_size = 1.5,
+        p_color = uvic_blue_dark,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex
+
+ggplot2::ggsave("BIDA405_hex.png", width = 2, height = 2)
+
+```
+
+
+
+```{r}
+
+
+i <- "noun_Approve folder_552588_yellow.png"
+
+
+BIDA405_hex2 <- 
+  sticker(i, package="BIDA405", 
+          s_x=1, s_y=1.25, s_width=.6, s_height=.6,
+        h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
+        p_color = uvic_yellow,
+        p_size=24, 
+        p_x = 1, p_y = 0.65,
+        p_family = "roboto_slab")
+
+BIDA405_hex2
+
+ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+
+
+```
+
+
+## other icon ideas:
+
+https://thenounproject.com/search/?q=big%20data&i=2096581
+
+
+one for data viz: https://thenounproject.com/search/?q=data%20science&i=1793915
