@@ -87,11 +87,11 @@ Dark to light:
 
 ```{r}
 
-i <- "noun_organize_1211773_fancy.png"
+i <- "noun_organize_1211773_3600_shaded.png"
 BIDA405_hex2 <- 
   sticker(i, package="BIDA405", 
           s_x=1, s_y=.7, 
-          s_width=.5, s_height=.5,
+          s_width=.7, s_height=.7,
         h_fill=uvic_blue_dark, h_color=uvic_yellow, h_size = 1.5,
         p_color = uvic_yellow,
         p_size=24, 
@@ -101,8 +101,9 @@ BIDA405_hex2 <-
 
 BIDA405_hex2
 
-ggplot2::ggsave("BIDA405_hex2.png", width = 2, height = 2)
+ggplot2::ggsave("BIDA405_hex.png", width = 2, height = 2)
 
+#ggplot2::ggsave("BIDA405_hex.eps", width = 2, height = 2, device = "eps")
 
 ```
 
