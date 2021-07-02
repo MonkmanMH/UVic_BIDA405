@@ -9,10 +9,6 @@
 
 ## R References
 
-Martin Monkman, _Data Preparation: Essential Steps Before & After Analysis_
-
-* [link to online book](https://en.wikipedia.org/wiki/HTTP_404)
-
 
 Garrett Grolemund and Hadley Wickham, _R for Data Science_. 
 
@@ -21,14 +17,16 @@ Garrett Grolemund and Hadley Wickham, _R for Data Science_.
 * paperback and ebook version are available at the UVic Bookstore or other retailers
 
 
+James (JD) Long and Paul Teetor, _R Cookbook_ (Second Edition, 2019)
+
+* [link to online book](https://rc2e.com/)
+
+
+
 Nina Zumel and John Mount, _Practical Data Science with R_ (Second Edition, 2019)
 
 * [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/practical-data-science/9781617295874/?ar?orpq&email=oJbr4Ho8VLXz0zbFzjLK2g%3d%3d&tstamp=1596251564&id=E24952901BB325B2E2CEBE75CE636D692281AD20)
 
-
-James (JD) Long and Paul Teetor, _R Cookbook_ (Second Edition, 2019)
-
-* [link to online book](https://rc2e.com/)
 
 
 
@@ -68,6 +66,12 @@ John L. Viescas, _SQL Queries for Mere Mortals: A Hands-On Guide to Data manipul
 
 * [ebook through UVic library](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/sql-queries-for/9780134858432/cover.xhtml)
 
+
+## Business Intelligence
+
+Wilfried Grossman and Stefanie Rinderle-Ma, _Fundamentals of Business Intelligence_, Springer, 2015
+
+* [ebook through UVic library](https://link-springer-com.ezproxy.library.uvic.ca/book/10.1007%2F978-3-662-46531-8)
 
 
 ## Additional Reading
