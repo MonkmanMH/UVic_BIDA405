@@ -44,7 +44,7 @@ Why sample?
 
 * In visualization, too many data points can obscure patterns.
 
-* Sampling can help anonymize records in a sensitive dataset.
+* Sampling of a sensitive dataset can help anonymize records.
 
 
 R provides a number of sampling functions that allow us to sample our dataset.

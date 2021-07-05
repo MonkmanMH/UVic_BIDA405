@@ -161,3 +161,15 @@ A "centralized repository of information about data such as meaning, relationshi
 
 * a list of the values of those variables
 
+
+---
+
+## Data management
+
+"Foundational Practices of Research Data Management"
+
+by Kristin A Briney, Heather Coates, Abigail Goben
+
+https://riojournal.com/article/56508/list/9/ 
+
+

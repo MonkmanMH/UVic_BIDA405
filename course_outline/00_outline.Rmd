@@ -26,9 +26,9 @@ output:
 |4a          | 2021-10-02 | Data storage | &#8212; |
 |4b          | 2021-10-03 | Data transformation: structure | &#8212; |
 |5a          | 2021-10-09 | Data transformation: manipulation | &#8212; |
-|5b          | 2021-10-10 | Data documentation | &#8212; |
-|6a          | 2021-09-16 | Preparing for reporting | &#8212; |
-|6b          | 2021-09-17 | Maintaining privacy | &#8212; |
+|5b          | 2021-10-10 | Data documentation & data management | &#8212; |
+|6a          | 2021-10-16 | Preparing for reporting | &#8212; |
+|6b          | 2021-10-17 | Maintaining privacy | &#8212; |
 
 
 

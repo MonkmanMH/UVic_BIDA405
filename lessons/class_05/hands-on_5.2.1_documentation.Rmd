@@ -250,6 +250,9 @@ Here are the three minimum components of a data dictionary:
 >—Ellis & Leek ^[Ellis and Leek, ["How to Share Data for Collaboration"](https://peerj.com/preprints/3139/)]
 
 
+Caitlin Hudon, ["Field Notes: Building Data Dictionaries"](https://caitlinhudon.com/2018/10/30/data-dictionaries/), 2018-10-30
+
+
 
 ## Tools to help with documentation
 
