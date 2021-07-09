@@ -389,3 +389,5 @@ Thomas Nield, _Getting Started with SQL: A Hands-On Approach for Beginners_ (201
 * instructions on how to set up your R Markdown (in RStudio) so that you can run SQL language chunks, including using SQLite
 
 
+[SQL and R and Mookie Betts, oh my!](https://scotinastats.rbind.io/post/sql-and-r-and-mookie-betts-oh-my/), blog post by Anthony Scotina (2021-07-04)
+

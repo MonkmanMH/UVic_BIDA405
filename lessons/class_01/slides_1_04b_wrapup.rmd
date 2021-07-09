@@ -1,0 +1,68 @@
+---
+title: "Lesson 1 - wrap up"
+#subtitle: "Data Analytics Coding Fundamentals"
+author: "BIDA302"
+date: "2020/02/29"
+output:
+  xaringan::moon_reader:
+    css: [/static/css_files/eigengrau.css, /static/css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+# to knit:
+# see https://github.com/yihui/xaringan/issues/29
+
+# point up-directory to css and img folders
+
+#xaringan::inf_mr('lessons/class_01/slides_1_04b_wrapup.rmd')
+
+```
+
+
+# Take aways 1
+
+You have: 
+
+* an understanding of the value of coding your data analysis
+
+* an idea of how R and RStudio work together
+
+* an idea of R Markdown as a tool for your work
+
+---
+
+# Take aways 2
+
+You can write R code to manipulate a dataframe to 
+
+* pick variables and records
+
+* create new variables
+
+---
+
+# Take aways 3
+
+You know where to find resources and help
+
+* course materials
+
+* the universe
+
+---
+
+# Take aways 4
+
+You understand the course expectations
+
+* Painting sombreros on the pandas
+
+
