@@ -11,9 +11,35 @@ output:
 
 # Data Analytics Provisioning, Importing, Extracting and Manipulation: BIDA405
 
+
+## Dates & times
+
 Dates: 2021-09-11 to 2021-10-17
 Time:  9:00 am–12:00 pm
 Days: Saturday, Sunday
+
+
+## Virtual Classroom (Zoom)
+
+Classes will be online, using the UVic Zoom platform.
+
+**Before your course begins, activate your UVic Zoom Account.**
+
+1. Go to Zoom: https://uvic.zoom.us/signin.
+
+2. Sign in with your NetLink ID and password.
+
+3. Try a test call at https://uvic.zoom.us/test, and download Zoom if you don’t already have it on your computer.
+
+**Before each virtual class, sign in to Zoom.**
+
+You **must** be signed in to your UVic Zoom account. You cannot enter the room if you are not signed in.
+
+1. Before each class go to https://uvic.zoom.us/signin.
+
+2. Sign in to UVic Zoom with your NetLink ID and password.
+
+3. Enter your virtual classroom at: https://uvic.zoom.us/j/85610057567 
 
 
 
