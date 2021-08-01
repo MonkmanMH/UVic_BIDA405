@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 1"
-subtitle: "2020-09-05 & 2020-09-05 "
+#subtitle: "2020-09-05 & 2020-09-05 "
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output: html_document
@@ -25,13 +25,13 @@ J.D. Long and Paul Teetor, _R Cookbook (2nd edition)_
 
 * ["Getting Started and Getting Help"](https://rc2e.com/gettingstarted)
 
-* See recipies 1.1 through 1.3
+* See recipes 1.1 through 1.3
 
 
 ## Reading list
 
 
-Sharon E. Ellis and Jeffrey T. Leek, "How to Share Data for Collaboration", _The American Statistician_, 72:1, 553-57, 
+Sharon E. Ellis and Jeffrey T. Leek, "How to Share Data for Collaboration", _The American Statistician_, 72:1, 553-57, 2018
 
 * [UVic library link](https://www-tandfonline-com.ezproxy.library.uvic.ca/doi/pdf/10.1080/00031305.2017.1375987?needAccess=true)
 

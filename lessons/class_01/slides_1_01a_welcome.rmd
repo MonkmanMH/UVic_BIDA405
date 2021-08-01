@@ -39,12 +39,52 @@ Perform the following basic tasks in R, Python, and JavaScript as appropriate:
 ---
 class: inverse
 
+.pull-left[
+![Fisgard Lighthouse](fisgard_lighthouse_400.jpg)
+]
 
-## Meta outcome 1: using **R**
+.pull-right[
 
-Programming environment designed for statistical analysis / data science 
+A lighthouse:
+
+* guides you in the right direction
+
+* keeps you from running aground
+
+]
+
+
+---
+
+class: inverse
+
+
+## Applications
+
+Academics
+
+* Analyzing data as part of research
+
+Business
+
+* Customer and operations data
+
+Government
+
+* Creating the evidence to inform policy decisions
+
+
+
+---
+class: inverse
+
+
+## Meta outcome 1: practice 
+
+Using R, a programming environment designed for statistical analysis / data science 
 
 * Focus on one tool, so you get good at that
+
 
 We will also delve into SQL
 
@@ -58,7 +98,11 @@ class: inverse
 
 ## Meta outcome 2: principles 
 
-Concepts and practices that you can carry through to data analysis in other environments
+Concepts that you can carry through to data analysis in other environments
+
+* A model to think about your workflow
+
+* Strategies to achieve your analytic goals
 
 
 
@@ -95,13 +139,15 @@ class: inverse
 
 class: inverse
 
-# The course moodle
+# Brightspace
 
 link: [continuingstudies.uvic.ca/](https://continuingstudies.uvic.ca/), then login with NetLink 
 
 * course outline
 
 * lesson plans and slide decks
+
+* videos of class
 
 * links to other reading material and data files
 
@@ -134,7 +180,7 @@ class: inverse
 * All freely available: online or accessed through your UVic Library account
 
 
-_Look for this on the course moodle_
+_Look for this on the course brightspace_
 
 
 

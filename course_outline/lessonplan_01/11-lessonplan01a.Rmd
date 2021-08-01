@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 1"
-subtitle: "2020-09-05 & 2020-09-05 "
+#subtitle: "2020-09-05 & 2020-09-05 "
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output: html_document
@@ -45,7 +45,7 @@ At the end of the second part of this lesson, learners will:
 |---         |:---            |:---     |:---:  |
 |**Saturday**|**Welcome**     |&#8212; |&#8212; |
 |1a          | 9:00 to 9:30   | Welcome to BIDA405! <br> Class structure / Homework / Evaluation  | &#8212; |
-|1b          | 9:30 to 10:30  | The Tools <br> - Moodle <br> - Zoom <br> - R and RStudio | &#8212; |
+|1b          | 9:30 to 10:30  | The Tools <br> - Brightspace <br> - Zoom <br> - R and RStudio | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
 |2a          | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | &#8212; |
 |2b          | 11:30 to 12:00 | Homework <br> - Readings: how data is stored | &#8212; |

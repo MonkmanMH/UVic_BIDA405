@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 1"
-subtitle: "2020-09-05 & 2020-09-06"
+#subtitle: "2020-09-05 & 2020-09-06"
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output:
@@ -12,8 +12,6 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 # Unit learning plan
 
 ## Saturday
-
-2020-09-05
 
 
 ### 1a. Welcome!
@@ -46,7 +44,7 @@ What to expect in this class
 
 
 
-### 1c-i. An introduction to Moodle and Zoom
+### 1c-i. An introduction to Brightspace and Zoom
 
 Format: participation and instructor lecture w/ slides
 
@@ -120,9 +118,6 @@ On Sunday morning, we will be going into breakout groups to discuss the followin
 ***
 
 ## Sunday
-
-2020-09-06
-
 
 
 ### 3a. Discussion: How data is stored

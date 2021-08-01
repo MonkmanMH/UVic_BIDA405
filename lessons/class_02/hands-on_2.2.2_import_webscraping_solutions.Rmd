@@ -50,6 +50,8 @@ Some key points to take away from this:
 
 * the developer tools in your browser is essential to effectively understanding the structure, and figuring out where your data is located
 
+* the CSS tags can be very useful in isolating the content you want within the page; Julia Evans has created [CSS comics that are a handy reference](https://jvns.ca/blog/2020/07/25/some-comics-about-css/)
+
 * you might need to use regular expressions to find the specific nodes you want.
   
   - [14.3 Matching patterns with regular expressions](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions) in _R for Data Science_ by Hadley Wickham and Garrett Grolemund
