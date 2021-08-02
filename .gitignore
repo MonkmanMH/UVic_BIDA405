@@ -7,7 +7,7 @@
 # css_files/
 
 *.pdf
-#*.png
+*.png
 *.jpg
 
 *.doc*

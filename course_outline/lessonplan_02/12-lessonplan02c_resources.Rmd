@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 2"
-subtitle: "2020-09-12 & 2020-09-13 "
+#subtitle: "2020-09-12 & 2020-09-13 "
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output:
@@ -38,7 +38,7 @@ Samuel E. Buttrey and Lyn R. Whitaker, _A Data Scientist's Guide to Acquiring, C
 
 
 
-Paul Murrell. 2013. “Data Intended for Human Consumption, Not Machine Consumption.” In Bad Data Handbook, edited by Q. Ethan McCallum, 31–51. O’Reilly.
+Paul Murrell. 2013. “Data Intended for Human Consumption, Not Machine Consumption.” In _Bad Data Handbook_, edited by Q. Ethan McCallum, 31–51. O’Reilly.
 
 * [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/bad-data-handbook/9781449324957/ch03.html)
 

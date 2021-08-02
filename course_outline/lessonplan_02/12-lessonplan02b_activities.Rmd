@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 2"
-subtitle: "2020-09-12 & 2020-09-13 "
+#subtitle: "2020-09-12 & 2020-09-13 "
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output:
@@ -12,8 +12,6 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 # Unit learning plan
 
 ## Saturday
-
-2020-09-12
 
 
 ### 1a. Homework review
@@ -103,8 +101,6 @@ Now, using the instructions in _R for Data Science_ ([8.4, RStudio projects](htt
 ***
 
 ## Sunday
-
-2020-09-13
 
 
 ### 3a. Introductions

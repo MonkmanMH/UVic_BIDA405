@@ -28,7 +28,7 @@ library(palmerpenguins) # Palmer Archipelago (Antarctica) Penguin Data
 
 ## Objectives
 
-* Demonstrate understanding of the reasons for documentation and recordkeeping,
+* Demonstrate understanding of the reasons for documentation and record keeping,
 
 * Demonstrate understanding of the important elements to record, and
 
@@ -239,6 +239,9 @@ To then apply Knuth's "Literate Programming" ideas, each step would then be foll
 
 ### The data dictionary or code book
 
+As we have seen, preparing data requires a number of subjective steps along the way. Creating a documentation of those decisions is essential. This documentation will serve as a record of the source of the data (all the better if you can also include specific information with the details of its collection sucha as dates, mode of collection, and the original survey questionnaire), the assumptions and decisions made in recoding and creating new variables, etc.
+
+
 Here are the three minimum components of a data dictionary:
 
 >1. information about the variables (including units!) in the dataset not contained in the tidy data,
@@ -248,6 +251,7 @@ Here are the three minimum components of a data dictionary:
 >1. information about the experimental study design [or the data source]
 >
 >—Ellis & Leek ^[Ellis and Leek, ["How to Share Data for Collaboration"](https://peerj.com/preprints/3139/)]
+
 
 
 Caitlin Hudon, ["Field Notes: Building Data Dictionaries"](https://caitlinhudon.com/2018/10/30/data-dictionaries/), 2018-10-30
