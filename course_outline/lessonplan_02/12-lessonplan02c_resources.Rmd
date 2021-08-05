@@ -44,6 +44,25 @@ Paul Murrell. 2013. “Data Intended for Human Consumption, Not Machine Consumpt
 
 
 
+Tim Costello & Lori Blackshear, 2020, _Prepare Your Data for Tableau: A Practical Guide to the Tableau Data Prep Tool_, Apress/Springer.
+
+* [UVic library link](https://link-springer-com.ezproxy.library.uvic.ca/content/pdf/10.1007%2F978-1-4842-5497-4.pdf)
+
+
+April Reeve, 2013, _Managing Data in Motion : Data Integration Best Practice Techniques and Technologies_, Elsevier Science & Technology
+
+* [UVic library link](https://ebookcentral-proquest-com.ezproxy.library.uvic.ca/lib/uvic/detail.action?docID=1152636)
+
+
+Benjamin S. Baumer, "A Grammar for Reproducible and Painless Extract-Transform-Load Operations on Medium Data", 2017
+
+* [link](https://arxiv.org/abs/1708.07073)
+
+
+Jay Gendron, _Introduction to R for Business Intelligence_, Packt Publishing, 2016
+
+* [UVic library link](https://learning-oreilly-com.ezproxy.library.uvic.ca/library/view/~/9781785280252/?ar%3Forpq=&email=oJbr4Ho8VLXz0zbFzjLK2g%3D%3D&tstamp=1628136907&id=EE63DB77881D1BF27AA83B63A471A4BB79F5367B)
+
 
 ### Regular expressions
 
