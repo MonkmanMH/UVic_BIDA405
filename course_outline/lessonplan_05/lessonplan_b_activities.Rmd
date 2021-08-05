@@ -1,6 +1,6 @@
 ---
 title: "BIDA405: Lesson Plan, Week 5"
-subtitle: "2020-10-03 & 2020-10-24 "
+#subtitle: "2020-10-03 & 2020-10-24 "
 author: "Martin Monkman"
 date: 'latest revision: `r Sys.Date()`'
 output:
