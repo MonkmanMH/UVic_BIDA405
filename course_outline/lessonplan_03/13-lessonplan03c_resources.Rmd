@@ -14,6 +14,14 @@ description: "Data Analytics Provisioning, Importing, Extracting and Manipulatio
 
 ## Readings & Reference Materials
 
+### Video
+
+Karl Broman, ["Data cleaning principles"](https://youtu.be/7Ma8WIDinDc), talk at csv,conf,v6 (2021-05-04)
+
+* [video](https://youtu.be/7Ma8WIDinDc)
+
+* [slides with notes](https://kbroman.org/Talk_DataCleaning/data_cleaning_notes.pdf)
+
 
 
 ### Reading list
