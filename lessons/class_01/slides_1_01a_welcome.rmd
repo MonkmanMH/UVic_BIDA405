@@ -2,7 +2,7 @@
 title: "Welcome! BIDA 405"
 subtitle: "Data Analytics Provisioning, Importing, Extracting and Manipulation"
 author: "Martin Monkman"
-date: "2020/09/05"
+date: "2021/09/11"
 output:
   xaringan::moon_reader:
     css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
@@ -45,7 +45,7 @@ class: inverse
 
 .pull-right[
 
-A lighthouse:
+A lighthouse does two things:
 
 * guides you in the right direction
 
@@ -135,6 +135,18 @@ class: inverse
 
 * 4 in total, worth 80% of final grade
 
+
+---
+
+class: inverse
+
+## Homework
+
+* assignments
+
+* readings, videos
+
+
 ---
 
 class: inverse
@@ -149,7 +161,7 @@ link: [continuingstudies.uvic.ca/](https://continuingstudies.uvic.ca/), then log
 
 * videos of class
 
-* links to other reading material and data files
+* links to readings, videos, and data files
 
 * forum
  
@@ -162,6 +174,7 @@ class: inverse
 # R & RStudio
 
 * later today, we'll run through the steps to install R on your own computer
+
 
 # SQL
 
