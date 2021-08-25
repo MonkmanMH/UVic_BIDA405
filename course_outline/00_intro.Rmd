@@ -3,8 +3,8 @@ title: 'BIDA405: Course Outline'
 author: "Martin Monkman"
 date: "`r Sys.Date()`"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 
@@ -18,6 +18,19 @@ Dates: 2021-09-11 to 2021-10-17
 Time:  9:00 am–12:00 pm
 Days: Saturday, Sunday
 
+
+## Instructor
+
+Martin Monkman
+
+* email: <mmonkman@uvic.ca>
+
+
+virtual (zoom) office hours:
+
+* Tuesday, 8:00 pm - 9:00 pm
+
+* or by appointment (send me an email)
 
 ## Virtual Classroom (Zoom)
 
@@ -42,25 +55,21 @@ You **must** be signed in to your UVic Zoom account. You cannot enter the room i
 3. Enter your virtual classroom at: https://uvic.zoom.us/j/85610057567 
 
 
+## Online resources: Brightspace
+
+* This course uses Brightspace—an online learning management system—as a supplementary resource for the class. 
+
+* Lesson plans, readings, resources, and assignments will be posted here. As well, there will be discussion forums each week.
+
+* To access, login to [https://bright.uvic.ca/d2l/home/165356](https://bright.uvic.ca/d2l/home/165356) with your Netlink ID.
+
+
 
 ## Prerequisites
 
 It is recommended that students have completed BIDA302 Business Intelligence and Data Analytics Fundamentals and BIDA302 Data Analytics Coding Fundamentals, or have basic experience coding in R or Python as well as experience using formulas in Excel.
 
 
-
-## Instructor
-
-Martin Monkman
-
-* email: <mmonkman@uvic.ca>
-
-
-virtual (zoom) office hours:
-
-* Tuesday, 8:00 pm - 9:00 pm
-
-* or by appointment (send me an email)
 
 
 
@@ -93,12 +102,6 @@ in the "Console" pane (you'll see the cursor in the bottom left of your screen).
 Well done!
 
 
-
-**Moodle:**
-
-* This course uses Moodle—an online learning management system—as a supplementary resource for the class. 
-
-* To access, login to [https://distance.moodle.uvcs.uvic.ca/](https://distance.moodle.uvcs.uvic.ca/) with your Netlink ID.
 
 
 **Textbook and readings:** 
