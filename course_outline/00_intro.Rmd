@@ -65,13 +65,6 @@ You **must** be signed in to your UVic Zoom account. You cannot enter the room i
 
 
 
-## Prerequisites
-
-It is recommended that students have completed BIDA302 Business Intelligence and Data Analytics Fundamentals and BIDA302 Data Analytics Coding Fundamentals, or have basic experience coding in R or Python as well as experience using formulas in Excel.
-
-
-
-
 
 ## Course content
 
@@ -79,13 +72,19 @@ It is recommended that students have completed BIDA302 Business Intelligence and
 
 * This course uses the statistical software R and the integrated development environment (IDE) program RStudio. Both are free to use and open-source.
 
-* To install R and RStudio on your computer, please click these links (from the book _R Cookbook_ (2nd edition) by Paul Teetor and JD Long): 
+* For instructions on how to install R and RStudio on your computer, please click these links (from the book _R Cookbook_ (2nd edition) by Paul Teetor and JD Long): 
 
   - ["Downloading and Installing R"](https://rc2e.com/gettingstarted#recipe-id001) . 
 
   - ["Installing RStudio"](https://rc2e.com/gettingstarted#recipe-id002b). 
 
   - Note that you'll want the "RStudio Desktop" (not "RStudio Server") free version
+
+
+* Danielle Navarro, [_running R on your own computer_](https://youtube.com/playlist?list=PLRPB0ZzEYegOZivdelOuEn-R-XUN-DOjd)
+
+  - A series of videos on youtube, with installation instructions for different operating systems (Mac, Windows, and Ubuntu linux), as well as loading and installing packages from both CRAN and GitHub (where many in-development packages are available)
+
 
 * Once you have installed R and RStudio, open RStudio...the program will look something like this. (Because both R and RStudio are in a constant state of development, yours will be different!)
 

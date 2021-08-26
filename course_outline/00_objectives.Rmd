@@ -36,6 +36,14 @@ Perform the following basic tasks in R, Python, and SQL as appropriate:
 
 
 
+## Prerequisites
+
+It is recommended that students have completed BIDA302 Business Intelligence and Data Analytics Fundamentals and BIDA302 Data Analytics Coding Fundamentals, or have basic experience coding in R or Python as well as experience using formulas in Excel.
+
+
+
+
+
 ## Course Philosophy
 
 Analysis of data helps us make better decisions. And computers have accelerated how much data we can analyze.
@@ -43,8 +51,5 @@ Analysis of data helps us make better decisions. And computers have accelerated 
 The emphasis in this course will be on the data itself: where it comes from, how it is encoded, how it is stored, extracted, transformed, and loaded into tools that facilitate modeling, visualization, and communication. 
 
 In this course we will be primarily using the open source programming language R, with tangents into SQL and Python.
-
-
-## Code of Conduct
 
 

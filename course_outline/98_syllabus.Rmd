@@ -4,8 +4,8 @@ subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
 author: "Martin Monkman"
 date: "latest revision: `r Sys.Date()`"
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 
@@ -14,9 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r, child=c('00_intro.Rmd', '00_objectives.Rmd', '00_outline.Rmd', '00_coursematerials.Rmd')}
+```{r, child=c('00_objectives.Rmd', '00_codeofconduct.Rmd', '00_intro.Rmd', '00_outline.Rmd')}
 
 ```
-
-
 

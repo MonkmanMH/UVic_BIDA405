@@ -4,7 +4,11 @@
 
 * There isn't a single resource that would serve as a good textbook for BIDA 405.
 
-* A variety of readings and reference materials will be introduced with each lesson. These materials will be either freely available online or accessed through your UVic Library account. These are listed, with hypertext links, below.
+* A variety of readings will be introduced with each lesson. With many of the textbooks, our course materials will be drawn from a selection of chapters, not the entire book. 
+
+* These materials will be either freely available online or can be accessed through your UVic Library account. 
+
+* A comprehensive list of the readings, along with other reference materials, will be available separately.
 
 
 ## R References
