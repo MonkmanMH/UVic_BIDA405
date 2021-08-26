@@ -1,0 +1,89 @@
+# Course resources and technology
+
+
+## Textbook and readings
+
+* There isn't a single resource that would serve as a good textbook for BIDA 405.
+
+* A variety of readings and reference materials will be introduced with each lesson. These materials will be either freely available online or accessed through your UVic Library account.
+
+
+
+
+## Virtual Classroom (Zoom)
+
+Classes will be online, using the UVic Zoom platform.
+
+**Before your course begins, activate your UVic Zoom Account.**
+
+1. Go to Zoom: https://uvic.zoom.us/signin.
+
+2. Sign in with your NetLink ID and password.
+
+3. Try a test call at https://uvic.zoom.us/test, and download Zoom if you don’t already have it on your computer.
+
+**Before each virtual class, sign in to Zoom.**
+
+You **must** be signed in to your UVic Zoom account. You cannot enter the room if you are not signed in.
+
+1. Before each class go to https://uvic.zoom.us/signin.
+
+2. Sign in to UVic Zoom with your NetLink ID and password.
+
+3. Enter your virtual classroom at: https://uvic.zoom.us/j/85610057567 
+
+
+## Online resources: Brightspace
+
+* This course uses Brightspace—an online learning management system—as a supplementary resource for the class. 
+
+* Lesson plans, readings, resources, and assignments will be posted here. As well, there will be discussion forums each week.
+
+* To access, login to [https://bright.uvic.ca/d2l/home/165356](https://bright.uvic.ca/d2l/home/165356) with your Netlink ID.
+
+
+
+
+## Software
+
+**R and RStudio:**
+
+* This course uses the statistical software R and the integrated development environment (IDE) program RStudio. Both are free to use and open-source.
+
+* For instructions on how to install R and RStudio on your computer, please click these links (from the book _R Cookbook_ (2nd edition) by Paul Teetor and JD Long): 
+
+  - ["Downloading and Installing R"](https://rc2e.com/gettingstarted#recipe-id001) . 
+
+  - ["Installing RStudio"](https://rc2e.com/gettingstarted#recipe-id002b). 
+
+  - Note that you'll want the "RStudio Desktop" (not "RStudio Server") free version
+
+
+* Danielle Navarro, [_running R on your own computer_](https://youtube.com/playlist?list=PLRPB0ZzEYegOZivdelOuEn-R-XUN-DOjd)
+
+  - A series of videos on youtube, with installation instructions for different operating systems (Mac, Windows, and Ubuntu linux), as well as loading and installing packages from both CRAN and GitHub (where many in-development packages are available)
+
+
+* Once you have installed R and RStudio, open RStudio...the program will look something like this. (Because both R and RStudio are in a constant state of development, yours will be different!)
+
+![RStudio panes](hopr_aa01.png)
+
+* We will cover installing R _packages_ (extensions to the core program) in the first class. But if you want to give it a try before we first meet, you can now install some of the packages that we will be using in this course. This link explains about [R packages](https://rstudio-education.github.io/hopr/packages2.html). 
+
+To install the package called "tidyverse", type
+
+`install.packages("tidyverse")`
+
+in the "Console" pane (you'll see the cursor in the bottom left of your screen). Once you press enter, the console text will initiate the progress downloading and installing of a number of packages.
+
+Well done!
+
+
+
+
+## Continuing Studies Statement on Use of Educational Technology
+
+This course may require the use of RStudio Cloud and may use other education technology such as internet-based applications, cloud services, or social media. In order to complete this course you will be required to either consent to the disclosure of your personal information outside of Canada to enable use of these technologies, or work with the instructor to use other privacy protective options (such as using an alias or nickname).
+
+
+***

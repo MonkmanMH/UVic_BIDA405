@@ -33,19 +33,6 @@ output:
 
 
 
-#### Concordance: course objective to lesson topics
-
-| Course objective      | Lesson topic   | Lessons |
-|---        |:---  |:---:  |
-| Import and export data | &#8212; | &#8212;  |
-| Clean data | &#8212; | &#8212; | 
-| Compile data | &#8212; | &#8212; | 
-| Extract data | &#8212; | &#8212; |
-| Manipulate data | &#8212; | &#8212; |
-| Prepare data for visualization and reporting | &#8212; | &#8212; |
-| Apply appropriate safeguards for data privacy and security | &#8212; | &#8212; |
-
-
 ***
 
 
