@@ -39,7 +39,7 @@ You **must** be signed in to your UVic Zoom account. You cannot enter the room i
 
 * Lesson plans, readings, resources, and assignments will be posted here. As well, there will be discussion forums each week.
 
-* To access, login to [https://bright.uvic.ca/d2l/home/165356](https://bright.uvic.ca/d2l/home/165356) with your Netlink ID.
+* To access, sign in to [https://bright.uvic.ca/d2l/home/165356](https://bright.uvic.ca/d2l/home/165356) with your Netlink ID.
 
 
 

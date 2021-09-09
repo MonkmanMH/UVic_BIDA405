@@ -1,12 +1,11 @@
 ---
-title: "BIDA405: Lesson Plan, Week 1"
-#subtitle: "2020-09-5 & 2020-09-06"
-#subtitle: 'Data Analytics Provisioning, Importing, Extracting and Manipulation'
+title: 'BIDA405: Lesson Plan, Week 1'
 author: "Martin Monkman"
-date: "latest revision: `r Sys.Date()`"
+date: 'latest revision: `r Sys.Date()`'
 output:
   word_document: default
   html_document: default
+  pdf_document: default
 ---
 
 

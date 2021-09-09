@@ -96,9 +96,9 @@ Format: instructor, lecture w/slides
 Time allocation: 15 minutes (11:30 to noon)
 
 
-#### Reading: How data is stored
+#### Reading: How to Share Data for Collaboration
 
-Please read Ellis and Leek, "How to Share Data for Collaboration" (link below). The article is aimed at scientists ("data generators") who are have collected the data and are preparing it for further analysis in an academic environment—the authors speak about "preparing data for a statistician". 
+1. Please read Ellis and Leek, "How to Share Data for Collaboration" (available in Brightspace). The article is aimed at scientists ("data generators") who are have collected the data and are preparing it for further analysis in an academic environment—the authors speak about "preparing data for a statistician". 
 
 While Ellis and Leek have a specific context in mind, the principles in their paper have broad applicability, and the practices are be essential in any environment, including a business, government, or non-profit organization. And in those contexts, the roles and responsibilities are often different. The data collection and storage is often to support a business need, and the use of the data for business intelligence is a secondary benefit. As a result, there is often a middle person who isn't involved in the collection of the data, but who does the preparation of the data for the modeling, visualization, and reporting. That person is often also the one responsible for the modeling, visualization, and reporting.
 
@@ -110,17 +110,13 @@ On Sunday morning, we will be going into breakout groups to discuss the followin
 
 * Why would you want to prepare the items in the first two bullets by using a scripting environment (such as **R**) rather than a GUI (Graphical User Interface)?
 
-  - Watch Hadley Wickham's presentation "You can't do data science in a GUI" (40 minutes) https://vimeo.com/240400798 
-  
-  - The slide deck is here: https://speakerdeck.com/hadley/you-cant-do-data-science-in-a-gui?slide=45
-
 
 ***
 
 ## Sunday
 
 
-### 3a. Discussion: How data is stored
+### 3a. Discussion: How to Share Data for Collaboration
 
 _Discussion: responding to readings_
 
@@ -178,12 +174,21 @@ Format: learner (instructor guided)
 Time allocation: 30 minutes (11:00 to 11:30)
 
 
-## 4b. Assignment #1
+## 4b. Assignment #1 & other mid-week tasks
 
-_Introduction of Assignment #1_
+a. _Introduction of Assignment #1_
 
 
 Time allocation: 15 minutes (11:30 to 11:45)
+
+
+b. Watch Hadley Wickham's presentation "You can't do data science in a GUI" (40 minutes) https://vimeo.com/240400798 
+
+* This presentation provides an overview of the data science process, the R ecosystem and how it's continuing to evolve, and some good insights about data preparation (such as the idea that "data cleaning" is part of the analysis process)
+  
+* The slide deck of a later version of this presentation: https://speakerdeck.com/hadley/you-cant-do-data-science-in-a-gui
+
+
 
 
 ## 4c. Wrap up
