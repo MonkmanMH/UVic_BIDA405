@@ -1,0 +1,533 @@
+---
+title: "The data science process and R"
+subtitle: ""
+author: "BIDA405"
+#date: "2020/09/05"
+output:
+  xaringan::moon_reader:
+    css: [default, css_files/eigengrau.css, css_files/eigengrau-fonts.css]    
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+# to knit:
+# see https://github.com/yihui/xaringan/issues/29
+# point up-directory to css and img folders
+#xaringan::inf_mr('lessons/class_01/slides_2_R_datascience.Rmd')
+```
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+
+
+## What is "data science"?
+
+![Conway Venn diagram](..\..\static\img\Data_Science_VD.png)
+
+from Drew Conway, ["The Data Science Venn Diagram"](http://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram)
+
+
+---
+
+## The data science process
+
+![the data science process](..\..\static\img\data-science.png)
+
+
+---
+
+## BIDA 405
+
+![the data science process](..\..\static\img\data-science_BIDA405.png)
+
+---
+
+class: inverse
+
+# What data scientists do
+
+
+> Data scientists spend 60% of their time on cleaning and organizing data. Collecting data sets comes second at 19% of their time, meaning data scientists spend around 80% of their time on preparing and managing data for analysis.
+- Forbes: "Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says"
+
+???
+
+Forbes: ["Cleaning Big Data: Most Time-Consuming, Least Enjoyable Data Science Task, Survey Says"](https://www.forbes.com/sites/gilpress/2016/03/23/data-preparation-most-time-consuming-least-enjoyable-data-science-task-survey-says/#22d5a9446f63)
+
+
+
+---
+class: middle
+
+
+_**The topics we'll cover in BIDA405 are essential to a successful business intelligence project**_ 
+
+
+
+---
+
+# Import...
+
+* different formats
+
+* a variety of structures and variable types
+
+* an unlimited array of sources
+
+
+
+---
+
+# Tidy...
+
+* not just structure...
+
+* validation
+
+* cleaning
+
+
+
+---
+
+# Transform...
+
+* or _manipulate_
+
+* structure
+
+* variable types
+
+* derived measures
+
+
+
+---
+class: inverse
+
+# _Meta-meta learning objectives_
+
+* principles
+
+* techniques
+
+* _where to look for help_
+
+
+---
+class: inverse
+
+## Intelligence:
+
+"... is knowing what to do when you don't know what to do."
+
+- attributed to Jean Piaget
+
+
+---
+class: inverse
+
+This topic is changing every day
+
+* new methods
+
+* new tools
+
+* new explanations
+
+_IT IS NOT HUMANLY POSSIBLE TO KEEP UP_
+
+---
+class: inverse
+
+
+![Wreck-It Ralph](..\..\static\img\wreckit_cheat.jpg)
+--
+
+_cheat codes!_
+
+
+
+---
+
+### Sombreros on the pandas
+
+![Sombreros on the pandas](../../static/img/sombreros_on_the_pandas_500.png)
+
+
+
+
+---
+
+### The truth about how programmers really work
+
+![Googling the error message](../../static/img/orly_googling_the_error_message_400.jpg)
+
+---
+
+### The truth about how programmers work, part 2
+
+
+![Copying and Pasting from Stack Overflow](../../static/img/orly_copy_and_paste_400.jpeg)
+
+
+---
+class: inverse
+
+
+* Cheatsheets: https://rstudio.com/resources/cheatsheets/
+
+* Package reference pages 
+
+  - vignettes
+
+* Question sites
+
+  - Stack Overflow: https://stackoverflow.com/
+
+  - RStudio Community https://community.rstudio.com 
+  
+  - _search first, ask questions later!_
+
+* Blogs
+
+
+
+
+
+---
+
+![R](../../static/img/R.jpg)
+
+
+---
+
+class: inverse
+
+# RStudio
+
+![R](../../static/img/rstudio_400.png)
+
+---
+
+class: inverse
+
+# R for Data Science
+
+![R for Data Science](../../static/img/R4DS_300.png)
+**[r4ds.had.co.nz]**(https://r4ds.had.co.nz/)
+
+---
+
+class: inverse
+
+# R Cookbook (2nd edition)
+
+![R Cookbook](../../static/img/rcookbook2_cover.jpg)
+**[rc2e.com]**(https://rc2e.com)
+
+
+---
+
+class: inverse
+
+# RStudio
+
+![RStudio panes](../../static/img/RStudio_panes.png)
+
+
+
+---
+class: inverse
+
+# Console
+
+## R as calculator
+
+Type in the console window:
+
+`10 + 4`
+
+--
+
+What happened?
+
+
+---
+class: inverse
+
+First create a new R script file
+
+
+---
+class: inverse
+
+# The power of named variables 
+
+## the assignment arrow
+
+`<-`
+
+> "less than" plus hyphen
+
+---
+class: inverse
+
+## assign the object "x" with the value 10
+
+`x <- 10` 
+
+--
+
+> To show `x` in the console, just type `x`
+
+---
+class: inverse
+
+> How would you create a new object "y" with the value 4?
+--
+
+
+`y <- 4`
+
+
+> Now add x and y
+--
+
+
+`x + y`
+
+--
+
+> Did you notice the change in the Environment pane?
+
+---
+class: inverse
+
+# How would you set `x` equal to 20?
+
+--
+
+`x <- 20`
+
+--
+
+# And now divide `x` by `y`
+
+`x / y`
+
+---
+class: inverse
+
+`t <- "If it's inside quotation marks, it's a character"`
+
+
+Now print the object `t`
+
+
+---
+
+# Quick Detour
+## functions for objects
+
+|function |action |
+| :--- | ---: |
+| `ls()`    | *list objects*|
+| `str()`    | *display structure of object*|
+| `ls.str()`    | *list objects and their structure*|
+| `names()`    | *display structure of object*|
+
+
+
+---
+class: inverse
+
+## Vector -- a series of values
+
+`x <- 1:10`
+
+`x <- seq(1, 10)`
+
+---
+class: inverse
+
+# `c` to make a list
+
+`c` is for "concatenate"
+
+x <- c(1, 5, 6)
+
+y <- c("British Columbia", "Alberta")
+
+
+
+---
+class: inverse
+
+# Functions
+
+general structure:
+
+`function_name(arg1 = val1, arg2 = val2, ...)`
+
+--
+
+a simple example:
+
+`mean(x)`
+
+
+
+---
+
+![R Markdown hex](/static/img/rmarkdown_400.png)
+
+
+---
+class: inverse
+
+### R Markdown
+
+.pull-left[
+...allows you to 
+
+* save and execute code 
+
+* generate high quality reports
+
+* use as a working notebook
+]
+
+--
+
+.pull-right[
+...and output:
+
+* HTML (for web browsers)
+
+* Word, PDF
+
+* slides (including PowerPoint)
+
+]
+
+Used for reports and academic articles, books, blogs and websites
+
+---
+
+![R markdown](../../static/img_allison_horst/rmarkdown_wizards.png)
+
+---
+class: inverse
+
+# Markdown
+
+A simplified formatting markup language with plain text syntax
+
+_Go to your web browser and open [dillinger.io](https://dillinger.io/)_
+
+
+---
+class: inverse
+
+# R Markdown
+
+Combines text (in Markdown) with R code
+
+* the cheat sheet!
+
+Work within RStudio...
+
+
+
+
+---
+class: inverse
+
+# Welcome to The Tidyverse
+
+![dplyr hex](../../static/img/tidyverse_400.png)
+
+???
+
+Image source: https://github.com/rstudio/hex-stickers (for all tidyverse hex images)
+
+---
+
+class: inverse
+
+# {tidyverse} -
+
+"The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures."
+
+The [{tidyverse} site](https://tidyverse.org): tidyverse.org
+
+---
+class: inverse
+
+Two tidyerse data transformation packages we will be using today:
+
+{dplyr} - data wrangling
+
+{tidyr} - to pivot (spread and gather) data tables
+
+
+---
+class: inverse
+
+## Loading a package
+
+There are two steps to getting a package ready to use:
+
+1. download and install
+
+`install.packages()`
+
+Our RStudio environment has all the packages you'll need!
+
+2. load
+
+`library()`
+
+
+
+---
+class: inverse
+
+
+# Quick Detour
+##getting help
+
+In the console, typing a question mark (?) and a package or function brings up the Help info (bottom right pane)
+
+Type the following:
+
+`?mpg`
+
+Or, once a package is loaded, it is accessible through the Help pane (bottom right) and will auto-fill once you start typing
+
+
+---
+class: inverse
+
+# Quick Detour
+## other sources of help
+
+* `?package` or `?function`
+
+* package page and vignettes
+
+* cheat sheets
+
+* Stack Overflow
+
+* blogs 
+

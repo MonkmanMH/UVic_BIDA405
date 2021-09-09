@@ -167,7 +167,7 @@ The {readr} package in R gives some solutions to these challenges, as well as ot
 >
 >* GST in dollars
 >
-> Think about how the data might be encoded. What sorts of things will you have to watch out for when you read in the data?_
+> Think about how the data might be encoded. What sorts of things will you have to watch out for when you read in the data?
 
 
 Answers:
