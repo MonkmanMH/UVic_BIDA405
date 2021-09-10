@@ -4,8 +4,8 @@ title: "BIDA405: Lesson Plan, Week 6"
 author: "Martin Monkman"
 date: 'latest revision: `r Sys.Date()`'
 output:
-  html_document: default
   word_document: default
+  html_document: default
 description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
 ---
 
@@ -41,12 +41,12 @@ At the end of the second part of this lesson, learners will:
 
 | Block      | Time           | Topics  | &#8212; |
 |---         |:---            |:---     |:---:  |
-|**Saturday**|**SQL**     |&#8212; |&#8212; |
+|**Saturday**|**Confidentiality & Data Formatting (1)**     |&#8212; |&#8212; |
 |1a          | 9:00 to 10:30   | Introduction to Confidentiality  | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
 |2a          | 10:45 to 11:30 | Formatting tables for publication | &#8212; |
 |2b          | 11:30 to 12:00 | Exercise  | &#8212; |
-|**Sunday**  |**Relational databases** |&#8212; |&#8212; |
+|**Sunday**  |**Data Formatting (2)** |&#8212; |&#8212; |
 |3a          | 9:00 to 9:30   | Homework review  | &#8212; |
 |3b          | 9:30 to 10:30  | Data for creating plots | &#8212; |
 |&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
