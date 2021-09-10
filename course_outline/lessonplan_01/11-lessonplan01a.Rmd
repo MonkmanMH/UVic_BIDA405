@@ -1,10 +1,12 @@
 ---
-title: "BIDA405: Lesson Plan, Week 1"
-#subtitle: "2020-09-05 & 2020-09-05 "
+title: 'BIDA405: Lesson Plan, Week 1'
 author: "Martin Monkman"
-date: "latest revision: `r Sys.Date()`"
-output: html_document
-description: "Data Analytics Provisioning, Importing, Extracting and Manipulation, UVic BIDA405"
+date: 'latest revision: `r Sys.Date()`'
+output:
+  word_document: default
+  html_document: default
+description: Data Analytics Provisioning, Importing, Extracting and Manipulation,
+  UVic BIDA405
 ---
 
 
@@ -41,20 +43,20 @@ At the end of the second part of this lesson, learners will:
 
 ## Activities: summary
 
-| Block      | Time           | Topics  | &#8212; |
+| Block      | Time           | Topics  | — |
 |---         |:---            |:---     |:---:  |
-|**Saturday**|**Welcome**     |&#8212; |&#8212; |
-|1a          | 9:00 to 9:30   | Welcome to BIDA405! <br> Class structure / Homework / Evaluation  | &#8212; |
-|1b          | 9:30 to 10:30  | The Tools <br> - Brightspace <br> - Zoom <br> - R and RStudio | &#8212; |
-|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
-|2a          | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | &#8212; |
-|2b          | 11:30 to 12:00 | Homework <br> - Readings: how to share data... | &#8212; |
-|**Sunday**  |**Data import** |&#8212; |&#8212; |
-|3a          | 9:00 to 9:30   | Discussion: how to share data...  | &#8212; |
-|3b          | 9:30 to 10:30  | Data import - CSV and other plain flat-file formats <br> - | &#8212; |
-|&#8212:     | 10:30 to 10:45 | _break_ | &#8212; |
+|**Saturday**|**Welcome**     |— |— |
+|1a          | 9:00 to 9:30   | Welcome to BIDA405! <br> Class structure / Homework / Evaluation  | — |
+|1b          | 9:30 to 10:30  | The Tools <br> - Brightspace <br> - Zoom <br> - R and RStudio | — |
+|&#8212:     | 10:30 to 10:45 | _break_ | — |
+|2a          | 10:45 to 11:30 | The data science process (What is "data"? Topics within "Import" and "Data manipulation") <br>  Introduction to R | — |
+|2b          | 11:30 to 12:00 | Homework <br> - Readings: how to share data... | — |
+|**Sunday**  |**Data import** |— |— |
+|3a          | 9:00 to 9:30   | Discussion: how to share data...  | — |
+|3b          | 9:30 to 10:30  | Data import - CSV and other plain flat-file formats <br> - | — |
+|—     | 10:30 to 10:45 | _break_ | — |
 |4a          | 10:45 to 11:45 | Data import - other file formats (SPSS, STATA, etc) | 
-|4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | &#8212; |
+|4b          | 11:45 to 12:00 | Homework assignment <br> Wrap-up and summary | — |
 
 
 ***
