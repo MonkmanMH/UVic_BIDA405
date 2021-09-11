@@ -1,6 +1,7 @@
 ---
 title: "Import data: CSV, TXT and Excel"
-output: html_notebook
+subtitle: "Assignment: BIDA 405, week 1"
+output: html_document
 ---
 
 <!-- 

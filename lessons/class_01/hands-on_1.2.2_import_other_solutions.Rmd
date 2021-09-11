@@ -112,8 +112,7 @@ Very often, SPSS files will have "user defined missing values". As we see above,
 
 * the analyst may have decided to code "Don't know" or "Not applicable" as "missing" when calculating the percentages of responses in the other categories.
 
-Depending on the circumstance, you may want to count some of these. For example, if there a lot of "Don't know" and "Not applicable" responses, you may wish to analyze which one it is (they mean very different things!) If the are all coded as 
-"NA", you have lost that ability.
+Depending on the circumstance, you may want to count some of these. For example, if there a lot of "Don't know" and "Not applicable" responses, you may wish to analyze which one it is (they mean very different things!) If the are all coded as "NA", you have lost that ability.
 
 In the code below, adding the `user_na = TRUE` maintains the original values.
 

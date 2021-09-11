@@ -1,6 +1,7 @@
 ---
 title: "Import data: CSV, TXT and Excel"
-output: html_notebook
+subtitle: "Assignment: BIDA 405, week 1"
+output: html_document
 ---
 
 <!-- 
@@ -8,6 +9,8 @@ This file by Martin Monkman is licensed under a Creative Commons Attribution-Sha
 https://creativecommons.org/licenses/by-sa/4.0/
 -->
 
+
+**YOUR NAME HERE**
 
 
 ```{r setup}

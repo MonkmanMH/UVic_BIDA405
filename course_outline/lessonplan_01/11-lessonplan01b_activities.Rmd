@@ -44,7 +44,7 @@ What to expect in this class
 
 
 
-### 1c-i. An introduction to Brightspace and Zoom
+### 1b. An introduction to Brightspace and Zoom
 
 Format: participation and instructor lecture w/ slides
 
@@ -88,7 +88,7 @@ Time allocation: 15 minutes (11:15 to 11:30)
 
 
 
-### 2b. Tonight's reading and wrap-up 
+### 2c. Tonight's reading and wrap-up 
 
 
 Format: instructor, lecture w/slides
@@ -176,10 +176,10 @@ Time allocation: 30 minutes (11:00 to 11:30)
 
 ## 4b. Assignment #1 & other mid-week tasks
 
-a. _Introduction of Assignment #1_
-
-
 Time allocation: 15 minutes (11:30 to 11:45)
+
+
+a. _Introduction of Assignment #1_
 
 
 b. Watch Hadley Wickham's presentation "You can't do data science in a GUI" (40 minutes) https://vimeo.com/240400798 
