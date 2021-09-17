@@ -4,8 +4,8 @@ title: "BIDA405: Lesson Plan, Week 2"
 author: "Martin Monkman"
 date: 'latest revision: `r Sys.Date()`'
 output:
-  word_document: default
   html_document: default
+  word_document: default
 ---
 
 

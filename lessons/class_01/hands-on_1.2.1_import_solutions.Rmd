@@ -48,6 +48,7 @@ mtcars <- read_csv("mtcars.csv")
 
 Adding the `cols()` specification allows us to alter what {readr} has decided for us. For example, we could set the `cyl` variable to be an integer.
 
+
 ```{r}
 # example
 read_csv("mtcars.csv", 
