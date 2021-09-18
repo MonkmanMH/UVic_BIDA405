@@ -147,9 +147,12 @@ special_needs <- bcdc_get_data("student-headcount-by-special-needs-category")
 
 ### Other R packages to access data
 
-{opendatatoronto} - https://sharlagelfand.github.io/opendatatoronto/
+[{censusapi}](https://CRAN.R-project.org/package=censusapi) - Retrieve Data from the Census APIs - "A wrapper for the U.S. Census Bureau APIs that returns data frames of Census data and metadata. Available datasets include the Decennial Census, American Community Survey, Small Area Health Insurance Estimates, Small Area Income and Poverty Estimates, Population Estimates and Projections, and more."  https://CRAN.R-project.org/package=censusapi 
 
-{eurostat} - Tools for Eurostat Open Data - https://cran.r-project.org/web/packages/eurostat/index.html
+[{eurostat}](https://CRAN.R-project.org/package=eurostat) - Tools for Eurostat Open Data -  https://CRAN.R-project.org/package=eurostat
+
+[{opendatatoronto}](https://sharlagelfand.github.io/opendatatoronto/) - https://sharlagelfand.github.io/opendatatoronto/
+
 
 
 ***
